@@ -1,5 +1,303 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\input{StandardPaper2.tex}
+
+
 \begin{document}
-(Type your content here.)
+
+\title[Harnack inequalities for curvature flows]{Harnack inequalities for curvature flows in Riemannian and Lorentzian manifolds}
+
+\maketitle
+
+\section{Introduction}
+Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let
+\eq{x\cn M^{n}\x(0,T)\ra N}
+be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
+\eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
+where $\nu$ is a unit normal vector field along $M_{t}=x(M,t),$ $\s=\ip{\nu}{\nu},$ $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and 
+\eq{f\cn \S^{n}\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
+where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$ and such that $f$ is invariant under parallel transport.
+The normal $\nu$ will supposed to be the same normal as in the Gaussian formula
+\eq{x^{\a}_{;ij}=-\s h_{ij}\nu^{\a}.}
+Recall the Weingarten equation
+\eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
+Geometric quantities of the ambient space are denoted with an overbar, e.g. $(\-g_{\a\b})$ for the metric and greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where latin indices range from $1$ to $n.$
+
+The definition of the Riemannian curvature tensor $(\-R_{\a\b\g\d})=\br{\-g_{\a\e}\-R^{\e}_{\b\g\d}}$ is made up
+such that the Ricci tensor is given by
+\eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
+
+The specific form of the reparametrization used in \eqref{Flow} has the advantage that several evolution equations simplify tremendously, as we will show in the following.
+
+\section{Evolution equations}
+
+\Theo{notation}{}{
+We will use the following abbreviations to simplify the calculations. Set
+\eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
+then we also have
+\eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}\\
+			&=-A^{k}_{i}x_{;k}.}
+Furthermore we define
+\eq{B_{ij}=\fr{h_{ik}A^{k}_{j}}{f}}
+and
+\eq{\L_{ij}=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
+}
+
+The motivation for this particular reparametrization is the fact that the normal does not move:
+
+\Theo{lemma}{Ev-g-nu}{
+Along the flow \eqref{Flow} there hold
+\eq{\dot{\nu}=0}
+and
+\eq{\label{Ev-g}\dot{g}_{ij}=-g_{ik}A^{k}_{j}-g_{jk}A^{k}_{i}.}
+}
+
+\pf{Both formulas follow from \eqref{A2} directly.
+%We have $\ip{\dot{\nu}}{\nu}=0$ and due to \eqref{A2} there holds $\ip{\dot{\nu}}{x_{;i}}=-\ip{\nu}{\dot{x}_{;i}}=0.$
+%Furthermore
+%\eq{\dot{g}_{ij}=\del_{t}\ip{x_{;i}}{x_{;j}}=-g_{ik}A^{k}_{j}-g_{jk}A^{k}_{i}.}
+}
+
+Also the evolutions of the second fundamental form simplifies.
+
+\Theo{lemma}{Ev-W-h}{
+Along the flow \eqref{Flow} there holds
+%\eq{\label{Ev-W}\dot{h}^{i}_{j}=h^{k}_{j}A^{i}_{k}+\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;j}x^{\g}_{;m}\nu^{\d}g^{mi}}
+%and
+\eq{\label{Ev-h}\dot{h}_{ij}=-fB_{ij}+\L_{ij}.}
+}
+
+\pf{
+Let $\fr{D}{dt}$ denote the covariant derivative of a vector field in $N$ along the curve $x(\xi,\cdot)$ for fixed $\xi\in M.$ Due to the Ricci identities and the Weingarten equation we have
+\eq{\dot{h}^{k}_{j}x^{\a}_{;k}+h^{k}_{j}\dot{x}_{;k}^{\a}=\fr{D}{dt}\br{\nu^{\a}_{;j}}=\br{\dot{\nu}^{\a}}_{;j}-\bar{R}^{\a}_{\b\g\d}\nu^{\b}x^{\g}_{;j}\dot{x}^{\d}=-\bar{R}^{\a}_{\b\g\d}\nu^{\b}x^{\g}_{;j}\dot{x}^{\d}}
+and hence, using \eqref{A2} and multiplying both sides with $\-g_{\a\b}x^{\b}_{;m},$
+\eq{\label{Ev-W-h-1}\dot{h}^{k}_{j}g_{km}=h^{k}_{j}A^{l}_{k}g_{lm}-\-R_{\a\b\g\d}x^{\a}_{;m}\nu^{\b}x^{\g}_{;j}\dot{x}^{\d}.}
+Now \eqref{Ev-h} follows from \eqref{Ev-g} and \eqref{Ev-W-h-1}
+\eq{\dot{h}_{ij}=\dot{h}^{k}_{j}g_{ki}+h^{k}_{j}\dot{g}_{ki}&=h^{k}_{j}A^{l}_{k}g_{li}-\-R_{\a\b\g\d}x^{\a}_{;i}\nu^{\b}x^{\g}_{;j}\dot{x}^{\d}-h^{k}_{j}g_{kr}A^{r}_{i}-h^{k}_{j}g_{il}A^{l}_{k}\\
+			&=-h_{rj}A^{r}_{i}-\-R_{\a\b\g\d}x^{\a}_{;i}\nu^{\b}x^{\g}_{;j}\dot{x}^{\d}.}
+We have to swap $i$ and $j$ in the first term of the right hand side. Due to the Codazzi equation and the symmetries of the Riemannian curvature tensor we have
+\eq{-h_{rj}A^{r}_{i}&=-\s f h_{rj}h^{r}_{i}-h_{rj}\br{b^{rl}f_{;l}}_{;i}\\
+			&=-\s fh_{ri}h^{r}_{j}-f_{;ij}+h_{rj;i}b^{rl}f_{;l}\\
+			&=-\s fh_{ri}h^{r}_{j}-f_{;ij}+h_{ri;j}b^{rl}f_{;l}+\-R_{\a\b\g\d}\nu^{\a}x^{\b}_{;r}x^{\g}_{;j}x^{\d}_{;i}b^{rl}f_{;l}\\
+			&=-h_{ri}A^{r}_{j}+\-R_{\a\b\g\d}\nu^{\a}\dot{x}^{\b}x^{\g}_{;i}x^{\d}_{;j}\\
+			&=-h_{ri}A^{r}_{j}+\-R_{\a\b\g\d}x^{\a}_{;i}\nu^{\b}x^{\g}_{;j}\dot{x}^{\b}-\-R_{\a\b\g\d}x^{\a}_{;j}\nu^{\b}x^{\g}_{;i}\dot{x}^{\d},}
+from which \eqref{Ev-h} follows.
+}
+
+Now we deduce evolution equations for several quantities particularly related to the desired Harnack estimates. We aim to deduce an evolution equation for the function
+\eq{u=\fr{\dot{f}}{f}.}
+ We begin with the evolution of the reparametrization field.
+
+\Theo{lemma}{Ev-Tangent}{
+Along the flow \eqref{Flow} there holds
+\eq{\label{Ev-Tangent-1}\del_{t}\br{b^{km}f_{;m}}=fb^{ki}u_{;i}+ub^{ki}f_{;i}+A^{k}_{j}b^{jm}f_{;m}+\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}.}
+}
+
+\pf{
+We calculate
+\eq{u_{;i}&=\del_{t}\br{\fr{h_{ij}}{f}b^{jm} f_{;m}}\\
+		&=\fr{h_{ij}}{f}\del_{t}\br{b^{jm}f_{;m}}-\fr{u}{f}f_{;i}-\fr{1}{f}h_{ir}A^{r}_{j}b^{jm}f_{;m}+\fr{1}{f}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}b^{jm}f_{;m}\\
+		&=\fr{h_{ij}}{f}\del_{t}\br{b^{jm}f_{;m}}-\fr{u}{f}f_{;i}-\fr{1}{f}h_{ir}A^{r}_{j}b^{jm}f_{;m}-\fr{1}{f}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}}
+and multiply by $fb^{ki}$ to obtain the result.
+}
+
+\Theo{lemma}{Ev-speed}{
+Along the flow \eqref{Flow} there holds
+\eq{\label{Ev-speed-1}\ddot{x}=u\dot{x}-fb^{ki}u_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}.}
+}
+
+\pf{We use \eqref{A2} and \eqref{Ev-Tangent-1} to deduce 
+\eq{\ddot{x}&=-\s \dot{f}\nu-\dot{x}_{;k}b^{ki}f_{;i}-x_{;k}\del_{t}\br{b^{ki}f_{;i}}\\
+		&=-\s uf\nu+A^{l}_{k}b^{ki}f_{;i}x_{;l}-fb^{ki}u_{;i}x_{;k}-ub^{ki}f_{;i}x_{;k}\\
+		&\hp{=}-A^{k}_{j}b^{ji}f_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}\\
+		&=u\dot{x}-fb^{ki}u_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}.}
+}
+
+\Theo{lemma}{Ev-A}{
+Along the flow \eqref{Flow} the tensor $(A^{i}_{j})$ satisfies
+\eq{\dot{A}^{i}_{j}&=A^{k}_{j}A^{i}_{k}-\ip{x_{;r}}{\dot{x}}g^{ri}u_{;j}+uA^{i}_{j}+\br{fb^{kl}u_{;l}x^{\a}_{;k}}_{;j}g^{ri}\-g_{\a\b}x^{\b}_{;r}\\
+				&\hp{=}+\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{kl}x^{\a}_{;k}}_{;j}g^{ri}\-g_{\a\mu}x^{\mu}_{;r}+\-R_{\a\b\g\d}x^{\a}_{;r}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}g^{ri}.}
+}
+
+\pf{
+Using \eqref{A2} and \eqref{Ev-speed-1} we obtain
+\eq{\dot{A}^{k}_{i}x^{\a}_{;k}+A^{k}_{i}\dot{x}^{\a}_{;k}=-\fr{D}{dt}\br{\dot{x}^{\a}_{;i}}=-\br{\ddot{x}^{\a}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{i}^{\g}\dot{x}^{\d},}
+so that
+\eq{\dot{A}^{k}_{i}x^{\a}_{;k}&=A^{k}_{i}A^{l}_{k}x^{\a}_{;l}-u_{;i}\dot{x}^{\a}+uA^{k}_{i}x^{\a}_{;k}+\br{fb^{kl}u_{;l}x^{\a}_{;k}}_{;i}\\
+					&\hp{=}+\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{kl}x^{\a}_{;k}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{;i}^{\g}\dot{x}^{\d}.}
+Multiplying this equation by $g^{rj}\-g_{\a\mu}x^{\mu}_{;r}$ and relabelling indices gives the result.
+}
+
+We need one more preliminary evolution equation.
+
+\Theo{lemma}{Ev-B}{
+The tensor $B_{ij}$ satisfies
+\eq{\label{Ev-B-1}\dot{B}_{ij}&=u_{;ij}+T\ast\nabla u+\fr 1f \L_{ik}A^{k}_{j}+\fr 1f \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;j}\dot{x}^{\g}\nu^{\d}_{;i}\\
+			&\hp{=}+\fr 1f h^{s}_{i}\-g_{\a\mu}x^{\mu}_{;s}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{rl}x^{\a}_{;r}}_{;j},}
+where $T\ast\nabla u$ denotes the linear combination of arbitrary contractions of tensors with $\n u.$
+}
+
+\pf{
+\eq{\dot{B}_{ij}&=-uB_{ij}+\fr 1f \dot{h}_{ik}A^{k}_{j}+\fr 1f h_{ik}\dot{A}^{k}_{j}\\
+		&=-uB_{ij}-\fr 1f \br{fB_{ik}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;k}\nu^{\d}}A^{k}_{j} \\
+		&\hp{=}+ B_{il}A^{l}_{j}+T\ast\n u+uB_{ij}+u_{;ij}+\fr 1f h_{ik}\-R_{\a\b\g\d}x^{\a}_{;r}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}g^{rk}\\
+		&\hp{=}+\fr 1f h_{ik}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{sl}x^{\a}_{;s}}_{;j}g^{rk}\-g_{\a\mu}x^{\mu}_{;r},}
+from which the result follows.
+}
+
+
+Now we have all ingredients to deduce the evolution equation of $u=\dot{f}/{f}.$
+
+\Theo{lemma}{Ev-u}{
+Along the flow \eqref{Flow} there holds
+\eq{\label{Ev-u-1}\dot{u}&=2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+		&\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}\\
+		&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
+		}}
+
+\pf{
+First of all we recall the formulas 
+\eq{\fr{\del f}{\del g_{ij}}=-\fr{\del f}{\del h_{mi}}h^{j}_{m},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}=-g^{kj}f^{il}-f^{ij,km}h^{l}_{m}} 
+and, using the notation
+\eq{f^{ij}=\fr{\del f}{\del h_{ij}},\quad f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },}
+ deduce from \eqref{Ev-g} and \eqref{Ev-h} that
+\eq{u&=\fr 1f\br{f^{ij}\dot{h}_{ij}-f^{mi}h^{j}_{m}\dot{g}_{ij}}\\
+		&=\fr 1f\br{-f^{ij}h_{ik}A^{k}_{j}+f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}+2f^{mj}h_{mk}A^{k}_{j}}\\
+		&=f^{ij}\br{B_{ij}+\fr 1f\L_{ij}},}
+where we have also used the symmetry of $f^{mj}h^{i}_{m}$.
+
+ Thus
+\eq{\label{dot u}\dot{u}&=\br{g^{kj}f^{il}+f^{ij,km}h^{l}_{m}}\br{g_{kr}A^{r}_{l}+g_{lr}A^{r}_{k}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}-ff^{ij,kl}\br{B_{kl}-\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f\L_{ij}}}\\
+		&=\br{2ff^{il}b^{jk}B_{kl}+2ff^{ij,kl}B_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}-ff^{ij,kl}\br{B_{kl}-\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
+		&=\br{2ff^{il}b^{jk}B_{kl}+ff^{ij,kl}B_{kl}+f^{ij,kl}\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
+		&=2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}+2f^{il}b^{jk}B_{kl}\L_{ij}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}.}
+We use \eqref{Ev-B-1} to deduce
+\eq{\label{Ev-u-1}&f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
+			=\ & f^{ij}u_{;ij}+T\ast\nabla u-\fr 1f f^{ij} \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}\\
+			\hp{=}&+\fr 1f f^{ij} h^{s}_{i}\-g_{\a\mu}x^{\mu}_{;s}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{rl}x^{\a}_{;r}}_{;j}\\
+			\hp{=}&+\fr 1f f^{ij} \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;j}\dot{x}^{\g}\nu^{\d}_{;i}+f^{ij}\del_{t}\br{\fr 1f \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}}.}
+
+Now we are facing the tedious exercise to balance as many curvature terms as possible. We begin by simplifying the most complicated ones. Among many others, the following terms are arising in \eqref{Ev-u-1}. The first term comes from differentiation $b^{rl}$ in the second line, the remaining ones from taking $\del_{t}$ of $1/f$ and $\dot{x}^{\a}$ in the last line. We get, using \eqref{Ev-speed-1} and the Codazzi equation,
+
+\eq{\label{Ev-u-2}&-\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}h_{im;j}b^{ml}-\fr{u}{f}f^{ij}\L_{ij}+\fr 1f f^{ij}\-R_{\a\b\g\d}\ddot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
+	=& -\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}h_{ij;m}b^{ml}\\
+	\hp{=}&-\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{ml}\-R_{\mu\chi\rho\tau}\nu^{\mu}x^{\chi}_{;i}x^{\rho}_{;m}x^{\tau}_{;j}+T\ast\n u\\
+	\hp{=}&-\fr 1f f^{ij}\-R_{\a\b\g\d}\-R_{\mu\chi\rho\tau}\dot{x}^{\mu}x^{\chi}_{;l}\dot{x}^{\rho}\nu^{\tau}b^{ml}x^{\a}_{m}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
+	=&\ \s\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+T\ast\n u.}
+Note that to get the last identity, we used that the first curvature terms on the third and fourth lines appearing in \eqref{Ev-u-2} cancel each other out. Having this and \eqref{Ev-u-2} in mind, in the following calculation we collect the remaining ones in the order of appearance in \eqref{Ev-u-2}. We obtain
+\eq{f^{ij}&\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}=f^{ij}u_{;ij}+T\ast\n u\\
+				&\hp{=}+\s\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}\\
+				&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}_{;j}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}-\fr{\s}{f}f^{ij}h_{ij}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+				&\hp{=}+\fr 2f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}\\
+				&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}\dot{x}^{\b}_{;i}x^{\g}_{;j}\nu^{\d}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}.}
+ 
+ Recalling \eqref{dot u} we obtain
+ \eq{\dot{u}&=2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+ 		&\hp{=}-\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}\\
+ 		&\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+		&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}_{;j}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}\dot{x}^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
+		&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}\\
+		&\hp{=}+\fr 2f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}_{;j}}
+and due to the first Bianchi identity we arrive at
+\eq{\dot{u}&=2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+		&\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}\\
+		&\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
+		}
+}
+
+\section{Euclidean and Minkowski space}
+
+In case of vanishing ambient curvature we obtain the following Harnack inequalities, which extend the well known inequalities from \cite{Andrews:09/1994} in the Euclidean space to Minkowski space.
+
+\Theo{thm}{R=0}{
+Suppose $\-R=0$ and let $F$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set $f=\mrm{sgn}(p)F^{p}$. Then along \eqref{Flow} there holds
+\eq{\del_{t}\br{ft^{\fr{p}{p+1}}}\geq 0\quad\forall t>0.}
+}
+
+\pf{
+Without ambient curvature \eqref{Ev-u-1} yields
+\eq{\dot{u}=f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}u_{;ij}+T\ast\n u.}
+We obtain
+\eq{\del_{t}\br{ft^{\fr{p}{p+1}}}=ft^{\fr{p}{p+1}-1}\br{\fr{p}{p+1}+tu}.}
+Set 
+\eq{w=tu+\fr{p}{p+1},}
+then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that $w$ never changes sign. There holds
+\eq{\dot{w}=u+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}w_{;ij}+T\ast\n w.}
+A simple calculation gives
+\eq{f\br{2f^{il}b^{jk}+f^{ij,kl}}&=p~\mrm{sgn}(p)fF^{p-1}\br{2F^{il}b^{jk}+\fr{p-1}{F}F^{ij}F^{kl}+F^{ij,kl}}\\
+				&\begin{cases}\geq \fr{p+1}{p}f^{ij}f^{kl}, & p>0\\
+				\leq \fr{p+1}{p}f^{ij}f^{kl}, & p<0.\end{cases}
+				}
+Note that $u=f^{ij}B_{ij}$ and hence at a first time where $w$ hits zero we have
+\eq{\begin{cases}\dot{w}\geq \fr{p+1}{p}uw, &p>0\\
+					\dot{w}\leq \fr{p+1}{p}uw, &p<0, p\neq -1.\end{cases}}
+The result follows from the maximum principle.
+
+}
+
+
+\section{Spaces of constant curvature}
+
+
+\Theo{lemma}{Spaceform}{
+Let the ambient space $N$ be a spaceform of curvature $C$, i.e.
+\eq{\-R_{\a\b\g\d}=C\br{\-g_{\a\g}\-g_{\b\d}-\-g_{\a\d}\-g_{\b\g}}}
+and let $f=\mrm{sgn}(p)F^p$, where $F$ is monotone and homogeneous of degree $1$. Then, if $p>0$, along \eqref{Flow} there holds
+\eq{\label{Spaceform-1}\dot{u}&\geq\br{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}-\fr{4C}{p}f^{ij}g_{ij}u+\fr{2C^2}{p}\br{f^{ij}g_{ij}}^2	\\
+		&\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+		&\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}}
+and the reverse inequality holds in case $p<0.$
+}
+
+\pf{
+For $1$-homogeneous and monotone curvature functions $F$ there holds
+\eq{F^{ik}b^{jl}\eta_{ij}\eta_{kl}\geq F^{-1}\br{F^{ij}\eta_{ij}}^2}
+for all symmetric matrices $\eta.$ Easy calculations yield
+\eq{f^{ik}b^{jl}\eta_{ij}\eta_{kl}\geq \fr 1p f^{-1}\br{f^{ij}\eta_{ij}}^2.}
+Note that in a spaceform $B$ is symmetric since
+\eq{\L_{ij}=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}=-Cg_{ij}\-g_{\a\d}\dot{x}^{\a}\nu^{\d}=Cfg_{ij}.}
+Hence, if $p>0,$
+\eq{2ff^{il}b^{jk}B_{ij}B_{kl}&\geq \fr 2pf^{ij}B_{ij}f^{kl}B_{kl}\\
+				&=\fr 2p f^{ij}f^{kl}\br{B_{ij}+\fr 1f\L_{ij}}\br{B_{kl}+\fr 1f\L_{kl}}\\
+                &\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}			}
+and the claim follows in case $p>0.$ The other case is similar.
+}
+
+\subsection*{The sphere}
+If the ambient space is the sphere $\S^{n+1}$, we can enlarge the class of speeds for which we can prove a Harnack inequality, compared to \cite{BryanIvakiScheuer:12/2015}.
+
+\Theo{cor}{Sphere}{
+Let $N=\S^{n+1}$ and let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p,$ Then along \eqref{Flow} there holds
+\eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
+}
+
+\pf{There holds
+\eq{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}=\fr{p+1}{p}f^{ij}f^{kl}+pfF^{p-1}F^{ij,kl}.}
+Using \eqref{Spaceform-1}, we obtain that
+\eq{w=tu+\fr{p}{p+1}}
+satisfies
+\eq{\dot{w}&\geq u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+\fr{4C}{p+1}f^{ij}g_{ij}+f^{ij}w_{;ij}+T\ast\n w\\
+		&=\fr{p+1}{p}uw-\fr{4C}{p}f^{ij}g_{ij}w+\fr{4C}{p+1}f^{ij}g_{ij}+f^{ij}w_{;ij}+T\ast\n w.}
+The result follows from the maximum principle.
+}
+
+\subsection*{De Sitter space}
+
+\Theo{cor}{DeSitter}{
+Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
+\eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
+}
+
+\pf{The proof is the same as the proof of \cref{Sphere}. The assumption $p\geq 1$ is to ensure that the term in \eqref{Spaceform-1} involving the signature is non-negative. 
+
+}
+
+\bibliographystyle{amsplain}
+\bibliography{Bibliography.bib}
+
 \end{document}

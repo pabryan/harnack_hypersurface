@@ -191,12 +191,12 @@ where we have also used the symmetry of $f^{mj}h^{i}_{m}$.
         &\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}+2f^{il}b^{jk}B_{kl}\L_{ij}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}.}
 We use \eqref{Ev-B-1} to deduce
-\eq{\label{Ev-u-1}&f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
+\eq{\label{Ev-u-3}&f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
             =\ & f^{ij}u_{;ij}+T\ast\nabla u-\fr 1f f^{ij} \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}\\
             \hp{=}&+\fr 1f f^{ij} h^{s}_{i}\-g_{\a\mu}x^{\mu}_{;s}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{rl}x^{\a}_{;r}}_{;j}\\
             \hp{=}&+\fr 1f f^{ij} \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;j}\dot{x}^{\g}\nu^{\d}_{;i}+f^{ij}\del_{t}\br{\fr 1f \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}}.}
 
-Now we are facing the tedious exercise to balance as many curvature terms as possible. We begin by simplifying the most complicated ones. Among many others, the following terms are arising in \eqref{Ev-u-1}. The first term comes from differentiation $b^{rl}$ in the second line, the remaining ones from taking $\del_{t}$ of $1/f$ and $\dot{x}^{\a}$ in the last line. We get, using \eqref{Ev-speed-1} and the Codazzi equation,
+Now we are facing the tedious exercise to balance as many curvature terms as possible. We begin by simplifying the most complicated ones. Among many others, the following terms are arising in \eqref{Ev-u-3}. The first term comes from differentiation $b^{rl}$ in the second line, the remaining ones from taking $\del_{t}$ of $1/f$ and $\dot{x}^{\a}$ in the last line. We get, using \eqref{Ev-speed-1} and the Codazzi equation,
 
 \eq{\label{Ev-u-2}&-\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}h_{im;j}b^{ml}-\fr{u}{f}f^{ij}\L_{ij}+\fr 1f f^{ij}\-R_{\a\b\g\d}\ddot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
     =& -\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}h_{ij;m}b^{ml}\\
@@ -237,76 +237,72 @@ Therefore,
 
 \section{Euclidean and Minkowski space}
 
-In the case of vanishing ambient curvature we obtain the following Harnack inequalities, which extend the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space to Minkowski space.
+In the case of vanishing ambient curvature we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. They include the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 
 \Theo{thm}{R=0}{
-Suppose $\-R=0$ and let $F$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set $f=\mrm{sgn}(p)F^{p}$. Then along \eqref{Flow} there holds
+Suppose $\-R=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set 
+\eq{f=\p(s)\mrm{sgn}(p)F^{p},} where $\p$ is a positive function of the support function $s$ satisfying
+\eq{\s\p'\leq 0\quad\mbox{and}\quad \mrm{sgn}(p)\br{\fr{1-p}{p}\p'^2+\p''\p}\geq 0.}
+Then along \eqref{Flow} there holds
 \eq{\del_{t}\br{ft^{\fr{p}{p+1}}}\geq 0\quad\forall t>0.}
 }
 
 \pf{
 Without ambient curvature \eqref{Ev-u-1} yields
-\eq{\dot{u}=f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}u_{;ij}+T\ast\n u.}
-We obtain
+\eq{\label{R=0-1}\dot{u}&=\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij}\\ &\hp{=}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}u_{;ij}+T\ast\n u.}
+The support function of a hypersurface is given by
+\[s=\s\ip{x}{\nu},\]
+hence
+\eq{\dot{s}=\s\ip{\dot{x}}{\nu}=-\s f}
+and
+\eq{\ddot{s}&=-\s\dot{f}\\
+			&=-\s\br{\p'\dot{s}F+ff^{ij}B_{ij}}\\
+            &=\fr{\p'}{\p}f^2-\s ff^{ij}B_{ij},}
+where we used
+\eq{\label{R=0-3} u=-\s \fr{\p'}{\p}f+f^{ij}B_{ij}.}
+We obtain from \eqref{R=0-1} that
+\eq{\dot{u}&=\fr{\p''}{\p}f^2-2\s\frac{\p'}{\p}ff^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
+			&\hp{=}+f^{ij}u_{;ij}+T\ast\n u.}
+
+By the assumption on $F$, the curvature function
+\[G=\mrm{sgn}(p)F^p\] 
+satisfies
+\[G^{ij,kl}+2G^{ik}b^{jl}\geq \fr{p+1}{p}G^{-1}G^{ij}G^{kl}\]
+as bilinear forms on symmetric matrices, as \cite[p.~112]{Urbas:/1991} and a simple calculation reveals, and hence
+\eq{\label{R=0-2}f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}=\p^2G\br{2G^{il}b^{jk}+G^{ij,kl}}B_{ij}B_{kl}.}
+
+There holds
 \eq{\del_{t}\br{ft^{\fr{p}{p+1}}}=ft^{\fr{p}{p+1}-1}\br{\fr{p}{p+1}+tu}.}
 Set
 \eq{w=tu+\fr{p}{p+1},}
-then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that $w$ never changes sign. There holds
-\eq{\dot{w}=u+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}w_{;ij}+T\ast\n w.}
-A simple calculation gives
-\eq{f\br{2f^{il}b^{jk}+f^{ij,kl}}&=p~\mrm{sgn}(p)fF^{p-1}\br{2F^{il}b^{jk}+\fr{p-1}{F}F^{ij}F^{kl}+F^{ij,kl}}\\
-                &\begin{cases}\geq \fr{p+1}{p}f^{ij}f^{kl}, & p>0\\
-                \leq \fr{p+1}{p}f^{ij}f^{kl}, & p<0.\end{cases}
-                }
-Note that $u=f^{ij}B_{ij}$ and hence at a first time where $w$ hits zero we have
-\eq{\begin{cases}\dot{w}\geq \fr{p+1}{p}uw, &p>0\\
-                    \dot{w}\leq \fr{p+1}{p}uw, &p<0, p\neq -1.\end{cases}}
-The result follows from the maximum principle.
-
+then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that $w$ never changes sign. We first consider the case $p>0.$ There holds, using \eqref{R=0-2} and \eqref{R=0-3},
+\eq{\dot{w}&=u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
+			&\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &\geq u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+t\fr{p+1}{p}\br{f^{ij}B_{ij}}^2\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &=\fr{p+1}{p}uw-t\fr{p+1}{p}u^2+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}fu\\
+            &\hp{=}-2t\fr{\p'^2}{\p^2}f^2+t\fr{p+1}{p}u^2+2\s t\fr{p+1}{p}\fr{\p'}{\p}fu+t\fr{p+1}{p}\fr{\p'^2}{\p^2}f^2\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &=\fr{p+1}{p}uw+\fr{2}{p}\s t\fr{\p'}{\p}fu+t\fr{1-p}{p}\fr{\p'^2}{\p^2}f^2+t\fr{\p''}{\p}f^2\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &=\br{\fr{p+1}{p}u+\fr{2\s\p'}{p\p}f}w-\fr{2\s}{p+1}\p'F+\fr{t}{\p^2}f^2\br{\fr{1-p}{p}\p'^2+\p''\p}\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast w.}
+In case $p<0$ we have the same calculation with reversed inequality. Hence under the present assumptions $w$ never changes sign due to the maximum principle and the result follows.
 }
 
 
-\section{Speeds depending on the support function in Euclidean space}
 
-Up to \cref{Ev-B} none of the calculations depended on the domain of $f$. In Euclidean and Minkowski we can include dependence of $f$ on the position vector. In particular we are interested in speeds of the form
-\eq{f(x,\nu,h_{ij},g_{ij})=\p(s)F(h_{ij},g_{ij}),}
-where $F$ is the $p$-th power of a $1$-homogeneous and inverse concave curvature function, $0<\p\in C^{2}(\R_{+})$ and $s$ is the support function
-\eq{s=\ip{x}{\nu}.}
-\textcolor[rgb]{1.00,0.00,0.00}{Some of the calculations that follow are only valid when the support function is positive.}
-There holds
-\eq{\dot{s}=\ip{\dot{x}}{\nu}=- f}
-and hence
-\eq{\dot{f}&=-\p'fF+\p\dot{F}\\
-        &=-\p'fF+\p F^{ij}\dot{h}_{ij}-\p F^{mi}h^{j}_{m}\dot{g}_{ij}\\
-        &=-\p'fF+f f^{ij}B_{ij}.}
-Thus
-\eq{\label{s-1}u=-\p'F+ f^{ij}B_{ij}.}
+% For example, if
+%  \eq{\p(s)=s^{q},\quad q\leq0,}
+%  then 
+%  \eq{\p'=qs^{q-1},\quad \p''=q(q-1)s^{q-2},}
+%  so that
+%  \eq{\fr{1}{s^{2q-2}}\left((1-p)\br{\p'}^2+p\p''\p\right)=(1-p)q^2+pq(q-1)=q(q-p)\geq 0,}
+%  whenever $q\leq0.$
 
-We calculate
-\eq{\dot{u}&=\fr{\p''}{\p}f^{2}-2\fr{\p'}{\p}ff^{ij}B_{ij}+ f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+ f^{ij}u_{;ij}+T\ast \n u.}
-Set 
-\eq{w=tu+\fr{p}{p+1},}
-then
-\eq{\dot{w}&=u+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}+f^{ij}w_{;ij}+T\ast\n w\\
-            &\hp{=}+t\fr{\p''}{\p}f^{2}-2t\fr{\p'}{\p}ff^{ij}B_{ij}\\
-            &\geq u+t\fr{p+1}{p}f^{ij}B_{ij}f^{kl}B_{kl}+t\fr{\p''}{\p}f^{2}-2t\fr{\p'}{\p}ff^{ij}B_{ij}\\
-            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w.}
-Using \eqref{s-1} we obtain
-\eq{\label{eq: extension of harnack}\dot{w}&\geq \fr{p+1}{p}uw+2t\fr{p+1}{p}u\fr{\p'}{\p}f+t\fr{p+1}{p}\fr{\br{\p'}^{2}}{\p^{2}}f^{2}\\
-        &\hp{=}+t\fr{\p''}{\p}f^{2}-2t\fr{\p'}{\p}fu-2t\fr{\br{\p'}^{2}}{\p^{2}}f^{2}\\
-        &=\fr{p+1}{p}uw+\fr{2}{p}\fr{\p'}{\p}fw-\fr{2\p'}{(p+1)\p}f+t\fr{1-p}{p}\fr{\br{\p'}^{2}}{\p^{2}}f^{2}+t\fr{\p''}{\p}f^{2}\\
-        &=\left(\fr{p+1}{p}u+\fr{2}{p}\fr{\p'}{\p}f\right)w-\fr{2\p'}{(p+1)\p}f+\fr{t}{p\p^{2}}f^{2}\br{(1-p)\br{\p'}^{2}+p\p''\p}.}
-For example, if
- \eq{\p(s)=s^{q},\quad q\leq0,}
- then 
- \eq{\p'=qs^{q-1},\quad \p''=q(q-1)s^{q-2},}
- so that
- \eq{\fr{1}{s^{2q-2}}\left((1-p)\br{\p'}^2+p\p''\p\right)=(1-p)q^2+pq(q-1)=q(q-p)\geq 0,}
- whenever $q\leq0.$
-
-\textcolor[rgb]{1.00,0.00,0.00}{For another simple example, we may consider 
- \eq{\p(s)=a+s^{q},\quad q<0,\quad a>0.}
-This choice of $\varphi$ breaks the homogeneity of the speed.  It is easy to check that for $0<p\leq 1$, the sum of the last two terms of (\ref{eq: extension of harnack}) is non-negative.}
+% \textcolor[rgb]{1.00,0.00,0.00}{For another simple example, we may consider 
+%  \eq{\p(s)=a+s^{q},\quad q<0,\quad a>0.}
+% This choice of $\varphi$ breaks the homogeneity of the speed.  It is easy to check that for $0<p\leq 1$, the sum of the last two terms of (\ref{eq: extension of harnack}) is non-negative.}
 \section{Spaces of constant curvature}
 \Theo{lemma}{Spaceform}{
 Let the ambient space $N$ be a spaceform of curvature $C$, i.e.,

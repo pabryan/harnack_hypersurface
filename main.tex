@@ -20,7 +20,7 @@ We allow $f$ to depend on the support function $s$ and we assume that $f$ is of 
 where $\p\in C^2(\R_+).$
 The notion of the support function $s$ in various ambient spaces will be explained later.
 The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
-\eq{x^{\a}_{;ij}=-\s h_{ij}\nu^{\a}.}
+\eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
 Recall the Weingarten equation
 \eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
 Geometric quantities of the ambient space are denoted with an overbar, e.g., $(\-g_{\a\b})$ for the metric and greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where latin indices range from $1$ to $n.$
@@ -240,7 +240,7 @@ Therefore,
 In the case of vanishing ambient curvature we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. They include the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 
 \Theo{thm}{R=0}{
-Suppose $\-R=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set 
+Suppose $(\-R_{\a\b\g\d})=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set 
 \eq{f=\p(s)\mrm{sgn}(p)F^{p},} where $\p$ is a positive function of the support function $s$ satisfying
 \eq{\s\p'\leq 0\quad\mbox{and}\quad \mrm{sgn}(p)\br{\fr{1-p}{p}\p'^2+\p''\p}\geq 0.}
 Then along \eqref{Flow} there holds

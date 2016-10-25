@@ -1,3 +1,4 @@
+
 \input{StandardPaper2.tex}
 
 \begin{document}
@@ -7,20 +8,26 @@
 \maketitle
 
 \section{Introduction}
-Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let
+Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let $\sigma = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
 \eq{x\cn M^{n}\x[0,T)\ra N}
 be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
-where $\nu$ is a unit normal vector field along $M_{t}=x(M,t),$ $\s=\ip{\nu}{\nu},$ $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and
+where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and
 \eq{f\cn \R_{+}\x\S^{n}\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
 where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$ and such that $f$ is nonzero and invariant under parallel transport.
 We allow $f$ to depend on the support function $s$ and we assume that $f$ is of the form
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
 where $\p\in C^2(\R_+).$
 The notion of the support function $s$ in various ambient spaces will be explained later.
+
+The particular form of the reparametrization used in \eqref{Flow} has the advantage that several evolution equations simplify tremendously, as we will show in the following.
+
+\section{Evolution equations}
+
+\Theo{notation}{}{
 The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
 \eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
-Recall the Weingarten equation
+Recall also the Weingarten equation,
 \eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
 Geometric quantities of the ambient space are denoted with an overbar, e.g., $(\-g_{\a\b})$ for the metric and Greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where Latin indices range from $1$ to $n.$
 Our definition of the $(1,3)$ Riemannian curvature tensor is given by
@@ -43,24 +50,20 @@ There also holds
 \eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
 Thus the Ricci tensor is given by
 \eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
-
-The particular form of the reparametrization used in \eqref{Flow} has the advantage that several evolution equations simplify tremendously, as we will show in the following.
-
-\section{Evolution equations}
-
+}
 \Theo{notation}{}{
 We will use the following abbreviations to simplify the calculations. Set
 \eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
 then we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}\\
             &=-A^{k}_{i}x_{;k}.}
-Furthermore, we define
+Furthermore, we define (generally) non-symmetric bilinear forms,
 \eq{B_{ij}=\fr{h_{ik}A^{k}_{j}}{f}}
 and
 \eq{\L_{ij}=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
 }
 
-The motivation for this particular reparametrisation is the fact that the normal does not move:
+The motivation for our particular reparametrisation is the fact that the normal does not move:
 
 \Theo{lemma}{Ev-g-nu}{
 Along the flow \eqref{Flow} there hold

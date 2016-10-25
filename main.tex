@@ -23,14 +23,24 @@ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
 \eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
 Recall the Weingarten equation
 \eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
-Geometric quantities of the ambient space are denoted with an overbar, e.g., $(\-g_{\a\b})$ for the metric and greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where latin indices range from $1$ to $n.$
+Geometric quantities of the ambient space are denoted with an overbar, e.g., $(\-g_{\a\b})$ for the metric and Greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where Latin indices range from $1$ to $n.$
 Our definition of the $(1,3)$ Riemannian curvature tensor is given by
 \eq{\mrm{Rm}(X,Y)Z=\n_{Y}\n_{X}Z-\n_{X}\n_{Y}Z-\n_{[Y,X]}Z} 
 and the $(0,4)$ version is
 \eq{\mrm{Rm}(W,X,Y,Z)=\ip{W}{\mrm{Rm}(X,Y)Z}.}
 Hence the curvature tensor of the ambient space reads in coordinates
-\eq{\-R^{\a}_{\b\g\d}=\-\G^{\a}_{\b\d,\g}-\-\G^{\a}_{\b\g,\d}+\-\G^{\e}_{\b\d}\-\G^{\a}_{\e\g}-\-\G^{\e}_{\b\g}\-\G^{\a}_{\e\d},}
-where $\-\G$ are the Christoffel symbols of the metric $\-g$ and a comma denotes ordinary differentiation. There also holds
+\eq{\-R^{\a}_{\b\g\d}= [\-R(\partial_{\delta}, \partial_{\gamma})\partial_{\beta}]^{\alpha} = \-\G^{\a}_{\b\d,\g}-\-\G^{\a}_{\b\g,\d}+\-\G^{\e}_{\b\d}\-\G^{\a}_{\e\g}-\-\G^{\e}_{\b\g}\-\G^{\a}_{\e\d},}
+where $\-\G$ are the Christoffel symbols of the metric $\-g$ and a comma denotes ordinary differentiation.
+We obtain the Ricci identities for differentiating a contravariant vector field $\eta=\eta^{\a}\del_{\a}\cn$
+\eq{\eta^{\a}_{;\b\g}&=\br{\eta^{\a}_{;\b}}_{,\g}+\-\G^{\a}_{\d\g}\eta^{\d}_{;\b}-\-\G^{\d}_{\b\g}\eta^{\a}_{;\d}\\
+                    &=\eta^{\a}_{,\b\g}+\-\G^{\a}_{\b\d,\g}\eta^{\d}+\-\G^{\a}_{\b\d}\eta^{\d}_{,\g}+\-\G^{\a}_{\d\g}\eta^{\d}_{,\b}+\-\G^{\a}_{\d\g}\-\G^{\d}_{\e\b}\eta^{\e}-\-\G^{\d}_{\b\g}\eta^{\a}_{,\d}-\-\G^{\d}_{\b\g}\-\G^{\a}_{\e\d}\eta^{\e}.}
+In Riemannian normal coordinates:
+\eq{\eta^{\a}_{;\b\g}=\eta^{\a}_{,\b\g}+\-\G^{\a}_{\b\d,
+\g}\eta^{\d}&=\eta^{\a}_{,\g\b}+\-\G^{\a}_{\g\d,\b}\eta^{\d}+\br{\-\G^{\a}_{\b\d,\g}-\-\G^{\a}_{\g\d,\b}}\eta^{\d}\\
+            &=\eta^{\a}_{;\g\b}+\-R^{\a}_{\d\g\b}\eta^{\d}=\eta^{\a}_{;\g\b}-\-R^{\a}_{\d\b\g}\eta^{\d}.}
+
+
+There also holds
 \eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
 Thus the Ricci tensor is given by
 \eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
@@ -66,7 +76,7 @@ Furthermore
 \eq{\dot{g}_{ij}=\del_{t}\ip{x_{;i}}{x_{;j}}=-g_{ik}A^{k}_{j}-g_{jk}A^{k}_{i}.}
 }
 
-Also the evolution of the second fundamental form simplifies.
+Also, the evolution of the second fundamental form simplifies.
 
 \Theo{lemma}{Ev-W-h}{
 Along the flow \eqref{Flow} there holds
@@ -74,6 +84,10 @@ Along the flow \eqref{Flow} there holds
 %and
 \eq{\label{Ev-h}\dot{h}_{ij}=-fB_{ij}+\L_{ij}.}
 }
+
+
+
+
 
 \pf{
 Let $\fr{D}{dt}$ denote the covariant derivative of a vector field in $N$ along the curve $x(\xi,\cdot)$ for fixed $\xi\in M.$ Due to the Ricci identities and the Weingarten equation we have
@@ -160,7 +174,7 @@ Now we have all ingredients to deduce the evolution equation of $u=\dot{f}/{f}.$
 \Theo{lemma}{Ev-u}{
 Along the flow \eqref{Flow} there holds
 \eq{\label{Ev-u-1}\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-				&\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+                &\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
         &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}\\
         &\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}\nu^{\e}-\fr 2f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
@@ -179,7 +193,7 @@ where we have also used the symmetry of $f^{mj}h^{i}_{m}$.
 
  Thus
 \eq{\label{dot u}\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-			&\hp{=}+\br{g^{kj}f^{il}+f^{ij,km}h^{l}_{m}}\br{g_{kr}A^{r}_{l}+g_{lr}A^{r}_{k}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+            &\hp{=}+\br{g^{kj}f^{il}+f^{ij,km}h^{l}_{m}}\br{g_{kr}A^{r}_{l}+g_{lr}A^{r}_{k}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}-ff^{ij,kl}\br{B_{kl}-\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f\L_{ij}}}\\
         &=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
         &\hp{=}+\br{2ff^{il}b^{jk}B_{kl}+2ff^{ij,kl}B_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
@@ -212,7 +226,7 @@ Note that to get the last identity, we used that the first curvature terms on th
 
  Recalling \eqref{dot u} we obtain
  \eq{\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
- 			&\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+             &\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
          &\hp{=}-\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}\\
          &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
         &\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}_{;j}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}+\fr 1f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}\dot{x}^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
@@ -220,7 +234,7 @@ Note that to get the last identity, we used that the first curvature terms on th
         &\hp{=}+\fr 2f f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}_{;j}}
 and due to the first Bianchi identity we arrive at
 \eq{\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-			&\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+            &\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
         &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}\\
         &\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
@@ -237,7 +251,7 @@ Therefore,
 
 \section{Euclidean and Minkowski space}
 
-In the case of vanishing ambient curvature we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. They include the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
+In the case of vanishing ambient curvature, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. They include the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 
 \Theo{thm}{R=0}{
 Suppose $(\-R_{\a\b\g\d})=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set 
@@ -256,13 +270,12 @@ hence
 \eq{\dot{s}=\s\ip{\dot{x}}{\nu}=-\s f}
 and
 \eq{\ddot{s}&=-\s\dot{f}\\
-			&=-\s\br{\p'\dot{s}F+ff^{ij}B_{ij}}\\
             &=\fr{\p'}{\p}f^2-\s ff^{ij}B_{ij},}
 where we used
 \eq{\label{R=0-3} u=-\s \fr{\p'}{\p}f+f^{ij}B_{ij}.}
 We obtain from \eqref{R=0-1} that
 \eq{\dot{u}&=\fr{\p''}{\p}f^2-2\s\frac{\p'}{\p}ff^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
-			&\hp{=}+f^{ij}u_{;ij}+T\ast\n u.}
+            &\hp{=}+f^{ij}u_{;ij}+T\ast\n u.}
 
 By the assumption on $F$, the curvature function
 \[G=\mrm{sgn}(p)F^p\] 
@@ -277,7 +290,7 @@ Set
 \eq{w=tu+\fr{p}{p+1},}
 then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that $w$ never changes sign. We first consider the case $p>0.$ There holds, using \eqref{R=0-2} and \eqref{R=0-3},
 \eq{\dot{w}&=u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
-			&\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
             &\geq u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+t\fr{p+1}{p}\br{f^{ij}B_{ij}}^2\\
             &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
             &=\fr{p+1}{p}uw-t\fr{p+1}{p}u^2+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}fu\\
@@ -285,7 +298,7 @@ then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that
             &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
             &=\fr{p+1}{p}uw+\fr{2}{p}\s t\fr{\p'}{\p}fu+t\fr{1-p}{p}\fr{\p'^2}{\p^2}f^2+t\fr{\p''}{\p}f^2\\
             &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
-            &=\br{\fr{p+1}{p}u+\fr{2\s\p'}{p\p}f}w-\fr{2\s}{p+1}\p'F+\fr{t}{\p^2}f^2\br{\fr{1-p}{p}\p'^2+\p''\p}\\
+            &=\br{\fr{p+1}{p}u+\fr{2\s\p'}{p\p}f}w-\fr{2\s\p'}{(p+1)\p}f+\fr{t}{\p^2}f^2\br{\fr{1-p}{p}\p'^2+\p''\p}\\
             &\hp{=}+f^{ij}w_{;ij}+T\ast w.}
 In case $p<0$ we have the same calculation with reversed inequality. Hence under the present assumptions $w$ never changes sign due to the maximum principle and the result follows.
 }
@@ -311,7 +324,7 @@ and let $f=\mrm{sgn}(p)F^p$, where $F$ is monotone and homogeneous of degree $1$
 \eq{\label{Spaceform-1}\dot{u}&\geq\br{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}-\fr{4C}{p}f^{ij}g_{ij}u+\fr{2C^2}{p}\br{f^{ij}g_{ij}}^2    \\
         &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
-        &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}}
+        &\hp{=}+2Cff^{ij}h_{ij}+\fr{2C}{f}f^{ij}h_{ij}b^r_lb^{ls}f_{;r}f_{;s}-\frac{2C}{f}f^{ij}b^s_if_{;j}f_{;s}}
 and the reverse inequality holds in case $p<0.$
 }
 
@@ -325,8 +338,11 @@ Note that in a spaceform $B$ is symmetric since
 Hence, if $p>0,$
 \eq{2ff^{il}b^{jk}B_{ij}B_{kl}&\geq \fr 2pf^{ij}B_{ij}f^{kl}B_{kl}\\
                 &=\fr 2p f^{ij}f^{kl}\br{B_{ij}+\fr 1f\L_{ij}}\br{B_{kl}+\fr 1f\L_{kl}}\\
-                &\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}            }
-and the claim follows in case $p>0.$ The other case is similar.
+                &\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}.}
+To obtain the last line of \eqref{Spaceform-1}, we insert \eqref{Flow} into $\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}$ to obtain
+\eq{\fr{2}{f}f^{ij}h^k_j\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}&=2Cff^{ij}h_{ij}+\fr{2C}{f}f^{ij}h_{ij}b^r_lb^{ls}f_{;r}f_{;s}\\
+        &\hp{=}-\frac{2C}{f}f^{ij}b^s_if_{;j}f_{;s}.}
+The claim follows in case $p>0.$ The other case is similar.
 }
 
 \subsection*{The sphere}

@@ -1,5 +1,17 @@
 \input{StandardPaper2.tex}
-
+\newcommand*\xbar[1]{%
+  \hbox{%
+    \vbox{%
+      \hrule height 0.2pt % The actual bar
+      \kern0.5ex%         % Distance between bar and symbol
+      \hbox{%
+        \kern-0.1em%      % Shortening on the left side
+        \ensuremath{#1}%
+        \kern-0.1em%      % Shortening on the right side
+      }%
+    }%
+  }%
+}
 
 \begin{document}
 
@@ -299,7 +311,7 @@ then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that
             &=\fr{p+1}{p}uw+\fr{2}{p}\s t\fr{\p'}{\p}fu+t\fr{1-p}{p}\fr{\p'^2}{\p^2}f^2+t\fr{\p''}{\p}f^2\\
             &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
             &=\br{\fr{p+1}{p}u+\fr{2\s\p'}{p\p}f}w-\fr{2\s\p'}{(p+1)\p}f+\fr{t}{\p^2}f^2\br{\fr{1-p}{p}\p'^2+\p''\p}\\
-            &\hp{=}+f^{ij}w_{;ij}+T\ast w.}
+            &\hp{=}+f^{ij}w_{;ij}+T\ast \nabla w.}
 In case $p<0$ we have the same calculation with reversed inequality. Hence under the present assumptions $w$ never changes sign due to the maximum principle and the result follows.
 }
 
@@ -355,11 +367,15 @@ Let $N=\S^{n+1}$ and let $F$ be a monotone, convex and $1$-homogeneous curvature
 
 \pf{There holds
 \eq{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}=\fr{p+1}{p}f^{ij}f^{kl}+pfF^{p-1}F^{ij,kl}.}
-Using \eqref{Spaceform-1}, we obtain that
-\eq{w=tu+\fr{p}{p+1}}
+Using \eqref{Spaceform-1} and
+\[u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right),\quad f^{ij}\leq pfb^{ij},\]
+we conclude that
+$w=tu+\fr{p}{p+1}$
 satisfies
-\eq{\dot{w}&\geq u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+\fr{4C}{p+1}f^{ij}g_{ij}+f^{ij}w_{;ij}+T\ast\n w\\
-        &=\fr{p+1}{p}uw-\fr{4C}{p}f^{ij}g_{ij}w+\fr{4C}{p+1}f^{ij}g_{ij}+f^{ij}w_{;ij}+T\ast\n w.}
+\eq{\dot{w}\geq& u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+f^{ij}w_{;ij}+T\ast\n w\\
+&+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2\\
+        =&\left(\fr{p+1}{p}u-\fr{4C}{p}f^{ij}g_{ij}\right)w+f^{ij}w_{;ij}+T\ast\n w\\
+        &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2.}
 The result follows from the maximum principle.
 }
 
@@ -406,6 +422,12 @@ Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $
 \pf{The proof is the same as the proof of \cref{Sphere}. The assumption $p\geq 1$ is to ensure that the term in \eqref{Spaceform-1} involving the signature is non-negative.
 }
 
+
+\bibliographystyle{amsplain}
+\bibliography{Bibliography.bib}
+
+\end{document} 
+
 \section{Mean curvature flow in Einstein manifolds}
 
 \Theo{lemma}{Einstein}{
@@ -421,7 +443,3 @@ where $R$ is the constant scalar curvature of $\-g.$ Then for $f=H$ there holds
 into the left hand side of \eqref{Einstein-1} and use $\-R_{\a\b;\e}=0.$
 
 }
-\bibliographystyle{amsplain}
-\bibliography{Bibliography.bib}
-
-\end{document} 

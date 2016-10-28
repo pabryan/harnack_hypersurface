@@ -22,7 +22,7 @@
 \section{Introduction}
 Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let
 \eq{x\cn M^{n}\x[0,T)\ra N}
-be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
+be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolves by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t),$ $\s=\ip{\nu}{\nu},$ $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and
 \eq{f\cn \R_{+}\x\S^{n}\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
@@ -31,6 +31,9 @@ We allow $f$ to depend on the support function $s$ and we assume that $f$ is of 
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
 where $\p\in C^2(\R_+).$
 The notion of the support function $s$ in various ambient spaces will be explained later.
+
+In the sequel, for a tensor $X$, $X_{;ij}$ denotes the covariant derivative first with respect $x_{;i}$ and then with respect to $x_{;j}.$ 
+
 The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
 \eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
 Recall the Weingarten equation
@@ -268,7 +271,7 @@ Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. T
 \eq{f=\mrm{sgn}(p)F^p}
 satisfies
 \eq{\label{CF-1}f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl}}
-\eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}}
+\eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
 }
 
 \pf{
@@ -279,7 +282,7 @@ Thus
 \eq{\label{CF-1}f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
 and
 \eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
-			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}}
+			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
 Hence
 \eq{2f^{ik}b^{jl}+f^{ij,kl}\geq \fr{p+1}{p} f^{-1}f^{ij}f^{kl}.}
 }
@@ -402,7 +405,7 @@ and differentiate to obtain the dual flow:
  Hence the dual flow reads
  \eq{\label{DualFlow2}\dot{\~x}=-\Phi \~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
  where $\~\nu$ is the pulled back version of $y$. We see that the dual flow is precisely of the form \eqref{Flow}. This is no surprise: From \eqref{normalFlow} and \eqref{Dualflow} we see that a flow has no tangential component precisely when its dual satisfies $\dot{\nu}=0.$
-Thus for a class of inverse curvature flows we obtain some reversed Harnack inequalities. 
+Thus for a class of inverse curvature flows we obtain reversed Harnack inequalities. 
  
  \Theo{thm}{Sphere}{
 Let $N=\S^{n+1}$ and let $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $-1\leq p<0$ and set $f=\mrm{sgn}(p)F^{p}.$ Then along the expanding flow \eqref{normalFlow} there holds
@@ -421,18 +424,16 @@ satisfies the assumptions of \cref{Sphere} to deduce
 \subsection*{De Sitter space}
 
 \Theo{thm}{DeSitter}{
-Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=\mrm{sgn}(p)F^p$. Then along \eqref{Flow} there holds
+Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
-If $p<-1$, the inequality is reversed.
 }
 
-\pf{Using \cref{CF}, in case $p>0$ \eqref{LocHom-1} becomes
-\eq{\dot{u}&\geq \fr{p+1}{p}f^{ij}f^{kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+\pf{By \cref{CF}, from \eqref{LocHom-1} for $p>0$  we obtain
+\eq{\label{x}\dot{u}&\geq \fr{p+1}{p}f^{ij}f^{kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
 		&\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}\\
         &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
-        &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
+        &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}.
         }
-with the reversed inequality if $p<0.$
 Again, using
 \eq{\Lambda_{ij}=Cfg_{ij},\quad u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right),}
 we obtain that in case $p\geq 1$, $w=tu+\fr{p}{p+1}$ satisfies
@@ -440,8 +441,9 @@ we obtain that in case $p\geq 1$, $w=tu+\fr{p}{p+1}$ satisfies
 			&\geq u+t\fr{p+1}{p}u^2-\fr{4Ct}{p}f^{ij}g_{ij}u+\fr{2C^2t}{p}\br{f^{ij}g_{ij}}^2\\
             &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
             &=\br{\fr{p+1}{p}u-\fr{4C}{p}f^{ij}g_{ij}}w+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2C^2t}{p}\br{f^{ij}g_{ij}}^2\\
-            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w}
-with reversed inequality if $p<-1.$ Hence in both cases the result follows from the maximum principle. 
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w.}
+            Note that to get this last inequality, we dropped the last term in (\ref{x}).
+Hence the result follows from the maximum principle.
 
 
 }
@@ -472,11 +474,10 @@ where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal 
  Thus \eqref{DualHyperbolic} follows.
 With precisely the same proof as for \cref{Sphere}, now using \eqref{DualHyperbolic} and \cref{DeSitter}, we obtain the following pseudo-Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
 
-\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\leq -1$ or $p>1$ and set $f=\mrm{sgn}(p)F^p.$ Then along the flow
+\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\leq -1$ set $f=\mrm{sgn}(p)F^{p}.$ Then along the flow
 \eq{\dot{x}=-f\nu}
 there holds
-\eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0,}
-if $p\leq -1$ and the reverse inequality holds if $p>1.$
+\eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.}
 }
 
 \pf{The dual flow speed in \eqref{DualHyperbolic} is
@@ -489,7 +490,6 @@ Hence for $p\leq -1$ the assumptions of \cref{DeSitter} are satisfied with $-p\g
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0,}
 which in turn implies
 \eq{\del_t\br{f t^{\fr{p}{p-1}}}\leq 0.}
-In case $p>1$ both inequalities reverse and hence we obtain the result.
 }
 
 

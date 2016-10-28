@@ -263,7 +263,7 @@ Therefore,
 
 \section{Euclidean and Minkowski space}
 
-In the case of vanishing ambient curvature, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. They include the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
+In the case of vanishing ambient curvature, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 
 \Theo{thm}{R=0}{
 Suppose $(\-R_{\a\b\g\d})=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set 
@@ -360,7 +360,7 @@ The claim follows in case $p>0.$ The other case is similar.
 \subsection*{The sphere}
 If the ambient space is the sphere $\S^{n+1}$, we recover the class of speeds for which we could prove a Harnack inequality in \cite{BryanIvakiScheuer:12/2015}.
 
-\Theo{cor}{Sphere}{
+\Theo{thm}{Sphere}{
 Let $N=\S^{n+1}$ and let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p,$ Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
 }
@@ -372,13 +372,16 @@ Using \eqref{Spaceform-1} and
 we conclude that
 $w=tu+\fr{p}{p+1}$
 satisfies
-\eq{\dot{w}\geq& u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+f^{ij}w_{;ij}+T\ast\n w\\
+\eq{\label{ev w}\dot{w}\geq& u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+f^{ij}w_{;ij}+T\ast\n w\\
 &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2\\
         =&\left(\fr{p+1}{p}u-\fr{4C}{p}f^{ij}g_{ij}\right)w+f^{ij}w_{;ij}+T\ast\n w\\
         &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2.}
 The result follows from the maximum principle.
 }
-
+\Theo{rem}{}{Define $q:=w-Cnt$, using (\ref{ev w}), we obtain that for $f=H$ the following holds
+\eq{\dot{q}\geq&2\left(u-Cn\right)q+g^{ij}{q}_{;ij}+T\ast\n q+2tCH^2.}
+Therefore, by the maximum principle, $q$ remains positive and we recover the Harnack inequality (with the bonus term) of \cite{}.
+}
 By applying the dual flow method developed in \cite{Gerhardt:/2015} for flows in the sphere, we obtain some new reverse Harnack inequalities for expanding flows. For convenience, let us deduce the dual flow of a curvature flow
 \eq{\label{normalFlow}\dot{x}=-f\nu}
 in the sphere $\S^{n+1}$.
@@ -398,7 +401,7 @@ and differentiate to obtain the dual flow:
  where $\~\nu$ is the pulled back version of $y$. We see that the dual flow is precisely of the form \eqref{Flow}. This is no surprise: From \eqref{normalFlow} and \eqref{Dualflow} we see that a flow has no tangential component precisely when its dual satisfies $\dot{\nu}=0.$
 Thus for a class of inverse flow we obtain some reversed Harnack inequalities. 
  
- \Theo{cor}{Sphere}{
+ \Theo{thm}{Sphere}{
 Let $N=\S^{n+1}$ and let $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=-F^{-p}.$ Then along the expanding flow \eqref{normalFlow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\leq 0.}
 In particular, this yields
@@ -414,7 +417,7 @@ satisfies the assumptions of \cref{Sphere} to deduce
 
 \subsection*{De Sitter space}
 
-\Theo{cor}{DeSitter}{
+\Theo{thm}{DeSitter}{
 Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
 }

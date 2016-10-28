@@ -73,7 +73,7 @@ and
 \eq{\L_{ij}=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
 }
 
-The motivation for this particular reparametrisation is the fact that the normal does not move:
+The motivation for this particular reparametrization is the fact that the normal does not move:
 
 \Theo{lemma}{Ev-g-nu}{
 Along the flow \eqref{Flow} there hold
@@ -159,7 +159,7 @@ Using \eqref{A2} and \eqref{Ev-speed-1} we obtain
 so that
 \eq{\dot{A}^{k}_{i}x^{\a}_{;k}&=A^{k}_{i}A^{l}_{k}x^{\a}_{;l}-u_{;i}\dot{x}^{\a}+uA^{k}_{i}x^{\a}_{;k}+\br{fb^{kl}u_{;l}x^{\a}_{;k}}_{;i}\\
                     &\hp{=}+\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{kl}x^{\a}_{;k}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{;i}^{\g}\dot{x}^{\d}.}
-Multiplying this equation by $g^{rj}\-g_{\a\mu}x^{\mu}_{;r}$ and relabelling indices gives the result.
+Multiplying this equation by $g^{rj}\-g_{\a\mu}x^{\mu}_{;r}$ and relabeling indices gives the result.
 }
 
 We need one more preliminary evolution equation.
@@ -378,8 +378,8 @@ satisfies
         &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2.}
 The result follows from the maximum principle.
 }
-\Theo{rem}{}{Define $q:=w-Cnt$, using (\ref{ev w}), we obtain that for $f=H$ the following holds
-\eq{\dot{q}\geq&2\left(u-Cn\right)q+g^{ij}{q}_{;ij}+T\ast\n q+2tCH^2.}
+\Theo{rem}{}{Define $q:=w-Cnt$. Using (\ref{ev w}), we obtain that for $f=H$ the following holds
+\eq{\dot{q}\geq& \Delta {q}+T\ast\n q+2\left(u-Cn\right)q+2tCH^2.}
 Therefore, by the maximum principle, $q$ remains positive and we recover the Harnack inequality (with the bonus term) of \cite{}.
 }
 By applying the dual flow method developed in \cite{Gerhardt:/2015} for flows in the sphere, we obtain some new reverse Harnack inequalities for expanding flows. For convenience, let us deduce the dual flow of a curvature flow
@@ -395,17 +395,17 @@ and differentiate to obtain the dual flow:
  But since $g_{ij}=\~h_{ik}\~h^k_j$, compare \cite[Thm.~9.2.5]{Gerhardt:/2006}, we obtain
  \eq{\dot{\~x}=fy+\~b^{ij}f_{;i}\~x_{;j}.}
  But
- \eq{f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}}).}
+ \eq{\label{DualFlow-3}f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}}).}
  Hence the dual flow reads
  \eq{\label{DualFlow2}\dot{\~x}=-\Phi \~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
  where $\~\nu$ is the pulled back version of $y$. We see that the dual flow is precisely of the form \eqref{Flow}. This is no surprise: From \eqref{normalFlow} and \eqref{Dualflow} we see that a flow has no tangential component precisely when its dual satisfies $\dot{\nu}=0.$
-Thus for a class of inverse flow we obtain some reversed Harnack inequalities. 
+Thus for a class of inverse curvature flows we obtain some reversed Harnack inequalities. 
  
  \Theo{thm}{Sphere}{
 Let $N=\S^{n+1}$ and let $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=-F^{-p}.$ Then along the expanding flow \eqref{normalFlow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\leq 0.}
-In particular, this yields
-\eq{\del_tf+\fr{p}{p+1}\fr{f}{t}\leq 0.}
+%In particular, this yields
+%\eq{\del_tf+\fr{p}{p+1}\fr{f}{t}\leq 0.}
 }
 
 \pf{
@@ -425,11 +425,53 @@ Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $
 \pf{The proof is the same as the proof of \cref{Sphere}. The assumption $p\geq 1$ is to ensure that the term in \eqref{Spaceform-1} involving the signature is non-negative.
 }
 
+Similarly as in the sphere, there is a duality relation between strictly convex hypersurfaces of the hyperbolic space and strictly convex hypersurfaces of the De Sitter space $N$, as is shown in \cite{Gerhardt:/2006}. Let us state this theorem for convenience.
+
+\Theo{thm}{DeSitterDuality}{\cite[Thm.~10.4.4]{Gerhardt:/2006}
+Let $x\cn M\ra \H^{n+1}$ be a closed, connected, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ then the Gauss map $\~x$ is the embedding of a closed, spacelike, achronal, strictly convex hypersurface $\~M\sub N$ of class $C^{m-1}.$ Viewing $\~M$ as a codimension $2$ submanifold in $\R^{n+1,1},$ its Gaussian formula is
+\eq{\~x_{ij}=-\~g_{ij}\~x+\~h_{ij}x,}
+where $\~g_{ij},$ $\~h_{ij}$ are the metric and the second fundamental form of the hypersurface $\~M\sub N$ and $x=x(\xi)$ is the embedding of $M$ which also represents the future directed normal vector of $\~M$. The second fundamental form $\~h_{ij}$ is defined with respect to the future directed normal vector, where the time orientation of $N$ is inherited from $\R^{n+1,1}$.
+
+The second fundamental forms of $M,$ $\~M$ and the corresponding principal curvatures $\k_{i},$ $\~\k_{i}$ satisfy
+\eq{h_{ij}=\~h_{ij}=\ip{\~x_{i}}{x_{j}}}
+and
+\eq{\~\k_{i}=\k_{i}^{-1}.}
+} 
+
+With a similar calculation as for the sphere case, in the proof  of \cite[Lemma~4.2]{Yu:04/2016} deduced the evolution of the dual hypersurface, namely if a family of strictly convex hypersurfaces $M_{t}\sub\H^{n+1}$ evolve by
+\eq{\dot{x}=-f\nu,} 
+then we can use this proof and $g_{ij}=\~h_{ik}\~h^{k}_{j}$ to deduce that the normal $\nu,$ viewed as a vector $\~x$ in $\R^{n+1,1}$ evolves by
+\eq{\label{DualHyperbolic}\dot{\~x}=-\s\Phi\~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
+where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal in $N$ and the flow hypersurfaces are strictly convex with respect to this normal. For convenience let us deduce \eqref{DualHyperbolic} again. The pair $x,\~x$ satisfies 
+\eq{\ip{x}{\~x}=0}
+ and hence
+ \eq{0=\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{-f\nu}=f,}
+ since $\nu\in T_x \H^{n+1}$ is spacelike. Also note $\ip{\~x}{\~x_{;i}}=0$ and hence due to the Weingarten equation
+ \eq{\ip{\dot{\~x}}{\~x_{;i}}=\ip{\dot{\~x}}{h^k_ix_{;k}}=h^k_i\ip{\dot{\~x}}{x_{;k}}=-h^k_i\ip{\~x}{\dot{x}_{;k}}=h^k_if_{;k}.}
+ Thus \eqref{DualHyperbolic} follows.
+With precisely the same proof as for \cref{Sphere}, now using \eqref{DualHyperbolic} and \cref{DeSitter}, we obtain the following pseudo-Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
+
+\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\geq 1$ and set $f=-F^{-p}.$ Along the expanding flow
+\eq{\dot{x}=-f\nu}
+there holds
+\eq{\del_t\br{ft^{\fr{p}{p+1}}}\leq 0.}
+
+}
+
+
+
 
 \bibliographystyle{amsplain}
 \bibliography{Bibliography.bib}
 
 \end{document} 
+
+\subsection*{Einstein manifolds}
+\eq{\partial_t \frac{g^{ij}\Lambda_{ij}}{H}=-\partial_t\frac{\bar{Rc}(\dot{x},\nu)}{H}&=\partial_t\frac{\bar{R}}{n+1}=0.}
+
+\eq{\partial_t \frac{g^{ij}\Lambda_{ij}}{H}=-\partial_t\frac{\bar{Rc}(\dot{x},\nu)}{H}&=\frac{\bar{Rc}(Hb^{ki}u_{;i}x_{;k}+\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k},\nu)}{H}\\
+&=T\ast\nabla u+b^{ki}\frac{\overline{Rm}(\dot{x},x_{;i},\dot{x},\nu)\bar{Rc}(x_{;k},\nu)}{H}.}
+
 
 \section{Mean curvature flow in Einstein manifolds}
 

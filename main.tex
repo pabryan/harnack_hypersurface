@@ -261,6 +261,29 @@ Therefore,
 }
 }
 
+Let us state a simple lemma about curvature functions which we will use frequently to estimate some of the terms in \eqref{Ev-u-1}.
+
+\Theo{lemma}{CF}{
+Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
+\eq{f=\mrm{sgn}(p)F^p}
+satisfies
+\eq{\label{CF-1}f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl}}
+\eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}}
+}
+
+\pf{
+It is well known that 
+\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl},}
+see \cite[Lemma~14]{BryanIvakiScheuer:12/2015} for a proof.
+Thus
+\eq{\label{CF-1}f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
+and
+\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
+			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}}
+Hence
+\eq{2f^{ik}b^{jl}+f^{ij,kl}\geq \fr{p+1}{p} f^{-1}f^{ij}f^{kl}.}
+}
+
 \section{Euclidean and Minkowski space}
 
 In the case of vanishing ambient curvature, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
@@ -289,11 +312,7 @@ We obtain from \eqref{R=0-1} that
 \eq{\dot{u}&=\fr{\p''}{\p}f^2-2\s\frac{\p'}{\p}ff^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
             &\hp{=}+f^{ij}u_{;ij}+T\ast\n u.}
 
-By the assumption on $F$, the curvature function
-\[G=\mrm{sgn}(p)F^p\] 
-satisfies
-\[G^{ij,kl}+2G^{ik}b^{jl}\geq \fr{p+1}{p}G^{-1}G^{ij}G^{kl}\]
-as bilinear forms on symmetric matrices, as \cite[p.~112]{Urbas:/1991} and a simple calculation reveals, and hence
+Due to \cref{CF} we have
 \eq{\label{R=0-2}f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}=\p^2G\br{2G^{il}b^{jk}+G^{ij,kl}}B_{ij}B_{kl}.}
 
 There holds
@@ -328,33 +347,19 @@ In case $p<0$ we have the same calculation with reversed inequality. Hence under
 % \textcolor[rgb]{1.00,0.00,0.00}{For another simple example, we may consider 
 %  \eq{\p(s)=a+s^{q},\quad q<0,\quad a>0.}
 % This choice of $\varphi$ breaks the homogeneity of the speed.  It is easy to check that for $0<p\leq 1$, the sum of the last two terms of (\ref{eq: extension of harnack}) is non-negative.}
-\section{Spaces of constant curvature}
-\Theo{lemma}{Spaceform}{
-Let the ambient space $N$ be a spaceform of curvature $C$, i.e.,
-\eq{\-R_{\a\b\g\d}=C\br{\-g_{\a\g}\-g_{\b\d}-\-g_{\a\d}\-g_{\b\g}}}
-and let $f=\mrm{sgn}(p)F^p$, where $F$ is monotone and homogeneous of degree $1$. Then, if $p>0$, along \eqref{Flow} there holds
-\eq{\label{Spaceform-1}\dot{u}&\geq\br{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
-        &\hp{=}-\fr{4C}{p}f^{ij}g_{ij}u+\fr{2C^2}{p}\br{f^{ij}g_{ij}}^2    \\
+\section{Locally homogeneous spaces}
+\Theo{lemma}{Homogeneous}{
+Let the ambient space $N$ be locally homogeneous, i.e.,
+\eq{(\-R_{\a\b\g\d;\e})=0} and suppose $\p\equiv 1$.
+Then along \eqref{Flow} there holds
+\eq{\label{LocHom-1}\dot{u}&=2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
-        &\hp{=}+2Cff^{ij}h_{ij}+\fr{2C}{f}f^{ij}h_{ij}b^r_lb^{ls}f_{;r}f_{;s}-\frac{2C}{f}f^{ij}b^s_if_{;j}f_{;s}}
-and the reverse inequality holds in case $p<0.$
+        &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}.
+        }
 }
 
 \pf{
-For $1$-homogeneous and monotone curvature functions $F$ there holds
-\eq{F^{ik}b^{jl}\eta_{ij}\eta_{kl}\geq F^{-1}\br{F^{ij}\eta_{ij}}^2}
-for all symmetric matrices $\eta.$ Easy calculations yield
-\eq{f^{ik}b^{jl}\eta_{ij}\eta_{kl}\geq \fr 1p f^{-1}\br{f^{ij}\eta_{ij}}^2.}
-Note that in a spaceform $B$ is symmetric since
-\eq{\L_{ij}=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}=-Cg_{ij}\-g_{\a\d}\dot{x}^{\a}\nu^{\d}=Cfg_{ij}.}
-Hence, if $p>0,$
-\eq{2ff^{il}b^{jk}B_{ij}B_{kl}&\geq \fr 2pf^{ij}B_{ij}f^{kl}B_{kl}\\
-                &=\fr 2p f^{ij}f^{kl}\br{B_{ij}+\fr 1f\L_{ij}}\br{B_{kl}+\fr 1f\L_{kl}}\\
-                &\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}.}
-To obtain the last line of \eqref{Spaceform-1}, we insert \eqref{Flow} into $\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}$ to obtain
-\eq{\fr{2}{f}f^{ij}h^k_j\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}&=2Cff^{ij}h_{ij}+\fr{2C}{f}f^{ij}h_{ij}b^r_lb^{ls}f_{;r}f_{;s}\\
-        &\hp{=}-\frac{2C}{f}f^{ij}b^s_if_{;j}f_{;s}.}
-The claim follows in case $p>0.$ The other case is similar.
+Follows directly from \eqref{Ev-u-1}.
 }
 
 \subsection*{The sphere}
@@ -365,27 +370,25 @@ Let $N=\S^{n+1}$ and let $F$ be a monotone, convex and $1$-homogeneous curvature
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
 }
 
-\pf{There holds
-\eq{\fr 2p f^{ij}f^{kl}+ff^{ij,kl}=\fr{p+1}{p}f^{ij}f^{kl}+pfF^{p-1}F^{ij,kl}.}
-Using \eqref{Spaceform-1} and
-\[u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right),\quad f^{ij}\leq pfb^{ij},\]
+\pf{Due to \cref{CF}, \eqref{LocHom-1} and
+\[\Lambda_{ij}=Cfg_{ij},\quad u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right),\]
 we conclude that
 $w=tu+\fr{p}{p+1}$
 satisfies
 \eq{\label{ev w}\dot{w}\geq& u+t\fr{p+1}{p}u^2-\fr{4C}{p}f^{ij}g_{ij}w+f^{ij}w_{;ij}+T\ast\n w\\
-&+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2\\
+&+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2\\
         =&\left(\fr{p+1}{p}u-\fr{4C}{p}f^{ij}g_{ij}\right)w+f^{ij}w_{;ij}+T\ast\n w\\
-        &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2+2tCpf^2.}
+        &+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2tC^2}{p}\br{f^{ij}g_{ij}}^2.}
 The result follows from the maximum principle.
 }
 \Theo{rem}{}{Define $q:=w-Cnt$. Using (\ref{ev w}), we obtain that for $f=H$ the following holds
-\eq{\dot{q}\geq& \Delta {q}+T\ast\n q+2\left(u-Cn\right)q+2tCH^2.}
-Therefore, by the maximum principle, $q$ remains positive and we recover the Harnack inequality (with the bonus term) of \cite{}.
+\eq{\dot{q}\geq& \Delta {q}+T\ast\n q+2\left(u-Cn\right)q.}
+Therefore, by the maximum principle, $q$ remains positive and we recover the Harnack inequality (with the bonus term) of \cite{BryanIvaki:08/2015}.
 }
 By applying the dual flow method developed in \cite{Gerhardt:/2015} for flows in the sphere, we obtain some new reverse Harnack inequalities for expanding flows. For convenience, let us deduce the dual flow of a curvature flow
 \eq{\label{normalFlow}\dot{x}=-f\nu}
 in the sphere $\S^{n+1}$.
-Denote by $\~x$ the normal embedded into $\R^{n+2},$ i.e.
+Denote by $\~x$ the normal embedded into $\R^{n+2},$ i.e.,
 \eq{\~x=y_{;\a}\nu^{\a}}
 and differentiate to obtain the dual flow:
 \eq{\label{Dualflow}\dot{\~x}&=y_{;\a\b}\dot{x}^{\b}\nu^{\a}+y_{;\a}\dot{\nu}^{\a}\\
@@ -402,27 +405,45 @@ and differentiate to obtain the dual flow:
 Thus for a class of inverse curvature flows we obtain some reversed Harnack inequalities. 
  
  \Theo{thm}{Sphere}{
-Let $N=\S^{n+1}$ and let $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=-F^{-p}.$ Then along the expanding flow \eqref{normalFlow} there holds
-\eq{\del_t\br{ft^{\fr{p}{p+1}}}\leq 0.}
+Let $N=\S^{n+1}$ and let $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $-1\leq p<0$ and set $f=\mrm{sgn}(p)F^{p}.$ Then along the expanding flow \eqref{normalFlow} there holds
+\eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.}
 %In particular, this yields
 %\eq{\del_tf+\fr{p}{p+1}\fr{f}{t}\leq 0.}
 }
 
 \pf{
 The dual \eqref{DualFlow2} with speed
-\eq{\Phi(\~{\mc{W}})=-f(\mc{W})=F^{-p}(\mc{W})=\~F^p(\~{\mc{W}})}
+\eq{\Phi(\~{\mc{W}})=-f(\mc{W})=-\mrm{sgn}(p)F^{p}(\mc{W})=\~F^{-p}(\~{\mc{W}})}
 satisfies the assumptions of \cref{Sphere} to deduce
-\eq{\del_t\br{\Phi t^{\fr{p}{p+1}}}\geq 0.}
+\eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 
 \subsection*{De Sitter space}
 
 \Theo{thm}{DeSitter}{
-Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
+Let $N$ be a Lorentzian spaceform with constant sectional curvature $C=1$. Let $F$ be a monotone, convex and $1$-homogeneous curvature function. Let  $p\geq 1$ and set $f=\mrm{sgn}(p)F^p$. Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
+If $p<-1$, the inequality is reversed.
 }
 
-\pf{The proof is the same as the proof of \cref{Sphere}. The assumption $p\geq 1$ is to ensure that the term in \eqref{Spaceform-1} involving the signature is non-negative.
+\pf{Using \cref{CF}, in case $p>0$ \eqref{LocHom-1} becomes
+\eq{\dot{u}&\geq \fr{p+1}{p}f^{ij}f^{kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+		&\hp{=}-\fr 4p f^{-1}f^{ij}\L_{ij}u+\fr 2p f^{-2}f^{ij}\L_{ij}f^{kl}\L_{kl}\\
+        &\hp{=}+f^{ij}u_{;ij}+T\ast\n u+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}\\
+        &\hp{=}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
+        }
+with the reversed inequality if $p<0.$
+Again, using
+\eq{\Lambda_{ij}=Cfg_{ij},\quad u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right),}
+we obtain that in case $p\geq 1$, $w=tu+\fr{p}{p+1}$ satisfies
+\eq{\dot{w}&=u+t\dot{u}\\
+			&\geq u+t\fr{p+1}{p}u^2-\fr{4Ct}{p}f^{ij}g_{ij}u+\fr{2C^2t}{p}\br{f^{ij}g_{ij}}^2\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w\\
+            &=\br{\fr{p+1}{p}u-\fr{4C}{p}f^{ij}g_{ij}}w+\fr{4C}{p+1}f^{ij}g_{ij}+\fr{2C^2t}{p}\br{f^{ij}g_{ij}}^2\\
+            &\hp{=}+f^{ij}w_{;ij}+T\ast\n w}
+with reversed inequality if $p<-1.$ Hence in both cases the result follows from the maximum principle. 
+
+
 }
 
 Similarly as in the sphere, there is a duality relation between strictly convex hypersurfaces of the hyperbolic space and strictly convex hypersurfaces of the De Sitter space $N$, as is shown in \cite{Gerhardt:/2006}. Let us state this theorem for convenience.
@@ -451,11 +472,24 @@ where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal 
  Thus \eqref{DualHyperbolic} follows.
 With precisely the same proof as for \cref{Sphere}, now using \eqref{DualHyperbolic} and \cref{DeSitter}, we obtain the following pseudo-Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
 
-\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\geq 1$ and set $f=-F^{-p}.$ Along the expanding flow
+\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\leq -1$ or $p>1$ and set $f=\mrm{sgn}(p)F^p.$ Then along the flow
 \eq{\dot{x}=-f\nu}
 there holds
-\eq{\del_t\br{ft^{\fr{p}{p+1}}}\leq 0.}
+\eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0,}
+if $p\leq -1$ and the reverse inequality holds if $p>1.$
+}
 
+\pf{The dual flow speed in \eqref{DualHyperbolic} is
+\eq{\Phi(\~{\mc{W}})=-f(\mc{W})=-\mrm{sgn}(p)F^p(\mc{W})=-\mrm{sgn}(p)F^p(\~{\mc{W}}^{-1})=-\mrm{sgn}(p)\fr{1}{\~F^p(\~{\mc{W}})}}
+and if $p<0$, then 
+\eq{\Phi(\~{\mc{W}})=\mrm{sgn}(-p)\~F^{-p}(\~{\mc{W}}).}
+
+
+Hence for $p\leq -1$ the assumptions of \cref{DeSitter} are satisfied with $-p\geq 1$ and hence
+\eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0,}
+which in turn implies
+\eq{\del_t\br{f t^{\fr{p}{p-1}}}\leq 0.}
+In case $p>1$ both inequalities reverse and hence we obtain the result.
 }
 
 

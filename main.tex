@@ -232,7 +232,7 @@ Therefore,
 &=\fr 1f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}\nu^{\e}-\fr 2f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
 }
 }
-Let us state a simple lemma about curvature functions which we will use frequently to estimate some of the terms in \eqref{Ev-u-1}.
+Let us state a simple lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}.
 \Theo{lemma}{CF}{
 Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
 \eq{f=\mrm{sgn}(p)F^p}
@@ -405,22 +405,22 @@ The second fundamental forms of $M,$ $\~M$ and the corresponding principal curva
 and
 \eq{\~\k_{i}=\k_{i}^{-1}.}
 } 
-With a similar calculation as for the sphere case, in the proof  of \cite[Lemma~4.2]{Yu:04/2016} deduced the evolution of the dual hypersurface, namely if a family of strictly convex hypersurfaces $M_{t}\sub\H^{n+1}$ evolve by
+With a similar calculation as for the sphere case (see, for example, the proof  of \cite[Lemma~4.2]{Yu:04/2016}) we can deduce the evolution of the dual hypersurface: Let a family of strictly convex hypersurfaces $M_{t}\sub\H^{n+1}$ evolve by
 \eq{\dot{x}=-f\nu,} 
-then we can use this proof and $g_{ij}=\~h_{ik}\~h^{k}_{j}$ to deduce that the normal $\nu,$ viewed as a vector $\~x$ in $\R^{n+1,1}$ evolves by
+then, in view of $g_{ij}=\~h_{ik}\~h^{k}_{j},$ we deduce that the normal $\nu,$ viewed as a vector $\~x$ in $\R^{n+1,1}$, evolves by
 \eq{\label{DualHyperbolic}\dot{\~x}=-\s\Phi\~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
-where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal in $N$ and the flow hypersurfaces are strictly convex with respect to this normal. For convenience let us deduce \eqref{DualHyperbolic} again. The pair $x,\~x$ satisfies 
+where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal in $N$ and the flow hypersurfaces are strictly convex with respect to this normal. For convenience of the reader, we present more details on how to obtain \eqref{DualHyperbolic}. The pair $x,\~x$ satisfies 
 \eq{\ip{x}{\~x}=0}
  and hence
  \eq{0=\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{-f\nu}=f,}
- since $\nu\in T_x \H^{n+1}$ is spacelike. Also note $\ip{\~x}{\~x_{;i}}=0$ and hence due to the Weingarten equation
+ since $\nu\in T_x \H^{n+1}$ is spacelike. Also, note $\ip{\~x}{\~x_{;i}}=0$ and hence due to the Weingarten equation
  \eq{\ip{\dot{\~x}}{\~x_{;i}}=\ip{\dot{\~x}}{h^k_ix_{;k}}=h^k_i\ip{\dot{\~x}}{x_{;k}}=-h^k_i\ip{\~x}{\dot{x}_{;k}}=h^k_if_{;k}.}
  Thus \eqref{DualHyperbolic} follows.
-With precisely the same proof as for \cref{Sphere}, now using \eqref{DualHyperbolic} and \cref{DeSitter}, we obtain the following pseudo-Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
-\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and let $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Let $p\leq -1$ set $f=\mrm{sgn}(p)F^{p}.$ Then along the flow
-\eq{\dot{x}=-f\nu}
-there holds
-\eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.}
+With precisely the same proof as for \cref{Sphere}, we obtain, using \eqref{DualHyperbolic} and \cref{DeSitter}, the following pseudo-Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
+\Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Suppose $p\leq -1$. Then the flow
+$\dot{x}=-f\nu$ with the speed $f=\mrm{sgn}(p)F^{p}$
+satisfies
+\[\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.\]
 }
 \pf{The dual flow speed in \eqref{DualHyperbolic} is
 \eq{\Phi(\~{\mc{W}})=-f(\mc{W})=-\mrm{sgn}(p)F^p(\mc{W})=-\mrm{sgn}(p)F^p(\~{\mc{W}}^{-1})=-\mrm{sgn}(p)\fr{1}{\~F^p(\~{\mc{W}})}}

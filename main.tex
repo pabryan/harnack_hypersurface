@@ -7,17 +7,13 @@
 
 \maketitle
 \section{Introduction}
+\label{sec:intro}
 
 Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let $\s = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
 \eq{x\cn M^{n}\x[0,T)\ra N}
 be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
-where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and
-\eq{f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
-where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$, and $f$ is nonzero and invariant under parallel transport.
-We assume that $f$ is of the form
-\eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
-where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we don't have a suitable support function.
+where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$. The speed, $f$ is a smooth, increasing function of the principal curvatures.
 
 The flow \eqref{Flow} is equivalent to,
 \eq{\label{FlowStandard} \dot{\tilde{x}} = -\s \tilde{f} \tilde{\nu}}
@@ -41,15 +37,29 @@ which is precisely Hamilton's Harnack quantity.
 The basic Harnack inequality we prove is the following:
 
 \Theo{thm}{Harnack Inequality}{
-Let $N$ be locally symmetric and with non-negative sectional curvature. Let $F$ be $1$-homogeneous, positive, and either convex or inverse concave if $N$ is flat and $f = F^p$. Then for a range of $p$ we have,
+Let $N$ be locally symmetric and with non-negative sectional curvature. Let $F$ be $1$-homogeneous, positive, and either convex or inverse concave if $N$ is flat and $f = \mrm{sgn}(p)F^p$. Then for a range of $p$ we have,
 \[
-u \geq -frac{p+1}{p} \frac{1}{t}
+u \geq -\frac{p+1}{p} \frac{1}{t}
 \]
 for all $t > 0$.}
 
 The range of admissible $p$ varies depending on the background space and the speed $f$ and is given expclicitly in each theorem below.
 
-\section{Evolution equations}
+
+\section{Background and Notation}
+\label{sec:background}
+
+\subsection{Speed Functions}
+\label{subsec:bg_speed}
+
+The speeds $f$ we consider take the form,
+\eq{f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
+where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$, and $f$ is nonzero and invariant under parallel transport. We assume that $f$ is of the form
+\eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
+where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we don't have a suitable support function.
+
+\subsection{Notation and Basic Definitions}
+\label{subsec:bg_notation}
 
 \Theo{notation}{}{
 For a tensor $T$, $T_{;ij}$ denotes the covariant derivative of $T$, first with respect $x_{;i}$ and then with respect to $x_{;j}.$ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
@@ -83,7 +93,14 @@ then we also have
 Furthermore, we define (generally) non-symmetric bilinear forms,
 \eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
 }
-The motivation for this particular reparametrization is the fact that the normal does not move:
+
+\subsection{Gauss Map and Duality}
+\label{subsec:gauss_duality}
+
+\section{Evolution equations}
+
+The motivation for our particular reparametrisation is the fact that the normal does not move:
+
 \Theo{lemma}{Ev-g-nu}{
 Along the flow \eqref{Flow} there hold
 \eq{\dot{\nu}=0}

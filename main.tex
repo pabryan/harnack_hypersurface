@@ -58,6 +58,27 @@ where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite t
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
 where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we don't have a suitable support function.
 
+Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}.
+\Theo{lemma}{CF}{
+Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
+\eq{f=\mrm{sgn}(p)F^p}
+satisfies
+\eq{\label{CF-1}f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl}}
+\eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
+}
+\pf{
+It is well known that
+\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl};}
+see \cite[Lemma~14]{BryanIvakiScheuer:12/2015} for a proof.
+Thus
+\eq{\label{CF-1}f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
+and
+\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
+			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
+Hence
+\eq{2f^{ik}b^{jl}+f^{ij,kl}\geq \fr{p+1}{p} f^{-1}f^{ij}f^{kl}.}
+}
+
 \subsection{Notation and Basic Definitions}
 \label{subsec:bg_notation}
 
@@ -248,26 +269,7 @@ and due to the first Bianchi identity we arrive at
         &\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
         }
 }
-Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}.
-\Theo{lemma}{CF}{
-Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
-\eq{f=\mrm{sgn}(p)F^p}
-satisfies
-\eq{\label{CF-1}f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl}}
-\eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-}
-\pf{
-It is well known that 
-\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl};}
-see \cite[Lemma~14]{BryanIvakiScheuer:12/2015} for a proof.
-Thus
-\eq{\label{CF-1}f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
-and
-\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
-			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-Hence
-\eq{2f^{ik}b^{jl}+f^{ij,kl}\geq \fr{p+1}{p} f^{-1}f^{ij}f^{kl}.}
-}
+
 \section{Euclidean and Minkowski space}
 In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 \Theo{thm}{R=0}{

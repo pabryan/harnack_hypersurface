@@ -8,19 +8,47 @@
 \maketitle
 
 \section{Introduction}
-Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let $\sigma = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
+
+Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M^{n}$ be a smooth and orientable manifold. Let $\s = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
 \eq{x\cn M^{n}\x[0,T)\ra N}
 be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$ and
-\eq{f\cn \R_{+}\x\S^{n}\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
-where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$ and such that $f$ is nonzero and invariant under parallel transport.
-We allow $f$ to depend on the support function $s$ and we assume that $f$ is of the form
+\eq{f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
+where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$, and $f$ is nonzero and invariant under parallel transport.
+We assume that $f$ is of the form
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
-where $\p\in C^2(\R_+).$
-The notion of the support function $s$ in various ambient spaces will be explained later.
+where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we don't have a suitable support function.
 
-The particular form of the reparametrization used in \eqref{Flow} has the advantage that several evolution equations simplify tremendously, as we will show in the following.
+The flow \eqref{Flow} is equivalent to,
+\eq{\label{FlowStandard} \dot{\tilde{x}} = -\s \tilde{f} \tilde{\nu}}
+by letting \(u_t\) denote the flow of the vector field $b^{ki}f_{;i}$ on $M$ and defining $\tilde{x} (\xi, t) = x (u_t(\xi), t)$. We call $\tilde{x}$ satisfying \eqref{FlowStandard} the \emph{standard parametrisation} as in \cite{Andrews:09/1994}.
+
+Central to our approach is the flow \eqref{Flow} which is a reparametrisation of the flow as usually given in standard parametrisation \eqref{FlowStandard}. Let us note that in a Euclidean background, $N = \R^{n+1}$, one may consider the unit normal at time $t$, as the Gauss map $\nu_t : M \to \S^n$, which is a diffeomorphism whenever $x_t(M)$ is convex. The Gauss map parametrisation $y_t: \S^n \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu_t(y_t(z)) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
+
+The Gauss map parametrisation just described is manifestly Euclidean, and given the utility of such a parametrisation, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parametrisation \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parametrisation, $x$. See \Cref{Ev-g-nu}, analogous to the Gauss map parametrisation, valid in arbitrary backgrounds.
+
+Another crucial aspect of our approach is that it also addresses the question of how to determine the appropriate Harnack quantity. The philosophy put forward by Hamilton in \cite{Hamilton:/1995,Hamilton:/1993} is that equality should be attained on expanding solitons, just as equality in the Li-Yau Harnack inequality \cite{LiYau:/1986} is attained by the heat kernel, itself an expanding soliton. Thus Hamilton follows a procedure of differentiating the soliton equation to obtain soliton identities which eventually lead to the appropriate form for the Harnack quantity. In \cite{Andrews:09/1994}, Andrews showed that under the Gauss map parametrisation, one may consider the evolution of the support function to which the Li-Yau approach may be applied to determine the Harnack quantity. This is also effectively our approach, although for general backgrounds we don't have the luxury of a suitable support function, but have the great fortune of the reparametrisation \eqref{Flow}. Namely, we define
+\begin{equation}
+\label{eq:Q}
+u = \frac{\dot{f}}{f}
+\end{equation}
+for the Harnack quantity. For shrinking flows (i.e. positive $f$) we have $u = \partial_t \ln f$ just as for Li-Yau \cite{LiYau:/1986} and \cite{Andrews:09/1994}. For expanding flows (i.e. negative $f$), we have the analogous formulation, $u = - \partial_t \ln (-f)$, taking into account the sign, and it seems simpler to use the form given in \eqref{eq:Q} for both cases. Then, transforming to the standard parametrisation, we find that,
+\[
+\tilde{u} = \frac{1}{\tilde{f}} \partial_t \left(f(u_t(x), t)\right) = \frac{1}{\tilde{f}} \left(\dot{\tilde{f}} - \tilde{b}^{ij} \tilde{f}_{;i} \tilde{f}_{;j}\right)
+\]
+which is precisely Hamilton's Harnack quantity.
+
+The basic Harnack inequality we prove is the following:
+
+\Theo{thm}{Harnack Inequality}{
+Let $N$ be locally symmetric and with non-negative sectional curvature. Let $F$ be $1$-homogeneous, positive, and either convex or inverse concave if $N$ is flat and $f = F^p$. Then for a range of $p$ we have,
+\[
+u \geq -frac{p+1}{p} \frac{1}{t}
+\]
+for all $t > 0$.}
+
+The range of admissible $p$ varies depending on the background space and the speed $f$ and is given expclicitly in each theorem below.
 
 \section{Evolution equations}
 

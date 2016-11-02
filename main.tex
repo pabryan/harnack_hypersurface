@@ -385,6 +385,34 @@ and the result follows immediately from the maximum principle.
 For flat spaces, \Cref{thm:harnack} then includes and extends the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and are completely new in the Minkowski space and quotients. Note also that the theorem covers \emph{all anisotropic flows}.
 \end{example}
 
+In the Euclidean and Minkowski case, we can extend the Harnack further by allowing the speed $f$ to also depend on the support function, but restricting the range of $p$.
+
+\Theo{cor}{cor:flat_harnack_support}{
+Let $N$ be either Euclidean or Minkowski space, and let $F=F(\nu,\mc{W})$ be for each fixed $\nu$, $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set
+\eq{f=\p(s)\mrm{sgn}(p)F^{p},} where $\p$ is a positive function of the support function $s$ satisfying
+\eq{\s\p'\leq 0\quad\mbox{and}\quad \mrm{sgn}(p)\br{\fr{1-p}{p}\p'^2+\p''\p}\geq 0.}
+Then,
+\[
+\partial_t f + \frac{p}{p+1} \frac{f}{t} \geq 0.
+\]
+}
+
+\begin{proof}
+For convenience, let $G = \mrm{sgn}(p)F^{p}$ so that $f = \p(s) G$. Then Equation \eqref{eq:flat_dtu} becomes
+\eq{\label{eq:dtu_euclidean_support}
+\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 \\
+&\hp{=} + \br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij}
+}
+
+The support function of a hypersurface is given by
+\[s=\s\ip{x}{\nu}.\]
+Hence
+\[\dot{s} = \s\ip{\dot{x}}{\nu}=-\s f\]
+and
+\[\ddot{s} = -\s\dot{f}=\fr{\p'}{\p}f^2 - \s ff^{ij}B_{ij},\]
+where we used
+\[u = -\s \fr{\p'}{\p}f + f^{ij}B_{ij}.\]
+
 Then, from the assumptions on $\p$ we have,
 \[
 \begin{split}

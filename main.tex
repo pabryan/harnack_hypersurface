@@ -269,11 +269,13 @@ and due to the first Bianchi identity we arrive at
 \section{The Harnack Inequality}
 \label{sec:harnack}
 
-Let us introduce a little notation to illuminate the structure of equation \eqref{dot u}. Define, for a smooth function $\psi$
+Let us introduce a little notation to illuminate the structure of equation \eqref{dot u}. Define, the operator $\Box$ acting on smooth functions $\psi$ by
 \[
-\Box \psi = f^{ij} \psi_{;ij}
+\Box \psi = f^{ij} \psi_{;ij}.
 \]
-which is an elliptic operator from the assumptions on $f$,
+This is an elliptic operator from the parabolicity assumption of the flow, namely that $f$ is increasing.
+
+Define,
 \[
 \-Rc_{f} (X, Y) = f^{ij} \-R_{\alpha\beta\gamma\delta} x_{;i}^{\alpha} X^{\beta} x_{;j}^{\gamma} Y^{\delta}
 \]
@@ -303,7 +305,7 @@ Then,
 \partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u  \\
 &\hp{=} + \frac{2}{p} \left[\frac{1}{f} \-Rc_f(\dot{x}, \nu)\right]^2 + \fr 2f \-Rc_{h,f} (\dot{x}, \dot{x}) \\
 &\hp{=} + \s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R(\dot{x}, \nu, \dot{x}, \nu) \\
-&\hp{=} + \fr 1f \br{\nabla \-R_f (\dot{x}, \dot{x}, \nu) + \nabla \-R_f (\dot{x}, \nu, \dot{x})}.
+&\hp{=} + \fr 1f \br{\nabla \-R_f (\dot{x}, \dot{x}; \nu) + \nabla \-R_f (\dot{x}, \nu; \dot{x})}.
 }
 }
 
@@ -335,36 +337,35 @@ Since $\-Rc \geq 0$ and convexity implies $\-Rc_{f,h} \geq 0$, the second line o
 \]
 The result follows by the maximum principle, with a little care to handle the last term. Let
 \[
-q(t) = \fr{1}{q_0^{-1} - \tfrac{p+1}{p} t}
+q(t) = -\fr{p}{p+1} \frac{1}{t}
 \]
-which is a solution of the ODE,
+which is the solution of the ODE,
 \[
 \begin{cases}
 \partial_t q &= \frac{p+1}{p} q^2 \\
-q(0) &= q_0
+q(0) &= -\infty.
 \end{cases}
 \]
-where we choose $q_0 < \min\{0, \inf_{\xi\in M} u(\xi, 0) \leq 0\}$ whence
+Our assumptions ensure that
 \[
 \liminf_{t\to 0} (u(\xi, t) - q(t)) > 0 \quad \forall \xi \in M,
 \]
-and
+and that
 \[
 \begin{split}
 \partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q) \\
 &\hp{=} + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) q \\
-&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q)
+&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q).
 \end{split}
 \]
-since $q < 0$ and
+The second inequality follows since $q < 0$ and
 \[
 \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 g (\dot{x}, \nu) = -\frac{4}{p} K_0 g(\nu, \nu) \leq 0.
 \]
 The maximum principle then implies $u(\xi, t) - q(t) > 0$ for all $\xi \in M$ and $t>0$. The result follows from
 \[
-\tfrac{1}{f} \partial_t f = u \geq \fr{1}{q_0^{-1} - \tfrac{p+1}{p} t} \geq - \frac{p}{p+1} \frac{1}{t}
+\tfrac{1}{f} \partial_t f = u \geq - \frac{p}{p+1} \frac{1}{t}.
 \]
-since $q_0 < 0$.
 \end{proof}
 
 Now we devote our attention to determining when the hypotheses of \Cref{thm:harnack} are satisfied.

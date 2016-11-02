@@ -370,7 +370,28 @@ The maximum principle then implies $u(\xi, t) - q(t) > 0$ for all $\xi \in M$ an
 
 Now we devote our attention to determining when the hypotheses of \Cref{thm:harnack} are satisfied.
 
+\begin{example}[Flat Spaces]
+Let $\-R \equiv 0$. This includes in particular, Euclidean space, Minkowski space any quotients thereof such as flat tori. Then $\-Rc \equiv 0$ and $\nabla \-R \equiv 0$ hence the assumptions of \Cref{thm:harnack} are satisfied and the Harnack inequality holds for any $p \ne 0$ and $F$ inverse-concave. For reference, in this particular, case Equation \eqref{eq:dtu} is very simple,
+\[
+\label{eq:flat_dtu}
+\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2
+\]
+and the result follows immediately from the maximum principle.
 
+For flat spaces, \Cref{thm:harnack} then includes and extends the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and are completely new in the Minkowski space and quotients. Note also that the theorem covers \emph{all anisotropic flows}.
+\end{example}
+
+Then, from the assumptions on $\p$ we have,
+\[
+\begin{split}
+\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij} &= \br{\log\p}'' (\s f)^2 + \br{\log\p}' \br{\fr{\p'}{\p}f^2 - \s ff^{ij}B_{ij}} \\
+&\hp{=} - \br{\log\p}' \s f f^{ij}B_{ij} \\
+&= \left(\br{\log\p}'' + \br{\log\p}' \fr{\p'}{\p}\right) f^2 \geq 0.
+\end{split}
+\]
+
+Thus the second line in Equation \eqref{eq:dtu_euclidean_support} is non-negative and the result follows from the maximum principle as before.
+\end{proof}
 
 \section{Euclidean and Minkowski space}
 In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.

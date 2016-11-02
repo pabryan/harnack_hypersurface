@@ -270,6 +270,103 @@ and due to the first Bianchi identity we arrive at
         }
 }
 
+\section{The Harnack Inequality}
+\label{sec:harnack}
+
+Let us introduce a little notation to illuminate the structure of equation \eqref{dot u}. Define, for a smooth function $\psi$
+\[
+\Box \psi = f^{ij} \psi_{;ij}
+\]
+which is an elliptic operator from the assumptions on $f$,
+\[
+\-Rc_{f} (X, Y) = f^{ij} \-R_{\alpha\beta\gamma\delta} x_{;i}^{\alpha} X^{\beta} x_{;j}^{\gamma} Y^{\delta}
+\]
+the trace of $\-R$ with respect to $f^{ij}$. Let $\lambda$ denote the ellipticity constant of $f^{ij}$, so that $f^{ij} \geq \lambda g^{ij}$ with $\lambda \geq 0$. Then a lower bound $\-Rc \geq K_0 g$ gives a lower bound, $\-Rc_{f} \geq \lambda K_0 g$. Note also that if $f = F(H)$ is a function of the mean curvature, then $\-Rc_f = F'(H) \-Rc$.
+
+Define,
+\[
+\-Rc_{h,f} (X, Y) = f^{ik}h_k^j \-R_{\alpha\beta\gamma\delta} x_{;i}^{\a} X^{\b} x_{;j}^{\g} Y^{\d}
+\]
+the trace of $\-R$ with respect to $f^{ik}h_k^j$.  By convexity, we also have $h \geq h_0(t) g$ with $h_0(t) > 0$, which yields the lower bound $\-Rc_{h,f} \geq h_0(t) \lambda K_0 g$. In particular, if $K_0 \geq 0$, then both $\-Rc_f$ and $\-Rc_{h,f}$ are non-negative.
+
+Finally, define,
+\[
+\nabla \-R_f (X, Y; Z) = f^{ij} \-R_{\a\b\g\d;\e}X^{\a}x^{\b}_{;i}Y^{\g}Z^{\d}x^{\e}_{;j}
+\]
+
+Now we put together \Cref{Ev-u} and \Cref{CF} to rewrite \Cref{Ev-u} as follows:
+
+\Theo{lemma}{Ev-u-2}{
+Let $f = \mrm{sgn}(p)F^{p}$ for $F$ positive, 1-homogeneous with $p \ne 0$, and such that either,
+\begin{enumerate}
+\item $F$ is convex,
+\item $F$ is inverse concave and $\Lambda \equiv 0$ (e.g. if $\-R \equiv 0$).
+\end{enumerate}
+Then,
+\eq{\label{eq:dtu}
+\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u  \\
+&\hp{=} + \frac{2}{p} \left[\frac{1}{f} \-Rc_f(\dot{x}, \nu)\right]^2 + \fr 2f \-Rc_{h,f} (\dot{x}, \dot{x}) \\
+&\hp{=} + \s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R(\dot{x}, \nu, \dot{x}, \nu) \\
+&\hp{=} + \fr 1f \br{\nabla \-R_f (\dot{x}, \dot{x}, \nu) + \nabla \-R_f (\dot{x}, \nu, \dot{x})}.
+}
+}
+
+\pf{
+Straightforward. Will fill in the details later.
+}
+
+We may now deduce the following Harnack inequality.
+
+\Theo{thm}{thm:harnack}{
+With the assumptions of \Cref{Ev-u-2}, suppose that $\-Rc = K_0 g$ with $K_0 \geq 0$, and that the last two lines of equation \eqref{eq:dtu} are non-negative. Then,
+\eq{\del_{t} f + \fr{p}{p+1} \fr{f}{t} \geq 0 \quad \forall t>0.}
+Equivalently,
+\eq{\del_{t}\br{t^{\fr{p}{p+1}}f} \geq 0 \quad \forall t>0.}
+}
+
+\begin{proof}
+Since $\-Rc \geq 0$ and convexity implies $\-Rc_{f,h} \geq 0$, the second line of equation \eqref{eq:dtu} is non-negative. The other assumptions ensure the last two lines of equation \eqref{eq:dtu} are also non-negative and hence we have,
+\[
+\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u.
+\]
+The result follows by the maximum principle, with a little care to handle the last term. Let
+\[
+q(t) = \fr{1}{q_0^{-1} - \tfrac{p+1}{p} t}
+\]
+which is a solution of the ODE,
+\[
+\begin{cases}
+\partial_t q &= \frac{p+1}{p} q^2 \\
+q(0) &= q_0
+\end{cases}
+\]
+where we choose $q_0 < \min\{0, \inf_{\xi\in M} u(\xi, 0) \leq 0\}$ whence
+\[
+\liminf_{t\to 0} (u(\xi, t) - q(t)) > 0 \quad \forall \xi \in M,
+\]
+and
+\[
+\begin{split}
+\partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q) \\
+&\hp{=} - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) q \\
+&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q)
+\end{split}
+\]
+since $q < 0$ and
+\[
+\frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 g (\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 \geq 0.
+\]
+The maximum principle then implies $u(\xi, t) - q(t) > 0$ for all $\xi \in M$ and $t>0$. The result follows from
+\[
+\tfrac{1}{f} \partial_t f = u \geq \fr{1}{q_0^{-1} - \tfrac{p+1}{p} t} \geq - \frac{p}{p+1} \frac{1}{t}
+\]
+since $q_0 < 0$.
+\end{proof}
+
+Now we devote our attention to determining when the hypotheses of \Cref{thm:harnack} are satisfied.
+
+
+
 \section{Euclidean and Minkowski space}
 In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 \Theo{thm}{R=0}{

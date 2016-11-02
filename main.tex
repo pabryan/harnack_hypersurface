@@ -300,7 +300,7 @@ Let $f = \mrm{sgn}(p)F^{p}$ for $F$ positive, 1-homogeneous with $p \ne 0$, and 
 \end{enumerate}
 Then,
 \eq{\label{eq:dtu}
-\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u  \\
+\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u  \\
 &\hp{=} + \frac{2}{p} \left[\frac{1}{f} \-Rc_f(\dot{x}, \nu)\right]^2 + \fr 2f \-Rc_{h,f} (\dot{x}, \dot{x}) \\
 &\hp{=} + \s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R(\dot{x}, \nu, \dot{x}, \nu) \\
 &\hp{=} + \fr 1f \br{\nabla \-R_f (\dot{x}, \dot{x}, \nu) + \nabla \-R_f (\dot{x}, \nu, \dot{x})}.
@@ -314,16 +314,24 @@ Straightforward. Will fill in the details later.
 We may now deduce the following Harnack inequality.
 
 \Theo{thm}{thm:harnack}{
-With the assumptions of \Cref{Ev-u-2}, suppose that $\-Rc = K_0 g$ with $K_0 \geq 0$, and that the last two lines of equation \eqref{eq:dtu} are non-negative. Then,
+With the assumptions of \Cref{Ev-u-2}, suppose that $\-Rc = K_0 g$ with $K_0 \geq 0$, and that the last two lines of equation \eqref{eq:dtu} are non-negative. If,
+\[
+\forall \xi \in M, \quad \liminf_{t\to 0} u(\xi, t) + \frac{p}{p+1} \frac{1}{t} > 0,
+\]
+then
 \eq{\del_{t} f + \fr{p}{p+1} \fr{f}{t} \geq 0 \quad \forall t>0.}
 Equivalently,
 \eq{\del_{t}\br{t^{\fr{p}{p+1}}f} \geq 0 \quad \forall t>0.}
 }
 
+\begin{rem}
+The requirement $\liminf_{t\to 0} u(\xi, t) + \frac{p}{p+1} \tfrac{1}{t} > 0$ is trivially true if the flow is smooth up to $t=0$, but also allows for loss of regularity in the form $u \to -\infty$ as $t \to 0$, provided the blowup occurs slower than $\tfrac{1}{t}$.
+\end{rem}
+
 \begin{proof}
 Since $\-Rc \geq 0$ and convexity implies $\-Rc_{f,h} \geq 0$, the second line of equation \eqref{eq:dtu} is non-negative. The other assumptions ensure the last two lines of equation \eqref{eq:dtu} are also non-negative and hence we have,
 \[
-\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u.
+\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u.
 \]
 The result follows by the maximum principle, with a little care to handle the last term. Let
 \[
@@ -343,14 +351,14 @@ where we choose $q_0 < \min\{0, \inf_{\xi\in M} u(\xi, 0) \leq 0\}$ whence
 and
 \[
 \begin{split}
-\partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q) \\
-&\hp{=} - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) q \\
-&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q)
+\partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q) \\
+&\hp{=} + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) q \\
+&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q)
 \end{split}
 \]
 since $q < 0$ and
 \[
-\frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 g (\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 \geq 0.
+\frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 g (\dot{x}, \nu) = -\frac{4}{p} K_0 g(\nu, \nu) \leq 0.
 \]
 The maximum principle then implies $u(\xi, t) - q(t) > 0$ for all $\xi \in M$ and $t>0$. The result follows from
 \[

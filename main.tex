@@ -275,9 +275,9 @@ Let us introduce a little notation to illuminate the structure of equation \eqre
 \]
 This is an elliptic operator from the parabolicity assumption of the flow, namely that $f$ is increasing.
 
-Define,
+Define, the $f$-Ricci curvature
 \[
-\-Rc_{f} (X, Y) = f^{ij} \-R_{\alpha\beta\gamma\delta} x_{;i}^{\alpha} X^{\beta} x_{;j}^{\gamma} Y^{\delta}
+\-Rc_{f} (X, Y) = f^{ij} \-R_{\alpha\beta\gamma\delta} x_{;i}^{\alpha} X^{\beta} x_{;j}^{\gamma} Y^{\delta},
 \]
 the trace of $\-R$ with respect to $f^{ij}$. Let $\lambda$ denote the ellipticity constant of $f^{ij}$, so that $f^{ij} \geq \lambda g^{ij}$ with $\lambda \geq 0$. Then a lower bound $\-Rc \geq K_0 g$ gives a lower bound, $\-Rc_{f} \geq \lambda K_0 g$. Note also that if $f = F(H)$ is a function of the mean curvature, then $\-Rc_f = F'(H) \-Rc$.
 
@@ -292,106 +292,147 @@ Finally, define,
 \nabla \-R_f (X, Y; Z) = f^{ij} \-R_{\a\b\g\d;\e}X^{\a}x^{\b}_{;i}Y^{\g}Z^{\d}x^{\e}_{;j}
 \]
 
-Now we put together \Cref{Ev-u} and \Cref{CF} to rewrite \Cref{Ev-u} as follows:
+Now we use \Cref{CF} to rewrite \Cref{Ev-u} as follows:
 
-\Theo{lemma}{Ev-u-2}{
+\Theo{lemma}{lem:Ev-u-2}{
 Let $f = \mrm{sgn}(p)F^{p}$ for $F$ positive, 1-homogeneous with $p \ne 0$, and such that either,
 \begin{enumerate}
 \item $F$ is convex,
 \item $F$ is inverse concave and $\Lambda \equiv 0$ (e.g. if $\-R \equiv 0$).
 \end{enumerate}
-Then,
+Then if $p > 0$,
 \eq{\label{eq:dtu}
-\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u  \\
-&\hp{=} + \frac{2}{p} \left[\frac{1}{f} \-Rc_f(\dot{x}, \nu)\right]^2 + \fr 2f \-Rc_{h,f} (\dot{x}, \dot{x}) \\
-&\hp{=} + \s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R(\dot{x}, \nu, \dot{x}, \nu) \\
+\partial_t u &\geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u + \frac{2}{p} \left[\frac{1}{f} \-Rc_f(\dot{x}, \nu)\right]^2 \\
+&\hp{=} + \fr 2f \-Rc_{h,f} (\dot{x}, \dot{x}) + \s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R(\dot{x}, \nu, \dot{x}, \nu) \\
 &\hp{=} + \fr 1f \br{\nabla \-R_f (\dot{x}, \dot{x}; \nu) + \nabla \-R_f (\dot{x}, \nu; \dot{x})}.
 }
+while if $-1 < p < 0$, the inequality is reversed.
 }
 
 \pf{
-Straightforward. Will fill in the details later.
+Straightforward by \Cref{CF}. Will fill in the details later.
 }
 
 We may now deduce the following Harnack inequality.
 
-\Theo{thm}{thm:harnack}{
-With the assumptions of \Cref{Ev-u-2}, suppose that $\-Rc = K_0 g$ with $K_0 \geq 0$, and that the last two lines of equation \eqref{eq:dtu} are non-negative. If,
-\[
-\forall \xi \in M, \quad \liminf_{t\to 0} u(\xi, t) + \frac{p}{p+1} \frac{1}{t} > 0,
-\]
-then
-\eq{\del_{t} f + \fr{p}{p+1} \fr{f}{t} \geq 0 \quad \forall t>0.}
-Equivalently,
-\eq{\del_{t}\br{t^{\fr{p}{p+1}}f} \geq 0 \quad \forall t>0.}
+\begin{thm}[Harnack Inequality]
+\label{thm:harnack}
+With the homogeneity and convexity/concavity assumptions on the speed $f$ from \Cref{lem:Ev-u-2} and $p > -1$, $p \ne 0$, suppose also that
+\eq{\label{lower_ric}
+- \frac{1}{f} \-Rc_f(\dot{x}, \nu) \geq \frac{p+1}{2} C \quad \text{and} \quad \br{\frac{1}{f} \-Rc_f(\dot{x}, \nu)}^2 \geq \frac{p+1}{2} C^2
 }
+with $C$ a constant, and that the last two lines of equation \eqref{eq:dtu} are non-negative. Then if,
+\eq{\label{initial_cond}
+\begin{cases}
+\forall \xi \in M, \liminf_{t\to 0} u(\xi, t) + \frac{p}{p+1} \frac{1}{t} > 0, & p > 0 \\
+\forall \xi \in M, \limsup_{t\to 0} u(\xi, t) + \frac{p}{p+1} \frac{1}{t} < 0, & -1 < p < 0
+\end{cases}
+}
+we have
+\eq{
+\del_{t} f + \fr{p}{p+1} \fr{f}{t} - Cf \geq 0 \quad \forall t>0.
+}
+Equivalently,
+\eq{\del_{t}\br{e^{-Ct} t^{\fr{p}{p+1}}f} - Cf \geq 0 \quad \forall t>0, \quad p \ne 0, p > -1.}
+\end{thm}
 
 \begin{rem}
-The requirement $\liminf_{t\to 0} u(\xi, t) + \frac{p}{p+1} \tfrac{1}{t} > 0$ is trivially true if the flow is smooth up to $t=0$, but also allows for loss of regularity in the form $u \to -\infty$ as $t \to 0$, provided the blowup occurs slower than $\tfrac{1}{t}$.
+The requirement in equation \eqref{initial_cond} is trivially true if the flow is smooth up to $t=0$, but also allows for loss of regularity at $t=0$ with $u$ blowing up provided the blowup occurs slower than $\tfrac{1}{t}$.
 \end{rem}
 
 \begin{proof}
-Since $\-Rc \geq 0$ and convexity implies $\-Rc_{f,h} \geq 0$, the second line of equation \eqref{eq:dtu} is non-negative. The other assumptions ensure the last two lines of equation \eqref{eq:dtu} are also non-negative and hence we have,
+For convenience, let,
 \[
-\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)u.
+A = - \fr{1}{f} \-Rc_f(\dot{x}, \nu)
 \]
-The result follows by the maximum principle, with a little care to handle the last term. Let
+Assumption \eqref{lower_ric} then reads,
+\eq{\label{A}
+A \geq \frac{p+1}{2} C \quad \text{and} \quad A^2 \geq \frac{p+1}{2} C^2
+}
+Using the assumption that the last two lines vanish, we have
+\eq{\label{harnack_dtu}
+\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 - \frac{4}{p} A u  + \frac{2}{p} A^2.
+}
+
+Now we apply the maximum principle. For $p > -1$, $p \ne 0$, let
 \[
-q(t) = -\fr{p}{p+1} \frac{1}{t}
+q(t) = -\fr{p}{p+1} \frac{1}{t} + C
 \]
 which is the solution of the ODE,
-\[
+\eq{\label{eq:ode}
 \begin{cases}
-\partial_t q &= \frac{p+1}{p} q^2 \\
+\partial_t q &= \frac{p+1}{p} q^2 - 2 \frac{p+1}{p} C q + \frac{p+1}{p} C^2 \\
 q(0) &= -\infty.
 \end{cases}
-\]
-Our assumptions ensure that
+}
+
+Consider first the case $p > 0$. Equation \eqref{eq:ode} gives,
 \[
-\liminf_{t\to 0} (u(\xi, t) - q(t)) > 0 \quad \forall \xi \in M,
+\partial_t q \leq \frac{p+1}{p} q^2 - \fr{4}{p} A q + \fr{2}{p} A^2
 \]
-and that
+by equation \eqref{A} whenever $q \leq 0$ which is true for all $t$ if $C \leq 0$ and for $0 < t \leq \tfrac{p}{(p+1)C}$ if $C > 0$. This is an equality for all time if $p = 1$ and $A \equiv C$, even in the case $C > 0$. Combining this with \eqref{harnack_dtu}, we have
 \[
 \begin{split}
-\partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q) \\
-&\hp{=} + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) q \\
-&\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) + \frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu)(u - q).
+\partial_t (u - q) &\geq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) \\
+&\hp{=} - \frac{4}{p} A u + \frac{4}{p} A q  + \frac{2}{p} A^2  - \frac{2}{p} A^2 \\
+&= \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} A(u - q).
 \end{split}
 \]
-The second inequality follows since $q < 0$ and
+Equation \eqref{initial_cond} ensures $u - q$ is initially positive and hence the maximum principle then implies $u(\xi, t) - q(t) \geq 0$ for all $\xi \in M$ and $t>0$. The result follows from
 \[
-\frac{4}{p} \frac{1}{f} \-Rc_f(\dot{x}, \nu) = \frac{4}{p} \frac{1}{f} K_0 g (\dot{x}, \nu) = -\frac{4}{p} K_0 g(\nu, \nu) \leq 0.
+\tfrac{1}{f} \partial_t f = u \geq q = - \frac{p}{p+1} \frac{1}{t}.
 \]
-The maximum principle then implies $u(\xi, t) - q(t) > 0$ for all $\xi \in M$ and $t>0$. The result follows from
+\end{proof}
+
+\textbf{Need a lifetime estimate in the case $C > 0$. This would correspond to strictly positive Ricci, hence a compact background and so monotonicity of the flow might make it collapse in finite time. Are geodesic balls convex in positive Ricci backgrounds?}
+
+\textbf{The case $-1 < p < 0$ is similar. Will fill in the details shortly. Here's an old version without the bonus term.}
+
+\begin{proof}
+In the case $-1 < p < 0$, equation \eqref{initial_cond} ensures that
 \[
-\tfrac{1}{f} \partial_t f = u \geq - \frac{p}{p+1} \frac{1}{t}.
+\limsup_{t\to 0} (u(\xi, t) - q(t)) < 0 \quad \forall \xi \in M,
 \]
+and reversing the inequality in \eqref{harnack_dtu} gives,
+\[
+\partial_t (u - q) \leq \Box (u - q) + T \ast \nabla (u - q) + \fr{p+1}{p}(u^2 - q^2) - \frac{4}{p} n K_0 (u - q)
+\]
+since $q > 0$ for $-1 < p < 0$. Then $u(\xi, t) - q(t) < 0$ for all $\xi \in M$ and $t>0$ and the result follows from
+\[
+\tfrac{1}{f} \partial_t f = u \leq q = - \frac{p}{p+1} \frac{1}{t}
+\]
+upon multiplying both sides by $f < 0$.
 \end{proof}
 
 Now we devote our attention to determining when the hypotheses of \Cref{thm:harnack} are satisfied.
 
+\textbf{This was from before the bonus term was added in the general Harnack. Will update it later.}
+
 \begin{example}[Flat Spaces]
-Let $\-R \equiv 0$. This includes in particular, Euclidean space, Minkowski space any quotients thereof such as flat tori. Then $\-Rc \equiv 0$ and $\nabla \-R \equiv 0$ hence the assumptions of \Cref{thm:harnack} are satisfied and the Harnack inequality holds for any $p \ne 0$ and $F$ inverse-concave. For reference, in this particular, case Equation \eqref{eq:dtu} is very simple,
+Let $\-R \equiv 0$. This includes in particular, Euclidean space, Minkowski space any quotients thereof such as flat tori. Then $\-Rc \equiv 0$, $\nabla \-R \equiv 0$ and $\Lambda \equiv 0$. Hence the assumptions of \Cref{thm:harnack} are satisfied for any $p \ne 0$ and $F$ inverse-concave and the Harnack inequality holds in these cases.
+
+Thus for flat spaces, \Cref{thm:harnack} then includes and extends the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and are completely new in the Minkowski space and quotients. Note also that the theorem covers \emph{all anisotropic flows} where the anisotropic dependence is parallel with respect to the Euclidean metric - namely by applying the Gauss map $M \to \S^n$ translating the normal to the origin, the anisotropic dependence is only on the image $z = \nu_t(x) \in \S^n$.
+
+For reference, in this particular, case Equation \eqref{eq:dtu} is very simple,
 \[
 \label{eq:flat_dtu}
 \partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2
 \]
 and the result follows immediately from the maximum principle.
-
-For flat spaces, \Cref{thm:harnack} then includes and extends the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and are completely new in the Minkowski space and quotients. Note also that the theorem covers \emph{all anisotropic flows}.
 \end{example}
 
-Then, from the assumptions on $\p$ we have,
-\[
-\begin{split}
-\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij} &= \br{\log\p}'' (\s f)^2 + \br{\log\p}' \br{\fr{\p'}{\p}f^2 - \s ff^{ij}B_{ij}} \\
-&\hp{=} - \br{\log\p}' \s f f^{ij}B_{ij} \\
-&= \left(\br{\log\p}'' + \br{\log\p}' \fr{\p'}{\p}\right) f^2 \geq 0.
-\end{split}
-\]
+\begin{example}[Constant Positive Sectional Curvature]
+Let $\-R \equiv \frac{1}{2} K_0 g \owedge g$ where $\owedge$ is the Kulkarni-Nomizu product. That is $\-R$ has constant sectional curvature, $K_0$. This includes the sphere, de Sitter space any quotients thereof. We have $\nabla \-R \equiv 0$ and $\-Rc = K_0 g$. The last line of Equation \eqref{eq:dtu} vanishes since $\nabla \-R \equiv 0$. The second last line is non-negative for $p \in (0, 1]$ if $\s = 1$ and $p \in [1, \infty)$ if $\s = -1$. Note also that \Cref{lem:Ev-u-2} requires in this case that $F$ is convex; unlike in flat spaces, inverse concavity is not sufficient.
 
-Thus the second line in Equation \eqref{eq:dtu_euclidean_support} is non-negative and the result follows from the maximum principle as before.
-\end{proof}
+Thus the Harnack holds for $F$ convex and $p \in (0, 1]$ in the Riemannian case, and $p \in [1, \infty)$ in the Lorenztian case.
+
+Again, for reference, Equation \eqref{eq:dtu} is still very simple,
+\eq{
+\label{eq:const_curv_dtu}
+\partial_t u \geq \Box u + T \ast \nabla u + \fr{p+1}{p} u^2 + \frac{4}{p} \frac{1}{f} \-Rc_f (\dot{x}, \nu) u.
+}
+The result follows from the maximum principle, handling the last term as in the proof of \Cref{thm:harnack}.
+\end{example}
 
 \section{Euclidean and Minkowski space}
 In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.

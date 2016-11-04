@@ -9,7 +9,7 @@
 \label{sec:intro}
 Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M=M^{n}$ be a smooth and orientable manifold. Let $\s = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
 \eq{x\cn M\x[0,T^{\ast})\ra N}
-be a family of strictly convex spacelike embeddings (in the Riemannian case just ignore the term ``spacelike''), which evolve by the curvature flow
+be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolve by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$. The speed, $f$ is a smooth, increasing function of the principal curvatures.
 
@@ -54,13 +54,24 @@ where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite t
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
 where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function.
 
-Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}.
+Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}. Recall that a curvature function $f$ is called {\it{strictly monotone}}, if
+\eq{f^{ij}:=\fr{\del f}{\del h_{ij}}}
+is positive definite and {\it{inverse concave}} if 
+\eq{\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}}
+is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$ 
+For second derivatives of $f$ we write
+\eq{f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },}
+and we recall the formulas
+\eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}=-\fr{\del f}{\del h_{mi}}h^{j}_{m},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}=-g^{kj}f^{il}-f^{ij,km}h^{l}_{m}.}
 \Theo{lemma}{CF}{
 Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
 \eq{f=\mrm{sgn}(p)F^p}
 satisfies
 \eq{\label{CF-1}f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl}}
 \eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
+If we replace the convexity assumption on $F$ by inverse concavity, then we have
+\eq{\label{CF-3}f^{ij,kl}+2f^{ik}b^{jl}\geq \fr{p+1}{p}f^{-1}f^{ij}f^{kl}.}
+
 }
 \pf{
 It is well known that
@@ -71,8 +82,10 @@ Thus
 and
 \eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
 			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-Hence
-\eq{2f^{ik}b^{jl}+f^{ij,kl}\geq \fr{p+1}{p} f^{-1}f^{ij}f^{kl}.}
+
+If $F$ is only inverse concave, it was shown in \cite[p.~112]{Urbas:/1991} that
+\eq{F^{ij,kl}+2F^{ik}b^{jl}\geq 2F^{-1}F^{ij}F^{kl}.}
+Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~13]{BryanIvakiScheuer:12/2015}.
 }
 
 \subsection{Notation and Basic Definitions}
@@ -109,8 +122,76 @@ then we also have
 Furthermore, we define (generally) non-symmetric bilinear forms,
 \eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
 
-\subsection{Gauss Map and Duality}
+\subsection{Gauss Map and Duality}\label{Duality}
 \label{subsec:gauss_duality}
+
+In this section, we give a brief review of a duality relation between strictly convex hypersurfaces of the unit sphere $\S^{n+1}$ and a duality relation between strictly convex hypersurfaces of the hyperbolic space with such of the De Sitter space. The relevant results can be found in \cite[Ch.~9, 10]{Gerhardt:/2006}. For convenience, we will state the main results here.
+\subsubsection*{Duality in the sphere}
+Let $x\cn M_0\ra M\hra \S^{n+1}$ be a strictly convex closed hypersurface. Let the {\it{Gauss map}} $\~x\in T_x(\R^{n+2})$ represent the unit normal vector to $M$, $\nu\in T_x(\S^{n+1}).$ Then the mapping
+\eq{\label{GaussMap}\~x\cn M_0\ra \S^{n+1}}
+is also the embedding of a closed and strictly convex hypersurface. The geometry of $\~x$ is governed by the following theorem:
+
+\Theo{thm}{SphereDuality}{\cite[Thm.~9.2.5]{Gerhardt:/2006}
+Let $x\cn M_0\ra M\ra \S^{n+1}$ be a closed, connected, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ then the Gauss map $\~x$ in \eqref{GaussMap} is the embedding of a closed, connected, strictly convex hypersurface $\~M\sub \mathbb{S}^{n+1}$ of class $C^{m-1}.$ Viewing $\~M$ as a codimension $2$ submanifold in $\R^{n+2},$ its Gaussian formula is
+\eq{\~x_{;ij}=-\~g_{ij}\~x-\~h_{ij}x,}
+where $\~g_{ij},$ $\~h_{ij}$ are the metric and the second fundamental form of the hypersurface $\~M\sub \mathbb{S}^{n+1}$ and $x=x(\xi)$ is the embedding of $M$ which also represents the exterior normal vector of $\~M$. The second fundamental form $\~h_{ij}$ is defined with respect to the interior normal vector.
+
+The second fundamental forms of $M,$ $\~M$ and the corresponding principal curvatures $\k_{i},$ $\~\k_{i}$ satisfy
+\eq{h_{ij}=\~h_{ij}=\ip{\~x_{;i}}{x_{;j}},\quad \~\k_{i}=\k_{i}^{-1}.}
+}
+We point out that $\tilde{M}$ is called the polar set to $M$ and it has the following elegant representation:
+$$\tilde{M}=\{y\in \mathbb{S}^{n+1}: \sup_{y\in M}\langle x,y\rangle=0\},$$
+where $\langle \cdot,\cdot\rangle$ is the inner product in $\mathbb{R}^{n+2};$ see \cite[Thm.~9.2.9]{Gerhardt:/2006}.
+\subsubsection*{Duality between hyperbolic space and De Sitter space} In this section, $\langle \cdot,\cdot\rangle$ denotes the inner product of $\mathbb{R}^{n+1,1}.$
+The de Sitter space is the Lorentzian spaceform in the Minkowski space with constant sectional curvature $C=1:$
+\eq{\mathbb{S}^{n,1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=1 \},}
+whereas the hyperbolic space is a Riemannian spaceform in the Minkowski space with constant sectional curvature $C=-1$:
+\eq{\mathbb{H}^{n+1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=-1,~ x^{0}>0\},}
+where $x^0$ is the time coordinate.
+
+Similarly, as for the sphere, given an embedding 
+\eq{x\cn M_0\ra M\sub\H^{n+1}}
+of a closed and strictly convex hypersurface, the representation $\~x\in T_x(\R^{n+1,1})$ of the exterior normal vector $\nu\in T_x(\H^{n+1})$ yields the embedding
+\eq{\label{HypGaussMap}\~x\cn M_0\ra \~M\sub \S^{n,1}}
+of a strictly convex, closed and spacelike hypersurface $\~M.$
+We also call this map $\~x$ the {\it{Gauss map of $M$}} and similarly as in the sphere we have the following theorem:
+\Theo{thm}{DeSitterDuality}{\cite[Thm.~10.4.4]{Gerhardt:/2006}
+Let $x\cn M\ra \H^{n+1}$ be a closed, connected, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ then the Gauss map $\~x$ as in \eqref{HypGaussMap} is the embedding of a closed, spacelike, achronal, strictly convex hypersurface $\~M\sub \mathbb{S}^{n,1}$ of class $C^{m-1}.$ Viewing $\~M$ as a codimension $2$ submanifold in $\R^{n+1,1},$ its Gaussian formula is
+\eq{\~x_{;ij}=-\~g_{ij}\~x+\~h_{ij}x,}
+where $\~g_{ij},$ $\~h_{ij}$ are the metric and the second fundamental form of the hypersurface $\~M\sub \mathbb{S}^{n,1}$ and $x=x(\xi)$ is the embedding of $M$ which also represents the future directed normal vector of $\~M$. The second fundamental form $\~h_{ij}$ is defined with respect to the future directed normal vector, where the time orientation of $N$ is inherited from $\R^{n+1,1}$.
+
+The second fundamental forms of $M,$ $\~M$ and the corresponding principal curvatures $\k_{i},$ $\~\k_{i}$ satisfy
+\eq{h_{ij}=\~h_{ij}=\ip{\~x_{;i}}{x_{;j}},\quad \~\k_{i}=\k_{i}^{-1}.}
+}
+Similar to the spherical case, $\tilde{M}$ is called the polar set to $M$ and it can be represented as follows \cite[Thm.~10.4.8]{Gerhardt:/2006}:
+$$\tilde{M}=\{y\in \mathbb{S}^{n,1}: \sup_{y\in M}\langle x,y\rangle=0\}.$$
+In this model of the hyperbolic space the point $(1,0,\ldots,0)$ is called the {\it{Beltrami point}}. For a given strictly convex hypersurface $M\sub\H^{n+1}$, $M$ bounds a strictly convex body $\hat{M}$ of the hyperbolic space, cf.~\cite[Thm.~10.3.1]{Gerhardt:/2006}, and due to the homogeneity of the hyperbolic space, any point in $\hat{M}$ may act as Beltrami point after suitable ambient change of coordinates. Therefore, in addition to the statement of \cref{DeSitterDuality}, \cite[Thm.~10.4.9.]{Gerhardt:/2006} implies that the dual $\~M$ is contained in the future of the slice $\{x^0=0\}$,
+\eq{\~M\sub \S^{n,1}_{+}=\{x\in \S^{n,1}\cn x^0>0\}.}
+
+The following illustration shall give a clearer picture of the duality.
+
+\subsubsection*{Dual flows}
+
+For a curvature flow
+\eq{\label{NormalFlow}\dot{x}=-f\nu}
+in $\S^{n+1}$ or $\H^{n+1}$, we want to derive the curvature flow equation of the Gauss maps $\~x$. In both cases the pair $x,\~x$ satisfies
+\eq{\ip{x}{\~x}=0,}
+where $\ip{\cdot}{\cdot}$ represents the Euclidean and the Minkowski inner product respectively for flows in $\S^{n+1}$ and $\H^{n+1}$.
+Hence
+\eq{\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{- f\nu}= f,}
+since $\~x$ is spacelike in both cases. Also, note that $\ip{\~x}{\~x_{;i}}=0$; therefore, due to the Weingarten equation \cite[Lem.~9.2.4, Lem.~10.4.3]{Gerhardt:/2006},
+\eq{\ip{\dot{\~x}}{\~x_{;i}}=h^k_i\ip{\dot{\~x}}{x_{;k}}=-h^k_i\ip{\~x}{\dot{x}_{;k}}=h^k_if_{;k}.}
+Since $x=\~\nu$ and $\~x_{;i}$ span $T_{\~x}(\S^{n+1})$ and $T_{\~x}(\S^{n,1})$ respectively, we obtain
+\eq{\dot{\~x}&=\s f\~\nu+h^k_mf_{;k}\~g^{ml}\~x_{;l}\\
+			&=\s f\~\nu+\~b^k_m\~g^{ml}f_{;k}\~x_{;l}\\
+            &=\s f\~\nu+\~b^{kl}f_{;k}\~x_{;l},}
+where $f$ is still evaluated at $\mc{W}$. However, there holds
+\eq{\label{DualFlow-3}f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}})}
+and hence
+\eq{\label{DualHyperbolic}\dot{\~x}=-\s\Phi\~\nu-\~b^{kl}\Phi_{;k}\~x_{;l},}
+where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We see that the dual of a flow of the form
+\eqref{NormalFlow} in $\S^{n+1}$ or $\H^{n+1}$ moves precisely as a flow of the form \eqref{Flow} in $\S^{n+1}$ or $\S^{n,1}$.
+
 
 \section{Evolution equations}
 
@@ -211,11 +292,8 @@ Under the flow \eqref{Flow} we have
         &\hp{=}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}x^{\e}_{;j}+\fr 1f f^{ij}\-R_{\a\b\g\d;\e}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}.
         }}
 \pf{
-First we recall the formulas
-\[\fr{\del f}{\del g_{ij}}=-\fr{\del f}{\del h_{mi}}h^{j}_{m},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}=-g^{kj}f^{il}-f^{ij,km}h^{l}_{m},\]
-and the standard notation
-\[f^{ij}=\fr{\del f}{\del h_{ij}},\quad f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} }.\]
-We deduce from \eqref{Ev-g} and \eqref{Ev-h} and the symmetry of $f^{mj}h^{i}_{m}$ that
+
+We deduce from \eqref{Ev-g}, \eqref{Ev-h} and the symmetry of $f^{mj}h^{i}_{m}$ that
 \eq{u&=\fr 1f\br{\p'F\dot{s}+f^{ij}\dot{h}_{ij}-f^{mi}h^{j}_{m}\dot{g}_{ij}}\\
         &=\fr{\p'}{\p}\dot{s}+\fr 1f\br{-f^{ij}h_{ik}A^{k}_{j}+f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}+2f^{mj}h_{mk}A^{k}_{j}}\\
         &=(\log\p)'\dot{s}+f^{ij}\br{B_{ij}+\fr 1f\L_{ij}}.}
@@ -524,26 +602,9 @@ Therefore, by the maximum principle, $q$ remains positive. This implies that
 \[t\left(\frac{\partial_t H}{H}-Cn\right)+\frac{1}{2}\geq 0.\]
 Dividing both sides by $t$ yields the Harnack inequality with the bonus term in \cite{BryanIvaki:08/2015}.
 }
-By applying the dual flow method developed in \cite{Gerhardt:/2015} for flows in the sphere, we obtain pseudo Harnack inequalities for expanding flows. For convenience, we deduce the dual flow to a curvature flow
-\eq{\label{normalFlow}\dot{x}=-f\nu}
-in the sphere.
-
-The normal vector $\nu\in T_x(\mathbb{S}^{n+1})$ can be viewed as a vector $\tilde{x}\in T_x(\R^{n+2}):$
-\eq{\~x=y_{;\a}\nu^{\a}.}
-Differentiating with respect to time yields:
-\eq{\label{Dualflow}\dot{\~x}&=y_{;\a\b}\dot{x}^{\b}\nu^{\a}+y_{;\a}\dot{\nu}^{\a}\\
-  &=fy+y_{;\a}\dot{\nu}^{\a}\\
-  &=fy+y_{;\a}g^{ij}f_{;i}x^{\a}_{;j}\\
-  &=fy+g^{ij}\~h^k_j\~x_{;k}f_{;i}.}
-Since $g_{ij}=\~h_{ik}\~h^k_j$ (see \cite[Thm.~9.2.5]{Gerhardt:/2006}), we obtain
- \eq{\dot{\~x}=fy+\~b^{ij}f_{;i}\~x_{;j}.}
-On the other hand,
- \eq{\label{DualFlow-3}f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}}).}
- Hence the dual flow reads
- \eq{\label{DualFlow2}\dot{\~x}=-\Phi \~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
- where $\~\nu$ is the pulled back version of $y$. We see that the dual flow is precisely of the form \eqref{Flow}. This is not surprising: From \eqref{normalFlow} and \eqref{Dualflow} we see that a flow has no tangential component precisely when its dual satisfies $\dot{\nu}=0.$
+By applying the dual flow method developed from \cref{Duality} 
 Thus for a class of inverse curvature flows we obtain pseudo Harnack inequalities.
- \Theo{thm}{Sphere}{
+ \Theo{thm}{ExpandingSphere}{
 Let $N=\S^{n+1}$ and $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $-1\leq p<0$ and set $f=\mrm{sgn}(p)F^{p}.$ Then under the expanding flow \eqref{normalFlow} we have
 \eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.}
 %In particular, this yields
@@ -556,8 +617,7 @@ satisfies the assumptions of \cref{Sphere}; therefore,
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 \subsection*{De Sitter space}
-The de Sitter space is the Lorentzian spaceform in the Minkowski space with  constant sectional curvature $C=1:$
-\[\mathbb{S}^{n,1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=1 \}.\]
+
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
@@ -586,30 +646,9 @@ The result now follows from the maximum principle.
 Hence by the maximum principle, $q$ remains positive. This implies that
 \[\partial_t H-nH+\frac{H}{2t}\geq 0.\]
 }
-The hyperbolic space is a sphere in the Minkowski space  which has constant negative sectional curvature:
-\[\mathbb{H}^{n+1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=-1,~ x^{0}>0\},\]
-where $x^0$ is the time coordinate.
 
-Similar to spherical space, there is a duality relation between strictly convex hypersurfaces of the hyperbolic space and strictly convex hypersurfaces of the de Sitter space. For convenience, we state the precise duality relation in the next theorem.
-\Theo{thm}{DeSitterDuality}{\cite[Thm.~10.4.4]{Gerhardt:/2006}
-Let $x\cn M\ra \H^{n+1}$ be a closed, connected, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ then the Gauss map $\~x$ is the embedding of a closed, spacelike, achronal, strictly convex hypersurface $\~M\sub \mathbb{S}^{n,1}$ of class $C^{m-1}.$ Viewing $\~M$ as a codimension $2$ submanifold in $\R^{n+1,1},$ its Gaussian formula is
-\eq{\~x_{;ij}=-\~g_{ij}\~x+\~h_{ij}x,}
-where $\~g_{ij},$ $\~h_{ij}$ are the metric and the second fundamental form of the hypersurface $\~M\sub \mathbb{S}^{n,1}$ and $x=x(\xi)$ is the embedding of $M$ which also represents the future directed normal vector of $\~M$. The second fundamental form $\~h_{ij}$ is defined with respect to the future directed normal vector, where the time orientation of $N$ is inherited from $\R^{n+1,1}$.
 
-The second fundamental forms of $M,$ $\~M$ and the corresponding principal curvatures $\k_{i},$ $\~\k_{i}$ satisfy
-\eq{h_{ij}=\~h_{ij}=\ip{\~x_{;i}}{x_{;j}},\quad \~\k_{i}=\k_{i}^{-1}.}
-}
-With a similar calculation as for the sphere case (see, for example, the proof  of \cite[Lemma~4.2]{Yu:04/2016}) we can deduce the evolution of the dual hypersurface. Let a family of strictly convex hypersurfaces $M_{t}\sub\H^{n+1}$ evolve by
-\eq{\dot{x}=-f\nu,}
-then, in view of $g_{ij}=\~h_{ik}\~h^{k}_{j},$ we will deduce that the normal $\nu,$ viewed as a vector $\~x$ in $\R^{n+1,1}$, evolves by
-\eq{\label{DualHyperbolic}\dot{\~x}=-\s\Phi\~\nu-\~b^{ij}\Phi_{;i}\~x_{;j},}
-where $\Phi$ is as in \eqref{DualFlow-3}, $\~\nu$ is the future directed normal in $N$ and the flow hypersurfaces are strictly convex with respect to this normal. For convenience of the reader, we present more details on how to obtain \eqref{DualHyperbolic}. The pair $x,\~x$ satisfies
-\eq{\ip{x}{\~x}=0}
- and hence
- \eq{\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{-f\nu}=f,}
- since $\nu\in T_x \H^{n+1}$ is spacelike. Also, note $\ip{\~x}{\~x_{;i}}=0$ and hence due to the Weingarten equation
- \eq{\ip{\dot{\~x}}{\~x_{;i}}=\ip{\dot{\~x}}{h^k_ix_{;k}}=h^k_i\ip{\dot{\~x}}{x_{;k}}=-h^k_i\ip{\~x}{\dot{x}_{;k}}=h^k_if_{;k}.}
- Thus \eqref{DualHyperbolic} follows.
+
 With precisely the same proof as for \cref{Sphere}, we obtain, using \eqref{DualHyperbolic} and \cref{DeSitter}, the following pseudo Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
 \Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Suppose $p\leq -1$. Then the flow
 $\dot{x}=-f\nu$ with the speed $f=\mrm{sgn}(p)F^{p}$

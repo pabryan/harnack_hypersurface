@@ -13,23 +13,25 @@ be a family of strictly convex spacelike embeddings (the term ``spacelike'' in t
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$. The speed, $f$ is a smooth, increasing function of the principal curvatures.
 
-The flow \eqref{Flow} is equivalent to,
-\eq{\label{FlowStandard} \dot{\bar{x}} = -\s \bar{f} \bar{\nu}}
-by letting \(r_t:M\to M\) denote the flow of the vector field $b^{ki}f_{;i}$ on $M$ and defining $\bar{x} (\xi, t) = x (r_t(\xi), t)$. We call $\bar{x}$ satisfying \eqref{FlowStandard} the \emph{standard parametrisation} as in \cite{Andrews:09/1994}.
+The flow \eqref{Flow} is equivalent to the curvature flow
+\eq{\label{FlowStandard}
+\bar{x}&:M\times [0,T^{\ast})\to N\\
+\dot{\bar{x}} &= -\s \bar{f} \bar{\nu}.}
+by letting \(r_t:M\to M\) to be the flow of the vector field $b^{ki}f_{;i}$ on $M$ and  $\bar{x} (\xi, t) := x (r_t(\xi), t)$. We call $\bar{x}$  the standard parameterization as in \cite{Andrews:09/1994}.
 
-Central to our approach is the flow \eqref{Flow} which is a reparametrisation of the flow as usually given in standard parametrisation \eqref{FlowStandard}. Let us note that in a Euclidean background, $N = \R^{n+1}$, one may consider the unit normal at time $t$, as the Gauss map $\nu_t : M \to \S^n$, which is a diffeomorphism whenever $x(M,t)$ is convex. The Gauss map parametrisation $y_t: \S^n \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu_t(y_t(z)) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
+Central to our approach is the flow \eqref{Flow} which is a reparameterization of the flow as usually given in standard parameterization \eqref{FlowStandard}. Let us note that in a Euclidean background, $N = \R^{n+1}$, one may consider the unit normal at time $t$, as the Gauss map $\nu_t : M \to \S^n$, which is a diffeomorphism whenever $x(M,t)$ is convex. The Gauss map parameterization $y_t: \S^n \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu_t(y_t(z)) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
 
-The Gauss map parametrisation just described is manifestly Euclidean, and given the utility of such a parametrisation, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parametrisation \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parametrisation, $x$. See \Cref{Ev-g-nu}, analogous to the Gauss map parametrisation, valid in arbitrary backgrounds.
+The Gauss map parameterization just described is manifestly Euclidean, and given the utility of such a parameterization, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parameterization \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parameterization, $x$. See \Cref{Ev-g-nu}, analogous to the Gauss map parameterization, valid in arbitrary backgrounds.
 
-Another crucial aspect of our approach is that it also addresses the question of how to determine the appropriate Harnack quantity. The philosophy put forward by Hamilton in \cite{Hamilton:/1995,Hamilton:/1993} is that equality should be attained on expanding solitons, just as equality in the Li-Yau Harnack inequality \cite{LiYau:/1986} is attained by the heat kernel, itself an expanding soliton. Thus Hamilton follows a procedure of differentiating the soliton equation to obtain soliton identities which eventually lead to the appropriate form for the Harnack quantity. In \cite{Andrews:09/1994}, Andrews showed that under the Gauss map parametrisation, one may consider the evolution of the support function to which the Li-Yau approach may be applied to determine the Harnack quantity. This is also effectively our approach, although for general backgrounds we do not have the luxury of a suitable support function, but have the great fortune of the reparametrisation \eqref{Flow}. Namely, we define
+Another crucial aspect of our approach is that it also addresses the question of how to determine the appropriate Harnack quantity. The philosophy put forward by Hamilton in \cite{Hamilton:/1995,Hamilton:/1993} is that equality should be attained on expanding solitons, just as equality in the Li-Yau Harnack inequality \cite{LiYau:/1986} is attained by the heat kernel, itself an expanding soliton. Thus Hamilton follows a procedure of differentiating the soliton equation to obtain soliton identities which eventually lead to the appropriate form for the Harnack quantity. In \cite{Andrews:09/1994}, Andrews showed that under the Gauss map parameterization, one may consider the evolution of the support function to which the Li-Yau approach may be applied to determine the Harnack quantity. This is also effectively our approach, although for general backgrounds we do not have the luxury of a suitable support function, but have the great fortune of the reparameterization \eqref{Flow}. Namely, we define
 \begin{equation}
 \label{eq:Q}
 u = \frac{\dot{f}}{f}
 \end{equation}
-for the Harnack quantity. For shrinking flows (i.e., positive $f$) we have $u = \partial_t \ln f$ just as for Li-Yau \cite{LiYau:/1986} and \cite{Andrews:09/1994}. For expanding flows (i.e., negative $f$), we have the analogous formulation, $u = - \partial_t \ln (-f)$, taking into account the sign, and it seems simpler to use the form given in \eqref{eq:Q} for both cases. Then, transforming to the standard parametrisation, we find that,
-\[
-\bar{u} := \frac{1}{\bar{f}} \partial_t \left(f(r_t(\xi), t)\right) = \frac{1}{\bar{f}} \left(\partial_t\bar{f} - \bar{b}^{ij} \bar{f}_{;i} \bar{f}_{;j}\right)
-\]
+for the Harnack quantity. For shrinking flows (i.e., positive $f$) we have $u = \partial_t \ln f$ just as for Li-Yau \cite{LiYau:/1986} and \cite{Andrews:09/1994}. For expanding flows (i.e., negative $f$), we have the analogous formulation, $u = - \partial_t \ln (-f)$, taking into account the sign, and it seems simpler to use the form given in \eqref{eq:Q} for both cases. Let us define $\bar{f}(\xi,t):=f(r_t(\xi), t).$ Then writing $u$ in the standard parameterization, we find that
+\eq{
+  \frac{\dot{f}}{f}=\frac{\partial_t\bar{f}-\bar{b}^{ij} \bar{f}_{;i} \bar{f}_{;j}}{\bar{f}}
+}
 which is precisely Hamilton's Harnack quantity.
 
 The basic Harnack inequality we prove is the following:
@@ -40,12 +42,8 @@ u \geq -\frac{p+1}{p} \frac{1}{t}
 \]
 for all $t > 0$.}
 The range of admissible $p$ varies depending on the background space and the speed $f$ and is given explicitly in each theorem below.
-
-
-
 \section{Background and Notation}
 \label{sec:background}
-
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
 The speeds $f$ we consider take the form,
@@ -56,9 +54,9 @@ where $\p\in C^2(\R_+)$ and $s$ is the support function. For arbitrary backgroun
 
 Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}. Recall that a curvature function $f$ is called {\it{strictly monotone}}, if
 \eq{f^{ij}:=\fr{\del f}{\del h_{ij}}}
-is positive definite and {\it{inverse concave}} if 
+is positive definite and {\it{inverse concave}} if
 \eq{\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}}
-is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$ 
+is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
 For second derivatives of $f$ we write
 \eq{f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },}
 and we recall the formulas
@@ -71,7 +69,6 @@ satisfies
 \eq{\label{CF-2}f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
 If we replace the convexity assumption on $F$ by inverse concavity, then we have
 \eq{\label{CF-3}f^{ij,kl}+2f^{ik}b^{jl}\geq \fr{p+1}{p}f^{-1}f^{ij}f^{kl}.}
-
 }
 \pf{
 It is well known that
@@ -114,17 +111,14 @@ There also holds
 \eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
 Thus the Ricci tensor is given by
 \eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
-
 We will use the following abbreviations to simplify the calculations. Set
 \eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
 then we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}=-A^{k}_{i}x_{;k}.}
 Furthermore, we define (generally) non-symmetric bilinear forms,
 \eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
-
 \subsection{Gauss Map and Duality}\label{Duality}
 \label{subsec:gauss_duality}
-
 In this section, we give a brief review of a duality relation between strictly convex hypersurfaces of the unit sphere $\S^{n+1}$ and a duality relation between strictly convex hypersurfaces of the hyperbolic space with such of the De Sitter space. The relevant results can be found in \cite[Ch.~9, 10]{Gerhardt:/2006}. For convenience, we will state the main results here.
 \subsubsection*{Duality in the sphere}
 Let $x\cn M_0\ra M\hra \S^{n+1}$ be a strictly convex closed hypersurface. Let the {\it{Gauss map}} $\~x\in T_x(\R^{n+2})$ represent the unit normal vector to $M$, $\nu\in T_x(\S^{n+1}).$ Then the mapping
@@ -149,12 +143,12 @@ whereas the hyperbolic space is a Riemannian spaceform in the Minkowski space wi
 \eq{\mathbb{H}^{n+1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=-1,~ x^{0}>0\},}
 where $x^0$ is the time coordinate.
 
-Similarly, as for the sphere, given an embedding 
+Similarly, as for the sphere, given an embedding
 \eq{x\cn M_0\ra M\sub\H^{n+1}}
 of a closed and strictly convex hypersurface, the representation $\~x\in T_x(\R^{n+1,1})$ of the exterior normal vector $\nu\in T_x(\H^{n+1})$ yields the embedding
 \eq{\label{HypGaussMap}\~x\cn M_0\ra \~M\sub \S^{n,1}}
 of a strictly convex, closed and spacelike hypersurface $\~M.$
-We also call this map $\~x$ the {\it{Gauss map of $M$}} and similarly as in the sphere we have the following theorem:
+We also call this map $\~x$ the {\it{Gauss map of $M$}} and similarly as in the spherical case we have the following theorem:
 \Theo{thm}{DeSitterDuality}{\cite[Thm.~10.4.4]{Gerhardt:/2006}
 Let $x\cn M\ra \H^{n+1}$ be a closed, connected, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ then the Gauss map $\~x$ as in \eqref{HypGaussMap} is the embedding of a closed, spacelike, achronal, strictly convex hypersurface $\~M\sub \mathbb{S}^{n,1}$ of class $C^{m-1}.$ Viewing $\~M$ as a codimension $2$ submanifold in $\R^{n+1,1},$ its Gaussian formula is
 \eq{\~x_{;ij}=-\~g_{ij}\~x+\~h_{ij}x,}
@@ -163,15 +157,13 @@ where $\~g_{ij},$ $\~h_{ij}$ are the metric and the second fundamental form of t
 The second fundamental forms of $M,$ $\~M$ and the corresponding principal curvatures $\k_{i},$ $\~\k_{i}$ satisfy
 \eq{h_{ij}=\~h_{ij}=\ip{\~x_{;i}}{x_{;j}},\quad \~\k_{i}=\k_{i}^{-1}.}
 }
-Similar to the spherical case, $\tilde{M}$ is called the polar set to $M$ and it can be represented as follows \cite[Thm.~10.4.8]{Gerhardt:/2006}:
+The hypersurface $\tilde{M}$ is called the polar set to $M$ and it can be represented as follows \cite[Thm.~10.4.8]{Gerhardt:/2006}:
 $$\tilde{M}=\{y\in \mathbb{S}^{n,1}: \sup_{y\in M}\langle x,y\rangle=0\}.$$
 In this model of the hyperbolic space the point $(1,0,\ldots,0)$ is called the {\it{Beltrami point}}. For a given strictly convex hypersurface $M\sub\H^{n+1}$, $M$ bounds a strictly convex body $\hat{M}$ of the hyperbolic space, cf.~\cite[Thm.~10.3.1]{Gerhardt:/2006}, and due to the homogeneity of the hyperbolic space, any point in $\hat{M}$ may act as Beltrami point after suitable ambient change of coordinates. Therefore, in addition to the statement of \cref{DeSitterDuality}, \cite[Thm.~10.4.9.]{Gerhardt:/2006} implies that the dual $\~M$ is contained in the future of the slice $\{x^0=0\}$,
 \eq{\~M\sub \S^{n,1}_{+}=\{x\in \S^{n,1}\cn x^0>0\}.}
 
 The following illustration shall give a clearer picture of the duality.
-
 \subsubsection*{Dual flows}
-
 For a curvature flow
 \eq{\label{NormalFlow}\dot{x}=-f\nu}
 in $\S^{n+1}$ or $\H^{n+1}$, we want to derive the curvature flow equation of the Gauss maps $\~x$. In both cases the pair $x,\~x$ satisfies
@@ -195,7 +187,7 @@ where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We 
 
 \section{Evolution equations}
 
-The motivation for our particular reparametrisation is the fact that the normal does not move:
+The motivation for our particular reparameterization is the fact that the normal does not move:
 
 \Theo{lemma}{Ev-g-nu}{
 Along the flow \eqref{Flow} there hold
@@ -602,8 +594,8 @@ Therefore, by the maximum principle, $q$ remains positive. This implies that
 \[t\left(\frac{\partial_t H}{H}-Cn\right)+\frac{1}{2}\geq 0.\]
 Dividing both sides by $t$ yields the Harnack inequality with the bonus term in \cite{BryanIvaki:08/2015}.
 }
-By applying the dual flow method developed from \cref{Duality} 
-Thus for a class of inverse curvature flows we obtain pseudo Harnack inequalities.
+By applying the dual flow method developed in \Cref{Duality}, we obtain pseudo Harnack inequalities
+for a class of inverse curvature flows.
  \Theo{thm}{ExpandingSphere}{
 Let $N=\S^{n+1}$ and $F$ be a monotone, inverse convex and $1$-homogeneous curvature function. Let $-1\leq p<0$ and set $f=\mrm{sgn}(p)F^{p}.$ Then under the expanding flow \eqref{normalFlow} we have
 \eq{\del_t\br{ft^{\fr{p}{p-1}}}\leq 0.}
@@ -617,7 +609,6 @@ satisfies the assumptions of \cref{Sphere}; therefore,
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 \subsection*{De Sitter space}
-
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $p\geq 1$ and set $f=F^p$. Then along \eqref{Flow} there holds
 \eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
@@ -646,9 +637,6 @@ The result now follows from the maximum principle.
 Hence by the maximum principle, $q$ remains positive. This implies that
 \[\partial_t H-nH+\frac{H}{2t}\geq 0.\]
 }
-
-
-
 With precisely the same proof as for \cref{Sphere}, we obtain, using \eqref{DualHyperbolic} and \cref{DeSitter}, the following pseudo Harnack inequality for expanding flows of the hyperbolic space, which is to our knowledge the first Harnack inequality for hypersurface flows in the hyperbolic space:
 \Theo{thm}{Hyperbolic}{Let $N=\H^{n+1}$ and $F$ be a monotone, 1-homogeneous and inverse convex curvature function. Suppose $p\leq -1$. Then the flow
 $\dot{x}=-f\nu$ with the speed $f=\mrm{sgn}(p)F^{p}$
@@ -672,22 +660,22 @@ where $E_{ij}:=R_{ij}-\frac{1}{2}Rg_{ij}$ is the Einstein tensor, $R_{ijkl}$ is 
 
 A one parameter family of 3-manifolds $(M,g(t))$ with negative sectional curvature is a solution of the XCF if
 \[\partial_tg_{ij}=2c_{ij}.\]
-To get a better feeling of this curvature flow, suppose metrics are locally isometrically embeddable in Minkowski space $\mathbb{R}^{3,1}$. The following observation is due to Andrews, which recently appeared in \cite{AndrewsChenFangMcCoy:/2015}. 
+Now suppose metrics are locally isometrically embeddable in Minkowski space $\mathbb{R}^{3,1}$. The following observation is due to Andrews, which recently appeared in \cite{AndrewsChenFangMcCoy:/2015}.
 
-The Gauss equation in $\mathbb{R}^{3,1}$ reads,
+Recall that the Gauss equation in $\mathbb{R}^{3,1}$ reads
 \[
 R_{ijkl} = -(h_{ik}h_{jl} - h_{il}h_{jk}).
 \]
-Here $h_{ij}$ is the second fundamental form. Tracing with respect to $g^{ik}$ gives,
+Tracing with respect to $g^{ik}$ gives
 \[
 R_{jl} = -(Hh_{jl} - h^k_lh_{jk}), \quad R = -(H^2 - |A|^2),
 \]
 where $|A|^2=g^{ik}g^{jl}h_{ij}h_{kl}.$
-Thus we have,
+Thus we have
 \[
 E_{ij} = H\left(\frac{H}{2}g_{ij} - h_{ij}\right) + \left(h^k_ih_{kj} - \frac{1}{2}|A|^2g_{ij}\right).
 \]
-In an orthonormal frame diagonalizing the second fundamental form, we get for $i=1$,
+In an orthonormal frame which diagonalizes the second fundamental form, we get for $i=1$:
 \[
 \begin{split}
 E_{11} &= \frac{1}{2}\left(H^2 - |A|^2\right) + h^1_1 h_{11} - Hh_{11} \\
@@ -703,7 +691,7 @@ E = \begin{pmatrix}
 0 & 0 & \kappa_1\kappa_2
 \end{pmatrix}
 \]
-where $\kappa_i$ denote the principal curvatures. In particular, $\det E = K^2.$ When $M$ is strictly convex, $E$ is positive definite, hence invertible. In this case, the cross curvature tensor is
+where $\kappa_i$ denote the principal curvatures. In particular, $\det E = K^2.$ If $M$ is strictly convex, then $E$ is positive definite, hence invertible. In this case, the cross curvature tensor is
 \[
 c_{ij} = ({\det} E) (E^{-1})_{ij} = \begin{pmatrix}
 \kappa_1^2 \kappa_2 \kappa_3 & 0 & 0 \\
@@ -711,7 +699,7 @@ c_{ij} = ({\det} E) (E^{-1})_{ij} = \begin{pmatrix}
 0 & 0 & \kappa_1\kappa_2\kappa_3^2
 \end{pmatrix} = Kh_{ij}.
 \]
-Now the uniqueness result of \cite{Buckland:/2006} shows that $(M,g(t))$ is a solution of (\ref{eq:CurvFlow}) with $N=\mathbb{R}^{3,1}$, $f=K$. 
+Now the uniqueness result of \cite{Buckland:/2006} shows that $(M,g(t))$ is a solution of (\ref{eq:CurvFlow}) with $N=\mathbb{R}^{3,1}$, $f=K$.
 
 The Harnack inequality for the cross curvature flow for metrics that are locally isometrically embeddable in Minkowski space $\mathbb{R}^{3,1}$ now follows from Theorem ??:
 \[

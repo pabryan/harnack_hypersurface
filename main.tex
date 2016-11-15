@@ -78,11 +78,23 @@ Hence
 \subsection{Notation and Basic Definitions}
 \label{subsec:bg_notation}
 
-For a tensor $T$, $T_{;ij}$ denotes the covariant derivative of $T$, first with respect $x_{;i}$ and then with respect to $x_{;j}.$ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
-\eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
-Recall also the Weingarten equation,
-\eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
 Geometric quantities of the ambient space are denoted with an over-bar, e.g., $(\-g_{\a\b})$ for the metric and Greek indices range from $0$ to $n.$ Induced quantities are denoted for example by $(g_{ij})$, $(h_{ij}),$ where Latin indices range from $1$ to $n.$
+
+Writing $\-\nabla$ and $\nabla$ for the Levi-Civita connections on $TN$ and $TM$ respectively, we can differentiate tensors with values in the pull back bundle $x^{\ast}TN$ using $\-\nabla$ and $\nabla$ which we still denote by $\-\nabla$ (since $\nabla$ is induced by $\-\nabla$ anyway). For example, the second covariant derivative of $x$ is,
+\eq{\-\nabla^2 x(X, Y) = \-\nabla_{x_{\ast} Y} (dx \cdot X) - dx \cdot (\nabla_X Y)}
+thinking of $dx$ as a section of $T^{\ast} M \otimes x^{\ast} TN$ and with $x_{\ast} = dx : TM \to x^{\ast}TN$ the push-forward. In coordinates,
+\eq{x^{\a}_{;ij} =\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}.}
+
+For a tensor $T$, $\-\nabla^2T (X, Y)$ denotes the covariant derivative of $T$, first with respect $X$, then $Y$. In coordinates, we write $T_{;ij}$ for differentiating with repsect to $\partial_i$ first, and then with respect to $\partial_j.$ Likewise, if $T$ is $x^{\ast} TN$ valued, then $T_{;ij}$ denotes differentiation, first with respect to $\partial_i$, then with respect to $x_{;i} = dx \cdot \partial_i$. 
+
+We choose the normal, $\nu$ so that the Gaussian formula,
+\eq{\-\nabla^2 x (X, Y) = - \sigma h(X, Y)}
+holds. In coordinates,
+\eq{x^{\a}_{;ij} = -\s h_{ij}\nu^{\a}.}
+Recall also the Weingarten equation,
+\eq{h(X, Y) = \ip{\-\nabla_X \nu}{Y} = g(\-\nabla_X \nu, Y)}
+which reads in coordinates,
+\eq{\nu_{;i}=h^{k}_{i}x_{;k}.}
 Our definition of the $(1,3)$ Riemannian curvature tensor is given by
 \eq{\mrm{Rm}(X,Y)Z=\n_{Y}\n_{X}Z-\n_{X}\n_{Y}Z-\n_{[Y,X]}Z}
 and the $(0,4)$ version is
@@ -90,23 +102,33 @@ and the $(0,4)$ version is
 Hence the curvature tensor of the ambient space reads in coordinates
 \eq{\-R^{\a}_{\b\g\d}= [\-R(\partial_{\delta}, \partial_{\gamma})\partial_{\beta}]^{\alpha} = \-\G^{\a}_{\b\d,\g}-\-\G^{\a}_{\b\g,\d}+\-\G^{\e}_{\b\d}\-\G^{\a}_{\e\g}-\-\G^{\e}_{\b\g}\-\G^{\a}_{\e\d},}
 where $\-\G$ are the Christoffel symbols of the metric $\-g$ and a comma denotes ordinary differentiation.
-We obtain the Ricci identities by differentiating a contravariant vector field $\eta=\eta^{\a}\del_{\a}\cn$
+
+In coordinates, the metric contraction of $\mrm{Rm}$ reads,
+\eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
+Thus the Ricci tensor,
+\eq{\mrm{Ric} (X, Y) = \mrm{Tr} (Z \mapsto \mrm{Rm}(X, Z) Y)}
+is given in coordinates by,
+\eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
+
+The Ricci identities,
+\eq{\mrm{Rm} (X, Y) Z = \nabla^2 Z (Y, X) - \nabla^2 Z (X, Y)}
+may also be obtained in coordinates by differentiating a contravariant vector field $\eta=\eta^{\a}\del_{\a}\cn$
 \eq{\eta^{\a}_{;\b\g}&=\br{\eta^{\a}_{;\b}}_{,\g}+\-\G^{\a}_{\d\g}\eta^{\d}_{;\b}-\-\G^{\d}_{\b\g}\eta^{\a}_{;\d}\\
                     &=\eta^{\a}_{,\b\g}+\-\G^{\a}_{\b\d,\g}\eta^{\d}+\-\G^{\a}_{\b\d}\eta^{\d}_{,\g}+\-\G^{\a}_{\d\g}\eta^{\d}_{,\b}+\-\G^{\a}_{\d\g}\-\G^{\d}_{\e\b}\eta^{\e}-\-\G^{\d}_{\b\g}\eta^{\a}_{,\d}-\-\G^{\d}_{\b\g}\-\G^{\a}_{\e\d}\eta^{\e}.}
 In Riemannian normal coordinates:
 \eq{\eta^{\a}_{;\b\g}=\eta^{\a}_{,\b\g}+\-\G^{\a}_{\b\d,
 \g}\eta^{\d}&=\eta^{\a}_{,\g\b}+\-\G^{\a}_{\g\d,\b}\eta^{\d}+\br{\-\G^{\a}_{\b\d,\g}-\-\G^{\a}_{\g\d,\b}}\eta^{\d}\\
             &=\eta^{\a}_{;\g\b}+\-R^{\a}_{\d\g\b}\eta^{\d}=\eta^{\a}_{;\g\b}-\-R^{\a}_{\d\b\g}\eta^{\d}.}
-There also holds
-\eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
-Thus the Ricci tensor is given by
-\eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
 
 We will use the following abbreviations to simplify the calculations. Set
+\eq{A (X) = \-\nabla_X \left(\s f \nu + \mrm{grad}_h f\right)}
+where $\mrm{grad}_h f$ is the gradient of $f$ with respect to $h$: $h(\grad_h f, X) = df \cdot X$ for all tangent vectors $X$. In coordinates,
 \eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
-then we also have
+and so we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}=-A^{k}_{i}x_{;k}.}
 Furthermore, we define (generally) non-symmetric bilinear forms,
+\eq{B(X, Y) = \fr{1}{f} h(A(X), Y), \quad L(X, Y) = \ip{\dot{x}}{\-{\mrm{Rm}} (\nu, Y, X)}}.
+Again, in coordinates,
 \eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}.}
 
 \subsection{Gauss Map and Duality}

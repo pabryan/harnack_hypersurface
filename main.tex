@@ -1,4 +1,5 @@
 \input{StandardPaper2.tex}
+%\usepackage[inline]{showlabels}
 
 \begin{document}
 
@@ -45,12 +46,20 @@ $f=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p},$ where $\p$ is a positive smooth function of
 Suppose either
 \begin{enumerate}
   \item $N=\mathbb{R}^{n+1}$, $\psi$ is a positive smooth function defined on the unit sphere and the solution is strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$ Or
-  \item $N=\mathbb{R}^{n,1}$ (Minkowki space), $\psi$ is a positive smooth function defined on the hyperbolic space and the solution is co-compact, spacelike and strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
+  \item $N=\mathbb{R}^{n,1}$ (Minkowski space), $\psi$ is a positive smooth function defined on the hyperbolic space and the solution is co-compact, spacelike and strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
 \eq{\del_{t}f-b^{ij}f_{;i}f_{;i}+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
 }
 In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
+
+In ambient space of non constant curvature we obtain several new results. We start with the most general ambient space we can, up to our current state of knowledge, allow for. Namely we obtain a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
+
+\Theo{thm}{Einstein}{
+Let $N$ be a locally symmetric Riemannian Einstein manifold of non-negative sectional curvature. Then under the mean curvature flow there holds
+\[\del_{t}H-b^{ij}H_{;i}H_{;j}-\fr{\-R}{n+1}H+\fr{1}{2t}\geq 0,\]
+where $\-R$ is the constant scalar curvature of $N$.
+}
 
 The next theorem includes our Harnack inequalities from \cite{{BryanIvakiScheuer:12/2015}} and presents new Harnack inequalities in de Sitter space. 
 \Theo{thm}{Harnack Inequality}{
@@ -65,7 +74,7 @@ Then the following Harnack inequality holds in the standard parametrization:
 \partial_t F^p-b^{ij}(F^p)_{;i}(F^p)_{;i}+\frac{p}{(p+1)t}F^p\geq 0,\quad \forall t>0.
 \]
 }
-Furthermore, employing Gerhardt's duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space. 
+Furthermore, employing  duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space. 
 \Theo{thm}{pseudo Harnack Inequality}{
 Let $F$ be a monotone, inverse convex, $1$-homogeneous curvature function and $f =-F^p$ with $-1\leq p<0$ .
 Suppose either
@@ -82,44 +91,6 @@ The term pseudo-Harnack reflects the fact that the inequality in \Cref{pseudo Ha
 \section{Background and Notation}
 %\label{sec:background}
 
-\subsection{Speed Functions}
-\label{subsec:bg_speed}
-The speeds $f$ we consider take the form
-\eq{f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R,}
-where $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$, and $f$ is nonzero and invariant under parallel transport. We assume that $f$ is of the form
-\eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}),}
-where $\p\in C^{\infty}(\R_+)$ and $s:M\to\mathbb{R}$ is the support function. For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function.
-\Theo{rem}{}{For curvature flows in the hyperbolic and de Sitter spaces, we only allow $F$ to depend on $\mathcal{W}$; that is, $F$ does not depend on $\nu.$}
-
-Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}. Recall that a curvature function $f$ is called {\it{monotone}}, if
-\[f^{ij}:=\fr{\del f}{\del h_{ij}}\]
-is positive definite and {\it{inverse concave}} if
-\[\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}\]
-is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
-For second derivatives of $f$ we write
-\[f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },\]
-and we recall the formulas
-\eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}=-\fr{\del f}{\del h_{mi}}h^{j}_{m},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}=-g^{kj}f^{il}-f^{ij,km}h^{l}_{m}.}
-\Theo{lemma}{CF}{
-Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the curvature function
-\eq{f=\mrm{sgn}(p)F^p}
-satisfies
-\eq{f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl},\quad f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-If we replace the convexity assumption on $F$ by inverse concavity, then we have
-\eq{\label{CF-3}f^{ij,kl}+2f^{ik}b^{jl}\geq \fr{p+1}{p}f^{-1}f^{ij}f^{kl}.}
-}
-\pf{
-It is well known (see, e.g., \cite[Lemma~14]{BryanIvakiScheuer:12/2015}) that
-\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl}.}
-Thus
-\eq{f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
-and
-\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
-			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-If $F$ is inverse concave, it was shown in \cite[p.~112]{Urbas:/1991} that
-\eq{F^{ij,kl}+2F^{ik}b^{jl}\geq 2F^{-1}F^{ij}F^{kl}.}
-Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~13]{BryanIvakiScheuer:12/2015}.
-}
 \subsection{Notation and Basic Definitions}
 \label{subsec:bg_notation}
 For a tensor $T$, $T_{;ij}$ denotes the covariant derivative of $T$, first with respect $x_{;i}$ and then with respect to $x_{;j}.$ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
@@ -145,6 +116,67 @@ There also holds
 \eq{\-R_{\a\b\g\d}=\-g_{\a\e}\-R^{\e}_{\b\g\d}.}
 Thus the Ricci tensor is given by
 \eq{\-R_{\a\b}=\-R^{\g}_{\a\g\b}.}
+
+
+\subsection{Speed Functions}
+\label{subsec:bg_speed}
+
+\subsection*{Curvature functions}
+We collect some well known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
+
+Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-1}. Recall that a curvature function $f$ is called {\it{monotone}}, if
+\[f^{ij}:=\fr{\del f}{\del h_{ij}}\]
+is positive definite and {\it{inverse concave}} if
+\[\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}\]
+is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
+For second derivatives of $f$ we write
+\[f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },\]
+and we recall the formulas
+\eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}X_{ij}=-f^{mi}h^{j}_{m}X_{ij},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}=-(g^{kj}f^{il}+f^{ij,km}h^{l}_{m})X_{ij}Y_{kl},}
+for all symmetric matrices $(X_{ij}), (Y_{ij}).$
+
+\Theo{lemma}{CF}{
+Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the speed function \eqref{Speed}
+satisfies
+\eq{f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl},\quad f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
+If we replace the convexity assumption on $F$ by inverse concavity, then we have
+\eq{\label{CF-3}f^{ij,kl}+2f^{ik}b^{jl}\geq \fr{p+1}{p}f^{-1}f^{ij}f^{kl}.}
+}
+
+\pf{
+It is well known (see, e.g., \cite[Lemma~14]{BryanIvakiScheuer:12/2015}) that
+\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl}.}
+Thus
+\eq{f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
+and
+\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
+			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
+If $F$ is inverse concave, it was shown in \cite[p.~112]{Urbas:/1991} that
+\eq{F^{ij,kl}+2F^{ik}b^{jl}\geq 2F^{-1}F^{ij}F^{kl}.}
+Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~13]{BryanIvakiScheuer:12/2015}.
+}
+
+
+\Theo{ass}{SpeedAss}{
+We assume that $f$ is a nowhere vanishing velocity which is of the form
+\eq{\label{Speed}f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)&\ra \R\\
+		f(s,\nu,h_{ij},g_{ij})&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(h_{ij},g_{ij}),}
+\begin{itemize}
+\item $p\neq 0$,
+\item$\p\in C^{\8}(\R_{+})$ is a positive function acting on the support function $s$ and such that $\p\equiv 1$ if $N$ is neither the Euclidean nor the Minkowski space,
+\item$\psi\in C^{\8}(UN)$ is a positive function defined on the unit bundle of $N$, such that $\psi$ is invariant under parallel transport and
+\item $F$ is a strictly monotone, $1$-homogeneous curvature function which is
+\begin{enumerate}
+\item inverse concave, if $N=\R^{n+1}$ or $N=\R^{n,1}$ and
+\item convex, otherwise.
+\end{enumerate}
+\end{itemize} 
+
+Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
+}
+% For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function. 
+ %\Theo{rem}{}{For curvature flows in the hyperbolic and de Sitter spaces, we only allow $F$ to depend on $\mathcal{W}$; that is, $F$ does not depend on $\nu.$}
+
 
 We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
 \[\mathcal{L}v=\dot{v}-f^{ij}v_{;ij}-T\ast\nabla v.\]
@@ -193,35 +225,53 @@ $$\tilde{M}=\{y\in \mathbb{S}^{n,1}: \sup_{y\in M}\langle x,y\rangle=0\}.$$
 In this model of the hyperbolic space the point $(1,0,\ldots,0)$ is called the {\it{Beltrami point}}. For a given strictly convex hypersurface $M\sub\H^{n+1}$, $M$ bounds a strictly convex body $\hat{M}$ of the hyperbolic space, cf.~\cite[Thm.~10.3.1]{Gerhardt:/2006}, and due to the homogeneity of the hyperbolic space, any point in $\hat{M}$ may act as Beltrami point after suitable ambient change of coordinates. Therefore, in addition to the statement of \cref{DeSitterDuality}, \cite[Thm.~10.4.9.]{Gerhardt:/2006} implies that the dual $\~M$ is contained in the future of the slice $\{x^0=0\}$,
 \eq{\~M\sub \S^{n,1}_{+}=\{x\in \S^{n,1}\cn x^0>0\}.}
 
+We will also need the reverse direction starting from a strictly convex, spacelike hypersurface in $\S^{n,1}.$
+
+\Theo{thm}{HyperbolicDuality}{\cite[Thm.~10.4.5]{Gerhardt:/2006}
+Let $x\cn \~M\ra \S^{n,1}$ be a closed, connected, spacelike, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ such that, when viewed as a codimension 2 submanifold in $\R^{n+1,1}$, its Gaussian formula is 
+\eq{\~x_{;ij}=-\~g_{ij}\~x+\~h_{ij}x,}
+where $\~x=\~x(\xi)$ is the embedding, $x$ the future directed normal vector , and $\~g_{ij}$, $\~h_{ij}$ the induced metric and the second fundamental form of the hypersurface in $\S^{n,1}$. Then we define the Gauss map as $x=x(\xi)$
+\eq{x\cn \~M\ra \H^{n+1}\sub\R^{n+1,1}.}
+The Gauss map is the embedding of a closed, connected, strictly convex hypersurface $M$ in $\H^{n+1}.$
+Let $\~g_{ij},$ $\~h_{ij}$ be the metric and the second fundamental form of $M$, then, when viewed as a codimension 2 submanifold, $M$ satisfies the relations
+\eq{x_{ij}=g_{ij}x-h_{ij}\~x,}
+\eq{h_{ij}=\~h_{ij}=\ip{x_{;i}}{\~x_{;j}},} and 
+\eq{\~\k_{i}=\k_{i}^{-1},}
+where $\k_{i}$, $\~\k_{i}$ are the corresponding principal curvatures.
+}
+
 The following illustration shall give a clearer picture of the duality.
+{\color{red}Include graphics}
+
+
 \subsubsection*{Dual flows}
 For a curvature flow
-\eq{\label{NormalFlow}\dot{x}=-f\nu}
-in $\S^{n+1}$ or $\H^{n+1}$, we want to derive the curvature flow equation of the Gauss maps $\~x$. In both cases the pair $x,\~x$ satisfies
+\eq{\label{NormalFlow}\dot{x}=-\s f\nu,}
+where $\s=\ip{\nu}{\nu}$, we want to derive the curvature flow equation of the Gauss maps $\~x$. In both cases the pair $x,\~x$ satisfies
 \eq{\ip{x}{\~x}=0,}
-where $\ip{\cdot}{\cdot}$ represents the Euclidean and the Minkowski inner product respectively for flows in $\S^{n+1}$ and $\H^{n+1}$.
+where $\ip{\cdot}{\cdot}$ represents the Euclidean and the Minkowski inner product respectively for flows in $\S^{n+1}$ or in $\H^{n+1}$ and $\S^{n,1}$.
 Hence
-\eq{\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{- f\nu}= f,}
-since $\~x$ is spacelike in both cases. Also, note that $\ip{\~x}{\~x_{;i}}=0$; therefore, due to the Weingarten equation \cite[Lem.~9.2.4, Lem.~10.4.3]{Gerhardt:/2006},
+\eq{\ip{\dot{\~x}}{x}=-\ip{\~x}{\dot{x}}=-\ip{\~x}{- \s f\~x}= f.}
+ Also, note that $\ip{\~x}{\~x_{;i}}=0$; therefore, due to the Weingarten equation \cite[Lem.~9.2.4, Lem.~10.4.3]{Gerhardt:/2006},
 \eq{\ip{\dot{\~x}}{\~x_{;i}}=h^k_i\ip{\dot{\~x}}{x_{;k}}=-h^k_i\ip{\~x}{\dot{x}_{;k}}=h^k_if_{;k}.}
 Since $x=\~\nu$ and $\~x_{;i}$ span $T_{\~x}(\S^{n+1})$ and $T_{\~x}(\S^{n,1})$ respectively, we obtain
-\eq{\dot{\~x}&=\s f\~\nu+h^k_mf_{;k}\~g^{ml}\~x_{;l}\\
-			&=\s f\~\nu+\~b^k_m\~g^{ml}f_{;k}\~x_{;l}\\
-            &=\s f\~\nu+\~b^{kl}f_{;k}\~x_{;l},}
+\eq{\dot{\~x}&=\ip{x}{x} f\~\nu+h^k_mf_{;k}\~g^{ml}\~x_{;l}\\
+			&=\~\s f\~\nu+\~b^k_m\~g^{ml}f_{;k}\~x_{;l}\\
+            &=\~\s f\~\nu+\~b^{kl}f_{;k}\~x_{;l},}
 where $f$ is still evaluated at $\mc{W}$. However, there holds
 \eq{\label{DualFlow-3}f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}})}
 and hence
-\eq{\label{DualHyperbolic}\dot{\~x}=-\s\Phi\~\nu-\~b^{kl}\Phi_{;k}\~x_{;l},}
-where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We see that the dual of a flow of the form
-\eqref{NormalFlow} in $\S^{n+1}$ or $\H^{n+1}$ moves precisely as a flow of the form \eqref{Flow} in $\S^{n+1}$ or $\S^{n,1}$.
+\eq{\label{DualHyperbolic}\dot{\~x}=-\~\s\Phi\~\nu-\~b^{kl}\Phi_{;k}\~x_{;l},}
+where $\~\s=\ip{\~\nu}{\~\nu}$ and where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We see that the dual of a flow of the form
+\eqref{NormalFlow} in $\S^{n+1}$ $\br{\H^{n+1},\S^{n,1}}$ moves precisely as a flow of the form \eqref{Flow} in $\S^{n+1}$ $\br{\S^{n,1},\H^{n+1}}$.
 \section{Evolution equations}
-In this section we deduce the relevant evolution equations for general ambient spaces.
+In this section we deduce the relevant evolution equations under \eqref{Flow} for general ambient spaces.
 We will use the following abbreviations to simplify the calculations. Set
 \eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
 then we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}=-A^{k}_{i}x_{;k}.}
 Furthermore, we define the following bilinear forms,
-\eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d},}
+\eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f}=\fr{h(x_{;i},A(x_{;j}))}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d},}
 where we point out that these are not symmetric in general.
 The motivation for our particular reparametrization is the fact that the normal does not move:
 
@@ -264,48 +314,47 @@ Now we deduce evolution equations for several quantities related to the Harnack 
  We begin with the evolution of the reparametrization field.
 \Theo{lemma}{Ev-Tangent}{
 Under the flow \eqref{Flow} we have
-\eq{\label{Ev-Tangent-1}\del_{t}\br{b^{km}f_{;m}}=fb^{ki}u_{;i}+ub^{ki}f_{;i}+A^{k}_{j}b^{jm}f_{;m}+\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}.}
+\eq{\label{Ev-Tangent-1}\del_{t}\br{b^{km}f_{;m}}=fb^{ki}u_{;i}+ub^{ki}f_{;i}+A^{k}_{j}b^{jm}f_{;m}-\L_{ij}b^{ik}b^{jm}f_{;m}.}
 }
 \pf{
 We calculate
 \eq{u_{;i}&=\del_{t}\br{\fr{h_{ij}}{f}b^{jm} f_{;m}}\\
-        &=\fr{h_{ij}}{f}\del_{t}\br{b^{jm}f_{;m}}-\fr{u}{f}f_{;i}-\fr{1}{f}h_{ir}A^{r}_{j}b^{jm}f_{;m}+\fr{1}{f}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}b^{jm}f_{;m}\\
-        &=\fr{h_{ij}}{f}\del_{t}\br{b^{jm}f_{;m}}-\fr{u}{f}f_{;i}-\fr{1}{f}h_{ir}A^{r}_{j}b^{jm}f_{;m}-\fr{1}{f}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}.}
+        &=\fr{h_{ij}}{f}\del_{t}\br{b^{jm}f_{;m}}-\fr{u}{f}f_{;i}-\fr{1}{f}h_{ir}A^{r}_{j}b^{jm}f_{;m}+\fr{1}{f}\L_{ij}b^{jm}f_{;m}.}
 Multiplying both sides by $fb^{ki}$ and rearranging the terms yields the result.
 }
 \Theo{lemma}{Ev-speed}{
 Along the flow \eqref{Flow} there holds
-\eq{\label{Ev-speed-1}\ddot{x}=u\dot{x}-fb^{ki}u_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}.}
+\eq{\label{Ev-speed-1}\ddot{x}=u\dot{x}-fb^{ki}u_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}.}
 }
 \pf{We use \eqref{A2} and \eqref{Ev-Tangent-1} to deduce
 \eq{\ddot{x}&=-\s \dot{f}\nu-\dot{x}_{;k}b^{ki}f_{;i}-x_{;k}\del_{t}\br{b^{ki}f_{;i}}\\
         &=-\s uf\nu+A^{l}_{k}b^{ki}f_{;i}x_{;l}-fb^{ki}u_{;i}x_{;k}-ub^{ki}f_{;i}x_{;k}\\
-        &\hp{=}-A^{k}_{j}b^{ji}f_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}\\
-        &=u\dot{x}-fb^{ki}u_{;i}x_{;k}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k}.}
+        &\hp{=}-A^{k}_{j}b^{ji}f_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}\\
+        &=u\dot{x}-fb^{ki}u_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}.}
 }
 \Theo{lemma}{Ev-A}{
 Under the flow \eqref{Flow} the tensor $(A^{i}_{j})$ satisfies
-\eq{\dot{A}^{i}_{j}&=A^{k}_{j}A^{i}_{k}-\ip{x_{;r}}{\dot{x}}g^{ri}u_{;j}+uA^{i}_{j}+\br{fb^{kl}u_{;l}x^{\a}_{;k}}_{;j}g^{ri}\-g_{\a\b}x^{\b}_{;r}\\
-                &\hp{=}+\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{kl}x^{\a}_{;k}}_{;j}g^{ri}\-g_{\a\mu}x^{\mu}_{;r}+\-R_{\a\b\g\d}x^{\a}_{;r}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}g^{ri}.}
+\eq{\dot{A}^{i}_{j}&=A^{k}_{j}A^{i}_{k}+b^{ki}f_{;k}u_{;j}+uA^{i}_{j}+\br{fb^{il}u_{;l}}_{;j}\\
+                &\hp{=}-\br{\L_{kl}b^{lm}b^{ki}f_{;m}}_{;j}+\-R_{\a\b\g\d}x^{\a}_{;r}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}g^{ri}.}
 }
 \pf{
 Using \eqref{A2} and \eqref{Ev-speed-1} we obtain
 \eq{\dot{A}^{k}_{i}x^{\a}_{;k}+A^{k}_{i}\dot{x}^{\a}_{;k}=-\fr{D}{dt}\br{\dot{x}^{\a}_{;i}}=-\br{\ddot{x}^{\a}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{i}^{\g}\dot{x}^{\d},}
 so that
 \eq{\dot{A}^{k}_{i}x^{\a}_{;k}&=A^{k}_{i}A^{l}_{k}x^{\a}_{;l}-u_{;i}\dot{x}^{\a}+uA^{k}_{i}x^{\a}_{;k}+\br{fb^{kl}u_{;l}x^{\a}_{;k}}_{;i}\\
-       &\hp{=}+\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{kl}x^{\a}_{;k}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{;i}^{\g}\dot{x}^{\d}.}
+       &\hp{=}-\br{\L_{kl}b^{lm}b^{kr}f_{;m}x^{\a}_{;r}}_{;i}+\-R^{\a}_{\b\g\d}\dot{x}^{\b}x_{;i}^{\g}\dot{x}^{\d}.}
 Multiplying this equation by $g^{rj}\-g_{\a\mu}x^{\mu}_{;r}$ and relabeling indices gives the result.
 }
 \Theo{lemma}{Ev-B}{
 The tensor $B_{ij}$ satisfies
 \eq{\label{Ev-B-1}\dot{B}_{ij}&=u_{;ij}+T\ast\nabla u+\fr 1f \L_{ik}A^{k}_{j}+\fr 1f \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;j}\dot{x}^{\g}\nu^{\d}_{;i}\\
-            &\hp{=}+\fr 1f h^{s}_{i}\-g_{\a\mu}x^{\mu}_{;s}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{rl}x^{\a}_{;r}}_{;j}.}
+		&\hp{=}-\fr 1f h_{ik}\br{\L_{rs}b^{sm}b^{rk}f_{;m}}_{;j}.}
 }
 \pf{
 \eq{\dot{B}_{ij}&=-uB_{ij}+\fr 1f \dot{h}_{ik}A^{k}_{j}+\fr 1f h_{ik}\dot{A}^{k}_{j}\\
-        &=-uB_{ij}-\fr 1f \br{fB_{ik}-\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;k}\nu^{\d}}A^{k}_{j} \\
+        &=-uB_{ij}-\fr 1f \br{fB_{ik}-\L_{ik}}A^{k}_{j} \\
         &\hp{=}+ B_{il}A^{l}_{j}+T\ast\n u+uB_{ij}+u_{;ij}+\fr 1f h_{ik}\-R_{\a\b\g\d}x^{\a}_{;r}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}g^{rk}\\
-        &\hp{=}+\fr 1f h_{ik}\br{\-R_{\e\b\g\d}\dot{x}^{\e}x^{\b}_{;l}\dot{x}^{\g}\nu^{\d}b^{sl}x^{\a}_{;s}}_{;j}g^{rk}\-g_{\a\mu}x^{\mu}_{;r}.}
+        &\hp{=}-\fr 1f h_{ik}\br{\L_{rs}b^{sm}b^{rk}f_{;m}}_{;j}.}
 The result follows from rearranging terms.
 }
 Now we are prepared to deduce the evolution equation of $u.$ Note that the next evolution equation will be the \textit{first} place where the actual domain in the definition of $f$ will play a role. In the following lemma we assume
@@ -320,7 +369,7 @@ Under the flow \eqref{Flow} we have
 \pf{
 We deduce from \eqref{Ev-g}, \eqref{Ev-h} and the symmetry of $f^{mj}h^{i}_{m}$ that
 \eq{u&=\fr 1f\br{\p'F\dot{s}+f^{ij}\dot{h}_{ij}-f^{mi}h^{j}_{m}\dot{g}_{ij}}\\
-        &=\fr{\p'}{\p}\dot{s}+\fr 1f\br{-f^{ij}h_{ik}A^{k}_{j}+f^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}+2f^{mj}h_{mk}A^{k}_{j}}\\
+        &=\fr{\p'}{\p}\dot{s}+\fr 1f\br{-f^{ij}h_{ik}A^{k}_{j}+f^{ij}\L_{ij}+2f^{mj}h_{mk}A^{k}_{j}}\\
         &=(\log\p)'\dot{s}+f^{ij}\br{B_{ij}+\fr 1f\L_{ij}}.}
 Thus
 \eq{\label{dot u}\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
@@ -367,101 +416,121 @@ and due to the first Bianchi identity we arrive at
         }
 
 }
-\section{Euclidean and Minkowski space}
-In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
-Theo{rem}{}{
-Throughout this, we assume that the following conditions are satisfied 
-\begin{enumerate}
-  \item $N=\mathbb{R}^{n+1},$ the solution is strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
-  \item $N=\mathbb{R}^{n,1},$ the solution is co-compact, spacelike, strictly convex and if $\varphi\neq 1$ then then $s(\cdot,t)>0$ for all $t.$
-\end{enumerate}
-\Theo{thm}{R=0}{
-Suppose $(\-R_{\a\b\g\d})=0$ and let $F=F(\nu,\mc{W})$ for fixed $\nu$ be $1$-homogeneous, positive and inverse concave. Let $0\neq p> -1$ and set
-\eq{f=\p(s)\mrm{sgn}(p)F^{p},} where $\p$ is a positive function of the support function $s$ satisfying
-\eq{\s\p'\leq 0\quad\mbox{and}\quad \mrm{sgn}(p)\br{\fr{1-p}{p}\p'^2+\p''\p}\geq 0.}
-Then along \eqref{Flow} there holds
-\eq{\del_{t}\br{ft^{\fr{p}{p+1}}}\geq 0.}
+\section{Locally symmetric spaces}
+
+In this section we prove the proposed Harnack inequalities. We restrict to locally symmetric spaces, since in more general settings we are not aware how to deal with the terms including derivatives of the Riemannian curvature tensor. In order to prove our main theorems, we need the following corollary of \eqref{Ev-u} with bonus term $\mc{B}$, which will be the basis for the proofs of all our main theorems.
+
+\Theo{lemma}{Homogeneous}{
+Let the ambient space $N$ be locally symmetric, i.e.,
+\eq{(\-R_{\a\b\g\d;\e})=0.}
+Let the speed $f$ satisfy \cref{SpeedAss}, let $\mc{B}\in\R$ and define 
+\eq{q=t(u-\mc{B})+\fr{p}{p+1}.}
+Then for $p>0$, any strictly convex solution to  \eqref{Flow} satisfies
+\eq{\label{Ev-q}\mc{L}q&\geq\fr{t}{\p^{2}}\br{\p''\p+\fr{(1-p)\p'^{2}}{p}}f^{2}+\fr{2t\s}{p}\fr{\p'}{\p}fu+\fr{p+1}{p}(u-\mc{B})q\\
+			&\hp{=}-t\fr{p+1}{p}(u-\mc{B})^{2}+t\fr{1-p}{p}u^{2}+\fr{2t}{p}\br{u-\fr{f^{ij}\L_{ij}}{f}}^{2}\\
+			&\hp{=}+t\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr{2t}{f} f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
 }
-\pf{
-Under the assumption that the ambient curvature vanishes, \eqref{Ev-u-1} becomes
-\eq{\label{R=0-1}\mathcal{L}u&=\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}.}
-Recall that the support function is given by
-\[s=\s\ip{x}{\nu}.\]
+For $p<0$ this inequality is reversed.
+}
+\pf{We have to distinguish two cases. First let $N=\R^{n+1}$ or $N=\R^{n,1}$. 
+Recall that the support function is given by $s=\s\ip{x}{\nu}.$
 Hence
 \eq{\dot{s}=\s\ip{\dot{x}}{\nu}=-\s f}
 and
-\eq{\ddot{s}&=-\s\dot{f}=\fr{\p'}{\p}f^2-\s ff^{ij}B_{ij},}
-where we used
+\eq{\ddot{s}&=-\s\dot{f}=\fr{\p'}{\p}f^2-\s ff^{ij}B_{ij}.}
+We also have
 \eq{\label{R=0-3} u=-\s \fr{\p'}{\p}f+f^{ij}B_{ij}.}
-We obtain from \eqref{R=0-1} that
-\eq{\mathcal{L}u&=\fr{\p''}{\p}f^2-2\s\frac{\p'}{\p}ff^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}.}
-In view of \cref{CF}, we have
-\eq{\label{R=0-2}f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}=\p^2G\br{2G^{il}b^{jk}+G^{ij,kl}}B_{ij}B_{kl}.}
-There holds
-\eq{\del_{t}\br{ft^{\fr{p}{p+1}}}=ft^{\fr{p}{p+1}-1}\br{\fr{p}{p+1}+tu}.}
-Let us put
-\eq{w=tu+\fr{p}{p+1},}
-then $w>0$ at $t=0$ if $p>0$ and $w<0$ at $t=0$ if $-1<p<0$. We aim to show that $w$ never changes sign. We first consider the case $p>0.$ There holds, using \eqref{R=0-2} and \eqref{R=0-3},
-\eq{\mathcal{L}w&=u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+tf\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
-&\geq u+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}ff^{ij}B_{ij}+t\fr{p+1}{p}\br{f^{ij}B_{ij}}^2\\
-&=\fr{p+1}{p}uw-t\fr{p+1}{p}u^2+t\fr{\p''}{\p}f^2-2\s t\fr{\p'}{\p}fu\\
-            &\hp{=}-2t\fr{\p'^2}{\p^2}f^2+t\fr{p+1}{p}u^2+2\s t\fr{p+1}{p}\fr{\p'}{\p}fu+t\fr{p+1}{p}\fr{\p'^2}{\p^2}f^2\\
-&=\fr{p+1}{p}uw+\fr{2}{p}\s t\fr{\p'}{\p}fu+t\fr{1-p}{p}\fr{\p'^2}{\p^2}f^2+t\fr{\p''}{\p}f^2\\
-&=\br{\fr{p+1}{p}u+\fr{2\s\p'f}{p\p}}w-\fr{2\s\p'f}{(p+1)\p}+\fr{tf^2}{\p^2}\br{\fr{1-p}{p}\p'^2+\p''\p}.}
-For the case $p<0$, we can do the same calculation but with a reverse inequality noting also that $f < 0$. Hence under  our assumptions $w$ never changes sign due to the maximum principle and the result follows.
-}
-% For example, if
-%  \eq{\p(s)=s^{q},\quad q\leq0,}
-%  then
-%  \eq{\p'=qs^{q-1},\quad \p''=q(q-1)s^{q-2},}
-%  so that
-%  \eq{\fr{1}{s^{2q-2}}\left((1-p)\br{\p'}^2+p\p''\p\right)=(1-p)q^2+pq(q-1)=q(q-p)\geq 0,}
-%  whenever $q\leq0.$
+Combining these relations with \cref{CF}, in case $p>0$ \eqref{Ev-u} becomes
+\eq{\label{R=0-1}\mathcal{L}u&=\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij}+f\br{2f^{il}b^{jk}+f^{ij,kl}}B_{ij}B_{kl}\\
+				&\geq \br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\br{\log\p}'\dot{s}f^{ij}B_{ij}+\fr{p+1}{p}\br{f^{ij}B_{ij}}^{2}\\
+				&=\fr{\p''}{\p}f^{2}-\fr{2\s\p'}{\p}ff^{ij}B_{ij}+\fr{p+1}{p}u^{2}+\fr{2(p+1)\s\p'}{p\p}fu+\fr{p+1}{p}\fr{\p'^{2}}{\p^{2}}f\\
+				&=\fr{p+1}{p}u^{2}+\fr{1}{\p^{2}}\br{\p''\p+\fr{(1-p)\p'^{2}}{p}}f^{2}+\fr{2\s}{p}\fr{\p'}{\p}fu,}
+with reversed inequality if $p<0$.
+				
+In case that $N$ is neither Euclidean nor Minkowski we use \cref{CF} and \eq{u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right)} to deduce
 
-% \textcolor[rgb]{1.00,0.00,0.00}{For another simple example, we may consider
-%  \eq{\p(s)=a+s^{q},\quad q<0,\quad a>0.}
-% This choice of $\varphi$ breaks the homogeneity of the speed.  It is easy to check that for $0<p\leq 1$, the sum of the last two terms of (\ref{eq: extension of harnack}) is non-negative.}
-\section{Locally symmetric spaces}
-\Theo{lemma}{Homogeneous}{
-Let the ambient space $N$ be locally symmetric, i.e.,
-\eq{(\-R_{\a\b\g\d;\e})=0} and suppose $\p\equiv 1$.
-Assume $F$ is a monotone, convex and $1$-homogeneous curvature function.
-For $p>0$, any strictly convex solution to  \eqref{Flow} satisfies
-\eq{\label{LocHom-1}\mathcal{L}u&\geq 
-\frac{p+1}{p}u^2-\frac{4}{p}\frac{f^{ij}\L_{ij}}{f}u+\frac{2}{p}\left(\frac{f^{ij}\L_{ij}}{f}\right)^2
-\\
-&\hp{=}+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k}.
-        }
-For $p<0$ this inequality is reversed.
-}
-\pf{We only consider $p>0.$ By Lemma \ref{CF} and $u=f^{ij}\left(B_{ij}+\frac{1}{f}\Lambda_{ij}\right)$,
-we have
 \eq{\label{convexity}&2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
 &\geq \frac{2}{p} f^{ij}f^{kl}B_{kl}B_{ij}+\fr{p-1}{p}f^{ij}f^{kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
 &=\frac{p+1}{p}f^{ij}f^{kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
 &-\frac{2}{p}\frac{f^{kl}\L_{kl}}{f}\frac{f^{ij}\L_{ij}}{f}-\frac{4}{p} \frac{f^{kl}\L_{kl}}{f}f^{ij}\left(B_{ij}+\fr 1f\L_{ij}-\fr 1f\L_{ij}\right)\\
-&=\frac{p+1}{p}u^2+\frac{2}{p}\left(\frac{f^{ij}\L_{ij}}{f}\right)^2-\frac{4}{p}\frac{f^{ij}\L_{ij}}{f}u.
+&=\frac{p+1}{p}u^2+\frac{2}{p}\left(\frac{f^{ij}\L_{ij}}{f}\right)^2-\frac{4}{p}\frac{f^{ij}\L_{ij}}{f}u,
 }
-Therefore, inequality (\ref{LocHom-1}) follows directly from (\ref{convexity}) and \eqref{Ev-u-1}.
+with reversed inequality if $p<0$.
+Therefore, from (\ref{convexity}) and \eqref{Ev-u-1} we deduce
+
+\eq{\label{LocHom-1}\mathcal{L}u&\geq \frac{p+1}{p}u^2-\frac{4}{p}\frac{f^{ij}\L_{ij}}{f}u+\frac{2}{p}\left(\frac{f^{ij}\L_{ij}}{f}\right)^2
+\\
+&\hp{=}+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
+        }
+if $p>0$ and the reversed inequality if $p<0$.
+
+In all cases we obtain, using \eqref{R=0-1} and \eqref{LocHom-1},
+\eq{\mc{L}q&=u-\mc{B}+t\mc{L} u\\
+			&=\fr{p+1}{p}(u-\mc{B})q-t\fr{p+1}{p}(u-\mc{B})^{2}+t\mc{L}u\\
+			&\geq\fr{t}{\p^{2}}\br{\p''\p+\fr{(1-p)\p'^{2}}{p}}f^{2}+\fr{2t\s}{p}\fr{\p'}{\p}fu+\fr{p+1}{p}(u-\mc{B})q\\
+			&\hp{=}-t\fr{p+1}{p}(u-\mc{B})^{2}+t\fr{1-p}{p}u^{2}+\fr{2t}{p}\br{u-\fr{f^{ij}\L_{ij}}{f}}^{2}\\
+			&\hp{=}+t\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr{2t}{f} f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
 }
+with reversed inequality of $p<0$.
+}
+
+With this lemma we prove our various variants of the Harnack inequality. We proceed from general to specific ambient spaces.
+
+\subsection*{Euclidean and Minkowski space}
+%\section{Euclidean and Minkowski space}
+In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
+
+\Theo{thm}{R=0}{
+Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\psi$ satisfy the assumptions of \cref{Euclidean}. Then along \eqref{Flow} there holds
+\eq{tu+\fr{p+1}{p}\geq 0.}
+}
+
+\pf{Apply \eqref{Ev-q} with $\mc{B}=0$ to obtain that $q$ satisfies
+\eq{\mc{L}q\geq \fr{2\s}{p}\fr{\p'}{\p}fq-\fr{2\s}{p+1}\fr{\p'}{\p}f+\fr{p+1}{p}uq}
+with reversed inequality if $p<0$. Hence the result follows from the maximum principle.
+}
+
+\subsection*{Locally symmetric Einstein spaces of non-negative sectional curvature}
+
+Here we obtain Harnack inequalities for the mean curvature flow:
+
+\Theo{thm}{LocSymm}{
+Suppose $N$ is a Riemannian locally symmetric Einstein space with non-negative sectional curvature. Let $f=H$ Then for any strictly convex solution to \eqref{Flow} there holds
+\eq{\label{Bonus}t\br{u-\fr{\-R}{n+1}}+\fr{1}{2}\geq 0,}
+where $\-R$ is the scalar curvature.
+}
+
+\pf{
+(i)~We use \eqref{Ev-q} with 
+\eq{\mc{B}=\fr{\-R}{n+1},}
+where $R$ is the scalar curvature. In this situation we have $\s=1$ and $f^{ij}h_{ij}=g^{ij}$ and hence the second line of \eqref{Ev-q} is non-negative. Furthermore there holds
+\eq{f^{ij}\L_{ij}&=g^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
+			&=-\-R_{\a\b}\dot{x}^{\a}\nu^{\d}\\
+			&=\fr{\-R}{n+1}f.}
+Hence the claim follows from the maximum principle applied to \eqref{Ev-q}.
+}
+
+
+
 \subsection*{The sphere}
-If the ambient space is the sphere $\S^{n+1}$, we recover the class of speeds for which we could prove a Harnack inequality in \cite{BryanIvakiScheuer:12/2015}.
+In the case of the sphere, inequality \eqref{Bonus} is precisely the Harnack inequality with bonus term as it was already deduced in \cite{BryanIvaki:08/2015}.
+We recover the class of speeds for which we could prove a Harnack inequality without bonus term in \cite{BryanIvakiScheuer:12/2015}.
 \Theo{thm}{Sphere}{
 Suppose $N=\S^{n+1}$ and $F$ is a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and $f=F^p.$ Then for any strictly convex solution to \eqref{Flow} there holds
-\eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
+\eq{tu+\fr{p}{p+1}\geq 0.}
 }
-\pf{Using \Cref{Homogeneous} and $\Lambda_{ij}=fg_{ij},$
-we conclude that for $w=tu+\fr{p}{p+1}:$
-\eq{\label{ev w}\mathcal{L}w\geq& u+t\fr{p+1}{p}u^2-\fr{4}{p}f^{ij}g_{ij}w+\fr{4}{p+1}f^{ij}g_{ij}+\fr{2t}{p}\br{f^{ij}g_{ij}}^2\\
-        =&\left(\fr{p+1}{p}u-\fr{4}{p}f^{ij}g_{ij}\right)w+\fr{4}{p+1}f^{ij}g_{ij}+\fr{2t}{p}\br{f^{ij}g_{ij}}^2.}
-Note that to get the first inequality we dropped the last term in (\ref{LocHom-1}). The result follows from the maximum principle.
+\pf{
+Again the second line of \eqref{Ev-q} is non-negative. Also note that now we have
+\eq{\L_{ij}=fg_{ij}}
+We calculate
+\eq{-t\fr{p+1}{p}u^{2}+t\fr{1-p}{p}u^{2}+2t\br{u-\fr{f^{ij}\L_{ij}}{f}}^{2}
+&=-4tu\fr{f^{ij}\L_{ij}}{f}+2t\br{\fr{f^{ij}\L_{ij}}{f}}^{2}\\
+&\geq-4q\fr{f^{ij}\L_{ij}}{f}+\fr{4p}{p+1}\fr{f^{ij}\L_{ij}}{f},
+	}
+and hence the maximum principle implies the claim again.
+
 }
-\Theo{rem}{}{Define $q:=w-nt$. Using (\ref{ev w}), we obtain that for $f=H$ the following holds
-\[\mathcal{L}q\geq 2\left(u-n\right)q.\]
-Therefore, by the maximum principle, $q$ remains positive. This implies that
-\[\partial_t H-nH+\frac{H}{2t}\geq 0.\]
-This is the Harnack inequality with the bonus term in \cite{BryanIvaki:08/2015}.
-}
+
 By applying the dual flow method developed in \Cref{Duality}, we obtain pseudo-Harnack inequalities
 for a class of inverse curvature flows.
  \Theo{thm}{ExpandingSphere}{
@@ -473,13 +542,16 @@ Suppose $N=\S^{n+1}$ and $F$ is a monotone, inverse convex and $1$-homogeneous c
 \pf{
 The dual flow of \eqref{DualHyperbolic} with speed
 \eq{\Phi(\~{\mc{W}})=-f(\mc{W})=-\mrm{sgn}(p)F^{p}(\mc{W})=\~F^{-p}(\~{\mc{W}})}
-satisfies the assumptions of \cref{Sphere}; therefore,
+satisfies the assumptions of \cref{Sphere}, which in particualr implies
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 \subsection*{De Sitter space}
+
+For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the De Sitter space of constant sectional curvature $K_{N}=1$ we obtain a simlar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumptions for flow in the De Sitter space. 
+
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p$. Then for any solution $x$ of \eqref{Flow} that the condition $0<\kappa_i\leq 1$ is always satisfied on $[0,T^{\ast})$ there holds
-\eq{\del_t\br{ft^{\fr{p}{p+1}}}\geq 0.}
+\eq{tu+\fr{p}{p+1}\geq 0.}
 }
 \pf{
 Let us put $X=\dot{x}+\sigma f\nu.$ We start with the following observations:
@@ -493,10 +565,10 @@ Let us put $X=\dot{x}+\sigma f\nu.$ We start with the following observations:
 \langle X,x_{;i}\rangle^2\geq -f^2g_{ii}.
 \end{align*}
 
-\Cref{Homogeneous}, these last two inequalities and 
+\eqref{Ev-q} with $\mc{B}=0$, these last two inequalities and 
 $\Lambda_{ij}=fg_{ij}$
-implies that if $0<p\leq 1$, then $w=tu+\fr{p}{p+1}$ satisfies
-\eq{\label{xx}\mathcal{L}w\geq&\br{\fr{p+1}{p}u-\fr{4}{p}f^{ij}g_{ij}}w+2t\left(\fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\right)+\fr{4}{p+1}f^{ij}g_{ij}.}
+imply that q satisfies
+\eq{\label{xx}\mathcal{L}q\geq&\br{\fr{p+1}{p}u-\fr{4}{p}f^{ij}g_{ij}}q+2t\left(\fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\right)+\fr{4}{p+1}f^{ij}g_{ij}.}
 On the other hand, since $0<\kappa_i\leq 1$, we have
 \[pf=\sum \frac{\partial f}{\partial \kappa_i}\kappa_i\leq f^{ij}g_{ij}\Rightarrow \fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\geq 0.\]
 The result now follows from the maximum principle.
@@ -626,25 +698,3 @@ The Harnack inequality for the cross curvature flow for metrics that are locally
 
 \end{document}
 
-\subsection*{Einstein manifolds}
-\eq{\partial_t \frac{g^{ij}\Lambda_{ij}}{H}=-\partial_t\frac{\bar{Rc}(\dot{x},\nu)}{H}&=\partial_t\frac{\bar{R}}{n+1}=0.}
-
-\eq{\partial_t \frac{g^{ij}\Lambda_{ij}}{H}=-\partial_t\frac{\bar{Rc}(\dot{x},\nu)}{H}&=\frac{\bar{Rc}(Hb^{ki}u_{;i}x_{;k}+\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}\nu^{\d}b^{ki}x_{;k},\nu)}{H}\\
-&=T\ast\nabla u+b^{ki}\frac{\overline{Rm}(\dot{x},x_{;i},\dot{x},\nu)\bar{Rc}(x_{;k},\nu)}{H}.}
-
-
-\section{Mean curvature flow in Einstein manifolds}
-
-\Theo{lemma}{Einstein}{
-Let the ambient space $N$ be an Einstein manifold, i.e.
-\eq{\-R_{\a\b}=\fr{R}{n+1}\-g_{\a\b},}
-where $R$ is the constant scalar curvature of $\-g.$ Then for $f=H$ there holds
-\eq{\label{Einstein-1}&\fr 1f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\dot{x}^{\d}\nu^{\e}-\fr 2f f^{ij}\-R_{\a\b\g\d;\e}x^{\a}_{;i}\dot{x}^{\b}x^{\g}_{;j}\nu^{\d}\dot{x}^{\e}\\
-=&-\fr 1f\-R_{\a\b\g\d;\e}\nu^{\a}\dot{x}^{\b}\nu^{\g}\dot{x}^{\d}\nu^{\e}.}
-}
-
-\pf{We plug
-\eq{g^{ij}x^{\a}_{;i}x^{\b}_{;j}=\-g^{\a\b}-\nu^{\a}\nu^{\b}}
-into the left hand side of \eqref{Einstein-1} and use $\-R_{\a\b;\e}=0.$
-
-} 

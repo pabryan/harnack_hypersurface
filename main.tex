@@ -38,19 +38,36 @@ for the Harnack quantity. For shrinking flows (i.e., positive $f$) we have $u = 
 }
 which is precisely the standard Harnack quantity in the Euclidean space.
 
+
 Our first theorem includes previously known Harnack inequalities in the Euclidean space and extends them by allowing the speed dependence on the ``support function". Furthermore, it provides Harnack inequalities for a class of curvature flows in the Minkowski space which are completely new.
+
+Suppose there is a subgroup $G$ of future preserving isometries of the Minkowski space  such that $I(x(M))=x(M)$ for all $I\in G$ and $G$ acts properly discontinuously on $M.$ Let us put $K=M/G$. If $K$ is compact, we say that $M$ is co-compact. Let $I_{\ast}$ denote the linear part of $I\in G$ (e.q., $I=I_{\ast}+\vec{v}$ such that $I_{\ast}\in O^+(n,1),~\vec{v}\in\mathbb{R}^{n,1}$,  where $O^+(n,1)$ is the space of future-preserving linear transformations \emph{preserving the Lorentzian inner product} and $\mathbb{R}^{n,1}$ denotes the Minkowski space) and also put $G_{\ast}=\{I_{\ast}:I\in G\}.$ If in addition, $G_{\ast}=G$, we say $M$ is standard.  
+
+Write $\mathbb{H}^n$ for the hyperbolic space. A function $\psi:\mathbb{H}^n\to \mathbb{R}$ is called $G_{\ast}$-invariant, if $\psi(I_{\ast}x)=\psi(x)$ for all $x\in \mathbb{H}^n$ and $I\in G.$ Therefore, $\psi:\mathbb{H}^n/G_{\ast}\to \mathbb{R}$ is well-defined.
 \Theo{thm}{Euclidean}{
 Let $s=\sigma\langle x,\nu\rangle$ be the support function and assume $F$ is a monotone, inverse concave, $1$-homogeneous curvature function. Let $0\neq p> -1$ and set
 $f=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p},$ where $\p$ is a positive smooth function of $s$ satisfying
 \eq{\s\p'\leq 0\quad\mbox{and}\quad \mrm{sgn}(p)\br{\fr{1-p}{p}\p'^2+\p''\p}\geq 0.}
-Suppose either
+Suppose one of the following conditions holds
 \begin{enumerate}
-  \item $N=\mathbb{R}^{n+1}$, $\psi$ is a positive smooth function defined on the unit sphere and the solution is strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$ Or
-  \item $N=\mathbb{R}^{n,1}$ (Minkowski space), $\psi$ is a positive smooth function defined on the hyperbolic space and the solution is co-compact, spacelike and strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
+  \item $N=\mathbb{R}^{n+1}$, $\psi$ is a positive smooth function defined on the unit sphere and the solution is strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
+  \item $N=\mathbb{R}^{n,1}$  (Minkowski space), $\varphi=\psi\equiv1$,  the solution is co-compact, spacelike and strictly convex.
+  \item $N=\mathbb{R}^{n,1}$,  $\varphi\equiv1$, the solution is co-compact, spacelike and strictly convex and $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function. 
+  \item $N=\mathbb{R}^{n,1}$, the solution is standard, spacelike, strictly convex, and  $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function and $s(\cdot,t)>0$ for all $t.$ 
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
 \eq{\del_{t}f-b^{ij}f_{;i}f_{;i}+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
 }
+\Theo{rem}{s well-defined on K}{Note for a standard, spacelike and strictly convex hypersurface, $s$ is well-defined on $K:$
+\begin{align*}
+s(Ix)&=-\langle Ix,\nu(Ix)\rangle\\
+&=-\langle Ix,I_{\ast}\nu(x)\rangle\\
+&=-\langle Ix,I\nu(x)\rangle\\
+&=-\langle x,\nu(x)\rangle=s(x).
+\end{align*}
+} 
+\Theo{rem}{}{Fix a subgroup $G$ of linear isometries that $\mathbb{H}^n/G$ is compact (e.q., $G$ acting freely co-compactly on $\mathbb{H}^n$). Let $\mathcal{F}$ denote the interior of $\{\langle x,x\rangle\leq 0, x_0\geq 0\}$. A convex closed proper subset of $\mathcal{F}$ that is $G$-invariant is called $G$-Fuchsian convex body. A $G$-Fuchsian convex body has a positive support function. A Fuchsian hypersurface is the boundary of a Fuchsian convex body. Suppose now $M$ is a standard (under the group $G$), spacelike, strictly convex hypersurface that is contained in $\mathcal{F}$. Since $\nu:M\to \mathbb{H}^n$ is a diffeomorphism, $\tilde{\nu}:M/G\to \mathbb{H}^n/G,~ [x]\mapsto [I_{\ast}\nu(x)]$ is a diffeomorphism. Therefore $\mathbb{H}^n/G$ is a compact manifold. Hence $M$ is a $G$-Fuchsian hypersurface with positive support function.}
+\Theo{rem}{}{Consider $x(M,t)=\sqrt{2F(1,\cdots,1)t}\mathbb{H}^{n}$ for $t\in(0,\infty)$, a solution to the expanding flow with a positive, 1-homogeneous speed $f=F$ (assuming $\varphi=\psi\equiv1$) and $N=\mathbb{R}^{n,1}$. Then equality holds in the Harnack inequality. Note that if $t\to 0$, then $x(M,t)\to\{\langle x,x\rangle=0: x_0\geq 0\}$ (e.q., boundary of $\mathcal{F}$) with support function  equal to zero.}
 In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
 
 In ambient space of non constant curvature we obtain several new results. We start with the most general ambient space we can, up to our current state of knowledge, allow for. Namely we obtain a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
@@ -271,9 +288,9 @@ We will use the following abbreviations to simplify the calculations. Set
 then we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}=-A^{k}_{i}x_{;k}.}
 Furthermore, we define the following bilinear forms,
-\eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f}=\fr{h(x_{;i},A(x_{;j}))}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d},}
+\eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d},}
 where we point out that these are not symmetric in general.
-The motivation for our particular reparametrization is the fact that the normal does not move:
+One motivation for our particular reparametrization is the fact that the normal does not move:
 
 \Theo{lemma}{Ev-g-nu}{
 Along the flow \eqref{Flow} there hold
@@ -314,7 +331,7 @@ Now we deduce evolution equations for several quantities related to the Harnack 
  We begin with the evolution of the reparametrization field.
 \Theo{lemma}{Ev-Tangent}{
 Under the flow \eqref{Flow} we have
-\eq{\label{Ev-Tangent-1}\del_{t}\br{b^{km}f_{;m}}=fb^{ki}u_{;i}+ub^{ki}f_{;i}+A^{k}_{j}b^{jm}f_{;m}-\L_{ij}b^{ik}b^{jm}f_{;m}.}
+\eq{\label{Ev-Tangent-1}\del_{t}\br{b^{ki}f_{;i}}=fb^{ki}u_{;i}+ub^{ki}f_{;i}+A^{k}_{j}b^{jm}f_{;m}-\L_{ij}b^{ik}b^{jm}f_{;m}.}
 }
 \pf{
 We calculate
@@ -324,12 +341,12 @@ Multiplying both sides by $fb^{ki}$ and rearranging the terms yields the result.
 }
 \Theo{lemma}{Ev-speed}{
 Along the flow \eqref{Flow} there holds
-\eq{\label{Ev-speed-1}\ddot{x}=u\dot{x}-fb^{ki}u_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}.}
+\eq{\label{Ev-speed-1}\ddot{x}=u\dot{x}-fb^{ik}u_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}.}
 }
 \pf{We use \eqref{A2} and \eqref{Ev-Tangent-1} to deduce
 \eq{\ddot{x}&=-\s \dot{f}\nu-\dot{x}_{;k}b^{ki}f_{;i}-x_{;k}\del_{t}\br{b^{ki}f_{;i}}\\
         &=-\s uf\nu+A^{l}_{k}b^{ki}f_{;i}x_{;l}-fb^{ki}u_{;i}x_{;k}-ub^{ki}f_{;i}x_{;k}\\
-        &\hp{=}-A^{k}_{j}b^{ji}f_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}\\
+        &\hp{=}-A^{k}_{j}b^{jm}f_{;m}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}\\
         &=u\dot{x}-fb^{ki}u_{;i}x_{;k}+\L_{ij}b^{jm}b^{ik}f_{;m}x_{;k}.}
 }
 \Theo{lemma}{Ev-A}{
@@ -373,17 +390,17 @@ We deduce from \eqref{Ev-g}, \eqref{Ev-h} and the symmetry of $f^{mj}h^{i}_{m}$ 
         &=(\log\p)'\dot{s}+f^{ij}\br{B_{ij}+\fr 1f\L_{ij}}.}
 Thus
 \eq{\label{dot u}\dot{u}&=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-  &\hp{=}+\br{g^{kj}f^{il}+f^{ij,km}h^{l}_{m}}\br{g_{kr}A^{r}_{l}+g_{lr}A^{r}_{k}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+  &\hp{=}+\br{g^{lj}f^{ik}+f^{ij,km}h^{l}_{m}}\br{g_{kr}A^{r}_{l}+g_{lr}A^{r}_{k}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}-ff^{ij,kl}\br{B_{kl}-\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f\L_{ij}}}\\
         &=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-  &\hp{=}+\br{2ff^{il}b^{jk}B_{kl}+2ff^{ij,kl}B_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+  &\hp{=}+\br{2ff^{ik}b^{jl}B_{kl}+2ff^{ij,kl}B_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
         &\hp{=}-ff^{ij,kl}\br{B_{kl}-\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
         &=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-  &\hp{=}+\br{2ff^{il}b^{jk}B_{kl}+ff^{ij,kl}B_{kl}+f^{ij,kl}\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+  &\hp{=}+\br{2ff^{ik}b^{jl}B_{kl}+ff^{ij,kl}B_{kl}+f^{ij,kl}\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
   &\hp{=}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}\\
         &=(\log\p)''\dot{s}^2+(\log\p)'\ddot{s}+\frac{\p'}{\p}\dot{s}f^{ij}\br{B_{ij}+\fr 1f \L_{ij}}\\
-  &\hp{=}+2ff^{il}b^{jk}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
-  &\hp{=}+2f^{il}b^{jk}B_{kl}\L_{ij}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}.}
+  &\hp{=}+2ff^{ik}b^{jl}B_{kl}B_{ij}+ff^{ij,kl}\br{B_{kl}+\fr 1f\L_{kl}}\br{B_{ij}+\fr 1f\L_{ij}}\\
+  &\hp{=}+2f^{ik}b^{jl}B_{kl}\L_{ij}+f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}.}
 We use \eqref{Ev-B-1} to deduce
 \eq{\label{Ev-u-3}f^{ij}\br{\dot{B}_{ij}+\del_{t}\br{\fr 1f{\L}_{ij}}}
             =& f^{ij}u_{;ij}+T\ast\nabla u-\fr 1f f^{ij} \-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}_{;j}\nu^{\d}\\
@@ -478,7 +495,7 @@ With this lemma we prove our various variants of the Harnack inequality. We proc
 
 \subsection*{Euclidean and Minkowski space}
 %\section{Euclidean and Minkowski space}
-In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows including dependence on the support function. In particular, they include  and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
+In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows claimed in Theorem \ref{Euclidean}. In particular, the theorem includes and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 
 \Theo{thm}{R=0}{
 Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\psi$ satisfy the assumptions of \cref{Euclidean}. Then along \eqref{Flow} there holds
@@ -487,7 +504,7 @@ Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\p
 
 \pf{Apply \eqref{Ev-q} with $\mc{B}=0$ to obtain that $q$ satisfies
 \eq{\mc{L}q\geq \fr{2\s}{p}\fr{\p'}{\p}fq-\fr{2\s}{p+1}\fr{\p'}{\p}f+\fr{p+1}{p}uq}
-with reversed inequality if $p<0$. Hence the result follows from the maximum principle.
+with reversed inequality if $p<0$. If the ambient space is Euclidean, the maximum principle gives the Harnack estimate. If $N=\mathbb{R}^{n,1}$, due to our assumptions in Theorem \ref{Euclidean}, we can apply the maximum principle on the compact set $K$ and prove the claimed Harnack inequalities in each case.
 }
 
 \subsection*{Locally symmetric Einstein spaces of non-negative sectional curvature}
@@ -495,7 +512,7 @@ with reversed inequality if $p<0$. Hence the result follows from the maximum pri
 Here we obtain Harnack inequalities for the mean curvature flow:
 
 \Theo{thm}{LocSymm}{
-Suppose $N$ is a Riemannian locally symmetric Einstein space with non-negative sectional curvature. Let $f=H$ Then for any strictly convex solution to \eqref{Flow} there holds
+Suppose $N$ is a Riemannian locally symmetric Einstein space with non-negative sectional curvature. Let $f=H$. Then for any strictly convex solution to \eqref{Flow} there holds
 \eq{\label{Bonus}t\br{u-\fr{\-R}{n+1}}+\fr{1}{2}\geq 0,}
 where $\-R$ is the scalar curvature.
 }
@@ -542,12 +559,12 @@ Suppose $N=\S^{n+1}$ and $F$ is a monotone, inverse convex and $1$-homogeneous c
 \pf{
 The dual flow of \eqref{DualHyperbolic} with speed
 \eq{\Phi(\~{\mc{W}})=-f(\mc{W})=-\mrm{sgn}(p)F^{p}(\mc{W})=\~F^{-p}(\~{\mc{W}})}
-satisfies the assumptions of \cref{Sphere}, which in particualr implies
+satisfies the assumptions of \cref{Sphere}, which in particular implies
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 \subsection*{De Sitter space}
 
-For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the De Sitter space of constant sectional curvature $K_{N}=1$ we obtain a simlar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumptions for flow in the De Sitter space. 
+For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the De Sitter space of constant sectional curvature $K_{N}=1$ we obtain a similar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumption for flow in the De Sitter space. 
 
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p$. Then for any solution $x$ of \eqref{Flow} that the condition $0<\kappa_i\leq 1$ is always satisfied on $[0,T^{\ast})$ there holds
@@ -567,7 +584,7 @@ Let us put $X=\dot{x}+\sigma f\nu.$ We start with the following observations:
 
 \eqref{Ev-q} with $\mc{B}=0$, these last two inequalities and 
 $\Lambda_{ij}=fg_{ij}$
-imply that q satisfies
+imply that $q$ satisfies
 \eq{\label{xx}\mathcal{L}q\geq&\br{\fr{p+1}{p}u-\fr{4}{p}f^{ij}g_{ij}}q+2t\left(\fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\right)+\fr{4}{p+1}f^{ij}g_{ij}.}
 On the other hand, since $0<\kappa_i\leq 1$, we have
 \[pf=\sum \frac{\partial f}{\partial \kappa_i}\kappa_i\leq f^{ij}g_{ij}\Rightarrow \fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\geq 0.\]

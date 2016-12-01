@@ -220,6 +220,7 @@ If $F$ is inverse concave, it was shown in \cite[p.~112]{Urbas:/1991} that
 Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~13]{BryanIvakiScheuer:12/2015}.
 }
 
+
 \Theo{ass}{SpeedAss}{
 We assume that $f$ is a nowhere vanishing velocity which is of the form
 \eq{\label{Speed}f\cn \R_{+}\x UN \x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)&\ra \R\\
@@ -239,6 +240,7 @@ Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite te
 }
 % For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function. 
  %\Theo{rem}{}{For curvature flows in the hyperbolic and de Sitter spaces, we only allow $F$ to depend on $\mathcal{W}$; that is, $F$ does not depend on $\nu.$}
+
 
 We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
 \[\mathcal{L}v=\dot{v}-f^{ij}v_{;ij}-T\ast\nabla v.\]
@@ -329,12 +331,9 @@ where $\~\s=\ip{\~\nu}{\~\nu}$ and where $\Phi$ is now evaluated at the ``correc
 \section{Evolution equations}
 In this section we deduce the relevant evolution equations under \eqref{Flow} for general ambient spaces.
 We will use the following abbreviations to simplify the calculations. Set
-\eq{A (X) = \-\nabla_X \left(\s f \nu + \mrm{grad}_h f\right)}
-where $\mrm{grad}_h f$ is the gradient of $f$ with respect to $h$: $h(\grad_h f, X) = df \cdot X$ for all tangent vectors $X$. In coordinates,
 \eq{\label{A1}A^{k}_{i}=\s fh^{k}_{i}+\br{b^{kl}f_{;l}}_{;i},}
-and so we also have
+then we also have
 \eq{\label{A2}\dot{x}_{;i}&=-\s f_{;i}\nu-\s f h^{k}_{i}x_{;k}+\s h_{ki}b^{kj}f_{;j}\nu-x_{;k}\br{b^{kj}f_{;j}}_{;i}=-A^{k}_{i}x_{;k}.}
-
 Furthermore, we define the following bilinear forms,
 \eq{B_{ij}:=\fr{h_{ik}A^{k}_{j}}{f},\quad \L_{ij}:=\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d},}
 where we point out that these are not symmetric in general.

@@ -111,6 +111,21 @@ The term pseudo-Harnack reflects the fact that the inequality in \Cref{pseudo Ha
 
 \subsection{Notation and Basic Definitions}
 \label{subsec:bg_notation}
+
+For an embedding into a semi-Riemannian manifold $(N^{n+1},\-g)$, 
+\eq{x\cn M^{n}\ra N^{n+1},}
+we let $g=x^{*}\-g$ be the induced metric and the second fundamental form is defined by the Gaussian formula
+\eq{\-\n_{x_{*}X}(x_{*}Y)=x_{*}\br{\n_{X}Y}-\s h(X,Y)\nu\quad\forall X,Y\in \mc{T}M, }
+where $\-\n$ and $\n$ denote the Levi-Civita connections of $\-g$ and $g$ respectively. From this, differentiating $0=\-g(\nu,{x_{*}Y})$, we obtain the Weingarten equation
+\eq{\label{Weingarten}\-g(\-\n_{x_{*}X}\nu,x_{*}Y)=h(X,Y)\quad\forall X,Y\in \mc{T}M.}
+Generally, geometric quantities of the ambient manifold are denoted by an overbar, e.g. our definition of the $(1,3)$ Riemannian curvature tensor of $\-g$ is given by
+\eq{\overline{\mrm{Rm}}(X,Y)Z=\-\n_{X}\-\n_{Y}Z-\-\n_{Y}\-\n_{X}Z-\-\n_{[X,Y]}Z}
+and the $(0,4)$ version is
+\eq{\overline{\mrm{Rm}}(X,Y,Z,W)=\-g\br{\overline{\mrm{Rm}}(X,Y)Z,W}.}
+Hence we have the Codazzi equation
+\eq{\label{Codazzi}\br{\n_{Z}h}(X,Y)=\n h (X,Y,Z)=\n h(X,Z,Y)-\overline{\mrm{Rm}}(\nu,X,Y,Z).}
+
+
 % For a tensor $T$, $T_{;ij}$ denotes the covariant derivative of $T$, first with respect $x_{;i}$ and then with respect to $x_{;j}.$ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
 % \eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
 % Recall also the Weingarten equation,

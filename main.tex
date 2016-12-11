@@ -204,6 +204,162 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 % \eq{\n\cn T(\R\x M)\x T(\R\x M)\ra T(\R\x M).}
 % However note that this connection is not symmetric. Still, since $\n$ is a linear connection, covariant differentiation of tensors and function is now well defined such that it obeys the product rule and commutes with traces.
 
+\subsection{Motivation for Reparametrisation}
+\label{subsec:reparam}
+
+Let us recall Moser's parabolic Harnack inequality \cite{Moser:02/1964} and the Li-Yau interpretation through a differential version of the Harnack inequality \cite{LiYau:/1986}. For the sake of argument, let $(M, g)$ be a smooth, compact Riemannian manifold with no boundary and $\Rc \geq 0$, $T > 0$ and $u : M \times [0, T] \to \R$ a solution of the heat equation,
+\[
+\partial_t u = \Delta_g u
+\]
+where $\Delta_g$ is the Laplacian with respect to $g$.
+
+Moser's Harnack inequality states that there is a constant $C > 0$ such that,
+\begin{equation}
+\label{eq:moser}
+u(x_1, t_1) \leq C u(x_2, t_2)
+\end{equation}
+for all $x_1, x_2 \in M$ and $0 \leq t_1 < t_2 \leq T$. The constant obtained using Moser's method is not sharp. However, in Euclidean space, the fundamental solution of the heat equation centered at $(x_1, 0)$,
+\[
+\rho(x, t) = \frac{1}{(4\pi t)^{n/2}} \exp \left(-\frac{|x - x_1|^2}{4 t}\right)
+\]
+satisfies the equality,
+\[
+\rho(x_1, t_1) = \left(\frac{t_2}{t_1}\right)^{n/2} \exp\left(\frac{|x_2 - x_1|^2}{4t_2}\right) \rho(x_2, t_2).
+\]
+Now, the sharp Harnack on $(M, g)$ is
+\begin{equation}
+\label{eq:sharp_harnack}
+u (x_1, t_1) \leq \left(\frac{t_2}{t_1}\right)^{n/2} \exp\left(\frac{d(x_1, x_2)^2}{4(t_2 - t_1)}\right) u (x_2, t_2).
+\end{equation}
+To obtain this result using Li-Yau's technique, note that taking logarithms, equation \eqref{eq:sharp_harnack} is equivalent to,
+\[
+\ln u(x_1, t_1) - \ln u (x_2, t_2) \leq \frac{n}{2} (\ln t_2 - \ln t_1) - \frac{d(x_1, x_2)^2}{4(t_2 - t_1)}.
+\]
+By taking $\gamma$ a constant speed curve joining $x_1$ at $t = t_1$ to $x_2$ at $t = t_2$ - that is $\gamma(t_1) = x_1$ and $\gamma(t_2) = x_2$ - we have the integral form
+\begin{equation}
+\label{eq:integral_harnack}
+-\int_{t_1}^{t_2} \partial_t \ln u + g(\nabla \ln u, \gamma') dt = -\int_{t_1}^{t_2} \partial_t \left(\ln u(\gamma(t), t)\right)  dt \leq \int_{t_1}^{t_2} \frac{n}{2t} + \frac{1}{4} |\gamma'|^2 dt,
+\end{equation}
+where we use $\gamma$ has constant speed $|\gamma'| \equiv d(x_1, x_2)/(t_2 - t_1)$. To obtain the sharp result, we need the pointwise inequality,
+\begin{equation}
+\label{eq:pointwise_harnack}
+\partial_t \ln u + g(\nabla \ln u, \gamma') + \frac{1}{4} |\gamma'|^2 \geq - \frac{n}{2t}
+\end{equation}
+By Cauchy-Schwartz, the right hand side is minimised when, $\gamma' = -2 \nabla \ln u$ and the inequality is equivalent to
+\begin{equation}
+\label{eq:liyau}
+\partial_t \ln u - |\nabla \ln u|^2 \geq - \frac{n}{2t}.
+\end{equation}
+In Euclidean space, equality is attained by the fundamental solution of the heat equation.
+
+To prove equation \eqref{eq:liyau}, one notes that,
+\begin{equation}
+\label{eq:evolution_lnu}
+\partial_t \ln u - |\nabla \ln u|^2 = \Delta \ln u.
+\end{equation}
+Thus we set $Q = \Delta \ln u$ and use Bochner formula,
+\[
+\Delta |\nabla \ln u|^2 = g(\nabla Q, \nabla \ln u) + 2 |\operatorname{Hess} \ln u|^2 + \Rc(\nabla \ln u, \nabla \ln u) \geq g(\nabla Q, \nabla \ln u) + \frac{2}{n} Q^2
+\]
+using $|\operatorname{Hess} \ln u|^2 \geq \tfrac{1}{n} Q^2$ by Cauchy-Schwartz, and $\Rc \geq 0$. Using the Bochner formula in
+\[
+\partial_t Q = \Delta (\partial_t \ln u) = \Delta Q + \Delta |\nabla \ln u|^2
+\]
+we obtain
+\begin{equation}
+\label{eq:liyau_harnack_differential}
+\partial_t Q \geq \Delta Q + g(\nabla Q, \nabla \ln u) + \frac{2}{n} Q^2.
+\end{equation}
+The maximum principle then gives the result no matter how negative $Q$ is initially.
+
+Once again, in Euclidean space, equality is attained by the fundamental solution, in which case, $Q$ is a function of $t$ only. In other words, the equality case is precisely attained by a solution (the fundamental solution) which solves the associated ODE,
+\[
+\partial_t q = \frac{2}{n} q^2.
+\]
+
+Now, to motivate the reparametrisation, consider the $|\nabla \ln u|^2$ term in equation \eqref{eq:liyau}. This arises from the chain rule applied to $\ln u(\gamma(t), t)$ where $\gamma$ is an integral curve of the vector field $-\nabla \ln u$ (up to the constant $2$). Thus it is natural to reparametrise the domain to follow the flow of the vector field, $-\nabla \ln u$; the steepest descent of the integrand on the left hand side of the integral Harnack inequality,  equation \eqref{eq:integral_harnack}. That is, set
+\[
+\tilde{u} (x, t) = u(\varphi_t(x), t)
+\]
+where
+\[
+\partial_t \varphi_t (x) = -\nabla \ln u (\varphi_t(x), t).
+\]
+Then,
+\[
+\partial_t \ln \tilde{u} = \partial_t \ln u - |\nabla \ln u|^2 = \Delta_g \ln u = \Delta_t \ln \tilde{u}.
+\]
+where $\Delta_t$ is the Laplacian with respect to the pull-back metric, $g_t = \phi_t^{\ast} g$.
+
+Under the reparametrisation, we take
+\[
+\tilde{Q} = \partial_t \ln \tilde{u} = \Delta_t \ln \tilde{u}.
+\]
+Compared with equation \eqref{eq:evolution_lnu} we have the advantage that $\ln \tilde{u}$ now satisfies the linear heat equation, but at the expense of working against a changing metric. Thus we trade off requiring the Bochner formula for requiring the commutator $[\partial_t, \Delta_t]$. Let $^t\nabla$ denote the Levi-Civita connection for $g_t$ and write
+\[
+\Delta_t \ln \tilde{u} = g_t^{\ast} (^t\nabla^2 \ln \tilde{u})
+\]
+where $g_t^{\ast} \in C^{\infty} \left(TM \otimes TM\right)$ is the dual metric, and $^t\nabla^2 \ln \tilde{u} \in T^{\ast} M \otimes T^{\ast} M$ is the second covariant derivative of $\ln \tilde{u}$ (the Hessian) at each fixed time $t$. Since $TM \otimes TM \simeq (T^{\ast} M \otimes T^{\ast} M)^{\ast}$ we can contract $g_t^{\ast}$ with $^t\nabla^2 \ln \tilde{u}$. Then,
+\begin{equation}
+\label{eq:dt_delta_commutator}
+\begin{split}
+\partial_t \tilde{Q} &= \left(\partial_t g_t^{\ast}\right) (^t\nabla^2 \ln \tilde{u}) + g_t^{\ast} (\partial_t \> ^t\nabla^2 \ln \tilde{u}) \\
+&= \left(\partial_t g_t^{\ast}\right) \left(^t\nabla^2 \ln \tilde{u}\right) + g_t^{\ast} \left(^t\nabla^2 \partial_t \ln \tilde{u} + [\partial_t, ^t\nabla^2] \ln \tilde{u}\right) \\
+&= \Delta_t \tilde{Q} + \left(\partial_t g_t^{\ast}\right) \left(^t\nabla^2 \ln \tilde{u}\right) + g_t^{\ast} \left([\partial_t, ^t\nabla^2] \ln \tilde{u}\right)
+\end{split}
+\end{equation}
+
+Now, the metric evolves according to the Lie derivative of the fixed metric $g$, in the direction $-\nabla \ln u$:
+\[
+\partial_t g_t = \mathcal{L}_{-\nabla \ln u} g
+\]
+and the dual metric evolves according to,
+\[
+\partial_t g_t^{\ast} = -(g_t^{\ast})^2 \ast \partial_t g_t = (g_t^{\ast})^2 \ast \mathcal{L}_{\nabla \ln u} g.
+\]
+We can use Uhlenbeck's trick to keep the metric fixed by defining the one-parameter family of endomorphims $I_t : TM \to TM$ by
+\[
+\begin{cases}
+\partial_t I_t (X) &= ^t\nabla_{I_t(X)} \nabla \ln u, \\
+I_0(X) & = X
+\end{cases}
+\]
+Then we have
+\[
+\begin{split}
+\partial_t \left[g_t(I_t(X), I_t(Y))\right] &= \partial_t g_t (I_t(X), I_t(Y)) + g_t (\partial_t I_t(X), I_t(Y)) + g_t (I_t(X), \partial_t I_t(Y)) \\
+&= - \mathcal{L}_{\nabla \ln u} g (I_t(X), I_t(Y)) \\
+&\quad + g_t(^t\nabla_{I_t(X)} \nabla \ln \tilde{u}, I_t(Y)) + g_t(I_t(X), ^t\nabla_{I_t(Y)} \nabla \ln \tilde{u}) \\
+&= - g_t(^t\nabla_{I_t(X)} \nabla \ln \tilde{u}, I_t(Y)) - g_t(I_t(X), ^t\nabla_{I_t(Y)} \nabla \ln \tilde{u}) \\
+&\quad + g_t(^t\nabla_{I_t(X)} \nabla \ln \tilde{u}, I_t(Y)) + g_t(I_t(X), ^t\nabla_{I_t(Y)} \nabla \ln \tilde{u}) \\
+&= 0.
+\end{split}
+\]
+
+It may not be immediately clear how the other terms in equation \eqref{eq:dt_delta_commutator} are affected by the Uhlenbeck trick. Thus, we use the equivalent formulation by defining an appropriate space-time connection introduced in \cite{AndrewsHopper:/2011,AndrewsBaker:/2010}. We just outline the construction here. More details are given in \Cref{subsec:spacetime}. There is a unique space-time connection $D$ such that on the spacial bundle,
+\begin{itemize}
+\item[(i)] $D$ is compatible with $g_t$,
+\item[(ii)] $D$ is spatially symmetric: $D_{X}Y-D_{Y}X=[X,Y]$,
+\item[(iii)] $D$ is irrotational, i.e., the tensor $S\in C^{\infty}(\mathscr{S}^{*}\otimes \mathscr{S})$, defined by
+\eq{S(V)=\n_{\del_{t}}V-[\del_{t},V]}
+is self-adjoint with respect to $g,$
+\end{itemize}
+compare \cite[Thm.~6.9]{AndrewsHopper:/2011}. Note also that
+\eq{\n_{\del_{t}}\del_{i}={\G_{0i}}^{k}\del_{k},}
+where
+\eq{{\G_{0i}}^{k}=\fr 12 g^{kj}\dot{g}_{ij}}
+\[
+D_X Y = ^t \nabla_X Y, D_{\partial_t} \partial_t = 0,
+\]
+
+In the case of the heat equation, the reparametrisation does not offer any great advantage computationally, although conceptually tracking the steepest descent of the Harnack quantity by reparametrisation is quite natural. The basic plan is the same for hypersurface flows, where it turns out that reparametrisation is of tremendous benefit. Briefly, the approach is
+\begin{itemize}
+\item The reparametrisation tracks the steepest descent,
+\item Use Bochner type formulae for the evolution of $Q$ and apply the maximum principle,
+\item The equality case, if it occurs, is for solitons which are self-similar solutions obtained by separating variables and attaining equality in the associated ODE.
+\item Use the appropriate Andrews-Uhlenbeck space-time connection to keep the metric static.
+\end{itemize}
+Remarkably, all this connects with Andrews approach using the Gauss map and support function \cite{Andrews:09/1994}; indeed we recover this approach in Euclidean space. Moreover, the approach here allows us to generalise to other backgrounds where suitable Gauss map parametrisations and support functions are lacking.
 
 \subsection{Speed Functions}
 \label{subsec:bg_speed}

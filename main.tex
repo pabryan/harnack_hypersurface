@@ -5,7 +5,6 @@
 \begin{document}
 
 \title[Harnack inequalities for curvature flows]{Harnack inequalities for curvature flows in Riemannian and Lorentzian manifolds}
-
 \maketitle
 \section{Introduction}
 \label{sec:intro}
@@ -22,7 +21,7 @@ The flow \eqref{Flow} is equivalent to the curvature flow
 by letting \(r_t:M\to M\) to be the flow of the vector field $b^{ki}f_{;i}$ on $M$ and  $\bar{x} (\xi, t) := x (r_t(\xi), t)$. We call $\bar{x}$  the standard parameterization as in \cite{Andrews:09/1994}.
 
 Harnack inequalities are point-wise derivative estimates which usually enable one to compare a solution to a curvature flow at different points in space-time.
-Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}. 
+Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}.
 In a Euclidean background, $N = \R^{n+1}$, one may consider the unit normal at time $t$, as the Gauss map $\nu_t : M \to \S^n$, which is a diffeomorphism whenever $x(M,t)$ is strictly convex. The Gauss map parameterization $y_t: \S^n \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu_t(y_t(z)) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
 
 The Gauss map parameterization just described is manifestly Euclidean, and given the utility of such a parameterization, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parameterization \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parameterization, $x$. See \Cref{BE-n}, analogous to the Gauss map parameterization, valid in arbitrary backgrounds.
@@ -42,7 +41,7 @@ which is precisely the standard Harnack quantity in the Euclidean space.
 
 Our first theorem includes previously known Harnack inequalities in the Euclidean space and extends them by allowing the speed dependence on the ``support function". Furthermore, it provides Harnack inequalities for a class of curvature flows in the Minkowski space which are completely new.
 
-Suppose there is a subgroup $G$ of future preserving isometries of the Minkowski space  such that $I(x(M))=x(M)$ for all $I\in G$ and $G$ acts properly discontinuously on $M.$ Let us put $K=M/G$. If $K$ is compact, we say that $M$ is co-compact. Let $I_{\ast}$ denote the linear part of $I\in G$ (e.q., $I=I_{\ast}+\vec{v}$ such that $I_{\ast}\in O^+(n,1),~\vec{v}\in\mathbb{R}^{n,1}$,  where $O^+(n,1)$ is the space of future-preserving linear transformations \emph{preserving the Lorentzian inner product} and $\mathbb{R}^{n,1}$ denotes the Minkowski space) and also put $G_{\ast}=\{I_{\ast}:I\in G\}.$ If in addition, $G_{\ast}=G$, we say $M$ is standard.  
+Suppose there is a subgroup $G$ of future preserving isometries of the Minkowski space  such that $I(x(M))=x(M)$ for all $I\in G$ and $G$ acts properly discontinuously on $M.$ Let us put $K=M/G$. If $K$ is compact, we say that $M$ is co-compact. Let $I_{\ast}$ denote the linear part of $I\in G$ (e.q., $I=I_{\ast}+\vec{v}$ such that $I_{\ast}\in O^+(n,1),~\vec{v}\in\mathbb{R}^{n,1}$,  where $O^+(n,1)$ is the space of future-preserving linear transformations \emph{preserving the Lorentzian inner product} and $\mathbb{R}^{n,1}$ denotes the Minkowski space) and also put $G_{\ast}=\{I_{\ast}:I\in G\}.$ If in addition, $G_{\ast}=G$, we say $M$ is standard.
 
 Write $\mathbb{H}^n$ for the hyperbolic space. A function $\psi:\mathbb{H}^n\to \mathbb{R}$ is called $G_{\ast}$-invariant, if $\psi(I_{\ast}x)=\psi(x)$ for all $x\in \mathbb{H}^n$ and $I\in G.$ Therefore, $\psi:\mathbb{H}^n/G_{\ast}\to \mathbb{R}$ is well-defined.
 \Theo{thm}{Euclidean}{
@@ -53,8 +52,8 @@ Suppose one of the following conditions holds
 \begin{enumerate}
   \item $N=\mathbb{R}^{n+1}$, $\psi$ is a positive smooth function defined on the unit sphere and the solution is strictly convex and if $\varphi\neq 1$ then $s(\cdot,t)>0$ for all $t.$
   \item $N=\mathbb{R}^{n,1}$  (Minkowski space), $\varphi=\psi\equiv1$,  the solution is co-compact, spacelike and strictly convex.
-  \item $N=\mathbb{R}^{n,1}$,  $\varphi\equiv1$, the solution is co-compact, spacelike and strictly convex and $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function. 
-  \item $N=\mathbb{R}^{n,1}$, the solution is standard, spacelike, strictly convex, and  $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function and $s(\cdot,t)>0$ for all $t.$ 
+  \item $N=\mathbb{R}^{n,1}$,  $\varphi\equiv1$, the solution is co-compact, spacelike and strictly convex and $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function.
+  \item $N=\mathbb{R}^{n,1}$, the solution is standard, spacelike, strictly convex, and  $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function and $s(\cdot,t)>0$ for all $t.$
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
 \eq{\del_{t}f-b^{ij}f_{;i}f_{;i}+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
@@ -66,20 +65,19 @@ s(Ix)&=-\langle Ix,\nu(Ix)\rangle\\
 &=-\langle Ix,I\nu(x)\rangle\\
 &=-\langle x,\nu(x)\rangle=s(x).
 \end{align*}
-} 
+}
 \Theo{rem}{}{Let $\mathcal{F}$ denote the interior of $\{\langle x,x\rangle\leq 0, x_0\geq 0\}$. If $M$ is a standard, spacelike, strictly convex hypersurface that is contained in $\mathcal{F}$, then $M$ has a positive support function.}
 \Theo{rem}{}{Consider $x(M,t)=\sqrt{2F(1,\cdots,1)t}\mathbb{H}^{n}$ for $t\in(0,\infty)$, a solution to the expanding flow with a positive, 1-homogeneous speed $f=F$ (assuming $\varphi=\psi\equiv1$) and $N=\mathbb{R}^{n,1}$. Then equality holds in the Harnack inequality. Note that if $t\to 0$, then $x(M,t)\to\{\langle x,x\rangle=0: x_0\geq 0\}$ (e.q., boundary of $\mathcal{F}$) with support function  equal to zero.}
 In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
 
 In ambient space of non constant curvature we obtain several new results. We start with the most general ambient space we can, up to our current state of knowledge, allow for. Namely we obtain a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
-
 \Theo{thm}{Einstein}{
 Let $N$ be a locally symmetric Riemannian Einstein manifold of non-negative sectional curvature. Then under the mean curvature flow there holds
 \[\del_{t}H-b^{ij}H_{;i}H_{;j}-\fr{\-R}{n+1}H+\fr{1}{2t}\geq 0,\]
 where $\-R$ is the constant scalar curvature of $N$.
 }
 
-The next theorem includes our Harnack inequalities from \cite{{BryanIvakiScheuer:12/2015}} and presents new Harnack inequalities in de Sitter space. 
+The next theorem includes our Harnack inequalities from \cite{{BryanIvakiScheuer:12/2015}} and presents new Harnack inequalities in de Sitter space.
 \Theo{thm}{Harnack Inequality}{
 Let $F$ be a monotone, convex, $1$-homogeneous curvature function and $f =F^p$ with $0< p\leq 1$.
 Suppose either
@@ -92,7 +90,7 @@ Then the following Harnack inequality holds in the standard parametrization:
 \partial_t F^p-b^{ij}(F^p)_{;i}(F^p)_{;i}+\frac{p}{(p+1)t}F^p\geq 0,\quad \forall t>0.
 \]
 }
-Furthermore, employing  duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space. 
+Furthermore, employing  duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space.
 \Theo{thm}{pseudo Harnack Inequality}{
 Let $F$ be a monotone, inverse convex, $1$-homogeneous curvature function and $f =-F^p$ with $-1\leq p<0$ .
 Suppose either
@@ -121,7 +119,7 @@ equivalently,
 \[S(X_{1},\dots, X_{k+1})=g(S^{\sharp}(X_{1},\dots, X_{k}),X_{k+1}).\]
 If the metric is denoted by some other symbol, i.e., $\-g$, these operator will also be furnished like this, e.g., $\-\flat$.
 
-For an embedding into a semi-Riemannian manifold $(N^{n+1},\-g)$, 
+For an embedding into a semi-Riemannian manifold $(N^{n+1},\-g)$,
 \eq{x\cn M^{n}\ra N^{n+1},}
 we let $g=x^{*}\-g$ be the induced metric and the second fundamental form is defined by the Gaussian formula
 \eq{\-\n_{x_{*}X}(x_{*}Y)=x_{*}\br{\n_{X}Y}-\s h(X,Y)\nu\quad\forall X,Y\in \mc{T}M, }
@@ -135,8 +133,10 @@ and the $(0,4)$ version is
 \eq{\overline{\mrm{Rm}}^{\-\flat}(\-X,\-Y,\-Z,\-W)=\-g\br{\overline{\mrm{Rm}}(\-X,\-Y)\-Z,\-W},}
 where we suppress the $\-\flat$, if no ambiguities are possible.
 Hence we have the Codazzi equation
-\eq{\label{Codazzi}\br{\n_{Z}h}(X,Y)=\n h (X,Y,Z)=\n h(X,Z,Y)-\overline{\mrm{Rm}}(\nu,X,Y,Z)}
-and its contravariant version
+\eq{\label{Codazzi}\br{\n_{Z}h}(X,Y)=\n h (X,Y,Z)=\n h(X,Z,Y)-\overline{\mrm{Rm}}(\nu,X,Y,Z).}
+Note that
+\[\nabla h (Z,X,Y)=g(\nabla_Y \mc{W}(X),Z).\]
+Therefore, we may rewrite (\ref{Codazzi}) equivalently as follows
 \eq{\n_Y\mc{W}(X)=\n_X\mc{W}(Y)-\br{\overline{\mrm{Rm}}(X,Y)\nu}^{\top},}
 where we stipulate that whenever we insert $X\in \mc{T}M$ into ambient tensors, we understand $X$ to be the push-forward $x_{*}X.$
 
@@ -173,13 +173,13 @@ and $B_{\mrm{sym}}$ denotes its symmetrization, i.e.,
 
 % \subsection{The canonical space-time connection}
 
-% It turns out that the calculation of the evolution equations for \eqref{Flow} simplify a bit when we use the canonical space-time connection for time dependent families of embeddings, as described very nicely in \cite[Sec.~6.3]{AndrewsHopper:/2011}. Let us quickly recall the main features of this connection. 
+% It turns out that the calculation of the evolution equations for \eqref{Flow} simplify a bit when we use the canonical space-time connection for time dependent families of embeddings, as described very nicely in \cite[Sec.~6.3]{AndrewsHopper:/2011}. Let us quickly recall the main features of this connection.
 
 % Given a smooth time-dependent family of metrics $g(t)$ on a manifold $M$, we can consider the {\it{spatial tangent bundle}} on $\R\x M$ given by
 % \eq{\mathscr{S}=\{V\in T(\R\x M)\cn dt(V)=0\},}
 % which gives the product decomposition
 % \eq{T(\R\x M)=\R\del_{t}\oplus \mathscr{S}.}
-% A unique connection 
+% A unique connection
 % \eq{\n\cn TM\x \mathscr{S}\ra \mathscr{S}}
 %  on the spatial tangent bundle can be defined such that
 % \begin{itemize}
@@ -190,9 +190,9 @@ and $B_{\mrm{sym}}$ denotes its symmetrization, i.e.,
 % \eq{S(V)=\n_{\del_{t}}V-[\del_{t},V]}
 % is self-adjoint with respect to $g,$
 % \end{itemize}
-% compare \cite[Thm.~6.9]{AndrewsHopper:/2011}. Note also that 
+% compare \cite[Thm.~6.9]{AndrewsHopper:/2011}. Note also that
 % \eq{\n_{\del_{t}}\del_{i}={\G_{0i}}^{k}\del_{k},}
-% where 
+% where
 % \eq{{\G_{0i}}^{k}=\fr 12 g^{kj}\dot{g}_{ij}}
 % are the remaining Christoffel symbols (besides the one from the spatial Levi-Civita connections).
 % With the definition
@@ -204,7 +204,6 @@ and $B_{\mrm{sym}}$ denotes its symmetrization, i.e.,
 
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
-
 \subsection*{Curvature functions}
 We collect some well known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
 
@@ -218,7 +217,6 @@ For second derivatives of $f$ we write
 and we recall the formulas
 \eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}X_{ij}=-f^{mi}h^{j}_{m}X_{ij},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}X_{ij}Y_{kl}=-(g^{kj}f^{il}+f^{ij,km}h^{l}_{m})X_{ij}Y_{kl},}
 for all symmetric matrices $(X_{ij}), (Y_{ij}).$
-
 \Theo{lemma}{CF}{
 Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the speed function \eqref{Speed}
 satisfies
@@ -240,7 +238,7 @@ Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~
 }
 \Theo{ass}{SpeedAss}{
 We assume that $f$ is a nowhere vanishing velocity which is of the form
-\eq{\label{Speed}f\cn \R_{+}\x UN &\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R\\	f(s,\nu,h_{ij},g_{ij})&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(h_{ij},g_{ij}),}
+\eq{\label{Speed}f\cn \R_{+}\x UN &\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R\\ f(s,\nu,h_{ij},g_{ij})&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(h_{ij},g_{ij}),}
 \begin{itemize}
 \item $p\neq 0$,
 \item$\p\in C^{\8}(\R_{+})$ is a positive function acting on the support function $s$ and such that $\p\equiv 1$ if $N$ is neither the Euclidean nor the Minkowski space,
@@ -250,11 +248,11 @@ We assume that $f$ is a nowhere vanishing velocity which is of the form
 \item inverse concave, if $N=\R^{n+1}$ or $N=\R^{n,1}$ and
 \item convex, otherwise.
 \end{enumerate}
-\end{itemize} 
+\end{itemize}
 
 Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
 }
-% For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function. 
+% For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function.
  %\Theo{rem}{}{For curvature flows in the hyperbolic and de Sitter spaces, we only allow $F$ to depend on $\mathcal{W}$; that is, $F$ does not depend on $\nu.$}
 
 
@@ -306,14 +304,14 @@ In this model of the hyperbolic space the point $(1,0,\ldots,0)$ is called the {
 \eq{\~M\sub \S^{n,1}_{+}=\{x\in \S^{n,1}\cn x^0>0\}.}
 We will also need the reverse direction starting from a strictly convex, spacelike hypersurface in $\S^{n,1}.$
 \Theo{thm}{HyperbolicDuality}{\cite[Thm.~10.4.5]{Gerhardt:/2006}
-Let $x\cn \~M\ra \S^{n,1}$ be a closed, connected, spacelike, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ such that, when viewed as a codimension 2 submanifold in $\R^{n+1,1}$, its Gaussian formula is 
+Let $x\cn \~M\ra \S^{n,1}$ be a closed, connected, spacelike, strictly convex hypersurface of class $C^{m},$ $m\geq 3,$ such that, when viewed as a codimension 2 submanifold in $\R^{n+1,1}$, its Gaussian formula is
 \eq{\~x_{;ij}=-\~g_{ij}\~x+\~h_{ij}x,}
 where $\~x=\~x(\xi)$ is the embedding, $x$ the future directed normal vector , and $\~g_{ij}$, $\~h_{ij}$ the induced metric and the second fundamental form of the hypersurface in $\S^{n,1}$. Then we define the Gauss map as $x=x(\xi)$
 \eq{x\cn \~M\ra \H^{n+1}\sub\R^{n+1,1}.}
 The Gauss map is the embedding of a closed, connected, strictly convex hypersurface $M$ in $\H^{n+1}.$
 Let $\~g_{ij},$ $\~h_{ij}$ be the metric and the second fundamental form of $M$, then, when viewed as a codimension 2 submanifold, $M$ satisfies the relations
 \eq{x_{ij}=g_{ij}x-h_{ij}\~x,}
-\eq{h_{ij}=\~h_{ij}=\ip{x_{;i}}{\~x_{;j}},} and 
+\eq{h_{ij}=\~h_{ij}=\ip{x_{;i}}{\~x_{;j}},} and
 \eq{\~\k_{i}=\k_{i}^{-1},}
 where $\k_{i}$, $\~\k_{i}$ are the corresponding principal curvatures.
 }
@@ -348,7 +346,7 @@ We begin by collecting some basic evolution equations. The final aim is to deduc
 where
 \eq{\label{EvEq-1}V=\grad_{h}f}
 is the spatial gradient of $f$ with respect to the second fundamental form:
-\eq{h(V,X)=Xf\quad\forall X\in \mc{T}M.} 
+\eq{h(V,X)=Xf\quad\forall X\in \mc{T}M.}
 Note that
 \eq{\label{EvEq-2}\-\n_{X}\dot{x}&=-\s\-\n_{X}\br{f\nu}-\-\n_{X}V\\
 				&=-\s h(V,X) \nu-\s f\-\n_{X}\nu-x_{*}\n_{X}V+\s h(X,V)\nu}
@@ -363,7 +361,7 @@ Also let
 \eq{\L(X,Y)=\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
 Note that $B$ is generally \emph{not} symmetric.
 \Theo{lemma}{SymmetriesB}{
-There holds 
+There holds
 \eq{B(X,Y)&=B(Y,X)+\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},\nu,X,Y)\\
 		&=B(Y,X)+\fr 1f \L(X,Y)-\fr 1f\L(Y,X).}
 }
@@ -387,7 +385,6 @@ Along the flow \eqref{Flow} there hold
 \eq{\label{BE-tildeg}\dot{\~g}=-B-\~gu+\fr{\L}{f},}
 \eq{\label{BE-gradf}\dot{V}&=\grad_{\~g}u+A(V)+uV-\fr{1}{f}(\L^{t})^{\~\sharp}V,}
 \eq{\label{BE-speed} \fr{\-\n}{dt}\dot{x}=u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V }.}
-
 }
 \pf{Let $X,Y\in\mc{T}M.$\newline
 ``\eqref{BE-g}'': By \eqref{EvEq-2} we have
@@ -397,7 +394,7 @@ Along the flow \eqref{Flow} there hold
 					&=-g(A(X),Y)-g(X,A(Y)).}
 ``\eqref{BE-n}'': We have $0=\del_{t}\bar{g}(\nu,\nu)$. Since $0=\del_{t}\bar{g}(\nu,x_{*}X)$, we get
 \eq{\bar{g}(\-\n_{\dot{x}} \nu,X)=-\bar{g}(\nu,\-\n_{\dot{x}}X)=-\bar{g}(\nu,\-\n_{X}\dot{x})=0.}
-``\eqref{BE-W}'': Recall that 
+``\eqref{BE-W}'': Recall that
 \eq{\-\n_{x_{*}X}\nu=x_{*}\mc{W}(X).} Therefore, using (\ref{BE-n}), we calculate
 \eq{\overline{\mrm{Rm}}(\dot{x},X)\nu=\-\n_{x_{*}\mc{W}(X)}\dot{x}+[\dot{x},x_{*}\mc{W}(X)]=-x_{*}(A(\mc{W}(X)))+x_{*}\dot{\mc{W}}(X).}
 ``\eqref{BE-h}'': Differentiate the Weingarten \eqref{Weingarten} equation and use \cref{SymmetriesB} to obtain
@@ -418,7 +415,6 @@ Along the flow \eqref{Flow} there hold
 				=&u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}
 .}}
 \subsubsection{Evolution equations involving the affine connection}
-
 From now on, to simplify the calculations, we will work with the {\it{affine connection}} $\~\n$ induced by the transversal vector field $\dot{x}.$ Namely, for $X,Y\in\mc{T}M$ we have the decomposition
 \eq{\-\n_{X}Y=x_{\ast}(\~\n_{X}Y)+\~g(X,Y)\dot{x}.}
 Note that $\~\n$ is not the Levi-Civita connection for the so-called {\it{affine metric}} $\~g.$ Let $\hat{\n}$ denote the Levi-Civita connection of $\~g$ and we define the difference tensor $D$ of type $(1,2)$ by
@@ -435,7 +431,6 @@ see \cite[Prop.~4.1]{NomizuSasaki:/1994} adjusted to the Riemannian setting.
 %\eq{\label{AE-B} \dot{B}&=\hat{\n}^{2}_{\~g}u+ C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
 %			&\hp{=}-\~g\br{\n\br{\fr 1f \L^{\~\sharp}V},\cdot}+\~g(\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top},\cdot)}
 }
-
 \pf{Let $X,Y\in \mc{T}M.$ Differentiate \eqref{A} with respect to $\dot{x}$ to obtain
 \eq{\-\n_{\dot{x}}x_{\ast}(A(X))=-\-\n_{\dot{x}}\-\n_{X}\dot{x},}
 \eq{[\dot{x},x_{\ast}(A(X))]+\-\n_{x_{\ast}(A(X))}\dot{x}=-\-\n_{X}\-\n_{\dot{x}}\dot{x}+\overline{\mrm{Rm}}(X,\dot{x})\dot{x}.}
@@ -458,8 +453,6 @@ Therefore, using (\ref{BE-speed}) we get
 %			&\hp{=}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)\\
 %			&=\hat{\n}^{2}_{\~g}u(X,Y)+ C(X,\grad_{\~g}u,Y)+\fr 1f \L(A(X),Y)\\
 %			&\hp{=}-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)}
-
-
 \Theo{lemma}{Ev-Lambda}{
 \eq{g\br{\partial_t\br{\fr{\L^{\sharp}}{f}}(X),Y}=&\fr 1f g(A(\L^{\sharp}(X)),Y)-\fr 1f \L(A(X),Y)-\fr 1f \overline{\mrm{Rm}}(\grad_{\~g}u, X,\nu, Y)\\
 &+\fr{1}{f^{2}}\overline{\mrm{Rm}}\br{\br{\L^{t}}^{\~\sharp}V,X,\nu,Y}+\fr{1}{f}\-\n_{\dot{x}}\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
@@ -478,7 +471,8 @@ as well as \eqref{A} and \eqref{BE-speed} yield the result.
 	&+2\L(\cW^{-1}(Y),A(Z))-\L(A(Z),\cW^{-1}(Y)).}
 }
 \pf{Covariant differentiating the equation
-\eq{\label{Lambdasharptilde-2}g\br{\fr{(\L^{t})^{\~\sharp}V}{f},Y}=\fr{h}{f}\br{(\L^{t})^{\~\sharp}V,\cW^{-1}(Y)}=-\L(\cW^{-1}(Y),\dot{x})}
+\eq{\label{Lambdasharptilde-2}g\br{\fr{(\L^{t})^{\~\sharp}V}{f},Y}&=\fr{h}{f}\br{(\L^{t})^{\~\sharp}V,\cW^{-1}(Y)}\\
+&=\L(\cW^{-1}(Y),V)=-\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})}
 with respect to $Z$ gives
 \eq{\label{Lambdasharptilde-1}g\br{\n_{Z}\br{\fr{(\L^{t})^{\~\sharp}V}{f}},Y}
 	=&-g\br{\fr{(\L^{t})^{\~\sharp}V}{f},\n_{Z}Y}-\-\n_{Z}\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})\\
@@ -504,8 +498,8 @@ Now we are prepared to deduce the evolution equation of $u.$ Note that the next 
 \eq{\dot{u}&-\tr_{d_{h}f}\hat{\n}_{\~g}^{2}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
 &+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
 =&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	\hp{=}&+\fr 2f\tr_{d_{h}f}(\tr_{h}(A\ast A))+\fr 2f \tr_{d_{\cW}f}(A\circ\L^{\sharp}-\L^{\sharp}\circ A)\\
-	\hp{=}&+\s\br{1-\fr{\tr_{d_{h}f}(h)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \tr_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
+	\hp{=}&+\fr 2f\tr_{d_{h}f}(\tr_{h}(A\ast A))+\fr 2f \tr(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
+	\hp{=}&+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \tr_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
 &+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot).}
 }
 \pf{Note that
@@ -518,59 +512,66 @@ Hence taking time derivative of both sides we arrive at
 		&\hp{=}+\fr 1f (d_{\cW}f)\br{\dot{A}\circ\cW+A^{2}\circ\cW+A\circ\L^{\sharp}-uA\circ\cW}+(d_{\cW}f)\br{\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}.}
 Using that for any $T\in \mc{T}^{1,1}M,$
 \eq{(d_{\cW}f)T=\tr(d_{\cW}f\circ T)}
-and that $d_{\cW}f$ commutes with $\cW$ we deduce 
+and that $d_{\cW}f$ commutes with $\cW$ we deduce
 \eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
 	&+\fr 1f\tr(d_{\cW}f\circ\cW\circ(\dot{A}+A^{2}-uA))+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
 		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
 	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\tr\br{d_{\cW}f\circ\cW\circ\br{\hat{\n}\grad_{\~g}u+D \grad_{\~g}u}}\\
 	&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
 	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
-Rewriting the $\grad_{\~g}$-terms we obtain 
+Rewriting the $\grad_{\~g}$-terms we obtain
 \eq{\label{Ev-u-5-new}\dot{u}&-\tr_{d_{h}f}\hat{\n}^{2}_{\~g}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)\\
 		&+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot, \grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
 	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}.}		
-Now we have to insert the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}.
-Let us recollect the relevent terms seperately. Due to \cref{Ev-Lambda} we have
-\eq{\label{Ev-u-1-new}&(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\ =&\fr{2}{f}\tr_{d_{\cW}f}(A\circ{\L^{\sharp}})-\fr{1}{f}\tr_{d_{\cW}f}(\L^{\sharp}\circ A)-\fr 1f\tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
-\hp{=}&+\fr{1}{f^{2}}\tr_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x}).}
-With \cref{Lambdasharptilde} we get
+	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})\\
+	&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}.}		
+Using the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}, we treat the last three terms of (\ref{Ev-u-5-new}) in order.
+\begin{itemize}
+  \item From \cref{MixedTrace} we obtain
+\eq{\label{Ev-u-4-new}\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\tr (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)},}
+where we used
+\begin{align*}
+\tr_{d_{h}f}\L(A(\cdot),\cdot)=\tr_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot))=\tr (d_Wf\circ\L^{\sharp}\circ A).
+\end{align*}
+  \item \cref{Lambdasharptilde} implies that
 \eq{\label{Ev-u-2-new}&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	=~&\fr{1}{f}\tr_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\tr_{d_{h}f}(h)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
+	=~&\fr{1}{f}\tr_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\tr_{d_{h}f}h(\cdot,\cdot)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
 	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
 	\hp{=}~&+\fr 1f \tr_{d_{h}f\circ\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
-To treat the last term of $\eqref{Ev-u-2-new}$ we use the Codazzi equation:
-\eq{\n_{X}(\cW^{-1}(Y))&=-\cW^{-1}(\n_{X}\cW(\cW^{-1}(Y)))+\cW^{-1}(\n_{X}Y)\\
-&=-\cW^{-1}\br{(\n h(X,\cW^{-1}(Y),\cdot)^{\sharp})}+\cW^{-1}(\n_{X}Y)\\
-&\hp{=}-\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.}
+To treat the last term of $\eqref{Ev-u-2-new}$, we use the Codazzi equation:\footnote{$g(\n_X \mc{W}(\mc{W}^{-1}(Y)),Z)=\n h(\mc{W}^{-1}(Y),Z,X)=\n h(\mc{W}^{-1}(Y),X,Z)+\overline{\mrm{Rm}}(\nu,\mc{W}^{-1}(Y),X,Z);$ therefore,
+$\n_X \mc{W}(\mc{W}^{-1}(Y))=(\n h(\mc{W}^{-1}(Y),X,\cdot))^{\sharp}+(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.$}
+\eq{\n_{X}(\cW^{-1}(Y))=&-\cW^{-1}(\n_{X}\cW(\cW^{-1}(Y)))+\cW^{-1}(\n_{X}Y)\\
+=&-\cW^{-1}\br{(\n h(X,\cW^{-1}(Y),\cdot))^{\sharp}}+\cW^{-1}(\n_{X}Y)\\
+&-\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.}
 Hence
 \eq{\label{Ev-u-3-new}&\fr 1f \tr_{d_{h}f\circ\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x})\\
 			=~&-\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},V,\nu,\dot{x})
-				-\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),\dot{x})\\
+				+\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V)\\
 			=~&\s\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
-				-\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),\dot{x}).}Let us also recall \cref{MixedTrace}:
-\eq{\label{Ev-u-4-new}\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})&=\fr 2f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\tr_{d_{h}f}\L(A(\cdot),\cdot)\\						&\hp{=}+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)}.}
-Now we have to add up \eqref{Ev-u-1-new}, \eqref{Ev-u-2-new} and \eqref{Ev-u-4-new}, also taking \eqref{Ev-u-3-new} into account.
-Therefore also note that from the defining equation of $(\L^{t})^{\~\sharp}V$, \eqref{Lambdasharptilde-2}, we get
+				+\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
+  \item In view of \cref{Ev-Lambda} we have
+\eq{\label{Ev-u-1-new}&(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\ =&\fr{2}{f}\tr (d_{\cW}f\circ A\circ{\L^{\sharp}})-\fr{1}{f}\tr(d_{\cW}f\circ\L^{\sharp}\circ A)-\fr 1f\tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
+\hp{=}&+\fr{1}{f^{2}}\tr_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x}).}
+Also, note that $(\L^{t})^{\~\sharp}=f\mc{W}^{-1}\circ(\L^{t})^{\sharp}$; therefore,
 \eq{\fr{1}{f^{2}}\tr_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)&=-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}\br{\nu,\cdot,\cdot,\fr{(\L^{t})^{\~\sharp}V}{f}}\\
 		&=-\fr 1f \tr_{d_{h}f}g\br{\fr{(\L^{t})^{\~\sharp}V}{f},\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}}\\
-		&=\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),\dot{x}).} Thus we get
-\eq{\label{Ev-u-4-new}&(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})\\
-	=~& \fr 2f \tr_{d_{\cW}f}(A\circ \L^{\sharp}-\L^{\sharp}\circ A)-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
-	\hp{=}~&+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\tr_{d_{h}f}(h)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
-	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
-	\hp{=}~&+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)}.}
+        &=-\fr 1f \tr_{d_{h}f}g\br{\mc{W}^{-1}\circ(\L^{t})^{\sharp}(V),\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}}\\
+		&=-\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
+\end{itemize}
+Putting these last three items all together gives
+\eq{\label{Ev-u-4-new}&\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
+	&+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
+	=~& \fr 2f \tr(d_{\cW}f\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
+	\hp{=}~&+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
+	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)}.}
 Inserting \eqref{Ev-u-4-new} into \eqref{Ev-u-5-new} gives the claimed result.
 }
 \section{Locally symmetric spaces}
 In this section we prove the proposed Harnack inequalities. We restrict to locally symmetric spaces, since in more general settings we are not aware how to deal with the terms including derivatives of the Riemannian curvature tensor. In order to prove our main theorems, we need the following corollary of \eqref{Ev-u-new} with bonus term $\mc{B}$, which will be the basis for the proofs of all our main theorems.
-
 \Theo{lemma}{Homogeneous}{
 Let the ambient space $N$ be locally symmetric, i.e.,
 \eq{(\-R_{\a\b\g\d;\e})=0.}
-Let the speed $f$ satisfy \cref{SpeedAss}, let $\mc{B}\in\R$ and define 
+Let the speed $f$ satisfy \cref{SpeedAss}, let $\mc{B}\in\R$ and define
 \eq{q=t(u-\mc{B})+\fr{p}{p+1}.}
 Then for $p>0$, any strictly convex solution to  \eqref{Flow} satisfies
 \eq{\label{Ev-q}\mc{L}q&\geq\fr{t}{\p^{2}}\br{\p''\p+\fr{(1-p)\p'^{2}}{p}}f^{2}+\fr{2t\s}{p}\fr{\p'}{\p}fu+\fr{p+1}{p}(u-\mc{B})q\\
@@ -579,7 +580,7 @@ Then for $p>0$, any strictly convex solution to  \eqref{Flow} satisfies
 }
 For $p<0$ this inequality is reversed.
 }
-\pf{We have to distinguish two cases. First let $N=\R^{n+1}$ or $N=\R^{n,1}$. 
+\pf{We have to distinguish two cases. First let $N=\R^{n+1}$ or $N=\R^{n,1}$.
 Recall that the support function is given by $s=\s\ip{x}{\nu}.$
 Hence
 \eq{\dot{s}=\s\ip{\dot{x}}{\nu}=-\s f}
@@ -603,7 +604,6 @@ In case that $N$ is neither Euclidean nor Minkowski we use \cref{CF} and \eq{u=f
 }
 with reversed inequality if $p<0$.
 Therefore, from (\ref{convexity}) and \eqref{Ev-u-1} we deduce
-
 \eq{\label{LocHom-1}\mathcal{L}u&\geq \frac{p+1}{p}u^2-\frac{4}{p}\frac{f^{ij}\L_{ij}}{f}u+\frac{2}{p}\left(\frac{f^{ij}\L_{ij}}{f}\right)^2
 \\
 &\hp{=}+\s\br{1-\fr{f^{ij}h_{ij}}{f}}\-R_{\a\b\g\d}\dot{x}^{\a}\nu^{\b}\dot{x}^{\g}\nu^{\d}+\fr 2f f^{ij}h^{k}_{j}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}\dot{x}^{\g}x^{\d}_{;k},
@@ -632,7 +632,6 @@ Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\p
 with reversed inequality if $p<0$. If the ambient space is Euclidean, the maximum principle gives the Harnack estimate. If $N=\mathbb{R}^{n,1}$, due to our assumptions in Theorem \ref{Euclidean}, we can apply the maximum principle on the compact set $K$ and prove the claimed Harnack inequalities in each case.
 }
 \subsection*{Locally symmetric Einstein spaces of non-negative sectional curvature}
-
 Here we obtain Harnack inequalities for the mean curvature flow:
 \Theo{thm}{LocSymm}{
 Suppose $N$ is a Riemannian locally symmetric Einstein space with non-negative sectional curvature. Let $f=H$. Then for any strictly convex solution to \eqref{Flow} there holds
@@ -640,7 +639,7 @@ Suppose $N$ is a Riemannian locally symmetric Einstein space with non-negative s
 where $\-R$ is the scalar curvature.
 }
 \pf{
-(i)~We use \eqref{Ev-q} with 
+(i)~We use \eqref{Ev-q} with
 \eq{\mc{B}=\fr{\-R}{n+1},}
 where $R$ is the scalar curvature. In this situation we have $\s=1$ and $f^{ij}h_{ij}=g^{ij}$ and hence the second line of \eqref{Ev-q} is non-negative. Furthermore there holds
 \eq{f^{ij}\L_{ij}&=g^{ij}\-R_{\a\b\g\d}\dot{x}^{\a}x^{\b}_{;i}x^{\g}_{;j}\nu^{\d}\\
@@ -681,7 +680,7 @@ satisfies the assumptions of \cref{Sphere}, which in particular implies
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
 \subsection*{De Sitter space}
-For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the De Sitter space of constant sectional curvature $K_{N}=1$ we obtain a similar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumption for flow in the De Sitter space. 
+For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the De Sitter space of constant sectional curvature $K_{N}=1$ we obtain a similar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumption for flow in the De Sitter space.
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p$. Then for any solution $x$ of \eqref{Flow} that the condition $0<\kappa_i\leq 1$ is always satisfied on $[0,T^{\ast})$ there holds
 \eq{tu+\fr{p}{p+1}\geq 0.}
@@ -697,7 +696,7 @@ Let us put $X=\dot{x}+\sigma f\nu.$ We start with the following observations:
 &=-f^2g_{ii}+\langle X,X\rangle g_{ii}-
 \langle X,x_{;i}\rangle^2\geq -f^2g_{ii}.
 \end{align*}
-\eqref{Ev-q} with $\mc{B}=0$, these last two inequalities and 
+\eqref{Ev-q} with $\mc{B}=0$, these last two inequalities and
 $\Lambda_{ij}=fg_{ij}$
 imply that $q$ satisfies
 \eq{\label{xx}\mathcal{L}q\geq&\br{\fr{p+1}{p}u-\fr{4}{p}f^{ij}g_{ij}}q+2t\left(\fr{1}{p}\br{f^{ij}g_{ij}}^2-pf^2\right)+\fr{4}{p+1}f^{ij}g_{ij}.}
@@ -746,8 +745,8 @@ Let $N=\S^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous. Let $0<p\leq
 \pf{
 We use the dual inverse curvature flow in the hyperbolic space $\H^{n+1}$. Using \Cref{gauss_duality} we obtain that up to reparametrization the dual flow, denoted by $\~x$ evolves according to
 \eq{\label{PresConvDeSitter-2}\dot{\~x}=\fr{1}{\~F^p}\~\nu,\quad 0<p\leq 1,}
-where $\~\nu$ is the outward unit normal to the flow hypersurfaces in $\H^{n+1}$. Now $\~M_0$ is starshaped with respect to the origin in $\H^{n+1}$ (the Beltrami point) and $\~F$ is the inverse of $F$. Hence $\~F$ is concave, compare \Cref{subsec:bg_speed}. Precisely under these assumptions on $\~F$ and $p$ we have shown in \cite[Thm.~1.2]{Scheuer:05/2015}, that the flow \eqref{PresConvDeSitter-2} with initial hypersurface $\~M_0$ exists for all times (regardless of preserved convexity!). 
-Hence, at a first time $t_0<\8$ where \eqref{PresConvDeSitter-1} loses convexity, the principal curvatures of $\~M_{t_0}$ are still bounded, which is a contradiction,\footnote{$M_0$ is strictly convex $\Rightarrow\~M_0$ is strictly convex $\Rightarrow\~M_0$ is starshaped (see, e.g., \cite[Section 3.2]{Gerhardt:/2006} for the last step)  $\Rightarrow\~\kappa_i\leq c_{\tilde{M}_0},~\forall t>0$  $\Rightarrow\kappa_i$ cannot go to zero as $t$ approaches $t_0$} so such a time $t_0$ does not exist.    
+where $\~\nu$ is the outward unit normal to the flow hypersurfaces in $\H^{n+1}$. Now $\~M_0$ is starshaped with respect to the origin in $\H^{n+1}$ (the Beltrami point) and $\~F$ is the inverse of $F$. Hence $\~F$ is concave, compare \Cref{subsec:bg_speed}. Precisely under these assumptions on $\~F$ and $p$ we have shown in \cite[Thm.~1.2]{Scheuer:05/2015}, that the flow \eqref{PresConvDeSitter-2} with initial hypersurface $\~M_0$ exists for all times (regardless of preserved convexity!).
+Hence, at a first time $t_0<\8$ where \eqref{PresConvDeSitter-1} loses convexity, the principal curvatures of $\~M_{t_0}$ are still bounded, which is a contradiction,\footnote{$M_0$ is strictly convex $\Rightarrow\~M_0$ is strictly convex $\Rightarrow\~M_0$ is starshaped (see, e.g., \cite[Section 3.2]{Gerhardt:/2006} for the last step)  $\Rightarrow\~\kappa_i\leq c_{\tilde{M}_0},~\forall t>0$  $\Rightarrow\kappa_i$ cannot go to zero as $t$ approaches $t_0$} so such a time $t_0$ does not exist.
 }
 
 In order to show that the condition $\k_i\leq 1$ is preserved we need an additional assumption on the speed, namely that $f=F^p$ is also concave.

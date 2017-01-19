@@ -1,6 +1,7 @@
 \input{StandardPaper2.tex}
 %\usepackage[inline]{showlabels}
 \usepackage{mathrsfs}
+\DeclareMathOperator{\ad}{ad}
 
 \begin{document}
 
@@ -24,7 +25,7 @@ Harnack inequalities are point-wise derivative estimates which usually enable on
 Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}.
 In a Euclidean background, $N = \R^{n+1}$, one may consider the unit normal at time $t$, as the Gauss map $\nu_t : M \to \S^n$, which is a diffeomorphism whenever $x(M,t)$ is strictly convex. The Gauss map parameterization $y_t: \S^n \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu_t(y_t(z)) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
 
-The Gauss map parameterization just described is manifestly Euclidean, and given the utility of such a parameterization, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parameterization \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parameterization, $x$. See \Cref{BE-n}, analogous to the Gauss map parameterization, valid in arbitrary backgrounds.
+The Gauss map parameterization just described is manifestly Euclidean, and given the utility of such a parameterization, analogous results in other background spaces should be highly prized. The cornerstone of our approach is that the normal \(\nu\) is static in the parameterization \eqref{Flow} and the time derivative of the induced metric \(g\) is only felt through the changing parameterization, $x$. See (\ref{BE-n}), analogous to the Gauss map parameterization, valid in arbitrary backgrounds.
 
 Another crucial aspect of our approach is that it also addresses the question of how to determine the appropriate Harnack quantity. The philosophy put forward by Hamilton in \cite{Hamilton:/1993,Hamilton:/1995} is that equality should be attained on expanding solitons, just as equality in the Li-Yau Harnack inequality \cite{LiYau:/1986} is attained by the heat kernel, itself an expanding soliton. Thus Hamilton follows a procedure of differentiating the soliton equation to obtain soliton identities which eventually lead to the appropriate form for the Harnack quantity. In \cite{Andrews:09/1994}, Andrews showed that under the Gauss map parameterization, one may consider the evolution of the support function to which the Li-Yau approach may be applied to determine the Harnack quantity. This is also effectively our approach, although for general backgrounds we do not have the luxury of a suitable support function, but have the great fortune of the reparameterization \eqref{Flow}. Namely, we define
 \begin{equation}
@@ -145,6 +146,7 @@ For a bilinear form $B$, $B^t$ denotes its transpose,
 and $B_{\mrm{sym}}$ denotes its symmetrization, i.e.,
 \eq{B_{\mrm{sym}}=\fr 12(B+B^t).}
 
+Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If there is only one way to form a new $2$- tensor by tracing $S\otimes T$, we denote it by $S\ast T$. For example if $T\in T^{0,2}(M)$ and $S\in T^{2,0}(M)$ are both symmetric, then $S\ast T\in T^{1,1}(M)$ is uniquely defined. Similarly, if $T\in T^{2,0}(M)$ is symmetric and $S\in T^{1,1}(M)$, then there is only one way to form a traced tensor $T\ast S\in T^{2,0}(M)$.
 
 % For a tensor $T$, $T_{;ij}$ denotes the covariant derivative of $T$, first with respect $x_{;i}$ and then with respect to $x_{;j}.$ The normal $\nu$ is supposed to be the same normal as in the Gaussian formula
 % \eq{x^{\a}_{;ij}:=\fr{\del^2 x^{\a}}{\del \xi^i\del \xi^j}+\-\G^{\a}_{\b\g}\fr{\del x^{\b}}{\del \xi^i}\fr{\del x^{\g}}{\del \xi^j}-\G^k_{ij}\fr{\del x^{\a}}{\del \xi^k}=-\s h_{ij}\nu^{\a}.}
@@ -205,16 +207,30 @@ and $B_{\mrm{sym}}$ denotes its symmetrization, i.e.,
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
 \subsection*{Curvature functions}
-We collect some well known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
+We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
 
-Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-new}. Recall that a curvature function $f$ is called {\it{monotone}}, if
-\[f^{ij}:=\fr{\del f}{\del h_{ij}}\]
-is positive definite and {\it{inverse concave}} if
+Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-new}. A curvature function is a smooth map
+\eq{f\cn \mc{T}^{1,1}(M)\ra \R,}
+which is invariant under parallel transport.
+$f$ is called {\it{monotone}}, if its derivative $df$ (which is zero along $M$ and only acts on the fibers) has only positive eigenvalues. Fixing a metric $g$, one can define
+\[\~f(g,h):=f\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv f(\cW). \]
+Hence we have \footnote{
+Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ for a fixed $p\in M$. Then
+\[\fr{d}{ds} \~f(g,h)=\fr{\del \~f}{\del h}h'(s)=\fr{\del f}{\del \cW}\cW'(s)=\fr{\del f}{\del \cW}\br{g^{-1}\ast h'(s)}=\br{\fr{\del f}{\del \cW}\ast g^{-1}}h'(s).\]}
+\eq{d_h f:=\fr{\del \~f}{\del h}=\fr{\del f}{\del \cW}\ast g^{-1}=d_{\cW}f\ast g^{-1}.}
+From now on, we do not distinguish $f$ and $\~f$ by different notation and write $f$ for both functions. This will not cause ambiguities, since we always indicate the derivative variable, e.g., $d_h f.$
+
+
+For $T\in T^{1,1}(M)$, we have\footnote{$f^i_j T^j_i=f^{ik}g_{kj}T^j_i=f^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
+\eq{\tr(d_{\cW}f\circ T)=\tr((d_hf\ast g) \circ T)=\tr_{d_hf}g(T(\cdot),\cdot).}
+
+A curvature function $f$ is called {\it{inverse concave}} if
 \[\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}\]
 is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
-For second derivatives of $f$ we write
-\[f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl} },\]
-and we recall the formulas
+
+
+We write $f^{ij}=\frac{\partial f}{\partial h_{ij}}$ and $f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl}}$, in order, for the first and the second derivatives of $f.$
+We recall the formulas
 \eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}X_{ij}=-f^{mi}h^{j}_{m}X_{ij},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}X_{ij}Y_{kl}=-(g^{kj}f^{il}+f^{ij,km}h^{l}_{m})X_{ij}Y_{kl},}
 for all symmetric matrices $(X_{ij}), (Y_{ij}).$
 \Theo{lemma}{CF}{
@@ -252,8 +268,6 @@ We assume that $f$ is a nowhere vanishing velocity which is of the form
 
 Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
 }
-% For arbitrary backgrounds, suitable support functions do not exist, but it does no harm to include $\p$, simply taking $\p \equiv 1$ whenever we do not have a suitable support function.
- %\Theo{rem}{}{For curvature flows in the hyperbolic and de Sitter spaces, we only allow $F$ to depend on $\mathcal{W}$; that is, $F$ does not depend on $\nu.$}
 
 
 We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
@@ -416,42 +430,42 @@ Along the flow \eqref{Flow} there hold
 .}}
 \subsubsection{Evolution equations involving the affine connection}
 From now on, to simplify the calculations, we will work with the {\it{affine connection}} $\~\n$ induced by the transversal vector field $\dot{x}.$ Namely, for $X,Y\in\mc{T}M$ we have the decomposition
-\eq{\-\n_{X}Y=x_{\ast}(\~\n_{X}Y)+\~g(X,Y)\dot{x}.}
-Note that $\~\n$ is not the Levi-Civita connection for the so-called {\it{affine metric}} $\~g.$ Let $\hat{\n}$ denote the Levi-Civita connection of $\~g$ and we define the difference tensor $D$ of type $(1,2)$ by
-\eq{D_{X}Y=\~\n_{X}Y-\hat{\n}_{X}Y.}
+\eq{\-\n_{X}Y=x_{\ast}(\hat\n_{X}Y)+\~g(X,Y)\dot{x}.}
+Note that $\hat{\n}$ is not the Levi-Civita connection for the so-called {\it{affine metric}} $\~g.$ Let $\~{\n}$ denote the Levi-Civita connection of $\~g$ and we define the difference tensor $D$ of type $(1,2)$ by
+\eq{D_{X}Y=\hat{\n}_{X}Y-\~{\n}_{X}Y.}
 Since both $\tilde{\nabla}$ and $\hat{\nabla}$ are torsion free, we have $D_XY=D_YX.$
-The deviation of $\~\n$ from the Levi-Civita connection of $\~g$ is measured by the {\it{cubic tensor}}
-\eq{C(X,Y,Z)&:= -\fr 12(\~\n_{X}\~g)(Y,Z)\\
+The deviation of $\hat{\n}$ from the Levi-Civita connection of $\~g$ is measured by the {\it{cubic tensor}}
+\eq{C(X,Y,Z)&:= -\fr 12(\hat{\n}_{X}\~g)(Y,Z)\\
 			&=\~g(D_{X}Y,Z)-\fr 12 \left[\overline{\mrm{{Rm}}}(X, Y)Z + \overline{\mrm{Rm}}(X, Z)Y\right]^{\dot{x}},
 		}
-where the superscript $\dot{x}$ denotes the $\dot{x}$ component in the splitting, $x^{\ast} TN \simeq TM \oplus \R \dot{x}$;
+where the superscript $\dot{x}$ denotes the $\dot{x}$ component in the splitting, $x^{\ast} \mathcal{T}N \simeq \mathcal{T}M \oplus \R \dot{x}$;
 see \cite[Prop.~4.1]{NomizuSasaki:/1994} adjusted to the Riemannian setting.
 \Theo{lemma}{AE-A}{
-\eq{\label{AE-A} \dot{A}=A^{2}+uA+\hat{\n}\grad_{\~g}u+D \grad_{\~g}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
-%\eq{\label{AE-B} \dot{B}&=\hat{\n}^{2}_{\~g}u+ C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
+\eq{\label{AE-A} \dot{A}=A^{2}+uA+\~{\n}\grad_{\~g}u+D \grad_{\~g}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
+%\eq{\label{AE-B} \dot{B}&=\~{\n}^{2}_{\~g}u+ C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
 %			&\hp{=}-\~g\br{\n\br{\fr 1f \L^{\~\sharp}V},\cdot}+\~g(\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top},\cdot)}
 }
 \pf{Let $X,Y\in \mc{T}M.$ Differentiate \eqref{A} with respect to $\dot{x}$ to obtain
 \eq{\-\n_{\dot{x}}x_{\ast}(A(X))=-\-\n_{\dot{x}}\-\n_{X}\dot{x},}
 \eq{[\dot{x},x_{\ast}(A(X))]+\-\n_{x_{\ast}(A(X))}\dot{x}=-\-\n_{X}\-\n_{\dot{x}}\dot{x}+\overline{\mrm{Rm}}(X,\dot{x})\dot{x}.}
 Therefore, using (\ref{BE-speed}) we get
-\eq{x_{\ast}(\dot{A}(X))&-x_{\ast}(A^{2}(X))-\overline{\mrm{Rm}}(X,\dot{x})\dot{x}\\
-&=-\-\n_{X}\br{u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
-			&=-\br{\-\n_{X}u}\dot{x}+ux_{\ast}(A(X))+x_{\ast}(\~\n_{X}\grad_{\~g}u)\\
-			&\hp{=}+\~g(X,\grad_{\~g}u)\dot{x}-\-\n_{X}\br{\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
-			&=ux_{\ast}(A(X))+x_{\ast}(\hat{\n}_{X}\grad_{\~g}u)\\
-			&\hp{=}+x_{\ast}\br{D_{X}\grad_{\~g}u}-\-\n_{X}\br{ x_{\ast}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
-			&=ux_{\ast}(A(X))+x_{\ast}(\hat{\n}_{X}\grad_{\~g}u)\\
-			&\hp{=}+x_{\ast}\br{D_{X}\grad_{\~g}u}-x_{\ast}\br{\n_{X}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
-			&\hp{=}+\s h\br{X,\br{\fr 1f(\L^{t})^{\~\sharp}V}}\nu.}
+\eq{x_{\ast}(\dot{A}(X))-&x_{\ast}(A^{2}(X))-\overline{\mrm{Rm}}(X,\dot{x})\dot{x}\\
+=&-\-\n_{X}\br{u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
+			=&-\br{\-\n_{X}u}\dot{x}+ux_{\ast}(A(X))+x_{\ast}(\hat{\n}_{X}\grad_{\~g}u)\\
+			&+\~g(X,\grad_{\~g}u)\dot{x}-\-\n_{X}\br{\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
+			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\grad_{\~g}u)\\
+			&+x_{\ast}\br{D_{X}\grad_{\~g}u}-\-\n_{X}\br{ x_{\ast}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
+			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\grad_{\~g}u)\\
+			&+x_{\ast}\br{D_{X}\grad_{\~g}u}-x_{\ast}\br{\n_{X}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
+			&+\s h\br{X,\br{\fr 1f(\L^{t})^{\~\sharp}V}}\nu.}
 		}	
 %``\eqref{AE-B}'': From \eqref{BE-tildeg} and \eqref{AE-A} we calculate
 %\eq{\dot{B}(X,Y)&=\fr{d}{dt}\~g(A(X),Y)\\
 %			&=-B(A(X),Y)-u\~g(A(X),Y)+\fr 1f \L(A(X),Y)\\
-%			&\hp{=}+\~g(A^{2}(X),Y)+u\~g(A(X),Y)+\~g(\hat{\n}_{X}\grad_{\~g}u,Y)\\
+%			&\hp{=}+\~g(A^{2}(X),Y)+u\~g(A(X),Y)+\~g(\~{\n}_{X}\grad_{\~g}u,Y)\\
 %			&\hp{=}+\~g(D_{X}\grad_{\~g}u,Y)-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}\\
 %			&\hp{=}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)\\
-%			&=\hat{\n}^{2}_{\~g}u(X,Y)+ C(X,\grad_{\~g}u,Y)+\fr 1f \L(A(X),Y)\\
+%			&=\~{\n}^{2}_{\~g}u(X,Y)+ C(X,\grad_{\~g}u,Y)+\fr 1f \L(A(X),Y)\\
 %			&\hp{=}-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)}
 \Theo{lemma}{Ev-Lambda}{
 \eq{g\br{\partial_t\br{\fr{\L^{\sharp}}{f}}(X),Y}=&\fr 1f g(A(\L^{\sharp}(X)),Y)-\fr 1f \L(A(X),Y)-\fr 1f \overline{\mrm{Rm}}(\grad_{\~g}u, X,\nu, Y)\\
@@ -485,8 +499,9 @@ Inserting this last relation as well as \eqref{Flow2} into \eqref{Lambdasharptil
 We need one more lemma before calculating the main the evolution equation.
 \Theo{lemma}{MixedTrace}{
 There holds
+% \eq{\mc{W}\circ A^2=\ad(A)\circ\L^{\sharp}+\L^{\sharp}\circ A+\ad(A)\circ\cW\circ A.}
 \eq{\fr{1}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})&=\fr 1f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 1f\tr_{d_{h}f}\L(A(\cdot),\cdot)\\
-&\hp{=}+\fr 1f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)}.}
+&\hp{=}+\fr 1f\tr_{d_{h}f}h(A(\cdot),A(\cdot)).}
 }
 \pf{The claim follows from Lemma \ref{SymmetriesB}:
 \eq{\tr(d_{\cW}f\circ\cW\circ A^{2})&=\tr_{d_{h}f}h(\cdot,A^{2}(\cdot))=f\tr_{d_{h}f}B(\cdot,A(\cdot))\\		&=f\tr_{d_{h}f}B(A(\cdot),\cdot)+\tr_{d_{h}f}\L(\cdot,A(\cdot))-\tr_{d_{h}f}\L(A(\cdot),\cdot)\\
@@ -495,10 +510,10 @@ There holds
 Now we are prepared to deduce the evolution equation of $u.$ Note that the next evolution equation will be the \textit{first} place where the actual domain in the definition of $f$ will play a role. In the following lemma, we assume
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}).}
 \Theo{lemma}{Ev-u-new}{Under the flow \eqref{Flow} we have
-\eq{\dot{u}&-\tr_{d_{h}f}\hat{\n}_{\~g}^{2}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
+\eq{\label{Ev-u}\dot{u}&-\tr_{d_{h}f}\~{\n}^{2}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
 &+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
 =&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	\hp{=}&+\fr 2f\tr_{d_{h}f}(\tr_{h}(A\ast A))+\fr 2f \tr(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
+	\hp{=}&+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot))+\fr 2f \tr(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
 	\hp{=}&+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \tr_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
 &+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot).}
 }
@@ -516,11 +531,11 @@ and that $d_{\cW}f$ commutes with $\cW$ we deduce
 \eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
 	&+\fr 1f\tr(d_{\cW}f\circ\cW\circ(\dot{A}+A^{2}-uA))+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
 		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\tr\br{d_{\cW}f\circ\cW\circ\br{\hat{\n}\grad_{\~g}u+D \grad_{\~g}u}}\\
+	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\tr\br{d_{\cW}f\circ\cW\circ\br{\~{\n}\grad_{\~g}u+D \grad_{\~g}u}}\\
 	&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
 	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
 Rewriting the $\grad_{\~g}$-terms we obtain
-\eq{\label{Ev-u-5-new}\dot{u}&-\tr_{d_{h}f}\hat{\n}^{2}_{\~g}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)\\
+\eq{\label{Ev-u-5-new}\dot{u}&-\tr_{d_{h}f}\~{\n}^{2}_{\~g}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)\\
 		&+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot, \grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
 	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
 	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})\\
@@ -528,23 +543,23 @@ Rewriting the $\grad_{\~g}$-terms we obtain
 Using the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}, we treat the last three terms of (\ref{Ev-u-5-new}) in order.
 \begin{itemize}
   \item From \cref{MixedTrace} we obtain
-\eq{\label{Ev-u-4-new}\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\tr (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)},}
+\eq{\label{Ev-u-4-new}\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\tr (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot)),}
 where we used
-\begin{align*}
-\tr_{d_{h}f}\L(A(\cdot),\cdot)=\tr_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot))=\tr (d_Wf\circ\L^{\sharp}\circ A).
-\end{align*}
+\begin{align}
+\tr_{d_{h}f}\L(A(\cdot),\cdot)=\tr_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot)=\tr (d_Wf\circ\L^{\sharp}\circ A).
+\end{align}
   \item \cref{Lambdasharptilde} implies that
 \eq{\label{Ev-u-2-new}&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
 	=~&\fr{1}{f}\tr_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\tr_{d_{h}f}h(\cdot,\cdot)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
 	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
-	\hp{=}~&+\fr 1f \tr_{d_{h}f\circ\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
+	\hp{=}~&+\fr 1f \tr_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
 To treat the last term of $\eqref{Ev-u-2-new}$, we use the Codazzi equation:\footnote{$g(\n_X \mc{W}(\mc{W}^{-1}(Y)),Z)=\n h(\mc{W}^{-1}(Y),Z,X)=\n h(\mc{W}^{-1}(Y),X,Z)+\overline{\mrm{Rm}}(\nu,\mc{W}^{-1}(Y),X,Z);$ therefore,
 $\n_X \mc{W}(\mc{W}^{-1}(Y))=(\n h(\mc{W}^{-1}(Y),X,\cdot))^{\sharp}+(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.$}
 \eq{\n_{X}(\cW^{-1}(Y))=&-\cW^{-1}(\n_{X}\cW(\cW^{-1}(Y)))+\cW^{-1}(\n_{X}Y)\\
 =&-\cW^{-1}\br{(\n h(X,\cW^{-1}(Y),\cdot))^{\sharp}}+\cW^{-1}(\n_{X}Y)\\
 &-\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.}
 Hence
-\eq{\label{Ev-u-3-new}&\fr 1f \tr_{d_{h}f\circ\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x})\\
+\eq{\label{Ev-u-3-new}&\fr 1f \tr_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x})\\
 			=~&-\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},V,\nu,\dot{x})
 				+\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V)\\
 			=~&\s\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
@@ -563,14 +578,14 @@ Putting these last three items all together gives
 	&+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
 	=~& \fr 2f \tr(d_{\cW}f\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
 	\hp{=}~&+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
-	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\tr_{d_{h}f}\br{\tr_{h} (A\ast A)}.}
+	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot)).}
 Inserting \eqref{Ev-u-4-new} into \eqref{Ev-u-5-new} gives the claimed result.
 }
 \section{Locally symmetric spaces}
 In this section we prove the proposed Harnack inequalities. We restrict to locally symmetric spaces, since in more general settings we are not aware how to deal with the terms including derivatives of the Riemannian curvature tensor. In order to prove our main theorems, we need the following corollary of \eqref{Ev-u-new} with bonus term $\mc{B}$, which will be the basis for the proofs of all our main theorems.
 \Theo{lemma}{Homogeneous}{
 Let the ambient space $N$ be locally symmetric, i.e.,
-\eq{(\-R_{\a\b\g\d;\e})=0.}
+\eq{\-\n\overline{\mrm{Rm}}=0.}
 Let the speed $f$ satisfy \cref{SpeedAss}, let $\mc{B}\in\R$ and define
 \eq{q=t(u-\mc{B})+\fr{p}{p+1}.}
 Then for $p>0$, any strictly convex solution to  \eqref{Flow} satisfies
@@ -744,8 +759,8 @@ Let $N=\S^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous. Let $0<p\leq
 }
 \pf{
 We use the dual inverse curvature flow in the hyperbolic space $\H^{n+1}$. Using \Cref{gauss_duality} we obtain that up to reparametrization the dual flow, denoted by $\~x$ evolves according to
-\eq{\label{PresConvDeSitter-2}\dot{\~x}=\fr{1}{\~F^p}\~\nu,\quad 0<p\leq 1,}
-where $\~\nu$ is the outward unit normal to the flow hypersurfaces in $\H^{n+1}$. Now $\~M_0$ is starshaped with respect to the origin in $\H^{n+1}$ (the Beltrami point) and $\~F$ is the inverse of $F$. Hence $\~F$ is concave, compare \Cref{subsec:bg_speed}. Precisely under these assumptions on $\~F$ and $p$ we have shown in \cite[Thm.~1.2]{Scheuer:05/2015}, that the flow \eqref{PresConvDeSitter-2} with initial hypersurface $\~M_0$ exists for all times (regardless of preserved convexity!).
+\eq{\label{PresConvDeSitter-2}\dot{\~x}=\fr{1}{\~F^p}\hat{\n}u,\quad 0<p\leq 1,}
+where $\hat{\n}u$ is the outward unit normal to the flow hypersurfaces in $\H^{n+1}$. Now $\~M_0$ is starshaped with respect to the origin in $\H^{n+1}$ (the Beltrami point) and $\~F$ is the inverse of $F$. Hence $\~F$ is concave, compare \Cref{subsec:bg_speed}. Precisely under these assumptions on $\~F$ and $p$ we have shown in \cite[Thm.~1.2]{Scheuer:05/2015}, that the flow \eqref{PresConvDeSitter-2} with initial hypersurface $\~M_0$ exists for all times (regardless of preserved convexity!).
 Hence, at a first time $t_0<\8$ where \eqref{PresConvDeSitter-1} loses convexity, the principal curvatures of $\~M_{t_0}$ are still bounded, which is a contradiction,\footnote{$M_0$ is strictly convex $\Rightarrow\~M_0$ is strictly convex $\Rightarrow\~M_0$ is starshaped (see, e.g., \cite[Section 3.2]{Gerhardt:/2006} for the last step)  $\Rightarrow\~\kappa_i\leq c_{\tilde{M}_0},~\forall t>0$  $\Rightarrow\kappa_i$ cannot go to zero as $t$ approaches $t_0$} so such a time $t_0$ does not exist.
 }
 
@@ -822,8 +837,11 @@ The Harnack inequality for the cross curvature flow for metrics that are locally
 \begin{align}\label{cross harnack}
 \partial_t \sqrt{{\det} E} - \frac{1}{\sqrt{{\det}E}}E^{ij} \nabla_i \left(\sqrt{{\det}E}\right) \nabla_j \left(\sqrt{{\det}E}\right) + \frac{3}{4 t} \sqrt{{\det}E} \geq 0.
 \end{align}
+
+
 \bibliographystyle{amsplain}
-\bibliography{Bibliography.bib}
+\bibliography{Bibliography}
+
 
 \end{document}
 

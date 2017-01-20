@@ -210,7 +210,7 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
 
 Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-new}. A curvature function is a smooth map
-\eq{f\cn \mc{T}^{1,1}(M)\ra \R,}
+\eq{f\cn T^{1,1}(M)\ra \R,}
 which is invariant under parallel transport.
 $f$ is called {\it{monotone}}, if its derivative $df$ (which is zero along $M$ and only acts on the fibers) has only positive eigenvalues. Fixing a metric $g$, one can define
 \[\~f(g,h):=f\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv f(\cW). \]
@@ -222,7 +222,7 @@ From now on, we do not distinguish $f$ and $\~f$ by different notation and write
 
 
 For $T\in T^{1,1}(M)$, we have\footnote{$f^i_j T^j_i=f^{ik}g_{kj}T^j_i=f^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
-\eq{\tr(d_{\cW}f\circ T)=\tr((d_hf\ast g) \circ T)=\tr_{d_hf}g(T(\cdot),\cdot).}
+\eq{d_{\cW}f(T)=\operatorname{Tr}(d_{\cW}f\circ T)=\operatorname{Tr}((d_hf\ast g) \circ T)=\operatorname{Tr}_{d_hf}g(T(\cdot),\cdot).}
 
 A curvature function $f$ is called {\it{inverse concave}} if
 \[\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}\]
@@ -273,10 +273,235 @@ Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite te
 We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
 \[\mathcal{L}v=\dot{v}-f^{ij}v_{;ij}-T\ast\nabla v.\]
 Here $T\ast \nabla v$ denotes  any linear combination of arbitrary contractions of tensors $T$ with $\n v.$
-\subsection{Gauss Map and Duality}\label{Duality}
+
+\section{Evolution equations}
+\subsection{Invariant calculations with respect with to affine connection}
+We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function
+\eq{u=\fr{\dot{f}}{f}.}
+ Recall that we are considering the flow equation
+\eq{\label{Flow2}\dot{x}=-\s f\nu-x_{*}V,}
+where
+\eq{\label{EvEq-1}V=\grad_{h}f}
+is the spatial gradient of $f$ with respect to the second fundamental form:
+\eq{h(V,X)=Xf\quad\forall X\in \mc{T}M.}
+Note that
+\eq{\label{EvEq-2}\-\n_{X}\dot{x}&=-\s\-\n_{X}\br{f\nu}-\-\n_{X}V\\
+				&=-\s h(V,X) \nu-\s f\-\n_{X}\nu-x_{*}\n_{X}V+\s h(X,V)\nu}
+is tangential and hence we may define an endomorphism $A\in \mc{T}^{1,1}M$ by
+\eq{\label{A} x_{*}(A(X))=-\-\n_{X}\dot{x}.}
+Since we are dealing with strictly convex hypersurfaces, the symmetric bilinear form
+\eq{\~g=\fr{h}{f}}
+defines a metric tensor and we obtain a bilinear form associated with $A$:
+\eq{B(X,Y)=\~g(X,A(Y)).} Note that
+\eq{V=\grad_{\~g}\log |f|.}
+Also let
+\eq{\L(X,Y)=\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
+Note that $B$ is generally \emph{not} symmetric.
+\Theo{lemma}{SymmetriesB}{
+There holds
+\eq{B(X,Y)&=B(Y,X)+\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},\nu,X,Y)\\
+		&=B(Y,X)+\fr 1f \L(X,Y)-\fr 1f\L(Y,X).}
+}
+\pf{
+For $X,Y\in \mc{T}M,$
+\eq{fB(X,Y)=h(X,A(Y))&=\s f\-g(\-\n_{Y}\nu,\-\n_{X}\nu)+\-g(\-\n_{X}\nu,\n_{Y}V)\\
+					&=\s f\-g(\-\n_{X}\nu,\-\n_{Y}\nu)+h(X,\n_{Y}V).}
+Moreover, we have
+\eq{h(X,\n_{Y}V)&=YXf-h(\n_{Y}X,V)-\n h(V,X,Y)\\
+			&=XYf-h(\n_{X}Y,V)-\n h(V,Y,X)+\overline{\mrm{Rm}}(\nu,V,X,Y)\\
+			&=h(Y,\n_{X}V)+\overline{\mrm{Rm}}(\nu,V,X,Y).}
+Hence the claim follows from the first Bianchi identity.
+}
+\subsubsection{Basic evolution equations}
+\Theo{lemma}{BasicEv}{
+Along the flow \eqref{Flow} there hold
+\eq{\label{BE-g}\dot{g}=-2A^{\flat}_{\mrm{sym}},}
+\eq{\label{BE-n}\fr{\-\n}{dt}\nu =0,}
+\eq{\label{BE-W}\dot{\mc{W}}=A\circ \mc{W}+\L^{\sharp},}
+\eq{\label{BE-h}\dot{h}=-fB+\L,}
+\eq{\label{BE-tildeg}\dot{\~g}=-B-\~gu+\fr{\L}{f},}
+\eq{\label{BE-gradf}\dot{V}&=\widetilde{\grad}u+A(V)+uV-\fr{1}{f}(\L^{t})^{\~\sharp}V,}
+\eq{\label{BE-speed} \fr{\-\n}{dt}\dot{x}=u\dot{x}-x_{\ast}(\widetilde{\grad}u)+\fr 1f x_{\ast}((\L^{t})^{\~\sharp}V ).}
+}
+\pf{Let $X,Y\in\mc{T}M.$\newline
+``\eqref{BE-g}'': By \eqref{EvEq-2} we have
+\eq{\del_{t}\br{x^{*}\-g}(X,Y)&=\del_{t}\br{\-g(x_{*}X,x_{*}Y)}\\
+					&=\-g(\-\n_{X}\dot{x},x_{*}Y)+\-g(x_{*}X,\-\n_{Y}\dot{x})\\
+					&=-\-g(x_{*}A(X),x_{*}Y)-\-g(x_{*}A(Y),x_{*}X)\\
+					&=-g(A(X),Y)-g(X,A(Y)).}
+``\eqref{BE-n}'': We have $0=\del_{t}\bar{g}(\nu,\nu)$. Since $0=\del_{t}\bar{g}(\nu,x_{*}X)$, we get
+\eq{\bar{g}(\-\n_{\dot{x}} \nu,X)=-\bar{g}(\nu,\-\n_{\dot{x}}X)=-\bar{g}(\nu,\-\n_{X}\dot{x})=0.}
+``\eqref{BE-W}'': Recall that
+\eq{\-\n_{x_{*}X}\nu=x_{*}\mc{W}(X).} Therefore, using (\ref{BE-n}), we calculate
+\eq{\overline{\mrm{Rm}}(\dot{x},X)\nu=\-\n_{x_{*}\mc{W}(X)}\dot{x}+[\dot{x},x_{*}\mc{W}(X)]=-x_{*}(A(\mc{W}(X)))+x_{*}\dot{\mc{W}}(X).}
+``\eqref{BE-h}'': Differentiate the Weingarten \eqref{Weingarten} equation and use \cref{SymmetriesB} to obtain
+\eq{\del_{t}h(X,Y)=&\-g\br{\-\n_{\dot{x}}\-\n_{X}\nu,Y}+\-g\br{\-\n_{X}\nu,\-\n_{\dot{x}}Y}\\			=&\overline{\mrm{Rm}}\br{\dot{x},X,\nu,Y}-h(X,A(Y))\\
+=&\L(X,Y)-fB(X,Y).}
+``\eqref{BE-tildeg}'': It follows directly from \eqref{BE-h}.\newline
+``\eqref{BE-gradf}'':
+\eq{Xu&=X\del_{t}\log|f|\\	&=\del_{t}\br{\~g(X,\widetilde{\grad}\log|f|)}=\dot{\~g}(X,V)+\~g(X,\dot{V})\\
+	&=-B(X,V)+\fr{1}{f}\L(X,V)-\~g(X,V)u+\~g(X,\dot{V})\\
+	&=-\~g(X,A(V))+\fr{1}{f}\L(X,V)-\~g(X,V)u+\~g(X,\dot{V}).}
+``\eqref{BE-speed}'':
+\eq{\fr{\-\n}{dt}\dot{x}=&-\s\dot{f}\nu-\fr{\-\n}{dt}(x_{\ast}V)\\
+				=&-\s\dot{f}\nu-\-\n_{x_{\ast}V}\dot{x}-[\dot{x},x_{\ast}V]\\
+				=&-\s\dot{f}\nu+x_{\ast}(A(V))-x_{\ast}\dot{V}\\
+				=&-\s uf\nu+x_{\ast}(A(V))-x_{\ast}(\widetilde{\grad}u)-x_{\ast}(A(V))-ux_{\ast}V+x_{\ast}(\fr{1}{f}(\L^{t})^{\~\sharp}V)\\
+				=&u\dot{x}-x_{\ast}(\widetilde{\grad}u)+\fr 1f x_{\ast}((\L^{t})^{\~\sharp}V)
+.}}
+\subsubsection{Evolution equations involving the affine connection}
+From now on, to simplify the calculations, we will work with the {\it{affine connection}} $\~\n$ induced by the transversal vector field $\dot{x}.$ Namely, for $X,Y\in\mc{T}M$ we have the decomposition
+\eq{\-\n_{X}Y=x_{\ast}(\hat\n_{X}Y)+\~g(X,Y)\dot{x}.}
+Note that $\hat{\n}$ is not the Levi-Civita connection for the so-called {\it{affine metric}} $\~g.$ Let $\~{\n}$ denote the Levi-Civita connection of $\~g$ and we define the difference tensor $D$ of type $(1,2)$ by
+\eq{D_{X}Y=\hat{\n}_{X}Y-\~{\n}_{X}Y.}
+Since both $\tilde{\nabla}$ and $\hat{\nabla}$ are torsion free, we have $D_XY=D_YX.$
+The deviation of $\hat{\n}$ from the Levi-Civita connection of $\~g$ is measured by the {\it{cubic tensor}}
+\eq{C(X,Y,Z):=& -\fr 12(\hat{\n}_{X}\~g)(Y,Z)\\
+			=&\~g(D_{X}Y,Z)-\fr 12 \left[\overline{\mrm{{Rm}}}(X, Y)Z + \overline{\mrm{Rm}}(X, Z)Y\right]^{\dot{x}},
+		}
+where the superscript $\dot{x}$ denotes the $\dot{x}$ component in the splitting, $x^{\ast} \mathcal{T}N \simeq \mathcal{T}M \oplus \R \dot{x}$;
+see \cite[Prop.~4.1]{NomizuSasaki:/1994} adjusted to the Riemannian setting.
+\Theo{lemma}{AE-A}{
+\eq{\label{AE-A} \dot{A}=A^{2}+uA+\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
+%\eq{\label{AE-B} \dot{B}&=\~{\n}^{2}_{\~g}u+ C(\cdot,\widetilde{\grad}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
+%			&\hp{=}-\~g\br{\n\br{\fr 1f \L^{\~\sharp}V},\cdot}+\~g(\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top},\cdot)}
+}
+\pf{Let $X,Y\in \mc{T}M.$ Differentiate \eqref{A} with respect to $\dot{x}$ to obtain
+\eq{\-\n_{\dot{x}}x_{\ast}(A(X))=-\-\n_{\dot{x}}\-\n_{X}\dot{x},}
+\eq{[\dot{x},x_{\ast}(A(X))]+\-\n_{x_{\ast}(A(X))}\dot{x}=-\-\n_{X}\-\n_{\dot{x}}\dot{x}+\overline{\mrm{Rm}}(X,\dot{x})\dot{x}.}
+Thus using (\ref{BE-speed}) we get
+\eq{&x_{\ast}(\dot{A}(X))-x_{\ast}(A^{2}(X))-\overline{\mrm{Rm}}(X,\dot{x})\dot{x}\\
+=&-\-\n_{X}\br{u\dot{x}-x_{\ast}(\widetilde{\grad}u)+\fr 1f x_{\ast}((\L^{t})^{\~\sharp}V)}\\
+			=&-\br{\-\n_{X}u}\dot{x}+ux_{\ast}(A(X))+x_{\ast}(\hat{\n}_{X}\widetilde{\grad}u)+\~g(X,\widetilde{\grad}u)\dot{x}-\-\n_{X}\br{\fr 1f x_{\ast}((\L^{t})^{\~\sharp}V)}\\
+			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\widetilde{\grad}u)+x_{\ast}(D_{X}\widetilde{\grad}u)-\-\n_{X}\br{ x_{\ast}(\fr 1f(\L^{t})^{\~\sharp}V)}\\
+			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\widetilde{\grad}u)+x_{\ast}(D_{X}\widetilde{\grad}u)-x_{\ast}(\n_{X}\br{\fr 1f(\L^{t})^{\~\sharp}V})\\
+			&+\s h(X,\fr 1f(\L^{t})^{\~\sharp}V)\nu.}
+		}	
+%``\eqref{AE-B}'': From \eqref{BE-tildeg} and \eqref{AE-A} we calculate
+%\eq{\dot{B}(X,Y)&=\fr{d}{dt}\~g(A(X),Y)\\
+%			&=-B(A(X),Y)-u\~g(A(X),Y)+\fr 1f \L(A(X),Y)\\
+%			&\hp{=}+\~g(A^{2}(X),Y)+u\~g(A(X),Y)+\~g(\~{\n}_{X}\widetilde{\grad}u,Y)\\
+%			&\hp{=}+\~g(D_{X}\widetilde{\grad}u,Y)-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}\\
+%			&\hp{=}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)\\
+%			&=\~{\n}^{2}_{\~g}u(X,Y)+ C(X,\widetilde{\grad}u,Y)+\fr 1f \L(A(X),Y)\\
+%			&\hp{=}-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)}
+\Theo{lemma}{Ev-Lambda}{
+\eq{g(\partial_t\br{\fr{\L^{\sharp}}{f}}(X),Y)=&\fr 1f g(A(\L^{\sharp}(X)),Y)-\fr 1f \L(A(X),Y)-\fr 1f \overline{\mrm{Rm}}(\widetilde{\grad}u, X,\nu, Y)\\
+&+\fr{1}{f^{2}}\overline{\mrm{Rm}}(\br{\L^{t}}^{\~\sharp}V,X,\nu,Y)+\fr{1}{f}\-\n_{\dot{x}}\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
+}
+\pf{Differentiating the defining equation
+\eq{g(\fr{\L^{\sharp}}{f}(X),Y)=\fr 1f\L(X,Y)=\fr 1f\overline{\mrm{Rm}}(\dot{x},X,\nu,Y)}
+ with respect to $\dot{x}$ and using
+\eq{2A^{\flat}_{\mrm{sym}}(\L^{\sharp}(X),Y)&=g(A(\L^{\sharp}(X)),Y)+g(A(Y),\L^{\sharp}(X))}
+as well as \eqref{A} and \eqref{BE-speed} yield the result.
+}
+\Theo{lemma}{Lambdasharptilde}{
+\eq{g(\n_{Z}\br{\fr{(\L^{t})^{\~\sharp}V}{f}},Y)=&g(\fr{(\L^{t})^{\~\sharp}V}{f},\n_{Z}Y)-\-\n_{Z}\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})\\
+	&+\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\dot{x},\cW(Z))-\overline{\mrm{Rm}}(\dot{x},\n_{Z}(\cW^{-1}(Y)),\nu,\dot{x})\\
+    &+\s h(Z,\cW^{-1}(Y))\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
+	\\
+	&+2\L(\cW^{-1}(Y),A(Z))-\L(A(Z),\cW^{-1}(Y)).}
+}
+\pf{Covariant differentiating the equation
+\eq{\label{Lambdasharptilde-2}g(\fr{(\L^{t})^{\~\sharp}V}{f},Y)=\fr{h}{f}((\L^{t})^{\~\sharp}V,\cW^{-1}(Y))
+=\L(\cW^{-1}(Y),V)=-\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})}
+with respect to $Z$ gives
+\eq{\label{Lambdasharptilde-1}g(\n_{Z}\br{\fr{(\L^{t})^{\~\sharp}V}{f}},Y)
+	=&-g(\fr{(\L^{t})^{\~\sharp}V}{f},\n_{Z}Y)-\-\n_{Z}\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})\\
+	&+\overline{\mrm{Rm}}(A(Z),\cW^{-1}(Y),\nu,\dot{x})-\overline{\mrm{Rm}}(\dot{x},\-\n_{Z}(\cW^{-1}(Y)),\nu,\dot{x})\\
+			&-\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\cW(Z),\dot{x})+\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,A(Z)).}
+Moreover, by the Weingarten equation
+\eq{\-\n_{Z}(\cW^{-1}(Y))=\n_{Z}(\cW^{-1}(Y))-\s h(Z,\cW^{-1}(Y))\nu.}
+Inserting this last relation as well as \eqref{Flow2} into \eqref{Lambdasharptilde-1} gives the result.
+}
+We need one more lemma before calculating the main the evolution equation.
+\Theo{lemma}{MixedTrace}{
+There holds
+% \eq{\mc{W}\circ A^2=\ad(A)\circ\L^{\sharp}+\L^{\sharp}\circ A+\ad(A)\circ\cW\circ A.}
+\eq{\fr{1}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})&=\fr 1f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 1f\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
+&\hp{=}+\fr 1f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)).}
+}
+\pf{The claim follows from Lemma \ref{SymmetriesB}:
+\eq{\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})&=\operatorname{Tr}_{d_{h}f}h(\cdot,A^{2}(\cdot))=f\operatorname{Tr}_{d_{h}f}B(\cdot,A(\cdot))\\		&=f\operatorname{Tr}_{d_{h}f}B(A(\cdot),\cdot)+\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
+					&=\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))+\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot).}
+}
+Now we are prepared to deduce the evolution equation of $u.$ Note that the next evolution equation will be the \textit{first} place where the actual domain in the definition of $f$ will play a role. In the following lemma, we assume
+\eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}).}
+\Theo{lemma}{Ev-u-new}{Under the flow \eqref{Flow} we have
+\eq{\label{Ev-u}\dot{u}&-\operatorname{Tr}_{d_{h}f}\widetilde{\operatorname{Hess}}u-\operatorname{Tr}_{d_{h}f}C(\cdot,\widetilde{\grad}u,\cdot)+\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
+&+\fr 12 \operatorname{Tr}_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\widetilde{\grad}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\widetilde{\grad}u\right]^{\dot{x}}\\
+=&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'d_{\cW}f(\dot{\cW})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
+	\hp{=}&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))+\fr 2f \operatorname{Tr}(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
+	\hp{=}&+\s\br{1-\fr{\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
+&+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot).}
+}
+\pf{Note that
+\eq{u=\fr{\dot{f}}{f}=(\log \p)'\dot{s}+\fr 1fd_{\cW}f(\dot{\cW})=(\log\p)'\dot{s}+\fr 1f d_{\cW}f(A\circ\cW+\L^{\sharp}).}
+Hence taking time derivative of both sides we arrive at
+\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}d_{\cW}f(\dot{\cW})\\
+		&-\fr{u}{f}d_{\cW}f(A\circ\cW+\L^{\sharp})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})+\fr 1f d_{\cW}f(\dot{A}\circ\cW+A\circ\dot{\cW}+\del_{t}\L^{\sharp})\\
+		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}d_{\cW}f(\dot{\cW})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
+		&+\fr 1f d_{\cW}f(\dot{A}\circ\cW+A^{2}\circ\cW+A\circ\L^{\sharp}-uA\circ\cW)+d_{\cW}f\br{\del_{t}(\fr{{\L^{\sharp}}}{f} )}.}
+Since
+$d_{\cW}f(T)=\operatorname{Tr}(d_{\cW}f\circ T)$
+and $d_{\cW}f$ commutes with $\cW$, we obtain
+\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
+	&+\fr 1f\operatorname{Tr}(d_{\cW}f\circ\cW\circ(\dot{A}+A^{2}-uA))+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
+	&+\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u}}\\
+	&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+	&+\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
+Rewriting the $\widetilde{\grad}$-terms we obtain
+\eq{\label{Ev-u-5-new}\dot{u}&-\operatorname{Tr}_{d_{h}f}\~{\n}^{2}_{\~g}u-\operatorname{Tr}_{d_{h}f}C(\cdot,\widetilde{\grad}u,\cdot)\\
+		&+\fr 12 \operatorname{Tr}_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot, \widetilde{\grad}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\widetilde{\grad}u\right]^{\dot{x}}\\
+	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
+	&+\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})\\
+	&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }).}		
+Using the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}, we treat the last three terms of (\ref{Ev-u-5-new}) in order.
+\begin{itemize}
+  \item From \cref{MixedTrace} we obtain
+\eq{\label{Ev-u-4-new}\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\operatorname{Tr} (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)),}
+where we used
+\begin{align}
+\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)=\operatorname{Tr}_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot)=\operatorname{Tr} (d_{\mc{W}}f\circ\L^{\sharp}\circ A).
+\end{align}
+  \item \cref{Lambdasharptilde} implies that
+\eq{\label{Ev-u-2-new}&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
+	=~&\fr{1}{f}\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
+	\hp{=}~&-\fr{1}{f}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
+	\hp{=}~&+\fr 1f \operatorname{Tr}_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
+To treat the last term of $\eqref{Ev-u-2-new}$, we use the Codazzi equation:\footnote{$g(\n_X \mc{W}(\mc{W}^{-1}(Y)),Z)=\n h(\mc{W}^{-1}(Y),Z,X)=\n h(\mc{W}^{-1}(Y),X,Z)+\overline{\mrm{Rm}}(\nu,\mc{W}^{-1}(Y),X,Z);$ therefore,
+$\n_X \mc{W}(\mc{W}^{-1}(Y))=(\n h(\mc{W}^{-1}(Y),X,\cdot))^{\sharp}+(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.$}
+\eq{\n_{X}(\cW^{-1}(Y))=&-\cW^{-1}(\n_{X}\cW(\cW^{-1}(Y)))+\cW^{-1}(\n_{X}Y)\\
+=&-\cW^{-1}\br{(\n h(X,\cW^{-1}(Y),\cdot))^{\sharp}}+\cW^{-1}(\n_{X}Y)\\
+&-\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.}
+Hence
+\eq{\label{Ev-u-3-new}&\fr 1f \operatorname{Tr}_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x})\\
+			=~&-\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},V,\nu,\dot{x})
+				+\fr 1f \operatorname{Tr}_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V)\\
+			=~&\s\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
+				+\fr 1f \operatorname{Tr}_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
+  \item In view of \cref{Ev-Lambda} we have
+\eq{\label{Ev-u-1-new}&d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\ =&\fr{2}{f}\operatorname{Tr} (d_{\cW}f\circ A\circ{\L^{\sharp}})-\fr{1}{f}\operatorname{Tr}(d_{\cW}f\circ\L^{\sharp}\circ A)-\fr 1f\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
+\hp{=}&+\fr{1}{f^{2}}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x}).}
+Also, note that $(\L^{t})^{\~\sharp}=f\mc{W}^{-1}\circ(\L^{t})^{\sharp}$; therefore,
+\eq{\fr{1}{f^{2}}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)&=-\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\nu,\cdot,\cdot,\fr{(\L^{t})^{\~\sharp}V}{f})\\
+		&=-\fr 1f \operatorname{Tr}_{d_{h}f}g(\fr{(\L^{t})^{\~\sharp}V}{f},\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top})\\
+        &=-\fr 1f \operatorname{Tr}_{d_{h}f}g(\mc{W}^{-1}\circ(\L^{t})^{\sharp}(V),\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top})\\
+		&=-\fr 1f \operatorname{Tr}_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
+\end{itemize}
+Putting these last three items all together gives
+\eq{\label{Ev-u-4-new}&\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
+	&+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+	=~& \fr 2f \operatorname{Tr}(d_{\cW}f\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
+	\hp{=}~&+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
+	\hp{=}~&-\fr{1}{f}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)).}
+Inserting \eqref{Ev-u-4-new} into \eqref{Ev-u-5-new} gives the claimed result.
+}
+\section{Gauss Map and Duality}\label{Duality}
 \label{gauss_duality}
 In this section, we give a brief review of a duality relation between strictly convex hypersurfaces of the unit sphere $\S^{n+1}$ and a duality relation between strictly convex hypersurfaces of the hyperbolic space with such of the De Sitter space. The relevant results can be found in \cite[Ch.~9, 10]{Gerhardt:/2006}. For convenience, we will state the main results here.
-\subsubsection*{Duality in the sphere}
+\subsection{Duality in the sphere}
 Let $x\cn M_0\ra M\hra \S^{n+1}$ be a strictly convex closed hypersurface. Let the {\it{Gauss map}} $\~x\in T_x(\R^{n+2})$ represent the unit normal vector to $M$, $\nu\in T_x(\S^{n+1}).$ Then the mapping
 \eq{\label{GaussMap}\~x\cn M_0\ra \S^{n+1}}
 is also the embedding of a closed and strictly convex hypersurface. The geometry of $\~x$ is governed by the following theorem:
@@ -291,7 +516,7 @@ The second fundamental forms of $M,$ $\~M$ and the corresponding principal curva
 We point out that $\tilde{M}$ is called the polar set to $M$ and it has the following elegant representation:
 $$\tilde{M}=\{y\in \mathbb{S}^{n+1}: \sup_{y\in M}\langle x,y\rangle=0\},$$
 where $\langle \cdot,\cdot\rangle$ is the inner product in $\mathbb{R}^{n+2};$ see \cite[Thm.~9.2.9]{Gerhardt:/2006}.
-\subsubsection*{Duality between hyperbolic space and De Sitter space} In this section, $\langle \cdot,\cdot\rangle$ denotes the inner product of $\mathbb{R}^{n+1,1}.$
+\subsection{Duality between hyperbolic space and De Sitter space} In this section, $\langle \cdot,\cdot\rangle$ denotes the inner product of $\mathbb{R}^{n+1,1}.$
 The de Sitter space is the Lorentzian spaceform in the Minkowski space with constant sectional curvature $C=1:$
 \eq{\mathbb{S}^{n,1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=1 \},}
 whereas the hyperbolic space is a Riemannian spaceform in the Minkowski space with constant sectional curvature $C=-1$:
@@ -331,7 +556,7 @@ where $\k_{i}$, $\~\k_{i}$ are the corresponding principal curvatures.
 }
 The following illustration shall give a clearer picture of the duality.
 {\color{red}Include graphics}
-\subsubsection*{Dual flows}
+\subsection{Dual flows}
 For a curvature flow
 \eq{\label{NormalFlow}\dot{x}=-\s f\nu,}
 where $\s=\ip{\nu}{\nu}$, we want to derive the curvature flow equation of the Gauss maps $\~x$. In both cases the pair $x,\~x$ satisfies
@@ -351,236 +576,6 @@ and hence
 \eq{\label{DualHyperbolic}\dot{\~x}=-\~\s\Phi\~\nu-\~b^{kl}\Phi_{;k}\~x_{;l},}
 where $\~\s=\ip{\~\nu}{\~\nu}$ and where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We see that the dual of a flow of the form
 \eqref{NormalFlow} in $\S^{n+1}$ $\br{\H^{n+1},\S^{n,1}}$ moves precisely as a flow of the form \eqref{Flow} in $\S^{n+1}$ $\br{\S^{n,1},\H^{n+1}}$.
-\section{Evolution equations}
-\subsection{Invariant calculations with respect with to affine connection}
-We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function
-\eq{u=\fr{\dot{f}}{f}.}
- Recall that we are considering the flow equation
-\eq{\label{Flow2}\dot{x}=-\s f\nu-x_{*}V,}
-where
-\eq{\label{EvEq-1}V=\grad_{h}f}
-is the spatial gradient of $f$ with respect to the second fundamental form:
-\eq{h(V,X)=Xf\quad\forall X\in \mc{T}M.}
-Note that
-\eq{\label{EvEq-2}\-\n_{X}\dot{x}&=-\s\-\n_{X}\br{f\nu}-\-\n_{X}V\\
-				&=-\s h(V,X) \nu-\s f\-\n_{X}\nu-x_{*}\n_{X}V+\s h(X,V)\nu}
-is tangential and hence we may define an endomorphism $A\in \mc{T}^{1,1}M$ by
-\eq{\label{A} x_{*}(A(X))=-\-\n_{X}\dot{x}.}
-Since we are dealing with strictly convex hypersurfaces, the symmetric bilinear form
-\eq{\~g=\fr{h}{f}}
-defines a metric tensor and we obtain a bilinear form associated with $A$:
-\eq{B(X,Y)=\~g(X,A(Y)).} Note that
-\eq{V=\grad_{\~g}\log |f|.}
-Also let
-\eq{\L(X,Y)=\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
-Note that $B$ is generally \emph{not} symmetric.
-\Theo{lemma}{SymmetriesB}{
-There holds
-\eq{B(X,Y)&=B(Y,X)+\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},\nu,X,Y)\\
-		&=B(Y,X)+\fr 1f \L(X,Y)-\fr 1f\L(Y,X).}
-}
-\pf{
-For $X,Y\in \mc{T}M,$
-\eq{fB(X,Y)=h(X,A(Y))&=\s f\-g\br{\-\n_{Y}\nu,\-\n_{X}\nu}+\-g\br{\-\n_{X}\nu,\n_{Y}V}\\
-					&=\s f\-g\br{\-\n_{X}\nu,\-\n_{Y}\nu}+h(X,\n_{Y}V).}
-Moreover, we have
-\eq{h(X,\n_{Y}V)&=YXf-h(\n_{Y}X,V)-\n h(V,X,Y)\\
-			&=XYf-h(\n_{X}Y,V)-\n h(V,Y,X)+\overline{\mrm{Rm}}(\nu,V,X,Y)\\
-			&=h(Y,\n_{X}V)+\overline{\mrm{Rm}}(\nu,V,X,Y).}
-Hence the claim follows from the first Bianchi identity.
-}
-\subsubsection{Basic evolution equations}
-\Theo{lemma}{BasicEv}{
-Along the flow \eqref{Flow} there hold
-\eq{\label{BE-g}\dot{g}=-2A^{\flat}_{\mrm{sym}},}
-\eq{\label{BE-n}\fr{\-\n}{dt}\nu =0,}
-\eq{\label{BE-W}\dot{\mc{W}}=A\circ \mc{W}+\L^{\sharp},}
-\eq{\label{BE-h}\dot{h}=-fB+\L,}
-\eq{\label{BE-tildeg}\dot{\~g}=-B-\~gu+\fr{\L}{f},}
-\eq{\label{BE-gradf}\dot{V}&=\grad_{\~g}u+A(V)+uV-\fr{1}{f}(\L^{t})^{\~\sharp}V,}
-\eq{\label{BE-speed} \fr{\-\n}{dt}\dot{x}=u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V }.}
-}
-\pf{Let $X,Y\in\mc{T}M.$\newline
-``\eqref{BE-g}'': By \eqref{EvEq-2} we have
-\eq{\del_{t}\br{x^{*}\-g}(X,Y)&=\del_{t}\br{\-g(x_{*}X,x_{*}Y)}\\
-					&=\-g(\-\n_{X}\dot{x},x_{*}Y)+\-g(x_{*}X,\-\n_{Y}\dot{x})\\
-					&=-\-g(x_{*}A(X),x_{*}Y)-\-g(x_{*}A(Y),x_{*}X)\\
-					&=-g(A(X),Y)-g(X,A(Y)).}
-``\eqref{BE-n}'': We have $0=\del_{t}\bar{g}(\nu,\nu)$. Since $0=\del_{t}\bar{g}(\nu,x_{*}X)$, we get
-\eq{\bar{g}(\-\n_{\dot{x}} \nu,X)=-\bar{g}(\nu,\-\n_{\dot{x}}X)=-\bar{g}(\nu,\-\n_{X}\dot{x})=0.}
-``\eqref{BE-W}'': Recall that
-\eq{\-\n_{x_{*}X}\nu=x_{*}\mc{W}(X).} Therefore, using (\ref{BE-n}), we calculate
-\eq{\overline{\mrm{Rm}}(\dot{x},X)\nu=\-\n_{x_{*}\mc{W}(X)}\dot{x}+[\dot{x},x_{*}\mc{W}(X)]=-x_{*}(A(\mc{W}(X)))+x_{*}\dot{\mc{W}}(X).}
-``\eqref{BE-h}'': Differentiate the Weingarten \eqref{Weingarten} equation and use \cref{SymmetriesB} to obtain
-\eq{\del_{t}h(X,Y)=&\-g\br{\-\n_{\dot{x}}\-\n_{X}\nu,Y}+\-g\br{\-\n_{X}\nu,\-\n_{\dot{x}}Y}\\			=&\overline{\mrm{Rm}}\br{\dot{x},X,\nu,Y}-h(X,A(Y))\\
-=&\L(X,Y)-fB(X,Y).}
-``\eqref{BE-tildeg}'': It follows directly from \eqref{BE-h}.\newline
-``\eqref{BE-gradf}'': We calculate
-\eq{Xu&=X\del_{t}\log|f|\\	&=\del_{t}\br{\~g(X,\grad_{\~g}\log|f|)}\\
-	&=\dot{\~g}(X,V)+\~g(X,\dot{V})\\
-	&=-B(X,V)+\fr{1}{f}\L(X,V)-\~g(X,V)u+\~g(X,\dot{V})\\
-	&=-\~g(X,A(V))+\fr{1}{f}\L(X,V)-\~g(X,V)u+\~g(X,\dot{V}).}
-``\eqref{BE-speed}'':
-\eq{\fr{\-\n}{dt}\dot{x}=&-\s\dot{f}\nu-\fr{\-\n}{dt}(x_{\ast}V)\\
-				=&-\s\dot{f}\nu-\-\n_{x_{\ast}V}\dot{x}-[\dot{x},x_{\ast}V]\\
-				=&-\s\dot{f}\nu+x_{\ast}(A(V))-x_{\ast}\dot{V}\\
-				=&-\s uf\nu+x_{\ast}(A(V))-x_{\ast}\br{\grad_{\~g}u}-x_{\ast}\br{A(V)}\\
-				&-ux_{\ast}V+x_{\ast}\br{\fr{1}{f}(\L^{t})^{\~\sharp}V}\\
-				=&u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}
-.}}
-\subsubsection{Evolution equations involving the affine connection}
-From now on, to simplify the calculations, we will work with the {\it{affine connection}} $\~\n$ induced by the transversal vector field $\dot{x}.$ Namely, for $X,Y\in\mc{T}M$ we have the decomposition
-\eq{\-\n_{X}Y=x_{\ast}(\hat\n_{X}Y)+\~g(X,Y)\dot{x}.}
-Note that $\hat{\n}$ is not the Levi-Civita connection for the so-called {\it{affine metric}} $\~g.$ Let $\~{\n}$ denote the Levi-Civita connection of $\~g$ and we define the difference tensor $D$ of type $(1,2)$ by
-\eq{D_{X}Y=\hat{\n}_{X}Y-\~{\n}_{X}Y.}
-Since both $\tilde{\nabla}$ and $\hat{\nabla}$ are torsion free, we have $D_XY=D_YX.$
-The deviation of $\hat{\n}$ from the Levi-Civita connection of $\~g$ is measured by the {\it{cubic tensor}}
-\eq{C(X,Y,Z)&:= -\fr 12(\hat{\n}_{X}\~g)(Y,Z)\\
-			&=\~g(D_{X}Y,Z)-\fr 12 \left[\overline{\mrm{{Rm}}}(X, Y)Z + \overline{\mrm{Rm}}(X, Z)Y\right]^{\dot{x}},
-		}
-where the superscript $\dot{x}$ denotes the $\dot{x}$ component in the splitting, $x^{\ast} \mathcal{T}N \simeq \mathcal{T}M \oplus \R \dot{x}$;
-see \cite[Prop.~4.1]{NomizuSasaki:/1994} adjusted to the Riemannian setting.
-\Theo{lemma}{AE-A}{
-\eq{\label{AE-A} \dot{A}=A^{2}+uA+\~{\n}\grad_{\~g}u+D \grad_{\~g}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
-%\eq{\label{AE-B} \dot{B}&=\~{\n}^{2}_{\~g}u+ C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
-%			&\hp{=}-\~g\br{\n\br{\fr 1f \L^{\~\sharp}V},\cdot}+\~g(\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top},\cdot)}
-}
-\pf{Let $X,Y\in \mc{T}M.$ Differentiate \eqref{A} with respect to $\dot{x}$ to obtain
-\eq{\-\n_{\dot{x}}x_{\ast}(A(X))=-\-\n_{\dot{x}}\-\n_{X}\dot{x},}
-\eq{[\dot{x},x_{\ast}(A(X))]+\-\n_{x_{\ast}(A(X))}\dot{x}=-\-\n_{X}\-\n_{\dot{x}}\dot{x}+\overline{\mrm{Rm}}(X,\dot{x})\dot{x}.}
-Therefore, using (\ref{BE-speed}) we get
-\eq{x_{\ast}(\dot{A}(X))-&x_{\ast}(A^{2}(X))-\overline{\mrm{Rm}}(X,\dot{x})\dot{x}\\
-=&-\-\n_{X}\br{u\dot{x}-x_{\ast}\br{\grad_{\~g}u}+\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
-			=&-\br{\-\n_{X}u}\dot{x}+ux_{\ast}(A(X))+x_{\ast}(\hat{\n}_{X}\grad_{\~g}u)\\
-			&+\~g(X,\grad_{\~g}u)\dot{x}-\-\n_{X}\br{\fr 1f x_{\ast}\br{(\L^{t})^{\~\sharp}V}}\\
-			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\grad_{\~g}u)\\
-			&+x_{\ast}\br{D_{X}\grad_{\~g}u}-\-\n_{X}\br{ x_{\ast}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
-			=&ux_{\ast}(A(X))+x_{\ast}(\~{\n}_{X}\grad_{\~g}u)\\
-			&+x_{\ast}\br{D_{X}\grad_{\~g}u}-x_{\ast}\br{\n_{X}\br{\fr 1f(\L^{t})^{\~\sharp}V}}\\
-			&+\s h\br{X,\br{\fr 1f(\L^{t})^{\~\sharp}V}}\nu.}
-		}	
-%``\eqref{AE-B}'': From \eqref{BE-tildeg} and \eqref{AE-A} we calculate
-%\eq{\dot{B}(X,Y)&=\fr{d}{dt}\~g(A(X),Y)\\
-%			&=-B(A(X),Y)-u\~g(A(X),Y)+\fr 1f \L(A(X),Y)\\
-%			&\hp{=}+\~g(A^{2}(X),Y)+u\~g(A(X),Y)+\~g(\~{\n}_{X}\grad_{\~g}u,Y)\\
-%			&\hp{=}+\~g(D_{X}\grad_{\~g}u,Y)-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}\\
-%			&\hp{=}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)\\
-%			&=\~{\n}^{2}_{\~g}u(X,Y)+ C(X,\grad_{\~g}u,Y)+\fr 1f \L(A(X),Y)\\
-%			&\hp{=}-\~g\br{\n_{X}\br{\fr 1f \L^{\~\sharp}V},Y}+\~g(\br{\overline{\mrm{Rm}}(X,\dot{x})\dot{x}}^{\top},Y)}
-\Theo{lemma}{Ev-Lambda}{
-\eq{g\br{\partial_t\br{\fr{\L^{\sharp}}{f}}(X),Y}=&\fr 1f g(A(\L^{\sharp}(X)),Y)-\fr 1f \L(A(X),Y)-\fr 1f \overline{\mrm{Rm}}(\grad_{\~g}u, X,\nu, Y)\\
-&+\fr{1}{f^{2}}\overline{\mrm{Rm}}\br{\br{\L^{t}}^{\~\sharp}V,X,\nu,Y}+\fr{1}{f}\-\n_{\dot{x}}\overline{\mrm{Rm}}(\dot{x},X,\nu,Y).}
-}
-\pf{Differentiating the defining equation
-\eq{g\br{\fr{\L^{\sharp}}{f}(X),Y}=\fr 1f\L(X,Y)=\fr 1f\overline{\mrm{Rm}}(\dot{x},X,\nu,Y)}
- with respect to $\dot{x}$ and using
-\eq{2A^{\flat}_{\mrm{sym}}(\L^{\sharp}(X),Y)&=g(A(\L^{\sharp}(X)),Y)+g(A(Y),\L^{\sharp}(X))}
-as well as \eqref{A} and \eqref{BE-speed} yield the result.
-}
-\Theo{lemma}{Lambdasharptilde}{
-\eq{g\br{\n_{Z}\br{\fr{(\L^{t})^{\~\sharp}V}{f}},Y}=&g\br{\fr{(\L^{t})^{\~\sharp}V}{f},\n_{Z}Y}-\-\n_{Z}\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})\\
-	&+\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\dot{x},\cW(Z))-\overline{\mrm{Rm}}(\dot{x},\n_{Z}(\cW^{-1}(Y)),\nu,\dot{x})\\
-    &+\s h(Z,\cW^{-1}(Y))\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
-	\\
-	&+2\L(\cW^{-1}(Y),A(Z))-\L(A(Z),\cW^{-1}(Y)).}
-}
-\pf{Covariant differentiating the equation
-\eq{\label{Lambdasharptilde-2}g\br{\fr{(\L^{t})^{\~\sharp}V}{f},Y}&=\fr{h}{f}\br{(\L^{t})^{\~\sharp}V,\cW^{-1}(Y)}\\
-&=\L(\cW^{-1}(Y),V)=-\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})}
-with respect to $Z$ gives
-\eq{\label{Lambdasharptilde-1}g\br{\n_{Z}\br{\fr{(\L^{t})^{\~\sharp}V}{f}},Y}
-	=&-g\br{\fr{(\L^{t})^{\~\sharp}V}{f},\n_{Z}Y}-\-\n_{Z}\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,\dot{x})\\
-	&+\overline{\mrm{Rm}}(A(Z),\cW^{-1}(Y),\nu,\dot{x})-\overline{\mrm{Rm}}(\dot{x},\-\n_{Z}(\cW^{-1}(Y)),\nu,\dot{x})\\
-			&-\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\cW(Z),\dot{x})+\overline{\mrm{Rm}}(\dot{x},\cW^{-1}(Y),\nu,A(Z)).}
-Moreover, by the Weingarten equation
-\eq{\-\n_{Z}(\cW^{-1}(Y))=\n_{Z}(\cW^{-1}(Y))-\s h(Z,\cW^{-1}(Y))\nu.}
-Inserting this last relation as well as \eqref{Flow2} into \eqref{Lambdasharptilde-1} gives the result.
-}
-We need one more lemma before calculating the main the evolution equation.
-\Theo{lemma}{MixedTrace}{
-There holds
-% \eq{\mc{W}\circ A^2=\ad(A)\circ\L^{\sharp}+\L^{\sharp}\circ A+\ad(A)\circ\cW\circ A.}
-\eq{\fr{1}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})&=\fr 1f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 1f\tr_{d_{h}f}\L(A(\cdot),\cdot)\\
-&\hp{=}+\fr 1f\tr_{d_{h}f}h(A(\cdot),A(\cdot)).}
-}
-\pf{The claim follows from Lemma \ref{SymmetriesB}:
-\eq{\tr(d_{\cW}f\circ\cW\circ A^{2})&=\tr_{d_{h}f}h(\cdot,A^{2}(\cdot))=f\tr_{d_{h}f}B(\cdot,A(\cdot))\\		&=f\tr_{d_{h}f}B(A(\cdot),\cdot)+\tr_{d_{h}f}\L(\cdot,A(\cdot))-\tr_{d_{h}f}\L(A(\cdot),\cdot)\\
-					&=\tr_{d_{h}f}h(A(\cdot),A(\cdot))+\tr_{d_{h}f}\L(\cdot,A(\cdot))-\tr_{d_{h}f}\L(A(\cdot),\cdot).}
-}
-Now we are prepared to deduce the evolution equation of $u.$ Note that the next evolution equation will be the \textit{first} place where the actual domain in the definition of $f$ will play a role. In the following lemma, we assume
-\eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}).}
-\Theo{lemma}{Ev-u-new}{Under the flow \eqref{Flow} we have
-\eq{\label{Ev-u}\dot{u}&-\tr_{d_{h}f}\~{\n}^{2}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)+\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
-&+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
-=&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	\hp{=}&+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot))+\fr 2f \tr(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
-	\hp{=}&+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \tr_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
-&+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot).}
-}
-\pf{Note that
-\eq{u=\fr{\dot{f}}{f}=(\log \p)'\dot{s}+\fr 1f(d_{\cW}f)\dot{\cW}=(\log\p)'\dot{s}+\fr 1f (d_{\cW}f)\br{A\circ\cW+\L^{\sharp}}.}
-Hence taking time derivative of both sides we arrive at
-\eq{\dot{u}&=(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)\dot{\cW}\\
-		&\hp{=}-\fr{u}{f}(d_{\cW}f)(A\circ\cW+\L^{\sharp})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-		&\hp{=}+\fr 1f (d_{\cW}f)\br{\dot{A}\circ\cW+A\circ\dot{\cW}+\del_{t}\L^{\sharp}}\\
-		&=(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-		&\hp{=}+\fr 1f (d_{\cW}f)\br{\dot{A}\circ\cW+A^{2}\circ\cW+A\circ\L^{\sharp}-uA\circ\cW}+(d_{\cW}f)\br{\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}.}
-Using that for any $T\in \mc{T}^{1,1}M,$
-\eq{(d_{\cW}f)T=\tr(d_{\cW}f\circ T)}
-and that $d_{\cW}f$ commutes with $\cW$ we deduce
-\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	&+\fr 1f\tr(d_{\cW}f\circ\cW\circ(\dot{A}+A^{2}-uA))+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
-		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	&+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\tr\br{d_{\cW}f\circ\cW\circ\br{\~{\n}\grad_{\~g}u+D \grad_{\~g}u}}\\
-	&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
-	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
-Rewriting the $\grad_{\~g}$-terms we obtain
-\eq{\label{Ev-u-5-new}\dot{u}&-\tr_{d_{h}f}\~{\n}^{2}_{\~g}u-\tr_{d_{h}f}C(\cdot,\grad_{\~g}u,\cdot)\\
-		&+\fr 12 \tr_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot, \grad_{\~g}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\grad_{\~g}u\right]^{\dot{x}}\\
-	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}(d_{\cW}f)(\dot{\cW})+\fr 1f (d^{2}_{\cW}f)(\dot{\cW},\dot{\cW})\\
-	&+\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})\\
-	&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}.}		
-Using the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}, we treat the last three terms of (\ref{Ev-u-5-new}) in order.
-\begin{itemize}
-  \item From \cref{MixedTrace} we obtain
-\eq{\label{Ev-u-4-new}\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\tr (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot)),}
-where we used
-\begin{align}
-\tr_{d_{h}f}\L(A(\cdot),\cdot)=\tr_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot)=\tr (d_Wf\circ\L^{\sharp}\circ A).
-\end{align}
-  \item \cref{Lambdasharptilde} implies that
-\eq{\label{Ev-u-2-new}&-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	=~&\fr{1}{f}\tr_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\tr_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\tr_{d_{h}f}h(\cdot,\cdot)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
-	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
-	\hp{=}~&+\fr 1f \tr_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
-To treat the last term of $\eqref{Ev-u-2-new}$, we use the Codazzi equation:\footnote{$g(\n_X \mc{W}(\mc{W}^{-1}(Y)),Z)=\n h(\mc{W}^{-1}(Y),Z,X)=\n h(\mc{W}^{-1}(Y),X,Z)+\overline{\mrm{Rm}}(\nu,\mc{W}^{-1}(Y),X,Z);$ therefore,
-$\n_X \mc{W}(\mc{W}^{-1}(Y))=(\n h(\mc{W}^{-1}(Y),X,\cdot))^{\sharp}+(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.$}
-\eq{\n_{X}(\cW^{-1}(Y))=&-\cW^{-1}(\n_{X}\cW(\cW^{-1}(Y)))+\cW^{-1}(\n_{X}Y)\\
-=&-\cW^{-1}\br{(\n h(X,\cW^{-1}(Y),\cdot))^{\sharp}}+\cW^{-1}(\n_{X}Y)\\
-&-\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cW^{-1}(Y))X)^{\top}.}
-Hence
-\eq{\label{Ev-u-3-new}&\fr 1f \tr_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x})\\
-			=~&-\fr{1}{f}\overline{\mrm{Rm}}(\dot{x},V,\nu,\dot{x})
-				+\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V)\\
-			=~&\s\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
-				+\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
-  \item In view of \cref{Ev-Lambda} we have
-\eq{\label{Ev-u-1-new}&(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\ =&\fr{2}{f}\tr (d_{\cW}f\circ A\circ{\L^{\sharp}})-\fr{1}{f}\tr(d_{\cW}f\circ\L^{\sharp}\circ A)-\fr 1f\tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
-\hp{=}&+\fr{1}{f^{2}}\tr_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x}).}
-Also, note that $(\L^{t})^{\~\sharp}=f\mc{W}^{-1}\circ(\L^{t})^{\sharp}$; therefore,
-\eq{\fr{1}{f^{2}}\tr_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)&=-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}\br{\nu,\cdot,\cdot,\fr{(\L^{t})^{\~\sharp}V}{f}}\\
-		&=-\fr 1f \tr_{d_{h}f}g\br{\fr{(\L^{t})^{\~\sharp}V}{f},\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}}\\
-        &=-\fr 1f \tr_{d_{h}f}g\br{\mc{W}^{-1}\circ(\L^{t})^{\sharp}(V),\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}}\\
-		&=-\fr 1f \tr_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
-\end{itemize}
-Putting these last three items all together gives
-\eq{\label{Ev-u-4-new}&\fr{2}{f}\tr(d_{\cW}f\circ\cW\circ A^{2})-\fr 1f \tr\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	&+(d_{\cW}f)\br{\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }}\\
-	=~& \fr 2f \tr(d_{\cW}f\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \tr_{d_{h}f}\overline{\mrm{Rm}}(\grad_{\~g}u,\cdot,\nu,\cdot)\\
-	\hp{=}~&+\fr 1f\tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\tr_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
-	\hp{=}~&-\fr{1}{f}\tr_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \tr_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\tr_{d_{h}f}h(A(\cdot),A(\cdot)).}
-Inserting \eqref{Ev-u-4-new} into \eqref{Ev-u-5-new} gives the claimed result.
-}
 \section{Locally symmetric spaces}
 In this section we prove the proposed Harnack inequalities. We restrict to locally symmetric spaces, since in more general settings we are not aware how to deal with the terms including derivatives of the Riemannian curvature tensor. In order to prove our main theorems, we need the following corollary of \eqref{Ev-u-new} with bonus term $\mc{B}$, which will be the basis for the proofs of all our main theorems.
 \Theo{lemma}{Homogeneous}{

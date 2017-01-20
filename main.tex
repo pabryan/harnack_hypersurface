@@ -12,14 +12,14 @@
 Let $N=N^{n+1}$ be a Riemannian or Lorentzian manifold and let $M=M^{n}$ be a smooth and orientable manifold. Let $\s = 1$ in the Riemannian case and $\s = -1$ in the Lorentzian case. Let
 \eq{x\cn M\x[0,T^{\ast})\ra N}
 be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolve by the curvature flow
-\eq{\label{Flow}\dot{x}=-\s f\nu-x_{;k}b^{ki}f_{;i},}
+\eq{\label{Flow}\dot{x}=-\s f\nu-b^{ij}f_{;i}x_{;j},}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\ip{\nu}{\nu}$ from the spacelike condition), $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij}),$ indices appearing after a semicolon denote the components of the covariant derivative with respect to the induced metric $(g_{ij})$. The speed, $f$ is a smooth, increasing function of the principal curvatures.
 
 The flow \eqref{Flow} is equivalent to the curvature flow
 \eq{\label{FlowStandard}
 \bar{x}&:M\times [0,T^{\ast})\to N\\
 \dot{\bar{x}} &= -\s \bar{f} \bar{\nu}.}
-by letting \(r_t:M\to M\) to be the flow of the vector field $b^{ki}f_{;i}$ on $M$ and  $\bar{x} (\xi, t) := x (r_t(\xi), t)$. We call $\bar{x}$  the standard parameterization as in \cite{Andrews:09/1994}.
+by letting \(r_t:M\to M\) to be the flow of the vector field $b^{ij}f_{;i}$ on $M$ and  $\bar{x} (\xi, t) := x (r_t(\xi), t)$. We call $\bar{x}$  the standard parameterization as in \cite{Andrews:09/1994}.
 
 Harnack inequalities are point-wise derivative estimates which usually enable one to compare a solution to a curvature flow at different points in space-time.
 Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}.
@@ -35,7 +35,7 @@ u = \frac{\dot{f}}{f}
 for the Harnack quantity. For shrinking flows (i.e., positive $f$) we have $u = \partial_t \ln f$ just as for Li-Yau \cite{LiYau:/1986} and \cite{Andrews:09/1994}. For expanding flows (i.e., negative $f$), we have the analogous formulation, $u =\partial_t \ln (-f)$, taking into account the sign, and it seems simpler to use the form given in \eqref{eq:Q} for both cases. Let us define $\bar{f}(\xi,t):=f(r_t(\xi), t).$ Then writing $u$ in the standard parameterization, we find that
 \eq{
   \frac{\dot{f}}{f} &= \fr{\partial_t \bar{f} - df (\partial_t r_t)}{f} \\
- &= \frac{\partial_t\bar{f}-\bar{b}^{ij} \bar{f}_{;i} \bar{f}_{;j}}{\bar{f}}
+ &= \frac{\partial_t\bar{f}-\bar{b}(\nabla \bar{f},\nabla \bar{f})}{\bar{f}}
 }
 which is precisely the standard Harnack quantity in the Euclidean space.
 
@@ -57,7 +57,7 @@ Suppose one of the following conditions holds
   \item $N=\mathbb{R}^{n,1}$, the solution is standard, spacelike, strictly convex, and  $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function and $s(\cdot,t)>0$ for all $t.$
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
-\eq{\del_{t}f-b^{ij}f_{;i}f_{;i}+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
+\eq{\del_{t}f-b(\nabla f,\nabla f)+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
 }
 \Theo{rem}{s well-defined on K}{Note for a standard, spacelike and strictly convex hypersurface, $s$ is well-defined on $K:$
 \begin{align*}
@@ -74,7 +74,7 @@ In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully n
 In ambient space of non constant curvature we obtain several new results. We start with the most general ambient space we can, up to our current state of knowledge, allow for. Namely we obtain a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
 \Theo{thm}{Einstein}{
 Let $N$ be a locally symmetric Riemannian Einstein manifold of non-negative sectional curvature. Then under the mean curvature flow there holds
-\[\del_{t}H-b^{ij}H_{;i}H_{;j}-\fr{\-R}{n+1}H+\fr{1}{2t}\geq 0,\]
+\[\del_{t}H-b(\nabla H,\nabla H)-\fr{\-R}{n+1}H+\fr{1}{2t}\geq 0,\]
 where $\-R$ is the constant scalar curvature of $N$.
 }
 
@@ -88,7 +88,7 @@ Suppose either
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
 \[
-\partial_t F^p-b^{ij}(F^p)_{;i}(F^p)_{;i}+\frac{p}{(p+1)t}F^p\geq 0,\quad \forall t>0.
+\partial_t F^p-b(\nabla F^p,\nabla F^p)+\frac{p}{(p+1)t}F^p\geq 0,\quad \forall t>0.
 \]
 }
 Furthermore, employing  duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space.
@@ -209,52 +209,91 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 \subsection*{Curvature functions}
 We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
 
-Let us state a lemma about curvature functions which we will frequently use to estimate some of the terms in \eqref{Ev-u-new}. A curvature function is a smooth map
-\eq{f\cn T^{1,1}(M)\ra \R,}
-which is invariant under parallel transport.
-$f$ is called {\it{monotone}}, if its derivative $df$ (which is zero along $M$ and only acts on the fibers) has only positive eigenvalues. Fixing a metric $g$, one can define
-\[\~f(g,h):=f\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv f(\cW). \]
+Let $M$  be a smooth manifold. A curvature function is a smooth map
+\eq{F\cn T^{1,1}(M)\ra \R,}
+such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$. Given a curvature function $F$ and a metric $g$, on $T^{0,2}(M)$ one can define
+\[\~F(h):=F\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv F(\cW). \]
 Hence we have \footnote{
-Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ for a fixed $p\in M$. Then
-\[\fr{d}{ds} \~f(g,h)=\fr{\del \~f}{\del h}h'(s)=\fr{\del f}{\del \cW}\cW'(s)=\fr{\del f}{\del \cW}\br{g^{-1}\ast h'(s)}=\br{\fr{\del f}{\del \cW}\ast g^{-1}}h'(s).\]}
-\eq{d_h f:=\fr{\del \~f}{\del h}=\fr{\del f}{\del \cW}\ast g^{-1}=d_{\cW}f\ast g^{-1}.}
-From now on, we do not distinguish $f$ and $\~f$ by different notation and write $f$ for both functions. This will not cause ambiguities, since we always indicate the derivative variable, e.g., $d_h f.$
+Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ such that $h'(0)$ is symmetric for a fixed $p\in M$. Then
+\[\fr{d}{ds} \~F(g,h)_{|s=0}=\fr{\del \~F}{\del h}h'(0)=\fr{\del F}{\del \cW}\cW'(0)=\fr{\del F}{\del \cW}\br{g^{-1}\ast h'(0)}=\br{\fr{\del F}{\del \cW}\ast g^{-1}}h'(0).\]}
+\eq{d_h \~F(\eta):=\fr{\del \~F}{\del h}(\eta)=\fr{\del F}{\del \cW}\ast g^{-1}(\eta)=dF\ast g^{-1}(\eta)}
+for all symmetric bilinear forms $\eta$.
+For $T\in T^{1,1}(M)$, we have\footnote{$F^i_j T^j_i=F^{ik}g_{kj}T^j_i=F^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
+\eq{dF(T)=\operatorname{Tr}(dF\circ T)=\operatorname{Tr}((d_h\~F\ast g) \circ T)=\operatorname{Tr}_{d_h\~F}g(T(\cdot),\cdot).}
+We will use the following terminology regarding curvature functions.
+
+\Theo{defn}{CF}{~
+
+\begin{description}
+  \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fibre at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
+  \item[ii] A curvature function $F$ on $M$ is called {\it{(strictly) monotone}}, if for all metrics $g$ and for all $\cW\in T^{1,1}_g(M)$ the bilinear form 
+\eq{dF_{\cW}\ast g^{-1} }
+is non-negative (positive) definite.
+  \item[iii] $F$ is called {\it{homogeneous of degree 1}}, if for all metrics $g$ there holds
+\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}_g(M)~\forall \l>0.}
+  \item[iv] $F$ is called {\it{concave (convex)}}, if for all metrics $g$ the restriction of $F$ to $T^{1,1}_{g}(M)$ is concave (convex) at each $p\in M.$
+\end{description}
+}
 
 
-For $T\in T^{1,1}(M)$, we have\footnote{$f^i_j T^j_i=f^{ik}g_{kj}T^j_i=f^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
-\eq{d_{\cW}f(T)=\operatorname{Tr}(d_{\cW}f\circ T)=\operatorname{Tr}((d_hf\ast g) \circ T)=\operatorname{Tr}_{d_hf}g(T(\cdot),\cdot).}
+From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities, since it will always be clear from the notation $d_h F$, if we actually mean $\~F.$
 
-A curvature function $f$ is called {\it{inverse concave}} if
-\[\~f(\mc{W}):=\fr{1}{f(\mc{W}^{-1})}\]
+
+
+
+A curvature function $F$ is called {\it{inverse concave}} if
+\[\~F(\mc{W}):=\fr{1}{F(\mc{W}^{-1})}\]
 is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
 
+The following lemma about inverse concave curvature functions is basically known from \cite[p.~112]{Urbas:/1991}, but since there it appears in a different form, let us deduce it again in our notation.
 
-We write $f^{ij}=\frac{\partial f}{\partial h_{ij}}$ and $f^{ij,kl}=\fr{\del^{2}f}{\del h_{ij}\del h_{kl}}$, in order, for the first and the second derivatives of $f.$
-We recall the formulas
-\eq{\label{Speed-1}\fr{\del f}{\del g_{ij}}X_{ij}=-f^{mi}h^{j}_{m}X_{ij},\quad \fr{\del^{2}f}{\del h_{ij}\del g_{kl}}X_{ij}Y_{kl}=-(g^{kj}f^{il}+f^{ij,km}h^{l}_{m})X_{ij}Y_{kl},}
-for all symmetric matrices $(X_{ij}), (Y_{ij}).$
 \Theo{lemma}{CF}{
-Let $F$ be a strictly monotone, $1$-homogeneous and convex curvature function. Then for all $p\neq 0$ the speed function \eqref{Speed}
+Let $F$ be a monotone, $1$-homogeneous and inverse concave curvature function. Then for all $p\neq 0$ the curvature function $f=\mrm{sgn}(p)F^p$
 satisfies
-\eq{f^{ik}b^{jl}\geq\fr 1p f^{-1}f^{ij}f^{kl},\quad f^{ij,kl}\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-If we replace the convexity assumption on $F$ by inverse concavity, then we have
-\eq{\label{CF-3}f^{ij,kl}+2f^{ik}b^{jl}\geq \fr{p+1}{p}f^{-1}f^{ij}f^{kl}.}
-}
-\pf{
-It is well known (see, e.g., \cite[Lemma~14]{BryanIvakiScheuer:12/2015}) that
-\eq{F^{ik}b^{jl}\geq F^{-1}F^{ij}F^{kl}.}
-Thus
-\eq{f^{ik}b^{jl}=|p|F^{p-1}F^{ik}b^{jl}\geq |p|F^{p-2}F^{ij}F^{kl}=\fr 1p f^{-1}f^{ij}f^{kl}}
+
+\eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{2}{f}\br{df(\eta)}^2\quad \forall \cW,\eta\in T^{1,1}_g(M),}
+such that $\cW$ is invertible and where $f=f(\cW).$
+
+If $F$ is convex, then
+\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \cW\in T^{1,1}_g(M)~\forall \eta\in T^{1,1}(M)}
 and
-\eq{f^{ij,kl}&=|p|(p-1)F^{p-2}F^{ij}F^{kl}+|p|F^{p-1}F^{ij,kl}\\
-			&\geq\fr{p-1}{p}f^{-1}f^{ij}f^{kl}.}
-If $F$ is inverse concave, it was shown in \cite[p.~112]{Urbas:/1991} that
-\eq{F^{ij,kl}+2F^{ik}b^{jl}\geq 2F^{-1}F^{ij}F^{kl}.}
-Now \eqref{CF-3} follows from a  calculation which was  performed in \cite[Rem.~13]{BryanIvakiScheuer:12/2015}.
+\eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \cW,\eta\in T^{1,1}_g(M),}
+where we again assume that $\cW$ is invertible.
 }
+
+\pf{
+Let $F$ be inverse concave. We first prove the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
+\eq{d\~f(T)=\~f^2 df(\cW^{-1}\circ T\circ \cW^{-1})}
+and
+\eq{d^2\~f(T,T)&=2\~f^3\br{df(\cW^{-1}\circ T\circ\cW^{-1})}^2\\
+				&\hp{=}-\~f^2d^2f(\cW^{-1}\circ T\circ\cW^{-1})(\cW^{-1}\circ T\circ\cW^{-1})\\
+                &\hp{=}-2\~f^2df(\cW^{-1}\circ T\circ\cW^{-1}\circ T\circ \cW^{-1})}
+where $\~f$ is evaluated at $\cW$ and $f$ is evaluated at $\cW^{-1}$. By the assumption $d^2\~f\leq 0$ we obtain, also setting $T=\cW\circ\eta\circ \cW$ for $\eta\in T^{1,1}_g(M)$,
+\eq{d^2f(\eta,\eta)+2df(\eta\circ \cW\circ\eta )\geq \fr{2}{f}\br{df(\eta)}^2.}
+Also recalling that $f=f(\cW^{-1}),$ we obtain the result in case $p=1.$ For $p\neq 0$ simply calculate
+\eq{\label{CF-1}df(\eta)=|p|F^{p-1}dF(\eta),}
+\eq{d^2f(\eta,\eta)&=|p|(p-1)F^{p-2}(dF(\eta))^2+|p|F^{p-1}d^2F(\eta,\eta)\\
+				&\geq\fr{p+1}{p}f^{-1}(df(\eta))^2-2|p|F^{p-1}dF(\eta\circ\cW^{-1}\circ\eta)\\
+                &=\fr{p+1}{p}f^{-1}(df(\eta))^2-2df(\eta\circ\cW^{-1}\circ\eta).}
+Now let $F$ be convex. The second inequality simply follows from the previous calculation. To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel $\mc{K}$ of the linear map
+\eq{df_{\cW}\cn T^{1,1}(M)\ra \R}
+has dimension $n^2-1$, due to
+\eq{df(\cW)=\cW.}
+Now let $\eta\in T^{1,1}(M)$, then there exists a decomposition
+\[\eta=a\cW+\xi,\]
+where we may assume wlog $a=1.$ Hence
+\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)&=df(\eta)+df(\ad(\xi))+df(\ad(\xi)\circ\cW^{-1}\circ\xi)\\
+			&\geq df(\eta),}
+since $df$ and $\cW$ can be diagonalized simultaneously. The result in case $p=1$ follows from $f=df(\cW)=df(\eta).$
+The case $p\neq 0$ follows from the case $p=1$ and \eqref{CF-1}.
+}
+
+The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. We collect our assumptions as follows.
+
 \Theo{ass}{SpeedAss}{
 We assume that $f$ is a nowhere vanishing velocity which is of the form
-\eq{\label{Speed}f\cn \R_{+}\x UN &\x \Sigma^{0,2}_{+}(M)\x\Sigma^{0,2}_{+}(M)\ra \R\\ f(s,\nu,h_{ij},g_{ij})&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(h_{ij},g_{ij}),}
+\eq{\label{Speed}f\cn \R_{+}\x UN &\x T^{1,1}(M)\ra \R\\ f(s,\nu,\cW)&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(\cW),}
+where
 \begin{itemize}
 \item $p\neq 0$,
 \item$\p\in C^{\8}(\R_{+})$ is a positive function acting on the support function $s$ and such that $\p\equiv 1$ if $N$ is neither the Euclidean nor the Minkowski space,
@@ -265,15 +304,13 @@ We assume that $f$ is a nowhere vanishing velocity which is of the form
 \item convex, otherwise.
 \end{enumerate}
 \end{itemize}
-
 Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
 }
 
 
 We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
 \[\mathcal{L}v=\dot{v}-f^{ij}v_{;ij}-T\ast\nabla v.\]
-Here $T\ast \nabla v$ denotes  any linear combination of arbitrary contractions of tensors $T$ with $\n v.$
-
+Here $T\ast \nabla v$ denotes any linear combination of arbitrary contractions of tensors $T$ with $\n v.$
 \section{Evolution equations}
 \subsection{Invariant calculations with respect with to affine connection}
 We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function

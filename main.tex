@@ -212,57 +212,52 @@ We collect some well-known facts about curvature functions. A thorough treatment
 Let $M$  be a smooth manifold. A curvature function is a smooth map
 \eq{F\cn T^{1,1}(M)\ra \R,}
 such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$. Given a curvature function $F$ and a metric $g$, on $T^{0,2}(M)$ one can define
-\[\~F(h):=F\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv F(\cW). \]
+\eq{\~F(h):=F\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv F(\cW). }
 Hence we have \footnote{
-Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ such that $h'(0)$ is symmetric for a fixed $p\in M$. Then
-\[\fr{d}{ds} \~F(g,h)_{|s=0}=\fr{\del \~F}{\del h}h'(0)=\fr{\del F}{\del \cW}\cW'(0)=\fr{\del F}{\del \cW}\br{g^{-1}\ast h'(0)}=\br{\fr{\del F}{\del \cW}\ast g^{-1}}h'(0).\]}
-\eq{d_h \~F(\eta):=\fr{\del \~F}{\del h}(\eta)=\fr{\del F}{\del \cW}\ast g^{-1}(\eta)=dF\ast g^{-1}(\eta)}
-for all symmetric bilinear forms $\eta$.
+Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ for fixed $p\in M$. Then
+\[\fr{d}{ds} \~F(g,h)=\fr{\del \~F}{\del h}h'(s)=\fr{\del F}{\del \cW}\cW'(s)=\fr{\del F}{\del \cW}\br{g^{-1}\ast\fr 12 (h'(s)+(h^t)'(s))}=\br{\fr{\del F}{\del \cW}\ast g^{-1}}h'(s),\]
+since $\del F/\del \cW$ is self-adjoint when evaluated at self-adjoint operators.}
+\eq{\label{dhF}d_h \~F:=\fr{\del \~F}{\del h}=\fr{\del F}{\del \cW}\ast g^{-1}=dF\ast g^{-1},}
+whenever the right-hand side is evaluated at a $g$-self-adjoint operator $\cW$.
 For $T\in T^{1,1}(M)$, we have\footnote{$F^i_j T^j_i=F^{ik}g_{kj}T^j_i=F^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
 \eq{dF(T)=\operatorname{Tr}(dF\circ T)=\operatorname{Tr}((d_h\~F\ast g) \circ T)=\operatorname{Tr}_{d_h\~F}g(T(\cdot),\cdot).}
 We will use the following terminology regarding curvature functions.
-
 \Theo{defn}{CF}{~
-
 \begin{description}
-  \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fibre at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
+  \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
   \item[ii] A curvature function $F$ on $M$ is called {\it{(strictly) monotone}}, if for all metrics $g$ and for all $\cW\in T^{1,1}_g(M)$ the bilinear form 
-\eq{dF_{\cW}\ast g^{-1} }
+\eq{dF\ast g^{-1} }
 is non-negative (positive) definite.
   \item[iii] $F$ is called {\it{homogeneous of degree 1}}, if for all metrics $g$ there holds
-\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}_g(M)~\forall \l>0.}
+\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}_g(M),~\forall \l>0.}
   \item[iv] $F$ is called {\it{concave (convex)}}, if for all metrics $g$ the restriction of $F$ to $T^{1,1}_{g}(M)$ is concave (convex) at each $p\in M.$
 \end{description}
 }
+Due to \eqref{dhF}, the definition of monotonicity is justified, since $d_h\~F$ is symmetric.
 
 
-From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities, since it will always be clear from the notation $d_h F$, if we actually mean $\~F.$
+From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities, since it will always be clear from the notation $d_h F$, if we actually mean $d_h\~F.$
 
 
-
-
-A curvature function $F$ is called {\it{inverse concave}} if
+A curvature function $F$ defined on the invertible endomorphisms is called {\it{inverse concave}} if
 \[\~F(\mc{W}):=\fr{1}{F(\mc{W}^{-1})}\]
-is concave, where we suppressed potential dependence on other arguments like $s$ and $\nu.$
+is concave.
 
 The following lemma about inverse concave curvature functions is basically known from \cite[p.~112]{Urbas:/1991}, but since there it appears in a different form, let us deduce it again in our notation.
-
 \Theo{lemma}{CF}{
-Let $F$ be a monotone, $1$-homogeneous and inverse concave curvature function. Then for all $p\neq 0$ the curvature function $f=\mrm{sgn}(p)F^p$
+Let $F$ be a monotone, $1$-homogeneous and inverse concave curvature function. For all $p\neq 0$ and metrics $g$ on $M,$ the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
 satisfies
-
 \eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{2}{f}\br{df(\eta)}^2\quad \forall \cW,\eta\in T^{1,1}_g(M),}
-such that $\cW$ is invertible and where $f=f(\cW).$
+where we assumed $\cW$ is invertible.
 
-If $F$ is convex, then
-\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \cW\in T^{1,1}_g(M)~\forall \eta\in T^{1,1}(M)}
+If $F$ is convex, then for all metrics $g$ on $M$ there holds
+\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \cW\in T^{1,1}_g(M),~\forall \eta\in T^{1,1}(M)}
 and
 \eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \cW,\eta\in T^{1,1}_g(M),}
-where we again assume that $\cW$ is invertible.
+where we assumed $\cW$ is invertible.
 }
-
 \pf{
-Let $F$ be inverse concave. We first prove the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
+Let $F$ be inverse concave. We first consider the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
 \eq{d\~f(T)=\~f^2 df(\cW^{-1}\circ T\circ \cW^{-1})}
 and
 \eq{d^2\~f(T,T)&=2\~f^3\br{df(\cW^{-1}\circ T\circ\cW^{-1})}^2\\
@@ -308,9 +303,7 @@ Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite te
 }
 
 
-We define the parabolic operator $\mathcal{L}$ on smooth functions as follows
-\[\mathcal{L}v=\dot{v}-f^{ij}v_{;ij}-T\ast\nabla v.\]
-Here $T\ast \nabla v$ denotes any linear combination of arbitrary contractions of tensors $T$ with $\n v.$
+
 \section{Evolution equations}
 \subsection{Invariant calculations with respect with to affine connection}
 We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function

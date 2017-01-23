@@ -207,87 +207,135 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
 \subsection*{Curvature functions}
-We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}.
+We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}. First let us set some terminology.
 
-Let $M$  be a smooth manifold. A curvature function is a smooth map
-\eq{F\cn T^{1,1}(M)\ra \R,}
-such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$. Given a curvature function $F$ and a metric $g$, on $T^{0,2}(M)$ one can define
-\eq{\~F(h):=F\br{g^{-1}\ast \fr 12 (h+h^t)}\equiv F(\cW). }
-Hence we have \footnote{
+For an open, symmetric an convex cone $\G\sub \R^n$ let $S_{\G}\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
+
+For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
+
+
+A curvature function on $S_{\G}$ is a map
+\eq{F\cn T^{1,1}(M)\cap S_{\G}\ra \R,}
+such that for all metrics $g$ the restriction $F\Big|_{T^{1,1}_g(M)\cap S_{\G}}$ is smooth and
+such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$.
+
+
+Given a curvature function $F$, we define
+\eq{\~F&:T^{0,2}_{\mrm{sym},+}\x T^{0,2}(M)\to \mathbb{R}\\
+\~F(g,h)&:=F\br{g^{-1}\ast \fr 12 (h+h^t)}.}
+Let us also put
+\eq{\mc{W}:=g^{-1}\ast \fr 12 (h+h^t),~ h\in T^{0,2}(M).}
+Note that $\mc{W}$ is a self-adjoint endomorphism with respect to $g.$ Hence we have \footnote{
 Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ for fixed $p\in M$. Then
-\[\fr{d}{ds} \~F(g,h)=\fr{\del \~F}{\del h}h'(s)=\fr{\del F}{\del \cW}\cW'(s)=\fr{\del F}{\del \cW}\br{g^{-1}\ast\fr 12 (h'(s)+(h^t)'(s))}=\br{\fr{\del F}{\del \cW}\ast g^{-1}}h'(s),\]
-since $\del F/\del \cW$ is self-adjoint when evaluated at self-adjoint operators.}
-\eq{\label{dhF}d_h \~F:=\fr{\del \~F}{\del h}=\fr{\del F}{\del \cW}\ast g^{-1}=dF\ast g^{-1},}
-whenever the right-hand side is evaluated at a $g$-self-adjoint operator $\cW$.
-For $T\in T^{1,1}(M)$, we have\footnote{$F^i_j T^j_i=F^{ik}g_{kj}T^j_i=F^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
+\begin{align*}
+\frac{d}{ds}\~F(h(s))=d_h\~F(h'(s))=\frac{d}{ds}F(\mc{W}(s))=dF(\cW'(s))&=dF(g^{-1}\ast\fr 12 (h'(s)+(h^t)'(s)))\\
+&=dF\ast g^{-1}(h'(s)),
+\end{align*}
+since $dF$ is self-adjoint when evaluated at a self-adjoint endomorphism.}
+\eq{\label{dhF}d_h \~F=dF\ast g^{-1}.}
+For $T\in T^{1,1}(M)$, we have\footnote{$F^i_j T^j_i=\~F^{ik}g_{kj}T^j_i=\~F^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
 \eq{dF(T)=\operatorname{Tr}(dF\circ T)=\operatorname{Tr}((d_h\~F\ast g) \circ T)=\operatorname{Tr}_{d_h\~F}g(T(\cdot),\cdot).}
 We will use the following terminology regarding curvature functions.
 \Theo{defn}{CF}{~
 \begin{description}
-  \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
-  \item[ii] A curvature function $F$ on $M$ is called {\it{(strictly) monotone}}, if for all metrics $g$ and for all $\cW\in T^{1,1}_g(M)$ the bilinear form 
-\eq{dF\ast g^{-1} }
-is non-negative (positive) definite.
-  \item[iii] $F$ is called {\it{homogeneous of degree 1}}, if for all metrics $g$ there holds
-\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}_g(M),~\forall \l>0.}
-  \item[iv] $F$ is called {\it{concave (convex)}}, if for all metrics $g$ the restriction of $F$ to $T^{1,1}_{g}(M)$ is concave (convex) at each $p\in M.$
+%   \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
+%   \item[ii] For an open, symmetric an convex cone $\G\sub \R^n$ let $S_{\G}\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
+  \item[i] A curvature function $F$ on $M$ is called {\it{(strictly) monotone}} on $S_{\G}$, if $d_h\~F$ is non-negative (positive) definite for all $g$ and $h$ with the property $g\ast \fr 12 (h+h^t)\in S_{\G}$.
+  \item[ii] $F$ is called {\it{homogeneous of degree 1}}, if
+\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}(M)\cap S_{\G},~\forall \l>0.}
+  \item[iii] $F$ is called {\it{concave (convex)}} in $S_{\G}$, if for all metrics $g$ the restriction of $F$ to $S_{\G}\cap T^{1,1}_{g}(M)$ is concave (convex) at each $p\in M.$
+  \item[iv] A curvature function $F$ is called {\it{inverse concave (inverse convex)}} in $S_{\G}$, if for all metrics $g$ the restriction of
+\[\~F(\mc{W}):=\fr{1}{F(\mc{W}^{-1})}\]
+to $S_{\G}\cap T^{1,1}_g(M)$
+is concave (convex).
 \end{description}
 }
 Due to \eqref{dhF}, the definition of monotonicity is justified, since $d_h\~F$ is symmetric.
-
-
 From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities, since it will always be clear from the notation $d_h F$, if we actually mean $d_h\~F.$
 
 
-A curvature function $F$ defined on the invertible endomorphisms is called {\it{inverse concave}} if
-\[\~F(\mc{W}):=\fr{1}{F(\mc{W}^{-1})}\]
-is concave.
+
 
 The following lemma about inverse concave curvature functions is basically known from \cite[p.~112]{Urbas:/1991}, but since there it appears in a different form, let us deduce it again in our notation.
-\Theo{lemma}{CF}{
-Let $F$ be a monotone, $1$-homogeneous and inverse concave curvature function. For all $p\neq 0$ and metrics $g$ on $M,$ the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
-satisfies
-\eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{2}{f}\br{df(\eta)}^2\quad \forall \cW,\eta\in T^{1,1}_g(M),}
-where we assumed $\cW$ is invertible.
 
-If $F$ is convex, then for all metrics $g$ on $M$ there holds
-\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \cW\in T^{1,1}_g(M),~\forall \eta\in T^{1,1}(M)}
-and
-\eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \cW,\eta\in T^{1,1}_g(M),}
-where we assumed $\cW$ is invertible.
+
+\Theo{lemma}{Lemma-CF}{
+Let $\G\sub\R^n$ be a symmetric, convex and open cone. Let $F$ be monotone and $1$-homogeneous on $S_{\G}$. Then
+for all $p\neq 0$, metrics $g$ on $M$ and all invertible $\cW\in S_{\G}\cap T_g^{1,1}(M)$, the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
+satisfies
+\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}(M).}
+
+If $F$ is additionally inverse concave on $S_{\G}$, then
+\eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{p+1}{p}f^{-1}\br{df(\eta)}^2\quad \forall\eta\in T^{1,1}_g(M).}
+
+
+If $F$ is convex then 
+\eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}_g(M).}
+
 }
 \pf{
-Let $F$ be inverse concave. We first consider the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
-\eq{d\~f(T)=\~f^2 df(\cW^{-1}\circ T\circ \cW^{-1})}
-and
-\eq{d^2\~f(T,T)&=2\~f^3\br{df(\cW^{-1}\circ T\circ\cW^{-1})}^2\\
-				&\hp{=}-\~f^2d^2f(\cW^{-1}\circ T\circ\cW^{-1})(\cW^{-1}\circ T\circ\cW^{-1})\\
-                &\hp{=}-2\~f^2df(\cW^{-1}\circ T\circ\cW^{-1}\circ T\circ \cW^{-1})}
-where $\~f$ is evaluated at $\cW$ and $f$ is evaluated at $\cW^{-1}$. By the assumption $d^2\~f\leq 0$ we obtain, also setting $T=\cW\circ\eta\circ \cW$ for $\eta\in T^{1,1}_g(M)$,
-\eq{d^2f(\eta,\eta)+2df(\eta\circ \cW\circ\eta )\geq \fr{2}{f}\br{df(\eta)}^2.}
-Also recalling that $f=f(\cW^{-1}),$ we obtain the result in case $p=1.$ For $p\neq 0$ simply calculate
-\eq{\label{CF-1}df(\eta)=|p|F^{p-1}dF(\eta),}
-\eq{d^2f(\eta,\eta)&=|p|(p-1)F^{p-2}(dF(\eta))^2+|p|F^{p-1}d^2F(\eta,\eta)\\
-				&\geq\fr{p+1}{p}f^{-1}(df(\eta))^2-2|p|F^{p-1}dF(\eta\circ\cW^{-1}\circ\eta)\\
-                &=\fr{p+1}{p}f^{-1}(df(\eta))^2-2df(\eta\circ\cW^{-1}\circ\eta).}
-Now let $F$ be convex. The second inequality simply follows from the previous calculation. To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel $\mc{K}$ of the linear map
-\eq{df_{\cW}\cn T^{1,1}(M)\ra \R}
+To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel of the linear map
+\eq{df\cn T^{1,1}(M)\ra \R}
 has dimension $n^2-1$, due to
 \eq{df(\cW)=\cW.}
 Now let $\eta\in T^{1,1}(M)$, then there exists a decomposition
 \[\eta=a\cW+\xi,\]
-where we may assume wlog $a=1.$ Hence
+where w.l.o.g., we may assume  $a=1.$ Hence
 \eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)&=df(\eta)+df(\ad(\xi))+df(\ad(\xi)\circ\cW^{-1}\circ\xi)\\
 			&\geq df(\eta),}
 since $df$ and $\cW$ can be diagonalized simultaneously. The result in case $p=1$ follows from $f=df(\cW)=df(\eta).$
-The case $p\neq 0$ follows from the case $p=1$ and \eqref{CF-1}.
+The case $p\neq 0$ follows from the case $p=1$.
+
+
+Let $F$ be inverse concave. We first consider the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
+\eq{d\~f(T)=\~f^2 df(\cW^{-1}\circ T\circ \cW^{-1})}
+and
+\eq{\label{Lemma-CF-2}d^2\~f(T,T)&=2\~f^3\br{df(\cW^{-1}\circ T\circ\cW^{-1})}^2\\
+				&\hp{=}-\~f^2d^2f(\cW^{-1}\circ T\circ\cW^{-1})(\cW^{-1}\circ T\circ\cW^{-1})\\
+                &\hp{=}-2\~f^2df(\cW^{-1}\circ T\circ\cW^{-1}\circ T\circ \cW^{-1}),}
+where $\~f$ is evaluated at $\cW$ and $f$ is evaluated at $\cW^{-1}$. By the assumption $d^2\~f\leq 0$ we obtain, also setting $T=\cW\circ\eta\circ \cW$ for $\eta\in T^{1,1}_g(M)$,
+\eq{d^2f(\eta,\eta)+2df(\eta\circ \cW\circ\eta )\geq \fr{2}{f}\br{df(\eta)}^2.}
+Also recalling that $f=f(\cW^{-1}),$ we obtain the result in case $p=1.$ For $p\neq 0$ simply calculate
+\eq{\label{Lemma-CF-1}df(\eta)=|p|F^{p-1}dF(\eta),}
+\eq{d^2f(\eta,\eta)&=|p|(p-1)F^{p-2}(dF(\eta))^2+|p|F^{p-1}d^2F(\eta,\eta)\\
+				&\geq\fr{p+1}{p}f^{-1}(df(\eta))^2-2|p|F^{p-1}dF(\eta\circ\cW^{-1}\circ\eta)\\
+                &=\fr{p+1}{p}f^{-1}(df(\eta))^2-2df(\eta\circ\cW^{-1}\circ\eta).}
+If $F$ is convex, the inequality simply follows from the previous calculation. 
 }
 
-The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. We collect our assumptions as follows.
+\subsection*{Examples}
+The mean curvature
+\[H\cn T^{1,1}(M)\ra \R\] is given by
+\[H=\tr(\cW).\]
+There holds
+\[dH_{\cW}=\id\]
+and hence $H$ is trivially strictly monotone. The inverse concavity of $H$ follows from \cref{Lemma-CF}.
+The Gauss curvature
+\[K=\det(\cW)\]
+satisfies
+\[dK_{\cW}=\cW^{-1}K\]
+and hence it is strictly monotone on $S_{\G_{+}}.$ The other elementary symmetric polynomials $H_k$ can be represented as
+\eq{H_k(W)=\fr{1}{k!}\fr{d^k}{dt^k}\det(\id+tW)_{|t=0},}
+compare \cite[Lemma~2.1.6, Thm.~2.1.7]{Gerhardt:/2006}. They are strictly monotone on the set $S_{\G_k},$ where $\G_k$ is the connected component of the set
+\[\{(\k_i)\in\R^n\cn H_k>0\}\]
+containing $\G_{+},$ compare \cite[Lemma~2.4]{HuiskenSinestrari:09/1999}.
+The quotients
+\[q_k=\fr{H_k}{H_{k-1}}\] are concave on $\G_{k}$, compare \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
 
+A large set of inverse concave functions can be found in \cite{Andrews:/2007}.
+
+
+
+
+
+\subsection*{The flow speed}
+The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. 
+Let
+\[\G_{+}=\{(\k_i)\in \R^n\cn \k_i>0\quad\forall 1\leq i\leq n  \}.\]
+We collect our assumptions as follows.
 \Theo{ass}{SpeedAss}{
 We assume that $f$ is a nowhere vanishing velocity which is of the form
-\eq{\label{Speed}f\cn \R_{+}\x UN &\x T^{1,1}(M)\ra \R\\ f(s,\nu,\cW)&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(\cW),}
+\eq{\label{Speed}f\cn \R_{+}\x UN &\x (S_{\G_{+}}\cap T^{1,1}(M))\ra \R\\ f(s,\nu,\cW)&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(\cW),}
 where
 \begin{itemize}
 \item $p\neq 0$,
@@ -301,9 +349,6 @@ where
 \end{itemize}
 Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the subbundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
 }
-
-
-
 \section{Evolution equations}
 \subsection{Invariant calculations with respect with to affine connection}
 We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function
@@ -392,7 +437,7 @@ The deviation of $\hat{\n}$ from the Levi-Civita connection of $\~g$ is measured
 where the superscript $\dot{x}$ denotes the $\dot{x}$ component in the splitting, $x^{\ast} \mathcal{T}N \simeq \mathcal{T}M \oplus \R \dot{x}$;
 see \cite[Prop.~4.1]{NomizuSasaki:/1994} adjusted to the Riemannian setting.
 \Theo{lemma}{AE-A}{
-\eq{\label{AE-A} \dot{A}=A^{2}+uA+\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
+\eq{\label{AE-A-1} \dot{A}=A^{2}+uA+\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u-\n \br{\fr 1f (\L^{t})^{\~\sharp}V}+\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}. }
 %\eq{\label{AE-B} \dot{B}&=\~{\n}^{2}_{\~g}u+ C(\cdot,\widetilde{\grad}u,\cdot)+\fr 1f \L(A(\cdot),\cdot)\\
 %			&\hp{=}-\~g\br{\n\br{\fr 1f \L^{\~\sharp}V},\cdot}+\~g(\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top},\cdot)}
 }
@@ -448,55 +493,57 @@ We need one more lemma before calculating the main the evolution equation.
 \Theo{lemma}{MixedTrace}{
 There holds
 % \eq{\mc{W}\circ A^2=\ad(A)\circ\L^{\sharp}+\L^{\sharp}\circ A+\ad(A)\circ\cW\circ A.}
-\eq{\fr{1}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})&=\fr 1f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 1f\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
+\eq{\fr{1}{f}\operatorname{Tr}( df\circ\cW\circ A^{2})&=\fr 1f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 1f\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
 &\hp{=}+\fr 1f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)).}
 }
 \pf{The claim follows from Lemma \ref{SymmetriesB}:
-\eq{\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})&=\operatorname{Tr}_{d_{h}f}h(\cdot,A^{2}(\cdot))=f\operatorname{Tr}_{d_{h}f}B(\cdot,A(\cdot))\\		&=f\operatorname{Tr}_{d_{h}f}B(A(\cdot),\cdot)+\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
+\eq{\operatorname{Tr}( df\circ\cW\circ A^{2})&=\operatorname{Tr}_{d_{h}f}h(\cdot,A^{2}(\cdot))=f\operatorname{Tr}_{d_{h}f}B(\cdot,A(\cdot))\\		&=f\operatorname{Tr}_{d_{h}f}B(A(\cdot),\cdot)+\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)\\
 					&=\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))+\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot).}
 }
 Now we are prepared to deduce the evolution equation of $u.$ Note that the next evolution equation will be the \textit{first} place where the actual domain in the definition of $f$ will play a role. In the following lemma, we assume
 \eq{f(s,\nu,h_{ij},g_{ij})=\p(s)F(\nu,h_{ij},g_{ij}).}
+
 \Theo{lemma}{Ev-u-new}{Under the flow \eqref{Flow} we have
-\eq{\label{Ev-u}\dot{u}&-\operatorname{Tr}_{d_{h}f}\widetilde{\operatorname{Hess}}u-\operatorname{Tr}_{d_{h}f}C(\cdot,\widetilde{\grad}u,\cdot)+\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
-&+\fr 12 \operatorname{Tr}_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\widetilde{\grad}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\widetilde{\grad}u\right]^{\dot{x}}\\
-=&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'d_{\cW}f(\dot{\cW})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
-	\hp{=}&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))+\fr 2f \operatorname{Tr}(d_{\cW}f\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
+\eq{\label{Ev-u}\dot{u}&-\operatorname{Tr}_{d_{h}f}\widetilde{\operatorname{Hess}}~u-\operatorname{Tr}_{d_{h}f}C(\cdot,\widetilde{\grad}~u,\cdot)+\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}~u,\cdot,\nu,\cdot)\\
+&+\fr 12 \operatorname{Tr}_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot,\widetilde{\grad}~u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\widetilde{\grad}~u\right]^{\dot{x}}\\
+=&(\log\p)'' \dot{s}^{2}+(\log\p)'\ddot{s}+\fr 1f(\log\p)' df(\dot{\cW})+\fr 1f  d^2f(\dot{\cW},\dot{\cW})\\
+	\hp{=}&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))+\fr 2f \operatorname{Tr}( df\circ (A\circ\L^{\sharp}-\L^{\sharp}\circ A))\\
 	\hp{=}&+\s\br{1-\fr{\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})+\fr 2f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\cdot,\dot{x},\dot{x},\cW(\cdot))\\
 &+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot).}
 }
 \pf{Note that
-\eq{u=\fr{\dot{f}}{f}=(\log \p)'\dot{s}+\fr 1fd_{\cW}f(\dot{\cW})=(\log\p)'\dot{s}+\fr 1f d_{\cW}f(A\circ\cW+\L^{\sharp}).}
+\eq{u=\fr{\dot{f}}{f}=(\log \p)'\dot{s}+\fr 1f df(\dot{\cW})=(\log\p)'\dot{s}+\fr 1f  df(A\circ\cW+\L^{\sharp}).}
 Hence taking time derivative of both sides we arrive at
-\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}d_{\cW}f(\dot{\cW})\\
-		&-\fr{u}{f}d_{\cW}f(A\circ\cW+\L^{\sharp})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})+\fr 1f d_{\cW}f(\dot{A}\circ\cW+A\circ\dot{\cW}+\del_{t}\L^{\sharp})\\
-		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}d_{\cW}f(\dot{\cW})+\fr 1f d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
-		&+\fr 1f d_{\cW}f(\dot{A}\circ\cW+A^{2}\circ\cW+A\circ\L^{\sharp}-uA\circ\cW)+d_{\cW}f\br{\del_{t}(\fr{{\L^{\sharp}}}{f} )}.}
+\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+\fr 1f(\log\p)'\dot{s} df(\dot{\cW})\\
+		&-\fr{u}{f} df(A\circ\cW+\L^{\sharp})+\fr 1f  d^2f(\dot{\cW},\dot{\cW})+\fr 1f  df(\dot{A}\circ\cW+A\circ\dot{\cW}+\del_{t}\L^{\sharp})\\
+		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+\fr 1f(\log\p)'\dot{s} df(\dot{\cW})+\fr 1f  d^2f(\dot{\cW},\dot{\cW})\\
+		&+\fr 1f  df(\dot{A}\circ\cW+A^{2}\circ\cW+A\circ\L^{\sharp}-uA\circ\cW)+ df\br{\del_{t}(\fr{{\L^{\sharp}}}{f} )}.}
 Since
-$d_{\cW}f(T)=\operatorname{Tr}(d_{\cW}f\circ T)$
-and $d_{\cW}f$ commutes with $\cW$, we obtain
-\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
-	&+\fr 1f\operatorname{Tr}(d_{\cW}f\circ\cW\circ(\dot{A}+A^{2}-uA))+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
-		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
-	&+\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})+\fr 1f\operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u}}\\
-	&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
-	&+\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
+$ df(T)=\operatorname{Tr}( df\circ T)$
+and $ df$ commutes with $\cW$, we obtain
+\eq{\dot{u}=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+\fr 1f(\log\p)'\dot{s}  df(\dot{\cW})+\fr 1f   d^2f(\dot{\cW},\dot{\cW})\\
+	&+\fr 1f\operatorname{Tr}( df\circ\cW\circ(\dot{A}+A^{2}-uA))+ df(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+		=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s}  df(\dot{\cW})+\fr 1f   d^2f(\dot{\cW},\dot{\cW})\\
+	&+\fr{2}{f}\operatorname{Tr}( df\circ\cW\circ A^{2})+\fr 1f\operatorname{Tr}\br{ df\circ\cW\circ\br{\~{\n}\widetilde{\grad}u+D \widetilde{\grad}u}}\\
+	&-\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+ df(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+	&+\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}.}
 Rewriting the $\widetilde{\grad}$-terms we obtain
 \eq{\label{Ev-u-5-new}\dot{u}&-\operatorname{Tr}_{d_{h}f}\~{\n}^{2}_{\~g}u-\operatorname{Tr}_{d_{h}f}C(\cdot,\widetilde{\grad}u,\cdot)\\
 		&+\fr 12 \operatorname{Tr}_{d_hf} \left[\overline{\mrm{{Rm}}}(\cdot, \widetilde{\grad}u)(\cdot)+ \overline{\mrm{Rm}}(\cdot, \cdot)\widetilde{\grad}u\right]^{\dot{x}}\\
-	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+(\log\p)'\dot{s} d_{\cW}f(\dot{\cW})+\fr 1f  d^{2}_{\cW}f(\dot{\cW},\dot{\cW})\\
-	&+\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})\\
-	&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }).}		
+	=&(\log\p)''\dot{s}^{2}+(\log\p)'\ddot{s}+\fr 1f(\log\p)'\dot{s}  df(\dot{\cW})+\fr 1f   d^2f(\dot{\cW},\dot{\cW})\\
+	&+\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\br{\overline{\mrm{Rm}}(\cdot,\dot{x})\dot{x}}^{\top}}+\fr{2}{f}\operatorname{Tr}( df\circ\cW\circ A^{2})\\
+	&-\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}+ df(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} }).}		
 Using the formulas from \cref{Ev-Lambda}, \cref{Lambdasharptilde} and \cref{MixedTrace}, we treat the last three terms of (\ref{Ev-u-5-new}) in order.
 \begin{itemize}
   \item From \cref{MixedTrace} we obtain
-\eq{\label{Ev-u-4-new}\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})=&\fr 2f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\operatorname{Tr} (d_Wf\circ\L^{\sharp}\circ A)\\						&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)),}
+\eq{\label{Ev-u-4-new}\fr{2}{f}\operatorname{Tr}( df\circ\cW\circ A^{2})=&\fr 2f\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr 2f\operatorname{Tr} (df\circ\L^{\sharp}\circ A)\\						
+&+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)),}
 where we used
 \begin{align}
-\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)=\operatorname{Tr}_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot)=\operatorname{Tr} (d_{\mc{W}}f\circ\L^{\sharp}\circ A).
+\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)=\operatorname{Tr}_{d_hf}g(\L^{\sharp}\circ A(\cdot),\cdot)=\operatorname{Tr} (df\circ\L^{\sharp}\circ A).
 \end{align}
   \item \cref{Lambdasharptilde} implies that
-\eq{\label{Ev-u-2-new}&-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
+\eq{\label{Ev-u-2-new}&-\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
 	=~&\fr{1}{f}\operatorname{Tr}_{d_{h}f}\L(A(\cdot),\cdot)-\fr{2}{f}\operatorname{Tr}_{d_{h}f}\L(\cdot,A(\cdot))-\fr{\s}{f}\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
 	\hp{=}~&-\fr{1}{f}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)\\
 	\hp{=}~&+\fr 1f \operatorname{Tr}_{d_{h}f\ast\cW}\overline{\mrm{Rm}}(\dot{x},\n_{(\cdot)}(\cW^{-1}(\cdot)),\nu,\dot{x}).}
@@ -512,7 +559,7 @@ Hence
 			=~&\s\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})
 				+\fr 1f \operatorname{Tr}_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
   \item In view of \cref{Ev-Lambda} we have
-\eq{\label{Ev-u-1-new}&d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\ =&\fr{2}{f}\operatorname{Tr} (d_{\cW}f\circ A\circ{\L^{\sharp}})-\fr{1}{f}\operatorname{Tr}(d_{\cW}f\circ\L^{\sharp}\circ A)-\fr 1f\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
+\eq{\label{Ev-u-1-new}& df(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\ =&\fr{2}{f}\operatorname{Tr} ( df\circ A\circ{\L^{\sharp}})-\fr{1}{f}\operatorname{Tr}( df\circ\L^{\sharp}\circ A)-\fr 1f\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
 \hp{=}&+\fr{1}{f^{2}}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x}).}
 Also, note that $(\L^{t})^{\~\sharp}=f\mc{W}^{-1}\circ(\L^{t})^{\sharp}$; therefore,
 \eq{\fr{1}{f^{2}}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}((\L^{t})^{\~\sharp}V,\cdot,\nu,\cdot)&=-\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\nu,\cdot,\cdot,\fr{(\L^{t})^{\~\sharp}V}{f})\\
@@ -521,12 +568,12 @@ Also, note that $(\L^{t})^{\~\sharp}=f\mc{W}^{-1}\circ(\L^{t})^{\sharp}$; theref
 		&=-\fr 1f \operatorname{Tr}_{d_{h}f}\L(\cW^{-1}(\overline{\mrm{Rm}}(\nu,\cdot)(\cdot)^{\top}),V).}
 \end{itemize}
 Putting these last three items all together gives
-\eq{\label{Ev-u-4-new}&\fr{2}{f}\operatorname{Tr}(d_{\cW}f\circ\cW\circ A^{2})-\fr 1f \operatorname{Tr}\br{d_{\cW}f\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
-	&+d_{\cW}f(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
-	=~& \fr 2f \operatorname{Tr}(d_{\cW}f\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
+\eq{\label{Ev-u-6-new}&\fr{2}{f}\operatorname{Tr}( df\circ\cW\circ A^{2})-\fr 1f \operatorname{Tr}\br{ df\circ\cW\circ\n\br{\fr 1f (\L^{t})^{\~\sharp}V}}\\
+	&+ df(\fr{A\circ\L^{\sharp}}{f}+\del_{t}\br{\fr{{\L^{\sharp}}}{f} })\\
+	=~& \fr 2f \operatorname{Tr}( df\circ (A\circ \L^{\sharp}-\L^{\sharp}\circ A))-\fr 1f \operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\widetilde{\grad}u,\cdot,\nu,\cdot)\\
 	\hp{=}~&+\fr 1f\operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\cdot,\dot{x})+\s\br{1-\fr{\operatorname{Tr}_{d_{h}f}h(\cdot,\cdot)}{f}}\overline{\mrm{Rm}}(\dot{x},\nu,\nu,\dot{x})\\
 	\hp{=}~&-\fr{1}{f}\operatorname{Tr}_{d_{h}f}\overline{\mrm{Rm}}(\dot{x},\cdot,\dot{x},\cW(\cdot))+\fr 1f \operatorname{Tr}_{d_{h}f}\-\n\overline{\mrm{Rm}}(\dot{x},\cdot,\nu,\dot{x},\cdot)+\fr 2f\operatorname{Tr}_{d_{h}f}h(A(\cdot),A(\cdot)).}
-Inserting \eqref{Ev-u-4-new} into \eqref{Ev-u-5-new} gives the claimed result.
+Putting \eqref{Ev-u-6-new} into \eqref{Ev-u-5-new} gives the claimed result.
 }
 \section{Gauss Map and Duality}\label{Duality}
 \label{gauss_duality}

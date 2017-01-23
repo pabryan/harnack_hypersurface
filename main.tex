@@ -4,7 +4,6 @@
 \DeclareMathOperator{\ad}{ad}
 
 \begin{document}
-
 \title[Harnack inequalities for curvature flows]{Harnack inequalities for curvature flows in Riemannian and Lorentzian manifolds}
 \maketitle
 \section{Introduction}
@@ -209,20 +208,18 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 \subsection*{Curvature functions}
 We collect some well-known facts about curvature functions. A thorough treatment can be found in \cite[Ch.~2]{Gerhardt:/2006}. First let us set some terminology.
 
-For an open, symmetric an convex cone $\G\sub \R^n$ let $S_{\G}\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
-
-For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
+Write $T^{0,2}_{\mrm{sym},+}(M)$ for the set of positive-definite, symmetric bilinear forms in $T^{0,2}(M).$ For $g\in T^{0,2}_{\mrm{sym},+}(M)$, $T^{1,1}_g(M)$ denotes the sub-bundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
 
 
-A curvature function on $S_{\G}$ is a map
-\eq{F\cn T^{1,1}(M)\cap S_{\G}\ra \R,}
-such that for all metrics $g$ the restriction $F\Big|_{T^{1,1}_g(M)\cap S_{\G}}$ is smooth and
-such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$.
+A curvature function is a smooth map
+\eq{ F\cn \O\sub T^{1,1}(M)\ra C^{\infty}(M),}
+such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$. Here $\O$ is an open cone in $T^{1,1}(M).$
 
 
 Given a curvature function $F$, we define
-\eq{\~F&:T^{0,2}_{\mrm{sym},+}\x T^{0,2}(M)\to \mathbb{R}\\
+\eq{\~F&:T^{0,2}_{\mrm{sym},+}\x \O'\to C^{\infty}(M)\\
 \~F(g,h)&:=F\br{g^{-1}\ast \fr 12 (h+h^t)}.}
+Here $\O'\sub T^{0,2}(M)$ is such that $\~F$ is well-defined.
 Let us also put
 \eq{\mc{W}:=g^{-1}\ast \fr 12 (h+h^t),~ h\in T^{0,2}(M).}
 Note that $\mc{W}$ is a self-adjoint endomorphism with respect to $g.$ Hence we have \footnote{
@@ -239,14 +236,14 @@ We will use the following terminology regarding curvature functions.
 \Theo{defn}{CF}{~
 \begin{description}
 %   \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
-%   \item[ii] For an open, symmetric an convex cone $\G\sub \R^n$ let $S_{\G}\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
-  \item[i] A curvature function $F$ on $M$ is called {\it{(strictly) monotone}} on $S_{\G}$, if $d_h\~F$ is non-negative (positive) definite for all $g$ and $h$ with the property $g\ast \fr 12 (h+h^t)\in S_{\G}$.
+%   \item[ii] For an open, symmetric an convex cone $\G\sub \R^n$ let $\O\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
+  \item[i] A curvature function $F$ is called {\it{(strictly) monotone}} on $\O$, if $d_h\~F$ is non-negative (positive) definite for all $g\in T^{0,2}_{\mrm{sym},+}(M)$ and $h\in \O'$.
   \item[ii] $F$ is called {\it{homogeneous of degree 1}}, if
-\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in T^{1,1}(M)\cap S_{\G},~\forall \l>0.}
-  \item[iii] $F$ is called {\it{concave (convex)}} in $S_{\G}$, if for all metrics $g$ the restriction of $F$ to $S_{\G}\cap T^{1,1}_{g}(M)$ is concave (convex) at each $p\in M.$
-  \item[iv] A curvature function $F$ is called {\it{inverse concave (inverse convex)}} in $S_{\G}$, if for all metrics $g$ the restriction of
+\eq{F(\l \cW)=\l F(\cW)\quad \forall \cW\in \O,~\forall \l>0.}
+  \item[iii] $F$ is called {\it{concave (convex)}} in $\O$, if for all $g\in T^{0,2}_{\mrm{sym},+}(M)$ the restriction of $F$ to $\O\cap T^{1,1}_{g}(M)$ is concave (convex).
+  \item[iv] A curvature function $F$ is called {\it{inverse concave (inverse convex)}} in $\O$, if for all metrics $g$ the restriction of
 \[\~F(\mc{W}):=\fr{1}{F(\mc{W}^{-1})}\]
-to $S_{\G}\cap T^{1,1}_g(M)$
+to $\O\cap T^{1,1}_g(M)$
 is concave (convex).
 \end{description}
 }
@@ -254,30 +251,27 @@ Due to \eqref{dhF}, the definition of monotonicity is justified, since $d_h\~F$ 
 From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities, since it will always be clear from the notation $d_h F$, if we actually mean $d_h\~F.$
 
 
-
-
 The following lemma about inverse concave curvature functions is basically known from \cite[p.~112]{Urbas:/1991}, but since there it appears in a different form, let us deduce it again in our notation.
 
-
 \Theo{lemma}{Lemma-CF}{
-Let $\G\sub\R^n$ be a symmetric, convex and open cone. Let $F$ be monotone and $1$-homogeneous on $S_{\G}$. Then
-for all $p\neq 0$, metrics $g$ on $M$ and all invertible $\cW\in S_{\G}\cap T_g^{1,1}(M)$, the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
+Let $F$ be a monotone and $1$-homogeneous curvature function on $\O$. Assume that
+ $p\neq 0$ and $g\in T^{0,2}_{\mrm{sym},+}(M)$. Then for all invertible $\cW\in \O\cap T_g^{1,1}(M)$, the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
 satisfies
 \eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}(M).}
 
-If $F$ is additionally inverse concave on $S_{\G}$, then
+If $F$ is additionally inverse concave on $\O$, then
 \eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{p+1}{p}f^{-1}\br{df(\eta)}^2\quad \forall\eta\in T^{1,1}_g(M).}
 
 
-If $F$ is convex then 
+If $F$ is convex then
 \eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}_g(M).}
 
 }
 \pf{
 To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel of the linear map
-\eq{df\cn T^{1,1}(M)\ra \R}
+\eq{df\cn T^{1,1}(M)\ra C^{\infty}(M)}
 has dimension $n^2-1$, due to
-\eq{df(\cW)=\cW.}
+\eq{df(\cW)=f.}
 Now let $\eta\in T^{1,1}(M)$, then there exists a decomposition
 \[\eta=a\cW+\xi,\]
 where w.l.o.g., we may assume  $a=1.$ Hence
@@ -300,41 +294,44 @@ Also recalling that $f=f(\cW^{-1}),$ we obtain the result in case $p=1.$ For $p\
 \eq{d^2f(\eta,\eta)&=|p|(p-1)F^{p-2}(dF(\eta))^2+|p|F^{p-1}d^2F(\eta,\eta)\\
 				&\geq\fr{p+1}{p}f^{-1}(df(\eta))^2-2|p|F^{p-1}dF(\eta\circ\cW^{-1}\circ\eta)\\
                 &=\fr{p+1}{p}f^{-1}(df(\eta))^2-2df(\eta\circ\cW^{-1}\circ\eta).}
-If $F$ is convex, the inequality simply follows from the previous calculation. 
+If $F$ is convex, the inequality simply follows from the previous calculation.
 }
 
 \subsection*{Examples}
-The mean curvature
-\[H\cn T^{1,1}(M)\ra \R\] is given by
-\[H=\tr(\cW).\]
-There holds
-\[dH_{\cW}=\id\]
-and hence $H$ is trivially strictly monotone. The inverse concavity of $H$ follows from \cref{Lemma-CF}.
-The Gauss curvature
-\[K=\det(\cW)\]
+Let us write $H_k$ for $k$-th elementary symmetric polynomial. These are define by
+\eq{H_k(\mathcal{W})=\fr{1}{k!}\fr{d^k}{dt^k}\det(\id+t\mathcal{W})
+\Big|_{t=0},}
+for $\mathcal{W}\in T^{1,1}(M).$
+Define
+\[\Gamma_k(M):=\{\mathcal{W}\in T^{1,1}(M); H_1(\mathcal{W}),\cdots, H_{k}(\mathcal{W})>0\}.\]
+\begin{enumerate}
+  \item 
+\begin{align*}H_1&\cn \Gamma_1(M)\ra C^{\infty}(M)\\
+H(\mathcal{W})&=\tr(\mathcal{W}).
+\end{align*}
 satisfies
-\[dK_{\cW}=\cW^{-1}K\]
-and hence it is strictly monotone on $S_{\G_{+}}.$ The other elementary symmetric polynomials $H_k$ can be represented as
-\eq{H_k(W)=\fr{1}{k!}\fr{d^k}{dt^k}\det(\id+tW)_{|t=0},}
-compare \cite[Lemma~2.1.6, Thm.~2.1.7]{Gerhardt:/2006}. They are strictly monotone on the set $S_{\G_k},$ where $\G_k$ is the connected component of the set
-\[\{(\k_i)\in\R^n\cn H_k>0\}\]
-containing $\G_{+},$ compare \cite[Lemma~2.4]{HuiskenSinestrari:09/1999}.
-The quotients
-\[q_k=\fr{H_k}{H_{k-1}}\] are concave on $\G_{k}$, compare \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
-
-A large set of inverse concave functions can be found in \cite{Andrews:/2007}.
-
-
-
-
-
+$dH=\id;$ therefore, $H$ is strictly monotone. The inverse concavity of $H$ follows from \cref{Lemma-CF}.
+  \item 
+\begin{align*}
+H_n&:\Gamma_n(M)\to C^{\infty}(M)\\
+K(\mathcal{W})&=\det(\mathcal{W})
+\end{align*}
+satisfies
+$dK\Big|_{\mathcal{W}}=\det(\mathcal{W})\mathcal{W}^{-1};$ therefore, it is strictly monotone.
+\item The quotients 
+\begin{align*}
+Q_k&:\Gamma_k(M)\to C^{\infty}(M)\\
+Q_k&=\fr{H_k}{H_{k-1}}
+\end{align*} 
+are monotone and concave on $\G_{k}$; see \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
+\end{enumerate}
 \subsection*{The flow speed}
-The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. 
+The normal variation speeds we consider do not only depend on the curvature, but are of a more general form.
 Let
 \[\G_{+}=\{(\k_i)\in \R^n\cn \k_i>0\quad\forall 1\leq i\leq n  \}.\]
 We collect our assumptions as follows.
 \Theo{ass}{SpeedAss}{
-We assume that $f$ is a nowhere vanishing velocity which is of the form
+We assume that $f$ is a non-vanishing velocity which is of the form
 \eq{\label{Speed}f\cn \R_{+}\x UN &\x (S_{\G_{+}}\cap T^{1,1}(M))\ra \R\\ f(s,\nu,\cW)&=\p(s)\psi(\nu)\mrm{sgn}(p)F^{p}(\cW),}
 where
 \begin{itemize}

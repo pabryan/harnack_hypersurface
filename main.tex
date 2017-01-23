@@ -4,6 +4,7 @@
 \DeclareMathOperator{\ad}{ad}
 
 \begin{document}
+
 \title[Harnack inequalities for curvature flows]{Harnack inequalities for curvature flows in Riemannian and Lorentzian manifolds}
 \maketitle
 \section{Introduction}
@@ -212,12 +213,12 @@ Write $T^{0,2}_{\mrm{sym},+}(M)$ for the set of positive-definite, symmetric bil
 
 
 A curvature function is a smooth map
-\eq{ F\cn \O\sub T^{1,1}(M)\ra C^{\infty}(M),}
+\eq{ F\cn \O\sub T^{1,1}(M)\ra \R,}
 such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally  by coordinates $(x^i,h^k_l)$. Here $\O$ is an open cone in $T^{1,1}(M).$
 
 
 Given a curvature function $F$, we define
-\eq{\~F&:T^{0,2}_{\mrm{sym},+}\x \O'\to C^{\infty}(M)\\
+\eq{\~F&:T^{0,2}_{\mrm{sym},+}\x \O'\to \mathbb{R}\\
 \~F(g,h)&:=F\br{g^{-1}\ast \fr 12 (h+h^t)}.}
 Here $\O'\sub T^{0,2}(M)$ is such that $\~F$ is well-defined.
 Let us also put
@@ -269,7 +270,7 @@ If $F$ is convex then
 }
 \pf{
 To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel of the linear map
-\eq{df\cn T^{1,1}(M)\ra C^{\infty}(M)}
+\eq{df\cn T^{1,1}(M)\ra \R}
 has dimension $n^2-1$, due to
 \eq{df(\cW)=f.}
 Now let $\eta\in T^{1,1}(M)$, then there exists a decomposition
@@ -298,36 +299,32 @@ If $F$ is convex, the inequality simply follows from the previous calculation.
 }
 
 \subsection*{Examples}
-Let us write $H_k$ for $k$-th elementary symmetric polynomial. These are define by
-\eq{H_k(\mathcal{W})=\fr{1}{k!}\fr{d^k}{dt^k}\det(\id+t\mathcal{W})
-\Big|_{t=0},}
-for $\mathcal{W}\in T^{1,1}(M).$
-Define
-\[\Gamma_k(M):=\{\mathcal{W}\in T^{1,1}(M); H_1(\mathcal{W}),\cdots, H_{k}(\mathcal{W})>0\}.\]
-\begin{enumerate}
-  \item 
-\begin{align*}H_1&\cn \Gamma_1(M)\ra C^{\infty}(M)\\
-H(\mathcal{W})&=\tr(\mathcal{W}).
-\end{align*}
+The mean curvature
+\[H\cn T^{1,1}(M)\ra \R\] is given by
+\[H=\tr(\cW).\]
+There holds
+\[dH=\id\]
+and hence $H$ is trivially strictly monotone. The inverse concavity of $H$ follows from \cref{Lemma-CF}.
+The Gauss curvature
+\[K=\det(\cW)\]
 satisfies
-$dH=\id;$ therefore, $H$ is strictly monotone. The inverse concavity of $H$ follows from \cref{Lemma-CF}.
-  \item 
-\begin{align*}
-H_n&:\Gamma_n(M)\to C^{\infty}(M)\\
-K(\mathcal{W})&=\det(\mathcal{W})
-\end{align*}
-satisfies
-$dK\Big|_{\mathcal{W}}=\det(\mathcal{W})\mathcal{W}^{-1};$ therefore, it is strictly monotone.
-\item The quotients 
-\begin{align*}
-Q_k&:\Gamma_k(M)\to C^{\infty}(M)\\
-Q_k&=\fr{H_k}{H_{k-1}}
-\end{align*} 
-are monotone and concave on $\G_{k}$; see \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
-\end{enumerate}
+\[dK=\cW^{-1}K\]
+and hence it is strictly monotone on $S_{\G_{+}}.$ The other elementary symmetric polynomials $H_k$ can be represented as
+\eq{H_k(W)=\fr{1}{k!}\fr{d^k}{dt^k}\det(\id+tW)_{|t=0},}
+compare \cite[Lemma~2.1.6, Thm.~2.1.7]{Gerhardt:/2006}. They are strictly monotone on the set $S_{\G_k},$ where $\G_k$ is the connected component of the set
+\[\{(\k_i)\in\R^n\cn H_k>0\}\]
+containing $\G_{+},$ compare \cite[Lemma~2.4]{HuiskenSinestrari:09/1999}.
+The quotients
+\[q_k=\fr{H_k}{H_{k-1}}\] are concave on $\G_{k}$, compare \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
+
+A large set of inverse concave functions can be found in \cite{Andrews:/2007}.
+
+
+
+
+
 \subsection*{The flow speed}
-The normal variation speeds we consider do not only depend on the curvature, but are of a more general form.
-Let
+The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. Let
 \[\G_{+}=\{(\k_i)\in \R^n\cn \k_i>0\quad\forall 1\leq i\leq n  \}.\]
 We collect our assumptions as follows.
 \Theo{ass}{SpeedAss}{

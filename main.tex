@@ -204,8 +204,89 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 % \eq{\n\cn T(\R\x M)\x T(\R\x M)\ra T(\R\x M).}
 % However note that this connection is not symmetric. Still, since $\n$ is a linear connection, covariant differentiation of tensors and function is now well defined such that it obeys the product rule and commutes with traces.
 
-\subsection{Motivation for Reparametrisation}
+\subsection{The Harnack, Solitons and Reparametrisation}
 \label{subsec:reparam}
+
+The normal speed, $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality.
+
+\begin{thm}
+Let $x$ be a solution of the flow, \eqref{Flow} such that $\tfrac{\partial_t f}{f} \geq -q(t)$ along the flow for some measurable function $q(t)$. Then with respect to the standard parametrisation $\bar{x}$ \eqref{FlowStandard}, for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
+\[
+\bar{f} (x_1, t_1) \leq \frac{e^{Q(t_2)}}{e^{Q(t_1)}} e^{\Delta/4} \bar{f} (x_2, t_2)
+\]
+where $Q(t_2) - Q(t_1) = \int_{t_1}^{t_2} q(t) dt$,
+\[
+\Delta = \inf_{\gamma} \int_{t_1}^{t_2} h(\gamma', \gamma') dt
+\]
+and the infimum is taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
+
+In particular, when $q(t) = \text{const} \tfrac{1}{t}$ we have,
+\[
+\bar{f} (x_1, t_1) \leq \frac{t_2}{t_1} e^{\Delta/4} \bar{f} (x_2, t_2)
+\]
+With the \emph{bonus term} $K_0$, we have $q(t) = -\tfrac{K_0}{\text{const}} e^{K_0 t}/(e^{K_0 t} - 1)$ and,
+\[
+\bar{f} (x_1, t_1) \leq \frac{e^{K_0 t_2} - 1}{e^{K_0 t_1} - 1} e^{\Delta/4} \bar{f} (x_2, t_2)
+\]
+\end{thm}
+
+\begin{proof}
+Recalling equation \eqref{eq:standard_harnack_quantity} relating $f$ and $\bar{f}$, the assumptions of the theorem imply that,
+\begin{equation}
+\label{eq:standard_harnack}
+\frac{\partial_t\bar{f} - \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f})}{\bar{f}} =  \frac{\partial_t\bar{f}-\bar{b}(d \bar{f},d \bar{f})}{\bar{f}} \geq - q(t)
+\end{equation}
+with the first equality following from the definition of $b$ as the dual to $h$ (with respect to $h$ itself).
+
+Now, let $X$ be an arbitrary, non-zero tangent vector to $M$ and consider,
+\[
+\bar{h}(\grad_{\bar{h}} \bar{f}, X) + \frac{1}{C} \bar{h}(X, X)
+\]
+for some constant $C > 0$. For points where $\grad_{\bar{h}} \bar{f} = 0$ we have,
+\[
+\bar{h}(\grad_{\bar{h}} \bar{f}, X) + \frac{1}{C} h(X, X) \geq - \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f}).
+\]
+For points where $\grad_{\bar{h}} \bar{f} \ne 0$, let
+\[
+\lambda = \sqrt{\frac{\bar{h}(X, X)}{\bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f})}}
+\]
+so that by Cauchy-Schwartz,
+\[
+\begin{split}
+\bar{h}(\grad_{\bar{h}} \bar{f}, X) + \frac{1}{C} h(X, X) &\geq -\sqrt{\bar{h} (\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f})} \sqrt{\bar{h}(X, X)} + \frac{\lambda^2}{C}  \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f}) \\
+&= \left(\frac{\lambda^2}{C} - \lambda\right) \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f}) \\
+&\geq \left(\frac{\lambda_{\min}^2}{C} - \lambda_{\min}\right) \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f}) \\
+&= -\frac{C}{4} \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f}).
+\end{split}
+\]
+where $\lambda_{\min} = \tfrac{C}{2}$ is the minimum of the function $\lambda \mapsto \tfrac{\lambda^2}{C} - \lambda$. Equality holds if and only if $X = -\tfrac{C}{2} \grad_{\bar{h}} f$. Then the inequality,
+\[
+\forall X, \quad \bar{h}(\grad_{\bar{h}} \bar{f}, X) + \frac{1}{C} h(X, X) \geq - \bar{h}(\grad_{\bar{h}} \bar{f}, \grad_{\bar{h}} \bar{f})
+\]
+is valid precisely for $C \leq 4$. The optimum value, $C=4$ is the only value for which equality holds for some $X$, in which case $\lambda = 2$ and equality is attained for $X = - 2 \grad_{\bar{h}} \bar{f}$.
+
+So from now on we take $C = 4$, and equation \eqref{eq:standard_harnack} implies that for all $X$,
+\begin{equation}
+\label{eq:standard_harnack_all_vectors}
+\frac{\partial_t \bar{f} + \bar{h}(\grad_{\bar{h}} \bar{f}, X) + \frac{1}{4} h(X, X)}{f} \geq - q(t),
+\end{equation}
+and the opposite inequality if $\bar{f} < 0$.
+
+Now we may integrate along space-time paths. Let $x_1,x_2 \in M$ and $\gamma : [t_1, t_2] \to M$ any curve connecting $x_1$ at time $t_1$ to $x_2$ at time $t_2$, that is $\gamma(t_i) = x_i, i = 1,2$. Using equation \eqref{eq:standard_harnack_all_vectors} and keeping mind that $f$ is either strictly positive or strictly negative,
+\[
+\begin{split}
+\ln |\bar{f}| (x_2, t_2) - \ln |\bar{f}| (x_1, t_1) &= \int_{t_1}^{t_2} \partial_t \left[\ln |\bar{f}| (\gamma(t), t))\right] dt \\
+&= \int_{t_1}^{t_2} \frac{\partial_t \bar{f}}{\bar{f}} + \frac{1}{\bar{f}} d\bar{f} \cdot \gamma' dt \\
+&= \int_{t_1}^{t_2} \frac{\partial_t \bar{f} + h (\grad_h \bar{f}, \gamma')}{\bar{f}} dt \\
+&\geq Q(t_1) - Q(t_2) - \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\bar{f}} h(\gamma', \gamma') dt.
+\end{split}
+\]
+Taking exponentials,
+\[
+\frac{|\bar{f}| (x_2, t_2)}{|\bar{f}| (x_1, t_1)} \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\bar{f}} h(\gamma', \gamma')\right)
+\]
+for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The oppositve inequality holds when $\bar{f} < 0$. Taking infimums over all such $\gamma$ and then rearranging (dropping the absolute values, and reversing the sign for $\bar{f} < 0$) yields the result.
+\end{proof}
 
 Let us recall Moser's parabolic Harnack inequality \cite{Moser:02/1964} and the Li-Yau interpretation through a differential version of the Harnack inequality \cite{LiYau:/1986}. For the sake of argument, let $(M, g)$ be a smooth, compact Riemannian manifold with no boundary and $\Rc \geq 0$, $T > 0$ and $u : M \times [0, T] \to \R$ a solution of the heat equation,
 \[

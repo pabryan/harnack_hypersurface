@@ -14,16 +14,16 @@ Let $(N=N^{n+1},\bar{g})$ be a Riemannian or Lorentzian manifold and let $M=M^{n
 Let
 \eq{x\cn M\x[0,T^{\ast})\ra N}
 be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolve by the curvature flow
-\eq{\label{Flow}\dot{x}=-\s f\nu-x_{\ast}(\operatorname{grad}_hf),}
+\eq{\label{Flow}\dot{x}=-\s f\nu-x_{\ast}(\operatorname{grad}_hf)},
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\bar{g}(\nu,\nu)$ from the spacelike condition), and $\operatorname{grad}_hf$ is given by
-\[\operatorname{grad}_hf=b^{ij}df(\partial_j)\partial_i.\] 
+\[\operatorname{grad}_hf=b^{ij}df(\partial_j)\partial_i.\]
 Here $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij})$. The speed $f$ is a smooth, monotone function of the principal curvatures.
 
-Let us choose \(r:M\times [0,T^{\ast})\to M\) such that $\partial_tr=\operatorname{grad}_hf$ on $M$. Then defining $\check{x} (\xi, t) := x (r(\xi,t), t)$, $\check{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\check{f}(\xi,t):=f(r(\xi,t), t)$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
+Let us choose \(r:M\times [0,T^{\ast})\to M\) such that $\dot{r}=\operatorname{grad}_hf$ on $M$. Then defining $\tilde{x} (\xi, t) := x (r(\xi,t), t)$, $\tilde{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\tilde{f}(\xi,t):=f(r(\xi,t), t)$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
 \eq{\label{FlowStandard}
-\check{x}&:M\times [0,T^{\ast})\to N\\
-\dot{\check{x}} &= -\s \check{f} \check{\nu}.}
-We call $\check{x}$ the standard parameterization as in \cite{Andrews:09/1994}.
+\tilde{x}&:M\times [0,T^{\ast})\to N\\
+\dot{\tilde{x}} &= -\s \tilde{f} \tilde{\nu}.}
+We call $\tilde{x}$ the standard parameterization as in \cite{Andrews:09/1994}.
 
 Harnack inequalities are point-wise derivative estimates which usually enable one to compare a solution to a curvature flow at different points in space-time.
 Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}.
@@ -38,8 +38,8 @@ u = \frac{\dot{f}}{f}
 \end{equation}
 for the Harnack quantity. For shrinking flows (i.e., positive $f$) we have $u = \partial_t \ln f$ just as for Li-Yau \cite{LiYau:/1986} and \cite{Andrews:09/1994}. For expanding flows (i.e., negative $f$), we have the analogous formulation, $u =\partial_t \ln (-f)$, taking into account the sign, and it seems simpler to use the form given in \eqref{eq:Q} for both cases. Then writing $u$ in the standard parameterization, we find that
 \eq{
-  \frac{\dot{f}}{f} &= \fr{\partial_t \check{f} - df (\partial_t r)}{f} \\
- &= \frac{\partial_t\check{f}-\check{b}(d\check{f},d\check{f})}{\check{f}}
+  \frac{\dot{f}}{f} &= \fr{\dot{\tilde{f}} - df (\dot{r})}{f} \\
+ &= \frac{\dot{\tilde{f}}-\tilde{b}(d\tilde{f},d\tilde{f})}{\tilde{f}}
 }
 which is precisely the standard Harnack quantity in the Euclidean space.
 
@@ -91,7 +91,7 @@ Suppose either
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
 \[
-\partial_t F^p-b(\nabla F^p,\nabla F^p)+\frac{p}{(p+1)t}F^p\geq 0,\quad \forall t>0.
+\partial_t f-b(\nabla f,\nabla f)+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.
 \]
 }
 Furthermore, employing  duality, we obtain ``pseudo"-Harnack inequalities for a class of curvature flows in the spherical and the hyperbolic space.
@@ -650,11 +650,11 @@ Since $x=\~\nu$ and $\~x_{;i}$ span $T_{\~x}(\S^{n+1})$ and $T_{\~x}(\S^{n,1})$ 
             &=\~\s f\~\nu+\~b^k_m\~g^{ml}f_{;k}\~x_{;l}\\
             &=\~\s f\~\nu+\~b^{kl}f_{;k}\~x_{;l},}
 where $f$ is still evaluated at $\mc{W}$. However, there holds
-\eq{\label{DualFlow-3}f=f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}})}
+\eq{\label{DualFlow-3}f(\mc{W})=\fr{1}{f^{-1}(\~{\mc{W}}^{-1})}=\~f^{-1}(\~{\mc{W}})\equiv -\Phi(\~{\mc{W}})}
 and hence
 \eq{\label{DualHyperbolic}\dot{\~x}=-\~\s\Phi\~\nu-\~b^{kl}\Phi_{;k}\~x_{;l},}
-where $\~\s=\ip{\~\nu}{\~\nu}$ and where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. We see that the dual of a flow of the form
-\eqref{NormalFlow} in $\S^{n+1}$ $\br{\H^{n+1},\S^{n,1}}$ moves precisely as a flow of the form \eqref{Flow} in $\S^{n+1}$ $\br{\S^{n,1},\H^{n+1}}$.
+where $\~\s=\ip{\~\nu}{\~\nu}$ and where $\Phi$ is now evaluated at the ``correct" Weingarten map $\~{\mc{W}}$. Hence a flow of the form
+\eqref{NormalFlow} in the ambient spaces $\S^{n+1}, \H^{n+1},\S^{n,1}$ has a dual flow of the form \eqref{Flow} in the ambient spaces $\S^{n+1}, \S^{n,1},\H^{n+1}$ respectively.
 \section{Locally symmetric spaces}
 In this section we prove the Harnack inequalities. We restrict to locally symmetric spaces, since in more general settings we are not aware how to deal with the terms including derivatives of the Riemannian curvature tensor. In order to prove our main theorems, we need the following corollary of \eqref{Ev-u-new} with bonus term $\beta$, which will be the basis for the proofs of all our main theorems.
 \Theo{lemma}{Homogeneous}{

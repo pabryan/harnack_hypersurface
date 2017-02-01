@@ -207,36 +207,45 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 \subsection{The Harnack, Solitons and Reparametrisation}
 \label{subsec:reparam}
 
-The normal speed, $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality.
+The normal speed, $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality as described by the next theorem.
 
 \begin{thm}
-Let $x$ be a solution of the flow, \eqref{Flow} such that $\tfrac{\partial_t f}{f} \geq -q(t)$ along the flow for some measurable function $q(t)$. Then with respect to the standard parametrisation $\check{x}$ \eqref{FlowStandard}, for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
-\[
+Let $\check{x}$ be a solution of the standard flow, \eqref{FlowStandard}, and let $q(t)$ be a measurable function. Then
+\begin{equation}
+\label{eq:liyauhamilton_harnack}
+\frac{\partial_t\check{f} - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})}{\check{f}} \geq -q(t)
+\end{equation}
+if and only if for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
+\begin{equation}
+\label{eq:moser_harnack}
 \check{f} (x_1, t_1) \leq \frac{e^{Q(t_2)}}{e^{Q(t_1)}} e^{\Delta/4} \check{f} (x_2, t_2)
-\]
+\end{equation}
 where $Q(t_2) - Q(t_1) = \int_{t_1}^{t_2} q(t) dt$,
 \[
 \Delta = \inf_{\gamma} \int_{t_1}^{t_2} \frac{1}{\check{f}} \check{h}(\gamma', \gamma') dt
 \]
 and the infimum is taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
 
-In particular, when $q(t) = \text{const} \tfrac{1}{t}$ we have,
+In particular,
+\[
+\frac{\partial_t\check{f} - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})}{\check{f}} \geq - \frac{p+1}{p} \frac{1}{t}
+\]
+if and only if
 \[
 \check{f} (x_1, t_1) \leq \frac{t_2}{t_1} e^{\Delta/4} \check{f} (x_2, t_2)
 \]
-With the \emph{bonus term} $K_0$, we have $q(t) = -\tfrac{K_0}{\text{const}} e^{K_0 t}/(e^{K_0 t} - 1)$ and,
+With a \emph{bonus term} $K_0$,
 \[
-\check{f} (x_1, t_1) \leq \frac{e^{K_0 t_2} - 1}{e^{K_0 t_1} - 1} e^{\Delta/4} \check{f} (x_2, t_2)
+\frac{\partial_t\check{f} - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})}{\check{f}} \geq - \frac{p+1}{p} \frac{K_0 e^{K_0 t}}{e^{K_0 t} - 1}
+\]
+if and only if
+\[
+\check{f} (x_1, t_1) \leq \frac{e^{K_0 t_2} - 1}{e^{K_0 t_1} - 1} e^{\Delta/4} \check{f} (x_2, t_2).
 \]
 \end{thm}
 
 \begin{proof}
-Recalling equation \eqref{eq:change_param} relating $f$ and $\check{f}$, the assumptions of the theorem imply that,
-\begin{equation}
-\label{eq:standard_harnack}
-\frac{\partial_t\check{f} - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})}{\check{f}} =  \frac{\partial_t\check{f}-\check{b}(d \check{f},d \check{f})}{\check{f}} \geq - q(t)
-\end{equation}
-with the first equality following from the definition of $b$ as the dual to $h$ (with respect to $h$ itself).
+The last two statements follow immediately from the first taking those particular choices of $q(t)$.
 
 Now, let $X$ be an arbitrary, non-zero tangent vector to $M$ and consider,
 \[
@@ -244,8 +253,10 @@ Now, let $X$ be an arbitrary, non-zero tangent vector to $M$ and consider,
 \]
 for some constant $C > 0$. For points where $\grad_{\check{h}} \check{f} = 0$ we have,
 \[
-\check{h}(\grad_{\check{h}} \check{f}, X) + \frac{1}{C} \check{h}(X, X) \geq - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f}).
+\check{h}(\grad_{\check{h}} \check{f}, X) + \frac{1}{C} \check{h}(X, X) \geq - \check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})
 \]
+with equality whenever $X$ is a multiple of $\grad_{\check{h}} \check{f}$.
+
 For points where $\grad_{\check{h}} \check{f} \ne 0$, let
 \[
 \lambda = \sqrt{\frac{\check{h}(X, X)}{\check{h}(\grad_{\check{h}} \check{f}, \grad_{\check{h}} \check{f})}}
@@ -265,27 +276,46 @@ where $\lambda_{\min} = \tfrac{C}{2}$ is the minimum of the function $\lambda \m
 \]
 is valid precisely for $C \leq 4$. The optimum value, $C=4$ is the only value for which equality holds for some $X$, in which case $\lambda = 2$ and equality is attained for $X = - 2 \grad_{\check{h}} \check{f}$.
 
-So from now on we take $C = 4$, and equation \eqref{eq:standard_harnack} implies that for all $X$,
+So from now on we take $C = 4$, in which case, the Li-Yau-Hamilton differential inequality \eqref{eq:liyauhamilton_harnack} holds if and only if, for all $X$,
 \begin{equation}
 \label{eq:standard_harnack_all_vectors}
 \frac{\partial_t \check{f} + \check{h}(\grad_{\check{h}} \check{f}, X) + \frac{1}{4} \check{h}(X, X)}{f} \geq - q(t),
 \end{equation}
-and the opposite inequality if $\check{f} < 0$.
+or with the opposite inequality in the case $\check{f} < 0$.
 
-Now we may integrate along space-time paths. Let $x_1,x_2 \in M$ and $\gamma : [t_1, t_2] \to M$ any curve connecting $x_1$ at time $t_1$ to $x_2$ at time $t_2$, that is $\gamma(t_i) = x_i, i = 1,2$. Using equation \eqref{eq:standard_harnack_all_vectors} and keeping mind that $f$ is either strictly positive or strictly negative,
+Next we show that the Moser parabolic Harnack inequality, \eqref{eq:moser_harnack} is equivalent to equation \eqref{eq:standard_harnack_all_vectors} by integrating along space-time paths. Let $x_1,x_2 \in M$ and $\gamma : [t_1, t_2] \to M$ be any curve connecting $x_1$ at time $t_1$ to $x_2$ at time $t_2$; that is $\gamma(t_i) = x_i, i = 1,2$. Keeping mind that $f$ is either strictly positive or strictly negative, we have
 \[
 \begin{split}
 \ln |\check{f}| (x_2, t_2) - \ln |\check{f}| (x_1, t_1) &= \int_{t_1}^{t_2} \partial_t \left[\ln |\check{f}| (\gamma(t), t))\right] dt \\
 &= \int_{t_1}^{t_2} \frac{\partial_t \check{f}}{\check{f}} + \frac{1}{\check{f}} d\check{f} \cdot \gamma' dt \\
-&= \int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt \\
-&\geq Q(t_1) - Q(t_2) - \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\check{f}} \check{h}(\gamma', \gamma') dt.
+&= \int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt.
 \end{split}
 \]
 Taking exponentials,
+\begin{equation}
+\label{eq:exponential_harnack}
+\frac{\check{f} (x_2, t_2)}{\check{f} (x_1, t_1)} = \exp \left(\int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt\right)
+\end{equation}
+where we may drop the absolute value on $|\check{f}|$ since both numerator and denominator have the same sign.
+
+Assuming equation \eqref{eq:standard_harnack_all_vectors} holds, we have
 \[
-\frac{|\check{f}| (x_2, t_2)}{|\check{f}| (x_1, t_1)} \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\check{f}} \check{h}(\gamma', \gamma')\right)
+\exp\left(\int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt\right) \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\check{f}} \check{h}(\gamma', \gamma') dt\right).
 \]
-for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The oppositve inequality holds when $\check{f} < 0$. Taking infimums over all such $\gamma$ and then rearranging (dropping the absolute values, and reversing the sign for $\check{f} < 0$) yields the result.
+for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The opposite inequality holds when $\check{f} < 0$. Taking infimums over all such $\gamma$, the right hand integral becomes $\Delta$. Then using equation \eqref{eq:exponential_harnack}, we obtain the Moser parabolic Harnack \eqref{eq:moser_harnack}. Note that the inequality reverses for $\check{f} < 0$, but multiplying equation \eqref{eq:exponential_harnack} by the negative number $\check{f}(x_1, t_1)$ reverses the inequality again.
+
+Conversely, if the Moser parabolic Harnack \eqref{eq:moser_harnack} holds, then equation \eqref{eq:exponential_harnack} implies that,
+\[
+\exp \left(\int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt\right) \geq \frac{\e^{Q(t_1)}}{e^{Q(t_2)}} e^{-\Delta/4}
+\]
+with the opposite sign when $\check{f} < 0$. Taking logarithms,
+\[
+\begin{split}
+\int_{t_1}^{t_2} \frac{\partial_t \check{f} + \check{h} (\grad_{\check{h}} \check{f}, \gamma')}{\check{f}} dt &\geq -\int_{t_1}^{t_2} q(t) - \Delta/4 \\
+&\geq - \int_{t_1}^{t_2} q(t) dt -  \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\check{f}} \check{h}(\gamma', \gamma') dt
+\end{split}
+\]
+for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwise which is precisely equation \eqref{eq:standard_harnack_all_vectors}.
 \end{proof}
 
 \subsection{Speed Functions}

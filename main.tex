@@ -2,6 +2,9 @@
 %\usepackage[inline]{showlabels}
 \usepackage{mathrsfs}
 \DeclareMathOperator{\ad}{ad}
+\newenvironment{hproof}{%
+  \renewcommand{\proofname}{Sketch of proof}\proof}{\endproof}
+
 
 \begin{document}
 
@@ -75,8 +78,8 @@ s(Ix)&=-\langle Ix,\nu(Ix)\rangle\\
 &=-\langle x,\nu(x)\rangle=s(x).
 \end{align*}
 }
-\Theo{rem}{}{Let $\mathcal{F}$ denote the interior of $\{\langle x,x\rangle\leq 0, x_0\geq 0\}$. If $M$ is a standard, spacelike, strictly convex hypersurface that is contained in $\mathcal{F}$, then $M$ has a positive support function.}
-\Theo{rem}{}{Consider $x(M,t)=\sqrt{2F(1,\cdots,1)t}\mathbb{H}^{n}$ for $t\in(0,\infty)$, a solution to the expanding flow with a positive, 1-homogeneous speed $f=F$ (assuming $\varphi=\psi\equiv1$) and $N=\mathbb{R}^{n,1}$. Then equality holds in the Harnack inequality. Note that if $t\to 0$, then $x(M,t)\to\{\langle x,x\rangle=0: x_0\geq 0\}$ (e.q., boundary of $\mathcal{F}$) with support function  equal to zero.}
+\Theo{rem}{positive support function}{Let $\mathcal{F}$ denote the interior of $\{\langle x,x\rangle\leq 0, x_0\geq 0\}$. If $M$ is a standard, spacelike, strictly convex hypersurface that is contained in $\mathcal{F}$, then $M$ has a positive support function.}
+\Theo{rem}{expanding hyperbolic space}{Consider $x(M,t)=\sqrt{2F(1,\cdots,1)t}\mathbb{H}^{n}$ for $t\in(0,\infty)$, a solution to the expanding flow with a positive, 1-homogeneous speed $f=F$ (assuming $\varphi=\psi\equiv1$) and $N=\mathbb{R}^{n,1}$. Then equality holds in the Harnack inequality. Note that if $t\to 0$, then $x(M,t)\to\{\langle x,x\rangle=0: x_0\geq 0\}$ (e.q., boundary of $\mathcal{F}$) with support function  equal to zero.}
 In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
 
 Next is a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
@@ -85,7 +88,7 @@ Let $N$ be a locally symmetric Riemannian Einstein manifold of non-negative sect
 \[\del_{t}H-b(\nabla H,\nabla H)-\fr{\-R}{n+1}H+\fr{1}{2t}H\geq 0,\]
 where $\-R$ is the constant scalar curvature of $N$.
 }
-The next theorem includes our Harnack inequalities from \cite{{BryanIvakiScheuer:12/2015}} and presents new Harnack inequalities in de Sitter space.
+The next theorem includes our Harnack inequalities from \cite{BIS1} and presents new Harnack inequalities in de Sitter space.
 \Theo{thm}{Harnack Inequality}{
 Let $F$ be a monotone, convex, $1$-homogeneous curvature function and $f =F^p$ with $0< p\leq 1$.
 Suppose either
@@ -315,134 +318,213 @@ for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwi
 
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
+We introduce the form of the speeds $f$ we consider in \eqref{Flow}. First we revisit some of the theory of curvature functions.
+
+
 \subsection*{Curvature functions}
-Let $\O$ be an open cone in $T^{1,1}(M).$ A curvature function is a smooth map
-\eq{ F\cn \O\sub T^{1,1}(M)\ra C^{\infty}(M),}
-such that $\fr{\del F}{\del x^i}=0,$ when representing elements in $T^{1,1}(M)$ locally by coordinates $(x^i,h^k_l)$.
-We recall that
-\eq{dF&\cn \O\times T^{1,1}(M) \ra C^{\infty}(M),\\
-d_\mathcal{W}F(T)&=\lim_{t\to 0} \frac{F(\mathcal{W}+tT)-F(\mathcal{W})}{t},}
-and
-\eq{d^2F&\cn \O\times T^{1,1}(M)\times T^{1,1}(M) \ra C^{\infty}(M),\\
-d^2_\mathcal{W}F(T,S)&=\frac{\partial}{\partial t}\frac{\partial}{\partial s}\Big|_{s,t=0} F(\mathcal{W}+tT+sS)=\lim_{t\to 0} \frac{d_{\mathcal{W}+tS}F(T)-d_{\mathcal{W}}F(T)}{t}.}
-If there is no ambiguity, we drop the index $\mathcal{W}$ from $d_\mathcal{W}F, d^2_\mathcal{W}F.$
+It is well known, and has been treated in several places, that a symmetric function (i.e. invariant under permutation of variables) $\Phi\in C^{\8}(\G)$ on an open and symmetric set $\G\sub\R^{n}$ induces a function $F\in C^{\8}(\O)$ on an open set endomorphisms of an $n$-dimensional real vector space $E$, which are self-adjoint with respect to some fixed underlying scalar product $E$. Compare for example \cite{CaffarelliNirenbergSpruck:12/1985}, \cite{Andrews:/1994b}, \cite{Andrews:/2007}, and \cite{Gerhardt:/2006}. These approaches all suffer from the drawback that certain well known formula for derivatives of $F$ only hold in direction of self-adjoint matrices. Since our reparametrization \eqref{Flow} produces several non-symmetric operators, we would like to have extended versions of these formulae. In this section we collect some of the properties which hold when $F$ is defined on an open set on the whole space $\cL(E)$ of endomorphisms, like the mean curvature $H=\tr(\cW)$. The details will appear in \cite{Scheuer:/2017}.
 
-Note that in view of linearity of $df,$ e.q.,
-\[dF(T)=dF(\partial_i\otimes dx^j)T_j^i,\]
-we may put $F^j_i:=dF(\partial_i\otimes dx^j)$. So, we may assume that $dF\in T^{1,1}(M);$ therefore,
-\[dF(T)=\operatorname{Tr}(dF\circ T).\]
-Given a curvature function $F$, we define
-\eq{\~F&:T^{0,2}_{\mrm{sym},+}(M)\x \O'\to C^{\infty}(M)\\
-\~F(g,h)&:=F\br{g^{-1}\ast \fr 12 (h+h^t)}.}
-Here $\O'\sub T^{0,2}(M)$ is an open cone such that $\~F$ is well-defined.
+\subsubsection*{Symmetric functions and Operator functions}
 
-We have \footnote{
-Let $h=h(s)$ be an arbitrary curve in $T^{0,2}_p(M)$ for fixed $p\in M$. Then
-\begin{align*}
-\frac{d}{ds}\~F(h(s))=d_h\~F(h'(s))=dF(g^{-1}\ast\fr 12 (h'(s)+(h^t)'(s)))
-=dF\ast g^{-1}(h'(s)),
-\end{align*}
-since $dF$ is self-adjoint when evaluated at a self-adjoint endomorphism.}
-\eq{\label{dhF}d_h \~F=dF\ast g^{-1}\in T^{2,0}(M).}
-For $T\in T^{1,1}(M)$, we have\footnote{$F^i_j T^j_i=\~F^{ik}g_{kj}T^j_i=\~F^{ik}\br{g(T(\cdot),\cdot)}_{ik}$.}
-\eq{dF(T)=\operatorname{Tr}(dF\circ T)=\operatorname{Tr}((d_h\~F\ast g) \circ T)=\operatorname{Tr}_{d_h\~F}g(T(\cdot),\cdot).}
-We will use the following terminology regarding curvature functions.
-\Theo{defn}{CF}{~
-\begin{description}
-%   \item[i] For a metric $g\in T^{0,2}(M)$, $T^{1,1}_g(M)$ denotes the subbundle of $T^{1,1}(M)$ such that the fiber at $p\in M$ is the vector space of $g(p)$-self-adjoint endomorphisms.
-%   \item[ii] For an open, symmetric an convex cone $\G\sub \R^n$ let $\O\sub T^{1,1}(M)$ be the set of endomorphisms with eigenvalues lying in $\G.$
-  \item[i] A curvature function $F$ is {\it{(strictly) monotone}} on $\O$, if for every $\mathcal{W}\in \O\cap T^{1,1}_g(M)$, the matrix
-  $[d_\mathcal{W}F(\partial_i\otimes dx^j)]_{i,j}$ is (positive) non-negative definite.
-  \item[ii] $F$ is {\it{homogeneous of degree one}}, if
-\[F(\l \cW)=\l F(\cW)\quad \forall \cW\in \O,~\forall \l>0.\]
-  \item[iii] $F$ is {\it{concave (convex)}} in $\O$, if for all $\mathcal{W}\in \O\cap T^{1,1}_gM$ and $T\in T^{1,1}(M),$
-  \[d^2_{\mathcal{W}}F(T,T)\leq0\quad (d^2_{\mathcal{W}}F(T,T)\geq0).\]
-  \item[iv] A curvature function $F$ is {\it{inverse concave (inverse convex)}} in $\O$, if
-\eq{\~F&\cn \O \to C^{\infty}(M)\\
-\~F(\mc{W})&:=\fr{1}{F(\mc{W}^{-1})}}
- is well-defined and concave (convex) in $\O$.
-\end{description}
-}
-In view of \eqref{dhF}, the definition of monotonicity is justified, since $d_h\~F$ is symmetric.
-From now on, we do not distinguish $F$ and $\~F$ by different notation and write $F$ for both functions. This will not cause ambiguities since it will always be clear from the notation $d_h F$ that we actually mean $d_h\~F.$
+{\defn{
+Let $E$ be an $n$-dimensional real vector space. Let $\G\sub\R^{n}$ be open and symmetric.
+\begin{itemize}
+\item[(i)] We denote by $\cL(E)$ the space of endomorphisms of $E$ and by $\mc{D}_{\G}(E)\sub \cL(E)$ the set of all diagonalisable endomorphisms with eigenvalues in $\G$.
+\item[(iii)] On $\mc{D}_{\G}(E)$ we define the {\it{eigenvalue map}} $\mrm{EV}$ by
+\[\mrm{EV}(A)=(\k_{1},\dots,\k_{n}),\]
+where $\k_{1}\leq\dots\leq \k_{n}$
+\item[(ii)] Let $\Phi\in C^{\8}(\G)$ be a symmetric function. We call $F$ the {\it{associated operator function}} for $\Phi$, if there exists an open set $\O\sub \cL(E)$, such that $F\in C^{\8}(\O)$ and such that
+\eq{F_{|\mc{D}_{\G}}=\Phi\circ\mrm{EV}.}
+\end{itemize}
+ }}
+ 
+In is convenient to give some examples right away.
 
+\begin{example}
+Let us write $\s_k$ for $k$-th elementary symmetric polynomial defined on $\G=\R^{n},$
+\eq{s_{k}(\k_{1},\dots,\k_{n}):=\sum_{1\leq i_{1}<\dots<i_{k}\leq n}\prod_{j=1}^{k}\k_{i_{j}}.}
+ The associated operator functions are defined on $\O=\cL(E)$ by
+\eq{H_k(A)=\fr{1}{k!}\fr{d^k}{dt^k}\det(\operatorname{Id}+tA)
+\Big|_{t=0}.}
+Of course, for any smooth function $\rho$ defined on an open subset $\R^{n}$, we immediately obtain a whole bunch of symmetric functions
+$$\Phi=\rho(s_{1},\dots,s_{n})$$
+ and associated operator functions 
+$$F=\rho(H_{1},\dots,H_{k}).$$
+\end{example}
 
-The following lemma about inverse concave curvature functions is known from \cite[p.~112]{Urbas:/1991}, but since there it appears in a different form, let us deduce it again in our notation.
-\Theo{lemma}{Lemma-CF}{
-Let $F$ be a monotone and $1$-homogeneous curvature function on $\O$. Assume that
- $p\neq 0$ and $g\in T^{0,2}_{\mrm{sym},+}(M)$. Then for all invertible $\cW\in \O\cap T_g^{1,1}(M)$, the curvature function $f(\cW)=\mrm{sgn}(p)F^p(\cW)$
-satisfies
-\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)\geq \fr 1pf^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}(M).}
-If $F$ is additionally inverse concave on $\O$, then
-\eq{d^2f(\eta,\eta)+2df(\eta\circ\cW^{-1}\circ\eta)\geq \fr{p+1}{p}f^{-1}\br{df(\eta)}^2\quad \forall\eta\in T^{1,1}_g(M).}
-If $F$ is convex then
-\eq{d^2f(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(\eta)}^2\quad\forall \eta\in T^{1,1}_g(M).}
-}
+For a general pair of symmetric function $\Phi\in C^{\8}(\G)$ and $F\in C^{\8}(\O)$ we will now state some of the properties of their derivatives, which recover the well known formulae appearing when restricting these maps to self-adjoint transformations. However, note the difference in \eqref{DerSymmFct-A}.
+
+{\thm{\label{DerSymmFct}
+(i)~Let $E$ be an $n$-dimensional vector space, $\G\sub\R^{n}$ be open and symmetric, $\Phi\in C^{\8}(\G)$ symmetric and $F$ the associated operator function. Then there holds
+\eq{dF(A)B=\tr(F'(A)\circ B)\quad\forall A,B\in \cL(E)}
+for some $F'(A)\in \cL(E)$ being simultaneously diagonalisable with any $A\in \mc{D}_{\G}(E)$ and in which case its eigenvalues $F^{i}$ satisfy
+\eq{F^{i}(A)=\fr{\del \Phi}{\del\k_{i}}(\mrm{EV}(A)).}
+(ii)~If $\G$ is additionally convex, $A\in \mc{D}_{\G}(E)$ and let $(\eta^{i}_{j})$ be a matrix representation of some $\eta\in \cL(E)$ with respect to a basis of eigenvectors of $A$. Then there holds
+\eq{\label{DerSymmFct-A}D^{2}F(A)(\eta,\eta)=d^{2}\Phi(\mrm{EV}(A))(\hat{\eta},\hat{\eta})+\sum_{i\neq j}^{n}\fr{\fr{\del \Phi}{\del \k_{i}}-\fr{\del \Phi}{\del\k_{j}}}{\k_{i}-\k_{j}}\eta^{i}_{j}\eta^{j}_{i},}
+where $\hat{\eta}=\mrm{diag}(\eta)$ is the diagonal of $\eta$. The latter quotient is also well defined in case $\k_{i}=\k_{j}$ for some $i\neq j$.}}
+
+\begin{hproof}
+By direct calculation one can show that this result holds for all elementary symmetric polynomials and the chain rule carries this over to all functions of the elementary symmetric polynomials. 
+
+For a general pairs $(\Phi,F)$ we use the Weierstrass approximation theorem to approximate $\Phi$ by symmetric polynomials (which can be written as functions of the $\s_{k}$). Details appear in \cite{Scheuer:/2017}.
+\end{hproof}
+
+We will also need another variant of the function $F$ namely as being defined on bilinear forms. Lets denote by $\mc{B}(E)$ and $\mc{B}_{+}(E)$ the set of bilinear forms and positive definite bilinear forms on $E$ respectively.
+
+{\prop{\label{BilF}
+Let $E$ be an $n$-dimensional real vector space, $\O\sub\cL(E)$ open and $F\in C^{\8}(\O)$. Define
+\eq{G\cn \mc{B}_{+}(E)\x\mc{B}(E)&\ra \R\\
+				(g,h)&\mt F( g^{-1}\ast \hat h). }
+Then $G$ is smooth and the derivatives of $F$ and $G$ are related by 
+\eq{\label{BilF-A}\fr{\del G}{\del h}(g,h)a=\tr(F'(g^{-1}\ast \hat h)\circ\hat a^{\sharp_{g}})=dF(g^{-1}\ast \hat h)\hat a^{\sharp_{g}}.}
+}}
+
+\subsubsection*{Properties of symmetric functions}
+The following special properties are natural assumptions, for example to ensure the parabolicity of the flow \eqref{Flow} we need the associated operator function to be monotone.
+Let write
+\eq{\G_{+}=\{\k\in\R^{n}\cn \k_{i}>0\quad\forall 1\leq i\leq n\}}
+and let $\O_{+}$ be the associated open set in $\cL(E).$
+
+\begin{defn}\label{PropSymm}
+Let $\G\sub\R^{n}$ open and symmetric and let $\Phi\in C^{\8}(\G)$ be symmetric.
+\begin{itemize}
+\item[(i)]~$\Phi$ is called {\it{strictly monotone}}, if 
+\eq{\fr{\del \Phi}{\del\k_{i}}(\k)> 0\quad\forall \k\in\G~\forall 1\leq i\leq n.}
+\item[(ii)] Let $\G$ in addition be a cone, then $\Phi$ is called {\it{homogeneous of degree $p\in \R$}} if
+\eq{\Phi(\l \k)=\l^{p}\Phi(\k)\quad\forall \l>0~\forall \k\in\G.}
+\item[(iii)] If $\G=\G_{+}$, $\Phi$ is called {\it{inverse concave (inverse convex)}}, if the so-called {\it{inverse symmetric function}} $\~\Phi\in C^{\8}(\G_{+})$, defined by
+\eq{\~\Phi(\k_{i})=\fr{1}{\Phi(\k_{i}^{-1})},}
+is concave (convex). 
+\end{itemize}
+\end{defn}
+
+These properties carry over to the associated operator function in the following sense.
+
+{\prop{\label{MonoF}
+Let $E$ be an $n$-dimensional vector space, $\G\sub\R^{n}$ open and symmetric and let $\Phi\in C^{\8}(\G)$ be symmetric. Let $F\in C^{\8}(\O)$ be the associated operator function in $\O$.
+Then there hold:
+\begin{itemize}
+\item[(i)] If $\Phi$ is strictly montone, then $F'(A)$ only has positive eigenvalues at all $A\in \mc{D}_{\G}(E)$ and the function $G$ from \cref{BilF} is positive definite.
+\item[(ii)] If $\G$ is a cone and $\Phi$ is homogeneous of degree $p$, then $\O$ is a cone and $F$ is homogeneous of degree $p$.
+\item[(iii)]  If $\G$ is convex and $\Phi$ is concave, then $F$ satisfies
+\eq{\label{MonoF-A} d^{2}F(A)(\eta,\eta)\leq 0}
+for all $\eta$ with symmetric matrix representation with respect to a basis of eigenvectors of $A$. The reverse inequality holds if $f$ is convex.
+ \end{itemize}
+}}
+
+\begin{rem}The restricted concavity (convexity) in \eqref{MonoF-A} is due to the form of the second term in \eqref{DerSymmFct-A} and the fact that the trace of the square a non-symmetric matrix may be negative. This causes the reason that \eqref{MonoF-A} is only valid in selfadjoint directions.
+\end{rem}
+
+\begin{rem}
+Slightly abusing terminology, especially when it comes to convexity or concavity, we call $F$ {\it{strictly monotone, homogenous, concave or convex}}, if $\Phi$ has these properties.
+\end{rem}
+
+The following estimates for $1$-homogeneous resp. inverse concave curvature functions are very useful. The idea for the first statement comes from \cite[Thm.~2.3]{Andrews:/2007} and also appeared in a similar form in \cite[Lemma~14]{BIS1}. The proof for the second statement, however appearing in a slightly different form, can be found in \cite[p.~112]{Urbas:/1991}. Since here we need them in a somewhat different form, we give the proof.
+
+{\prop{\label{InvConc}
+Let $E$ be an $n$-dimensional real vector space, $\G\sub \R^{n}$ be an open, symmetric and convex cone and let $\Phi\in C^{\8}(\G_{+})$ be symmetric, positive, strictly monotone and homogeneous of degree one. Let $F$ be the associated operator function on $\O$.
+Then there hold:
+\begin{itemize}
+\item[(i)] For every pair $A\in \mc{D}_{\G_{+}}(E)$ and $g\in \mc{B}_{+}(E)$ such that $A$ is self-adjoint with respect to $g$, there holds
+\eq{\label{InvConc-A}dF(A)(\ad(\eta)\circ A^{-1}\circ\eta)\geq F^{-1}\br{dF(A)\eta}^{2},}
+where $\ad(\eta)$ is the adjoint with respect to $g$.
+\item[(ii)] If $\Phi$ is inverse concave, then for every pair $A\in \mc{D}_{\G_{+}}(V)$ and $g\in \mc{B}_{+}(E)$ such that $A$ is self-adjoint with respect to $g$, there holds
+\eq{\label{InvConc-B}d^{2}F(A)(\eta,\eta)+2dF(A)(\eta\circ A^{-1}\circ\eta)\geq 2F^{-1}\br{dF(A)\eta}^{2},}
+for all $g$-selfadjoint $\eta$.
+\end{itemize}
+}}
+
 \pf{
-To prove the first inequality, we apply an idea from \cite[Thm.~2.3]{Andrews:/2007}, also compare the similar proof in \cite[Lemma~14]{BryanIvakiScheuer:12/2015}. Suppose first that $p=1$ and note that for each invertible $\cW\in T^{1,1}_g(M)$ the kernel of the linear map
-\eq{df\cn \Omega\times T^{1,1}(M)\ra C^{\infty}(M) }
-has dimension $n^2-1$, due to
-\eq{d_{\mathcal{W}}f(\cW)=f(\mathcal{W}).}
-Now let $\eta\in T^{1,1}(M)$, then there exists a decomposition
-\[\eta=a\cW+\xi,\]
-where w.l.o.g., we may assume  $a=1.$ Hence
-\eq{df(\ad(\eta)\circ \cW^{-1}\circ\eta)&=df(\eta)+df(\ad(\xi))+df(\ad(\xi)\circ\cW^{-1}\circ\xi)\\
-            &\geq df(\eta),}
-since $df$ and $\cW$ can be diagonalized simultaneously. The result in case $p=1$ follows from $f=df(\cW)=df(\eta).$
-The case $p\neq 0$ follows from the case $p=1$.
+(i)~Note that for each $A\in \mc{D}_{\G_{+}}(E)$ the kernel $S$ of the map 
+\eq{dF(A)\cn \cL(E)\ra \R}
+has dimension $n^2-1$, due to the homogeneity which implies
+\eq{dF(A)A=F(A).}
+Now let $\eta\in \cL(E)$, then there exists a decomposition
+\[\eta=aA+\xi,\]
+where $\xi\in S$ and where w.l.o.g., we may assume  $a=1.$ Hence, omitting the argument $A$ of $F$,
+\eq{dF(\ad(\eta)\circ A^{-1}\circ\eta)&=dF(\eta)+dF(\ad(\xi))+dF(\ad(\xi)\circ A^{-1}\circ\xi)\\
+            &\geq dF(\eta),}
+since $dF$ and $A$ can be diagonalized simultaneously. The result follows from $F=dF(A)=dF(\eta).$
 
-
-Let $F$ be inverse concave. We first consider the case $p=1$. We have for $\cW,T\in T^{1,1}_g(M)$ with $\cW$ invertible, that
-\eq{d\~f(T)=\~f^2 df(\cW^{-1}\circ T\circ \cW^{-1})}
-and
-\eq{\label{Lemma-CF-2}d^2\~f(T,T)&=2\~f^3\br{df(\cW^{-1}\circ T\circ\cW^{-1})}^2\\
-                &\hp{=}-\~f^2d^2f(\cW^{-1}\circ T\circ\cW^{-1})(\cW^{-1}\circ T\circ\cW^{-1})\\
-                &\hp{=}-2\~f^2df(\cW^{-1}\circ T\circ\cW^{-1}\circ T\circ \cW^{-1}),}
-where $\~f$ is evaluated at $\cW$ and $f$ is evaluated at $\cW^{-1}$. By the assumption $d^2\~f\leq 0$ we obtain, also setting $T=\cW\circ\eta\circ \cW$ for $\eta\in T^{1,1}_g(M)$,
-\eq{d^2f(\eta,\eta)+2df(\eta\circ \cW\circ\eta )\geq \fr{2}{f}\br{df(\eta)}^2.}
-Also recalling that $f=f(\cW^{-1}),$ we obtain the result in case $p=1.$ For $p\neq 0$ simply calculate
-\eq{\label{Lemma-CF-1}df(\eta)=|p|F^{p-1}dF(\eta),}
-\eq{d^2f(\eta,\eta)&=|p|(p-1)F^{p-2}(dF(\eta))^2+|p|F^{p-1}d^2F(\eta,\eta)\\
-                &\geq\fr{p+1}{p}f^{-1}(df(\eta))^2-2|p|F^{p-1}dF(\eta\circ\cW^{-1}\circ\eta)\\
-                &=\fr{p+1}{p}f^{-1}(df(\eta))^2-2df(\eta\circ\cW^{-1}\circ\eta).}
-If $F$ is convex, the inequality simply follows from the previous calculation.
+(ii)~For the inverse symmetric function $\-\Phi$ the corresponding $\~F$ is given by
+\eq{\label{InvConc-1}\~F(A)=\~\Phi(\k_{i})=\fr{1}{\Phi(\k_{i}^{-1})}=\fr{1}{F(A^{-1})}\quad\forall A\in \mc{D}_{\G_{+}}(E).} 
+We want to differentiate $\~F$. Here we have to be a bit careful with using the formula \eqref{InvConc-1}, since this formula does not make sense in whole $\O$. We get around this obstacle by observing that there is a set
+\eq{\~{\mc{D}}_{\G_{+}}(E)\sub \mc{D}_{\G_{+}}(E)}
+which is open and dense in $\O,$ namely the set of all diagonalisable endomorphisms with distinct real eigenvalues. Hence for all $A\in\~{\mc{D}}_{\G_{+}}(E)$ we get
+\eq{d\~F(A)B=\~F^{2}dF(A^{-1})(A^{-1}\circ B\circ A^{-1})}
+and 
+\eq{d^{2}\~F(B,B)&=2\~F^{3}\br{dF(A^{-1}\circ B\circ A^{-1})}^{2}\\
+			&\hp{=}-\~F^{2}d^{2}F(A^{-1}\circ B\circ A^{-1})(A^{-1}\circ B\circ A^{-1})\\
+			&\hp{=}-2\~F^{2}dF(A^{-1}\circ B\circ A^{-1}\circ B\circ A^{-1}),}
+where $\~F=\~F(A)$ and $F=F(A^{-1})$. Since $\~\Phi$ is inverse concave, there holds
+\eq{d^{2}\~F(B,B)\leq 0}
+for all $g$-selfadjoint $B$. For some $g$-selfadjoint $\eta$ set
+\eq{B=A\circ\eta\circ A} to obtain
+\eq{d^{2}F(\eta,\eta)+2dF(\eta\circ A\circ\eta)\geq 2 F^{-1}\br{dF(\eta)}^{2},}
+where we again have in mind $F=F(A^{-1}).$ The result follows.
 }
-\subsection*{Examples}
-Let us write $H_k$ for $k$-th elementary symmetric polynomial. These are define by
-\eq{H_k(\mathcal{W})=\fr{1}{k!}\fr{d^k}{dt^k}\det(\operatorname{Id}+t\mathcal{W})
-\Big|_{t=0},}
-for $\mathcal{W}\in T^{1,1}(M).$
+
+\begin{rem}
+A simple calculation reveals that if we set
+\eq{f=\mrm{sgn}(p)F^{p}, p\neq 0,}
+the inequalities \eqref{InvConc-A} and \eqref{InvConc-B} obtain the form
+\eq{\label{InvConc-A1}df(A)(\ad(\eta)\circ A^{-1}\circ\eta)\geq \fr{1}{p}f^{-1}\br{df(A)\eta}^{2}}
+and
+\eq{\label{InvConc-B1}d^{2}f(A)(\eta,\eta)+2df(A)(\eta\circ A^{-1}\circ\eta)\geq \fr{p+1}{p}f^{-1}\br{df(A)\eta}^{2}}
+for all $g$-selfadjoint $\eta$.
+Also, If $\Phi$ is convex then
+\eq{d^2f(A)(\eta,\eta)\geq\fr{p-1}{p}f^{-1}\br{df(A)(\eta)}^2}
+for all $g$-selfadjoint $\eta$.
+
+\end{rem}
+
+
+{\example{
 Define
-\[\Gamma_k(M):=\{\mathcal{W}\in T^{1,1}(M); H_1(\mathcal{W})>0,\cdots, H_{k}(\mathcal{W})>0\}.\]
+\[\Gamma_k:=\{\k\in \R^{n}; s_1(\k)>0,\cdots, s_{k}(\k)>0\}.\]
+Then 
 \begin{enumerate}
-  \item
-\begin{align*}H_1&\cn \Gamma_1(M)\ra C^{\infty}(M)\\
-H_1(\mathcal{W})&=\operatorname{Tr}(\mathcal{W}).
-\end{align*}
-satisfies
-$d_\mathcal{W}H_1(T)=\operatorname{Tr}(T);$ therefore, $H_1$ is strictly monotone. The inverse concavity of $H_1$ follows from \cref{Lemma-CF}.
-  \item
-\begin{align*}
-H_n&:\Gamma_n(M)\to C^{\infty}(M)\\
-K(\mathcal{W})&=\det(\mathcal{W})
-\end{align*}
-satisfies
-$d_\mathcal{W}K(T)=\det(\mathcal{W})\operatorname{Tr}(\mathcal{W}^{-1}\circ T);$ therefore, it is strictly monotone.
+  \item \[s_{1}(\k)=H_{1}(A)=\mrm{Tr}(A)\]
+  is strictly monotone and inverse concave on $\G_{1}.$
+    \item
+\[s_{n}(\k)=H_{n}(A)=\det(A)\]
+is obviously strictly monotone on $\G_{n}.$
+
 \item The quotients
 \begin{align*}
-Q_k&:\Gamma_k(M)\to C^{\infty}(M)\\
-Q_k&=\fr{H_k}{H_{k-1}}
+q_k&:\Gamma_k\to \R\\
+q_k&=\fr{s_k}{s_{k-1}}
 \end{align*}
 are monotone and concave; see \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
-\end{enumerate}
-\subsection*{The flow speed}
-The normal variation speeds we consider do not only depend on the curvature, but are of a more general form.
-Let
-\[\G_{+}=\{(\k_i)\in \R^n\cn \k_i>0\quad\forall 1\leq i\leq n  \}.\]
-We collect our assumptions as follows.
+\end{enumerate} 
+}}
+
+\subsubsection*{Curvature functions}
+
+It is easy to transfer these notions to the bundle $T^{1,1}(M)$ of a smooth manifold $M$.
+
+\begin{defn}
+Let $M$ be a smooth manifold and let $\O\sub T^{1,1}(M)$ be open. A function $F\in C^{\8}(\O)$ is called {\it{curvature function}}, if two conditions are satisfied: 
+\begin{itemize}
+\item[(i)] for all $X\in T^{1,1}(M)$ there holds
+\[dF(X)v=0\]
+for all tangent vectors $v\in T^{1,0}_{\pr(X)}(M)$, where $\pr\cn T^{1,1}(M)\ra M$ is the canonical projection.
+
+\item[(ii)] There exists a symmetric function $\Phi\in C^{\8}(\G_{+})$, such that for each $x\in M$, the function $F$ restricted to the fibre at $x$ is the associated operator function of $\Phi$.
+
+\item[(iii)] A curvature function $F$ is called to have the properties from \cref{PropSymm}, if $\Phi$ has the corresponding properties. 
+\end{itemize}
+\end{defn}
+
+
+
+
+
+The normal variation speeds we consider do not only depend on the curvature, but are of a more general form. We collect our assumptions as follows.
+
 \Theo{ass}{SpeedAss}{
 We assume that $f$ is a non-vanishing velocity which is of the form
-\eq{\label{Speed}f\cn \R_{+}\x UN &\x (S_{\G_{+}}\cap T^{1,1}(M))\ra \R\\ f(s,\nu,\cW)&=\mrm{sgn}(p)\p(s)\psi(\nu)F^{p}(\cW),}
+\eq{\label{Speed}f\cn \R_{+}\x UN &\x \O_{+}\ra \R\\ f(s,\nu,\cW)&=\mrm{sgn}(p)\p(s)\psi(\nu)F^{p}(\cW),}
 where
 \begin{itemize}
 \item $p\neq 0$,
@@ -454,8 +536,10 @@ where
 \item convex, otherwise.
 \end{enumerate}
 \end{itemize}
-Here $\Sigma^{0,2}_{+}(M)\sub T^{0,2}M$ is the sub-bundle of positive definite tensors of type $(0,2)$, $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
 }
+
+Here $UN$ is the unit sphere bundle on $N$ (including timelike unit vectors).
+
 \section{Evolution equations}
 \subsection{Invariant calculations with respect with to affine connection}
 We begin by collecting some basic evolution equations. The final aim is to deduce the evolution equation for the function
@@ -788,7 +872,7 @@ and
 \eq{\ddot{s}&=-\s\dot{f}=\fr{\p'}{\p}f^2-\s df(\dot{\mathcal{W}})=\fr{\p'}{\p}f^2-\s df(A\circ\cW).}
 We also have
 \eq{\label{R=0-3} u=-\s \fr{\p'}{\p}f+\fr 1f df(\dot{\mathcal{W}})=-\s \fr{\p'}{\p}f+\fr 1f df(A\circ\cW).}
-Combining these relations with \cref{CF}, in case $p>0$ \eqref{Ev-u} becomes
+Combining these relations with \cref{InvConc}, in case $p>0$ \eqref{Ev-u} becomes
 \eq{\label{R=0-1}
 \mathcal{L}u&=\br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\frac{\dot{s}}{f}\br{\log\p}'df(\dot{\cW})+\fr 1f d^{2}f(\dot{\cW},\dot{\cW})+\fr 2f \mrm{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))\\
                 &\geq \br{\log\p}''\dot{s}^2+\br{\log\p}'\ddot{s}+\frac{\dot{s}}{f}\br{\log\p}'df(\dot{\cW})+\fr{p+1}{p}f^{-2}df(\dot{\mathcal{W}})^{2}\\
@@ -801,7 +885,7 @@ with reversed inequality if $p<0$.
 since $\L^{\sharp}$ is a multiple of the identity when $N$ is a space form.
 
 
-Since $df$ commutes with $\cW$, by \cref{Lemma-CF} we have
+Since $df$ commutes with $\cW$, by \cref{InvConc} we have
 \eq{\mrm{Tr}_{d_{h}f}h(A(\cdot),A(\cdot))&=df(\ad(A)\circ\cW\circ A)\\
                         &=df(\ad(\cW\circ A)\circ \cW^{-1}\circ\cW\circ A )\\
                         &\geq \fr 1p f^{-1}df(\cW\circ A)^{2}\\
@@ -860,7 +944,7 @@ Hence the claim follows from the maximum principle applied to \eqref{Ev-q}.
 }
 \subsection*{The sphere}
 In the case of the sphere, inequality \eqref{Bonus} is precisely the Harnack inequality with bonus term as it was already deduced in \cite{BryanIvaki:08/2015}.
-We recover the class of speeds for which we could prove a Harnack inequality without bonus term in \cite{BryanIvakiScheuer:12/2015}.
+We recover the class of speeds for which we could prove a Harnack inequality without bonus term in \cite{BIS1}.
 \Theo{thm}{Sphere}{
 Suppose $N=\S^{n+1}$ and $F$ is a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and $f=F^p.$ Then for any strictly convex solution to \eqref{Flow} there holds
 \eq{tu+\fr{p}{p+1}\geq 0.}

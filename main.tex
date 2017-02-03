@@ -15,17 +15,21 @@ Let
 $x\cn M\x[0,T^{\ast})\ra N$
 be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolve by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{\ast}(\operatorname{grad}_hf),}
-where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\bar{g}(\nu,\nu)$ from the spacelike condition), and $\operatorname{grad}_hf$ is given by
+where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\bar{g}(\nu,\nu)$ from the spacelike condition), and with $\operatorname{grad}_hf$ defined by
+\[
+\forall X \quad h(\grad_h f, X) = df (X),
+\]
+or in coordinates,
 \[\operatorname{grad}_hf=b^{ij}df(\partial_j)\partial_i.\]
 Here $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij})$. The speed $f$ is a smooth, monotone function of the principal curvatures.
 
-Suppose there exists a family of diffeomorphisms \(r:M\times [0,T^{\ast})\to M\), such that $r(\cdot,0)=\operatorname{id}$ and $\dot{r}=\operatorname{grad}_hf$ (\textcolor[rgb]{1.00,0.00,0.00}{in Lemma ?? we will show that under the assumptions of our main theorems such a family of time-dependent diffeomorphism exists}). Then defining $\tilde{x} (\xi, t) := x (r(\xi,t), t)$, $\tilde{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\tilde{f}(\xi,t):=f(r(\xi,t), t)$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
+Let \(r:M\times [0,T^{\ast})\to M\), be the one-parameter family of diffeomorphisms associated to $\grad_h f$; that is $r(\cdot,0)=\operatorname{id}$ and $\dot{r}=\operatorname{grad}_hf$. If $M$ is compact, then for each $t \in [0, T^{\ast})$ $r_t : M \to M$ is uniquely defined and a diffeomorphism. If $M$ is co-compact so that $M/G$ is compact where $G$ is a Lie Group acting on $M$, and the flow $x_t$ is invariant under $G$, again $r_t$ is a uniquely defined diffemorphism for each $t \in [0, T^{\ast})$. Defining $\tilde{x} (\xi, t) := x (r(\xi,t), t)$, $\tilde{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\tilde{f}(\xi,t):=f(\tilde{W} (\xi, t))$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
 \eq{\label{FlowStandard}
 \tilde{x}&:M\times [0,T^{\ast})\to N\\
 \dot{\tilde{x}} &= -\s \tilde{f} \tilde{\nu}.}
 We call $\tilde{x}$ the standard parameterization as in \cite{Andrews:09/1994}.
 
-Harnack inequalities are point-wise derivative estimates which usually enable one to compare a solution to a curvature flow at different points in space-time.
+Differential Harnack inequalities are point-wise derivative estimates which usually enable one to compare the speed of a solution to a curvature flow at different points in space-time.
 Central to our approach in obtaining Harnack inequalities for a class of curvature flows (\ref{FlowStandard}) is a reparameterization of the flow given by the flow \eqref{Flow}.
 In a Euclidean background, $N = \R^{n+1}$, the Gauss map $\nu: M\times [0,T^{\ast}) \to \S^n$ is a diffeomorphism for $t$ if $x(M,t)$ is strictly convex. The Gauss map parameterization $y: \S^n\times [0,T^{\ast}) \to \R^{n+1}$ \cite{Andrews:09/1994} is such that $\nu(y(z,t),t) = z$ for all $z \in \S^n$ whence $\dot{\nu} = 0$. Furthermore, calculations may be performed with respect to the fixed, canonical, round metric $g_{\operatorname{can}}$. These two properties, a static metric and static normal provide immense benefit, not only in simplifying the generally long computations associated with differential Harnack inequalities, but also by lending insight into why such long computations yield such a simple, elegant differential Harnack inequality.
 
@@ -222,9 +226,14 @@ if and only if for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
 \end{equation}
 where $Q(t_2) - Q(t_1) = \int_{t_1}^{t_2} q(t) dt$,
 \[
-\Delta = \inf_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt
+\Delta = \left\{
+           \begin{array}{ll}
+             \inf_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}>0; \\
+             \sup_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}<0.
+           \end{array}
+         \right.
 \]
-and the infimum is taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
+and the infimum and supremum are taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
 
 In particular,
 \[
@@ -280,11 +289,15 @@ Assuming equation \eqref{eq:standard_harnack_all_vectors} holds, we have
 \[
 \exp\left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right) \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right),
 \]
-for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The opposite inequality holds when $\tilde{f} < 0$. Then using equation \eqref{eq:exponential_harnack}, we obtain
-\begin{align}
+for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The opposite inequality holds when $\tilde{f} < 0$. Then using equation \eqref{eq:exponential_harnack}, we obtain for $\tilde{f}>0,$
+\begin{align}\label{abc1}
 \frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right)
 \end{align}
-Taking supremums over all such $\gamma$, the right hand integral becomes $-\Delta$. Rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}. Note that the inequality reverses for $\tilde{f} < 0$, but multiplying equation \eqref{eq:exponential_harnack} by the negative number $\tilde{f}(x_1, t_1)$ reverses the inequality again.
+and for $\tilde{f}<0,$
+\begin{align}\label{abc2}
+\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \leq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right).
+\end{align}
+In (\ref{abc1}), taking supremums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}. In (\ref{abc2}), taking infimums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}
 
 Conversely, if the Moser parabolic Harnack \eqref{eq:moser_harnack} holds, then equation \eqref{eq:exponential_harnack} implies that,
 \[

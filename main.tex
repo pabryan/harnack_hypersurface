@@ -1,6 +1,8 @@
 \input{StandardPaper2.tex}
 %\usepackage[inline]{showlabels}
 \usepackage{mathrsfs}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
 \DeclareMathOperator{\ad}{ad}
 \newenvironment{hproof}{%
   \renewcommand{\proofname}{Sketch of proof}\proof}{\endproof}
@@ -9,6 +11,28 @@
 \begin{document}
 
 \title[Harnack inequalities for curvature flows]{Harnack inequalities for curvature flows in Riemannian and Lorentzian manifolds}
+\author[P. Bryan]{Paul Bryan}
+\address{Mathematics Institute, University of Warwick
+Coventry, CV4 7AL, England}
+\email{p.bryan@warwick.ac.uk}
+\author[M.N. Ivaki]{Mohammad N. Ivaki}
+\address{Institut f\"{u}r Diskrete Mathematik und Geometrie, Technische Universit\"{a}t Wien,
+Wiedner Hauptstr. 8--10, 1040 Wien, Austria}
+\address{Department of Mathematics and Statistics, Concordia University, Montreal, QC,
+H3G 1M8, Canada}
+\email{mohammad.ivaki@tuwien.ac.at}
+\author[J. Scheuer]{Julian Scheuer}
+\address{Albert-Ludwigs-Universit\"{a}t,
+Mathematisches Institut, Eckerstr. 1, 79104
+Freiburg, Germany}
+\email{julian.scheuer@math.uni-freiburg.de}
+\dedicatory{}
+\subjclass[2010]{}
+\keywords{Curvature flows, Harnack estimates}
+\begin{abstract}
+We obtain Harnack estimates for a class of curvature flows in Riemannian manifolds of constant non-negative sectional curvature as well as in the Lorentzian Minkowski and de Sitter spaces. Furthermore we prove a Harnack estimate with a bonus term for mean curvature flow in locally symmetric Riemannian Einstein manifold of non-negative sectional curvature. Using a concept of ”duality” for strictly convex hypersurfaces, we
+also obtain a new type of inequalities, so-called ”pseudo”-Harnack inequalities, for expanding flows in the sphere and in the hyperbolic space.
+\end{abstract}
 \maketitle
 \section{Introduction}
 \label{sec:intro}
@@ -68,7 +92,7 @@ Suppose one of the following conditions holds
   \item $N=\mathbb{R}^{n,1}$, $\psi:\mathbb{H}^n\to \mathbb{R}_+$ is a $G_{\ast}$-invariant, smooth function, $s(\cdot,t)>0$ for all $t$, and the solution is standard, spacelike, strictly convex.
 \end{enumerate}
 Then the following Harnack inequality holds in the standard parametrization:
-\eq{\del_{t}f-b(\nabla f,\nabla f)+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
+\eq{\label{DiffHarnack}\del_{t}f-b(\nabla f,\nabla f)+\frac{p}{(p+1)t}f\geq 0,\quad \forall t>0.}
 }
 \Theo{rem}{s well-defined on K}{Note for a standard, spacelike and strictly convex hypersurface, $s$ is well-defined on $K:$
 \begin{align*}
@@ -80,15 +104,23 @@ s(Ix)&=-\langle Ix,\nu(Ix)\rangle\\
 }
 \Theo{rem}{positive support function}{Let $\mathcal{F}$ denote the interior of $\{\langle x,x\rangle\leq 0, x_0\geq 0\}$. If $M$ is a standard, spacelike, strictly convex hypersurface that is contained in $\mathcal{F}$, then $M$ has a positive support function.}
 \Theo{rem}{expanding hyperbolic space}{Consider $x(M,t)=\sqrt{2F(1,\cdots,1)t}\mathbb{H}^{n}$ for $t\in(0,\infty)$, a solution to the expanding flow with a positive, 1-homogeneous speed $f=F$ (assuming $\varphi=\psi\equiv1$) and $N=\mathbb{R}^{n,1}$. Then equality holds in the Harnack inequality. Note that if $t\to 0$, then $x(M,t)\to\{\langle x,x\rangle=0: x_0\geq 0\}$ (e.q., boundary of $\mathcal{F}$) with support function  equal to zero.}
-In \cite{ChowHamilton:/2004}, Chow and Hamilton introduce an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
 
-Next is a Harnack inequality with bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
+\cref{Euclidean} recovers and extends (even in the Euclidean case) previously known differential Harnack estimates as in \cite{Andrews:09/1994}, which also covers the anisotropic case, \cite{Chow:06/1991}, \cite{Li:/2011} and \cite{Wang:11/2007}. For more general functions of the mean curvature in the Euclidean case see \cite{Smoczyk:/1997}. To our knowledge, the only available Harnack estimates for curvature flows having the support function in their speeds are for centro-affine normal flows \cite{Ivaki:11/2015}, \cite{Ivaki:09/2015}. In this respect, our result is new even in the Euclidean case.
+
+In other ambient spaces, far less is known, due to the complications which arise from the ambient curvature tensor.
+The only setting of non-constant sectional curvature that we could crack so far is a Harnack inequality with a bonus term for the mean curvature flow in locally symmetric Riemannian Einstein manifolds of non-negative sectional curvature:
 \Theo{thm}{Einstein}{
 Let $N$ be a locally symmetric Riemannian Einstein manifold of non-negative sectional curvature. Then for any compact, strictly convex solution to the mean curvature flow there holds
 \[\del_{t}H-b(\nabla H,\nabla H)-\fr{\-R}{n+1}H+\fr{1}{2t}H\geq 0,\]
 where $\-R$ is the constant scalar curvature of $N$.
 }
-The next theorem includes our Harnack inequalities from \cite{BIS1} and presents new Harnack inequalities in de Sitter space.
+
+{\color{red} Some examples of spaces which satisfy the assumptions of \cref{Einstein} are...}
+
+
+If we have a more symmetric ambient space we can generalize the class of speeds. The next theorem includes our Harnack inequalities from \cite{BryanIvaki:08/2015} and \cite{BIS1} and presents new Harnack inequalities in de Sitter space.
+
+{\color{red} Do we have to assume to be on a sphere, or is constant positive curvature enough?}
 \Theo{thm}{Harnack Inequality}{
 Let $F$ be a monotone, convex, $1$-homogeneous curvature function and $f =F^p$ with $0< p\leq 1$.
 Suppose either
@@ -115,6 +147,123 @@ Then the following inequality holds in the standard parametrization:
 \]
 }
 The term pseudo-Harnack reflects the fact that the inequality in \Cref{pseudo Harnack Inequality} does not have the gradient term as opposed to the inequalities in Theorems \ref{Euclidean} and \ref{Harnack Inequality} and thus would not allow one to compare the solution at different points in space-time, nevertheless, it is a point-wise estimate on $\partial_tf$, which is independent of the initial data. This new type of inequality suggests while in a negatively curved ambient space the standard Harnack quantity $u$ may fail to yield any interesting inequality, yet a weaker form (obtained by dropping the gradient term) may provide a useful inequality.
+
+\subsubsection*{Connection to XCF}
+In \cite{ChowHamilton:/2004}, Chow and Hamilton introduced an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
+
+\subsubsection*{The Harnack, Solitons and Reparametrization}
+\label{subsec:reparam}
+In order to describe what a differential Harnack inequality
+of the form \eqref{DiffHarnack} actually has to do with the we well known Moser-type Harnack inequalities, note that
+the normal speed $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality as described by the next theorem.
+
+\begin{thm}
+Let $\tilde{x}$ be a solution of the standard flow, \eqref{FlowStandard}, and let $q(t)$ be a measurable function. Then
+\begin{equation}
+\label{eq:liyauhamilton_harnack}
+\left\{
+  \begin{array}{ll}
+    \frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq -q(t), & \hbox{if}~\tilde{f}>0; \\
+    \frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \leq -q(t), & \hbox{if}~~\tilde{f}<0
+  \end{array}
+\right.
+\end{equation}
+if and only if for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
+\begin{equation}
+\label{eq:moser_harnack}
+\tilde{f} (x_1, t_1) \leq \frac{e^{Q(t_2)}}{e^{Q(t_1)}} e^{\Delta/4} \tilde{f} (x_2, t_2)
+\end{equation}
+where $Q(t_2) - Q(t_1) = \int_{t_1}^{t_2} q(t) dt$,
+\[
+\Delta = \left\{
+           \begin{array}{ll}
+             \inf_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}>0; \\
+             \sup_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}<0.
+           \end{array}
+         \right.
+\]
+and the infimum and supremum are taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
+
+In particular,
+\[
+\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq - \frac{p+1}{p} \frac{1}{t}
+\]
+if and only if
+\[
+\tilde{f} (x_1, t_1) \leq \left(\frac{t_2}{t_1}\right)^{(p+1)/p} e^{\Delta/4} \tilde{f} (x_2, t_2)
+\]
+With a \emph{bonus term} $K_0$,
+\[
+\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq - \frac{p+1}{p} \frac{K_0 e^{K_0 t}}{e^{K_0 t} - 1}
+\]
+if and only if
+\[
+\tilde{f} (x_1, t_1) \leq \left(\frac{e^{K_0 t_2} - 1}{e^{K_0 t_1} - 1}\right)^{(p+1)/p} e^{\Delta/4} \tilde{f} (x_2, t_2).
+\]
+\end{thm}
+
+\begin{proof}
+The last two statements follow immediately from the first taking those particular choices of $q(t)$.
+
+Now, let $X$ be an arbitrary tangent vector to $M$. Note that
+\[\tilde{h}(\grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X, \grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X)\geq 0.\]
+Therefore,
+\[
+\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) + \frac{1}{4} \tilde{h}(X, X) \geq - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f}).
+\]
+Equality holds whenever $X=-2\grad_{\tilde{h}} \tilde{f}.$
+Hence the Li-Yau-Hamilton differential inequality \eqref{eq:liyauhamilton_harnack} holds if and only if, for all $X$,
+\begin{equation}
+\label{eq:standard_harnack_all_vectors}
+\frac{\partial_t \tilde{f} + \tilde{h}(\grad_{\tilde{h}} \tilde{f}, X)+ \frac{1}{4} \tilde{h}(X, X)}{\tilde{f}} \geq - q(t),
+\end{equation}
+or with the opposite inequality in the case $\tilde{f} < 0$.
+
+Next we show that the Moser parabolic Harnack inequality, \eqref{eq:moser_harnack} is equivalent to equation \eqref{eq:standard_harnack_all_vectors} by integrating along space-time paths. Let $x_1,x_2 \in M$ and $\gamma : [t_1, t_2] \to M$ be any curve connecting $x_1$ at time $t_1$ to $x_2$ at time $t_2$; that is, $\gamma(t_i) = x_i, i = 1,2$. Keeping in mind that $\tilde{f}$ is either strictly positive or strictly negative, we have
+\[
+\begin{split}
+\ln |\tilde{f}| (x_2, t_2) - \ln |\tilde{f}| (x_1, t_1) &= \int_{t_1}^{t_2} \partial_t \left[\ln |\tilde{f}| (\gamma(t), t))\right] dt \\
+&= \int_{t_1}^{t_2} \frac{\partial_t \tilde{f}}{\tilde{f}} + \frac{1}{\tilde{f}} \gamma'(\tilde{f})  dt \\
+&= \int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt.
+\end{split}
+\]
+Taking exponentials,
+\begin{equation}
+\label{eq:exponential_harnack}
+\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} = \exp \left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right)
+\end{equation}
+where we may drop the absolute value on $|\tilde{f}|$ since both numerator and denominator have the same sign.
+
+Assuming equation \eqref{eq:standard_harnack_all_vectors} holds, we have
+\[
+\exp\left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right) \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right),
+\]
+for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The opposite inequality holds when $\tilde{f} < 0$. Then using equation \eqref{eq:exponential_harnack}, we obtain for $\tilde{f}>0,$
+\begin{align}\label{abc1}
+\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right)
+\end{align}
+and for $\tilde{f}<0,$
+\begin{align}\label{abc2}
+\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \leq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right).
+\end{align}
+In (\ref{abc1}), taking supremums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}. In (\ref{abc2}), taking infimums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}
+
+Conversely, if the Moser parabolic Harnack \eqref{eq:moser_harnack} holds, then equation \eqref{eq:exponential_harnack} implies that,
+\[
+\exp \left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right) \geq \frac{e^{Q(t_1)}}{e^{Q(t_2)}} e^{-\Delta/4}
+\]
+with the opposite sign when $\tilde{f} < 0$. Taking logarithms,
+\[
+\begin{split}
+\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt &\geq -\int_{t_1}^{t_2} q(t) - \Delta/4 \\
+&\geq - \int_{t_1}^{t_2} q(t) dt -  \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt
+\end{split}
+\]
+for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwise which is precisely equation \eqref{eq:standard_harnack_all_vectors}.
+\end{proof}
+\section*{Acknowledgment}
+The work of the first author was supported  in part by the EPSRC on a Programme Grant entitled ``Singularities of Geometric Partial Differential Equations'' reference number EP/K00865X/1. The work of the second author was supported by Austrian Science Fund (FWF) Project
+M1716-N25 and the European Research Council (ERC) Project 306445. The work of the third author has been supported by the "Deutsche Forschungsgemeinschaft" (DFG) within the research grant "Harnack inequalities for curvature flows and applications".
 \section{Background and Notation}
 %\label{sec:background}
 \subsection{Notation and Basic Definitions}
@@ -211,118 +360,13 @@ Let $S$ and $T$ be two $2$- tensors and $S\otimes T$ be their tensor product. If
 % \eq{\n\cn T(\R\x M)\x T(\R\x M)\ra T(\R\x M).}
 % However note that this connection is not symmetric. Still, since $\n$ is a linear connection, covariant differentiation of tensors and function is now well defined such that it obeys the product rule and commutes with traces.
 
-\subsection{The Harnack, Solitons and Reparametrization}
-\label{subsec:reparam}
-
-The normal speed, $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality as described by the next theorem.
-
-\begin{thm}
-Let $\tilde{x}$ be a solution of the standard flow, \eqref{FlowStandard}, and let $q(t)$ be a measurable function. Then
-\begin{equation}
-\label{eq:liyauhamilton_harnack}
-\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq -q(t)
-\end{equation}
-if and only if for all $x_1, x_2 \in M$ and $t_2 > t_1 > 0$ there holds,
-\begin{equation}
-\label{eq:moser_harnack}
-\tilde{f} (x_1, t_1) \leq \frac{e^{Q(t_2)}}{e^{Q(t_1)}} e^{\Delta/4} \tilde{f} (x_2, t_2)
-\end{equation}
-where $Q(t_2) - Q(t_1) = \int_{t_1}^{t_2} q(t) dt$,
-\[
-\Delta = \left\{
-           \begin{array}{ll}
-             \inf_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}>0; \\
-             \sup_{\gamma} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt, & \hbox{if}~ \tilde{f}<0.
-           \end{array}
-         \right.
-\]
-and the infimum and supremum are taken over all smooth curves $\gamma$ such that $\gamma(t_i) = x_i$, $i = 1,2$.
-
-In particular,
-\[
-\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq - \frac{p+1}{p} \frac{1}{t}
-\]
-if and only if
-\[
-\tilde{f} (x_1, t_1) \leq \left(\frac{t_2}{t_1}\right)^{(p+1)/p} e^{\Delta/4} \tilde{f} (x_2, t_2)
-\]
-With a \emph{bonus term} $K_0$,
-\[
-\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq - \frac{p+1}{p} \frac{K_0 e^{K_0 t}}{e^{K_0 t} - 1}
-\]
-if and only if
-\[
-\tilde{f} (x_1, t_1) \leq \left(\frac{e^{K_0 t_2} - 1}{e^{K_0 t_1} - 1}\right)^{(p+1)/p} e^{\Delta/4} \tilde{f} (x_2, t_2).
-\]
-\end{thm}
-
-\begin{proof}
-The last two statements follow immediately from the first taking those particular choices of $q(t)$.
-
-Now, let $X$ be an arbitrary tangent vector to $M$. Note that
-\[\tilde{h}(\grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X, \grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X)\geq 0.\]
-Therefore,
-\[
-\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) + \frac{1}{4} \tilde{h}(X, X) \geq - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f}).
-\]
-with equality whenever $X=-2\grad_{\tilde{h}} \tilde{f}.$
-Hence the Li-Yau-Hamilton differential inequality \eqref{eq:liyauhamilton_harnack} holds if and only if, for all $X$,
-\begin{equation}
-\label{eq:standard_harnack_all_vectors}
-\frac{\partial_t \tilde{f} + \tilde{h}(\grad_{\tilde{h}} \tilde{f}, X)+ \frac{1}{4} \tilde{h}(X, X)}{\tilde{f}} \geq - q(t),
-\end{equation}
-or with the opposite inequality in the case $\tilde{f} < 0$.
-
-Next we show that the Moser parabolic Harnack inequality, \eqref{eq:moser_harnack} is equivalent to equation \eqref{eq:standard_harnack_all_vectors} by integrating along space-time paths. Let $x_1,x_2 \in M$ and $\gamma : [t_1, t_2] \to M$ be any curve connecting $x_1$ at time $t_1$ to $x_2$ at time $t_2$; that is, $\gamma(t_i) = x_i, i = 1,2$. Keeping in mind that $\tilde{f}$ is either strictly positive or strictly negative, we have
-\[
-\begin{split}
-\ln |\tilde{f}| (x_2, t_2) - \ln |\tilde{f}| (x_1, t_1) &= \int_{t_1}^{t_2} \partial_t \left[\ln |\tilde{f}| (\gamma(t), t))\right] dt \\
-&= \int_{t_1}^{t_2} \frac{\partial_t \tilde{f}}{\tilde{f}} + \frac{1}{\tilde{f}} \gamma'(\tilde{f})  dt \\
-&= \int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt.
-\end{split}
-\]
-Taking exponentials,
-\begin{equation}
-\label{eq:exponential_harnack}
-\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} = \exp \left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right)
-\end{equation}
-where we may drop the absolute value on $|\tilde{f}|$ since both numerator and denominator have the same sign.
-
-Assuming equation \eqref{eq:standard_harnack_all_vectors} holds, we have
-\[
-\exp\left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right) \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right),
-\]
-for every $x_1, x_2$ and every $\gamma$ joining $x_1$ at $t_1$ to $x_2$ and $t_2$. The opposite inequality holds when $\tilde{f} < 0$. Then using equation \eqref{eq:exponential_harnack}, we obtain for $\tilde{f}>0,$
-\begin{align}\label{abc1}
-\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \geq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right)
-\end{align}
-and for $\tilde{f}<0,$
-\begin{align}\label{abc2}
-\frac{\tilde{f} (x_2, t_2)}{\tilde{f} (x_1, t_1)} \leq e^{Q(t_1) - Q(t_2)} \exp\left(- \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt\right).
-\end{align}
-In (\ref{abc1}), taking supremums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}. In (\ref{abc2}), taking infimums over all such $\gamma$, the right hand integral becomes $-\Delta$ and rearranging gives the Moser parabolic Harnack \eqref{eq:moser_harnack}
-
-Conversely, if the Moser parabolic Harnack \eqref{eq:moser_harnack} holds, then equation \eqref{eq:exponential_harnack} implies that,
-\[
-\exp \left(\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt\right) \geq \frac{e^{Q(t_1)}}{e^{Q(t_2)}} e^{-\Delta/4}
-\]
-with the opposite sign when $\tilde{f} < 0$. Taking logarithms,
-\[
-\begin{split}
-\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt &\geq -\int_{t_1}^{t_2} q(t) - \Delta/4 \\
-&\geq - \int_{t_1}^{t_2} q(t) dt -  \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt
-\end{split}
-\]
-for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwise which is precisely equation \eqref{eq:standard_harnack_all_vectors}.
-\end{proof}
-
 \subsection{Speed Functions}
 \label{subsec:bg_speed}
 We introduce the form of the speeds $f$ we consider in \eqref{Flow}. First we revisit some of the theory of curvature functions.
 
 
 \subsection*{Curvature functions}
-It is well known, and has been treated in several places, that a symmetric function (i.e. invariant under permutation of variables) $\Phi\in C^{\8}(\G)$ on an open and symmetric set $\G\sub\R^{n}$ induces a function $F\in C^{\8}(\O)$ on an open set endomorphisms of an $n$-dimensional real vector space $E$, which are self-adjoint with respect to some fixed underlying scalar product $E$. Compare for example \cite{CaffarelliNirenbergSpruck:12/1985}, \cite{Andrews:/1994b}, \cite{Andrews:/2007}, and \cite{Gerhardt:/2006}. These approaches all suffer from the drawback that certain well known formula for derivatives of $F$ only hold in direction of self-adjoint matrices. Since our reparametrization \eqref{Flow} produces several non-symmetric operators, we would like to have extended versions of these formulae. In this section we collect some of the properties which hold when $F$ is defined on an open set on the whole space $\cL(E)$ of endomorphisms, like the mean curvature $H=\tr(\cW)$. The details will appear in \cite{Scheuer:/2017}.
+It is well known, and has been treated in several places, that a symmetric function (i.e. invariant under permutation of variables) $\Phi\in C^{\8}(\G)$ on an open and symmetric set $\G\sub\R^{n}$ induces a function $F\in C^{\8}(\O)$ on an open set endomorphisms of an $n$-dimensional real vector space $E$, which are self-adjoint with respect to some fixed underlying scalar product $E$. Compare for example \cite{CaffarelliNirenbergSpruck:12/1985}, \cite{Andrews:/1994b}, \cite{Andrews:/2007}, and \cite{Gerhardt:/2006}. These approaches all suffer from the drawback that certain well known formula for derivatives of $F$ only hold in direction of self-adjoint matrices. Since our reparametrization \eqref{Flow} produces several non-symmetric operators, we would like to have extended versions of these formulae. In this section we collect some of the properties which hold when $F$ is defined on an open set of the whole space $\cL(E)$ of endomorphisms, like the mean curvature $H=\tr(A)$. The details will appear in \cite{Scheuer:/2017}.
 
 \subsubsection*{Symmetric functions and Operator functions}
 
@@ -337,7 +381,7 @@ where $\k_{1}\leq\dots\leq \k_{n}$
 \eq{F_{|\mc{D}_{\G}}=\Phi\circ\mrm{EV}.}
 \end{itemize}
  }}
- 
+
 In is convenient to give some examples right away.
 
 \begin{example}
@@ -348,7 +392,7 @@ Let us write $\s_k$ for $k$-th elementary symmetric polynomial defined on $\G=\R
 \Big|_{t=0}.}
 Of course, for any smooth function $\rho$ defined on an open subset $\R^{n}$, we immediately obtain a whole bunch of symmetric functions
 $$\Phi=\rho(s_{1},\dots,s_{n})$$
- and associated operator functions 
+ and associated operator functions
 $$F=\rho(H_{1},\dots,H_{k}).$$
 \end{example}
 
@@ -364,19 +408,20 @@ for some $F'(A)\in \cL(E)$ being simultaneously diagonalisable with any $A\in \m
 where $\hat{\eta}=\mrm{diag}(\eta)$ is the diagonal of $\eta$. The latter quotient is also well defined in case $\k_{i}=\k_{j}$ for some $i\neq j$.}}
 
 \begin{hproof}
-By direct calculation one can show that this result holds for all elementary symmetric polynomials and the chain rule carries this over to all functions of the elementary symmetric polynomials. 
+By direct calculation one can show that this result holds for all elementary symmetric polynomials and the chain rule carries this over to all functions of the elementary symmetric polynomials.
 
 For a general pairs $(\Phi,F)$ we use the Weierstrass approximation theorem to approximate $\Phi$ by symmetric polynomials (which can be written as functions of the $\s_{k}$). Details appear in \cite{Scheuer:/2017}.
 \end{hproof}
 
-We will also need another variant of the function $F$ namely as being defined on bilinear forms. Lets denote by $\mc{B}(E)$ and $\mc{B}_{+}(E)$ the set of bilinear forms and positive definite bilinear forms on $E$ respectively.
+We will also need another variant of the function $F$ namely as being defined on bilinear forms. Let us denote by $\mc{B}(E)$ and $\mc{B}_{+}(E)$ the set of bilinear forms and positive definite bilinear forms on $E$ respectively.
 
 {\prop{\label{BilF}
 Let $E$ be an $n$-dimensional real vector space, $\O\sub\cL(E)$ open and $F\in C^{\8}(\O)$. Define
 \eq{G\cn \mc{B}_{+}(E)\x\mc{B}(E)&\ra \R\\
-				(g,h)&\mt F( g^{-1}\ast \hat h). }
-Then $G$ is smooth and the derivatives of $F$ and $G$ are related by 
-\eq{\label{BilF-A}\fr{\del G}{\del h}(g,h)a=\tr(F'(g^{-1}\ast \hat h)\circ\hat a^{\sharp_{g}})=dF(g^{-1}\ast \hat h)\hat a^{\sharp_{g}}.}
+				(g,h)&\mt F( g^{-1}\ast  h_{\mrm{sym}}). }
+Then $G$ is smooth and the derivatives of $F$ and $G$ are related by
+\eq{\label{BilF-A}\fr{\del G}{\del h}(g,h)a=\tr(F'(g^{-1}\ast  h_{\mrm{sym}})\circ (a_{\mrm{sym}})^{\sharp_{g}})=dF(g^{-1}\ast  h_{\mrm{sym}}) (a_\mrm{sym})^{\sharp_{g}},}
+where for two symmetric bilinear forms $g^{-1}\in \mc{B}_{+}(E^*)$ and $h\in \mc{B}(E)$, $g^{-1}\ast h\in \cL(E)$ is the endomorphism formed by "raising an index".
 }}
 
 \subsubsection*{Properties of symmetric functions}
@@ -388,13 +433,13 @@ and let $\O_{+}$ be the associated open set in $\cL(E).$
 \begin{defn}\label{PropSymm}
 Let $\G\sub\R^{n}$ open and symmetric and let $\Phi\in C^{\8}(\G)$ be symmetric.
 \begin{itemize}
-\item[(i)]~$\Phi$ is called {\it{strictly monotone}}, if 
+\item[(i)]~$\Phi$ is called {\it{strictly monotone}}, if
 \eq{\fr{\del \Phi}{\del\k_{i}}(\k)> 0\quad\forall \k\in\G~\forall 1\leq i\leq n.}
 \item[(ii)] Let $\G$ in addition be a cone, then $\Phi$ is called {\it{homogeneous of degree $p\in \R$}} if
 \eq{\Phi(\l \k)=\l^{p}\Phi(\k)\quad\forall \l>0~\forall \k\in\G.}
 \item[(iii)] If $\G=\G_{+}$, $\Phi$ is called {\it{inverse concave (inverse convex)}}, if the so-called {\it{inverse symmetric function}} $\~\Phi\in C^{\8}(\G_{+})$, defined by
 \eq{\~\Phi(\k_{i})=\fr{1}{\Phi(\k_{i}^{-1})},}
-is concave (convex). 
+is concave (convex).
 \end{itemize}
 \end{defn}
 
@@ -416,7 +461,7 @@ for all $\eta$ with symmetric matrix representation with respect to a basis of e
 \end{rem}
 
 \begin{rem}
-Slightly abusing terminology, especially when it comes to convexity or concavity, we call $F$ {\it{strictly monotone, homogenous, concave or convex}}, if $\Phi$ has these properties.
+Slightly abusing terminology, especially when it comes to convexity or concavity, we call $F$ {\it{strictly monotone, homogeneous, concave or convex}}, if $\Phi$ has these properties.
 \end{rem}
 
 The following estimates for $1$-homogeneous resp. inverse concave curvature functions are very useful. The idea for the first statement comes from \cite[Thm.~2.3]{Andrews:/2007} and also appeared in a similar form in \cite[Lemma~14]{BIS1}. The proof for the second statement, however appearing in a slightly different form, can be found in \cite[p.~112]{Urbas:/1991}. Since here we need them in a somewhat different form, we give the proof.
@@ -435,7 +480,7 @@ for all $g$-selfadjoint $\eta$.
 }}
 
 \pf{
-(i)~Note that for each $A\in \mc{D}_{\G_{+}}(E)$ the kernel $S$ of the map 
+(i)~Note that for each $A\in \mc{D}_{\G_{+}}(E)$ the kernel $S$ of the map
 \eq{dF(A)\cn \cL(E)\ra \R}
 has dimension $n^2-1$, due to the homogeneity which implies
 \eq{dF(A)A=F(A).}
@@ -447,12 +492,12 @@ where $\xi\in S$ and where w.l.o.g., we may assume  $a=1.$ Hence, omitting the a
 since $dF$ and $A$ can be diagonalized simultaneously. The result follows from $F=dF(A)=dF(\eta).$
 
 (ii)~For the inverse symmetric function $\-\Phi$ the corresponding $\~F$ is given by
-\eq{\label{InvConc-1}\~F(A)=\~\Phi(\k_{i})=\fr{1}{\Phi(\k_{i}^{-1})}=\fr{1}{F(A^{-1})}\quad\forall A\in \mc{D}_{\G_{+}}(E).} 
+\eq{\label{InvConc-1}\~F(A)=\~\Phi(\k_{i})=\fr{1}{\Phi(\k_{i}^{-1})}=\fr{1}{F(A^{-1})}\quad\forall A\in \mc{D}_{\G_{+}}(E).}
 We want to differentiate $\~F$. Here we have to be a bit careful with using the formula \eqref{InvConc-1}, since this formula does not make sense in whole $\O$. We get around this obstacle by observing that there is a set
 \eq{\~{\mc{D}}_{\G_{+}}(E)\sub \mc{D}_{\G_{+}}(E)}
 which is open and dense in $\O,$ namely the set of all diagonalisable endomorphisms with distinct real eigenvalues. Hence for all $A\in\~{\mc{D}}_{\G_{+}}(E)$ we get
 \eq{d\~F(A)B=\~F^{2}dF(A^{-1})(A^{-1}\circ B\circ A^{-1})}
-and 
+and
 \eq{d^{2}\~F(B,B)&=2\~F^{3}\br{dF(A^{-1}\circ B\circ A^{-1})}^{2}\\
 			&\hp{=}-\~F^{2}d^{2}F(A^{-1}\circ B\circ A^{-1})(A^{-1}\circ B\circ A^{-1})\\
 			&\hp{=}-2\~F^{2}dF(A^{-1}\circ B\circ A^{-1}\circ B\circ A^{-1}),}
@@ -482,7 +527,7 @@ for all $g$-selfadjoint $\eta$.
 {\example{
 Define
 \[\Gamma_k:=\{\k\in \R^{n}; s_1(\k)>0,\cdots, s_{k}(\k)>0\}.\]
-Then 
+Then
 \begin{enumerate}
   \item \[s_{1}(\k)=H_{1}(A)=\mrm{Tr}(A)\]
   is strictly monotone and inverse concave on $\G_{1}.$
@@ -496,7 +541,7 @@ q_k&:\Gamma_k\to \R\\
 q_k&=\fr{s_k}{s_{k-1}}
 \end{align*}
 are monotone and concave; see \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]{HuiskenSinestrari:09/1999}. Furthermore they are inverse concave, cf. \cite[Cor.~2.4, Thm.~2.6]{Andrews:/2007}.
-\end{enumerate} 
+\end{enumerate}
 }}
 
 \subsubsection*{Curvature functions}
@@ -504,7 +549,7 @@ are monotone and concave; see \cite[Cor.~5.3]{Andrews:/2007} and \cite[Thm.~2.5]
 It is easy to transfer these notions to the bundle $T^{1,1}(M)$ of a smooth manifold $M$.
 
 \begin{defn}
-Let $M$ be a smooth manifold and let $\O\sub T^{1,1}(M)$ be open. A function $F\in C^{\8}(\O)$ is called {\it{curvature function}}, if two conditions are satisfied: 
+Let $M$ be a smooth manifold and let $\O\sub T^{1,1}(M)$ be open. A function $F\in C^{\8}(\O)$ is called {\it{curvature function}}, if two conditions are satisfied:
 \begin{itemize}
 \item[(i)] for all $X\in T^{1,1}(M)$ there holds
 \[dF(X)v=0\]
@@ -512,7 +557,7 @@ for all tangent vectors $v\in T^{1,0}_{\pr(X)}(M)$, where $\pr\cn T^{1,1}(M)\ra 
 
 \item[(ii)] There exists a symmetric function $\Phi\in C^{\8}(\G_{+})$, such that for each $x\in M$, the function $F$ restricted to the fibre at $x$ is the associated operator function of $\Phi$.
 
-\item[(iii)] A curvature function $F$ is called to have the properties from \cref{PropSymm}, if $\Phi$ has the corresponding properties. 
+\item[(iii)] A curvature function $F$ is called to have the properties from \cref{PropSymm}, if $\Phi$ has the corresponding properties.
 \end{itemize}
 \end{defn}
 
@@ -786,6 +831,11 @@ The second fundamental forms of $M,$ $\~M$ and the corresponding principal curva
 We point out that $\tilde{M}$ is called the polar set to $M$ and it has the following elegant representation:
 $$\tilde{M}=\{y\in \mathbb{S}^{n+1}: \sup_{y\in M}\langle x,y\rangle=0\};$$
 see \cite[Thm.~9.2.9]{Gerhardt:/2006}.
+
+The following illustration shall give a clearer picture of the duality:
+
+\includegraphics[width=\textwidth]{spherical_gaussmap}
+
 \subsection{Duality between hyperbolic space and de Sitter space} In this section, $\langle \cdot,\cdot\rangle$ denotes the inner product of $\mathbb{R}^{n+1,1}.$
 The de Sitter space is the Lorentzian spaceform in the Minkowski space with constant sectional curvature $C=1:$
 \eq{\mathbb{S}^{n,1}=\{x\in\mathbb{R}^{n+1,1}: \langle x,x\rangle=1 \},}
@@ -824,8 +874,9 @@ Let $\~g_{ij},$ $\~h_{ij}$ be the metric and the second fundamental form of $M$,
 \eq{\~\k_{i}=\k_{i}^{-1},}
 where $\k_{i}$, $\~\k_{i}$ are the corresponding principal curvatures.
 }
-The following illustration shall give a clearer picture of the duality.
-{\color{red}Include graphics}
+The following illustration shall give a clearer picture of the duality:
+
+\includegraphics[width=\textwidth]{gaussmap}
 \subsection{Dual flows}
 We want to deduce the corresponding duality relation for flows of strictly convex hypersurfaces in $\S^{n+1}$, as well as in $\H^{n+1}$ and $\S^{n,1}.$ A similar deduction of these results can be found in \cite[Sec.~4]{Gerhardt:/2015} and \cite{Yu:04/2016}.
 For a curvature flow
@@ -921,8 +972,9 @@ Having established the previous lemma, we can now prove various Harnack inequali
 %\section{Euclidean and Minkowski space}
 In the case that the ambient curvature vanishes, we obtain the following Harnack inequalities for anisotropic flows claimed in Theorem \ref{Euclidean}. In particular, the theorem includes and extend the well-known Harnack inequalities from \cite{Andrews:09/1994} in the Euclidean space and they are completely new in the Minkowski space.
 \Theo{thm}{R=0}{
-Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\psi$ satisfy the assumptions of \cref{Euclidean}. Then along \eqref{Flow} there holds
-\eq{tu+\fr{p}{p+1}\geq 0.}
+Let $N$ be either the Euclidean or the Minkowski space and let $F$, $\p$ and $\psi$ satisfy the assumptions of \cref{Euclidean}. Then along \eqref{Flow}, if $p>0$ there holds
+\eq{tu+\fr{p}{p+1}\geq 0}
+and if $p<0$ the inequality is reversed.
 }
 \pf{Apply \eqref{Ev-q} with $\beta=0$ to obtain that $q$ satisfies
 \eq{\mc{L}q\geq \fr{2\s}{p}\fr{\p'}{\p}fq-\fr{2\s}{p+1}\fr{\p'}{\p}f+\fr{p+1}{p}uq}
@@ -971,8 +1023,8 @@ The dual flow of \eqref{DualHyperbolic} with speed
 satisfies the assumptions of \cref{Sphere}, which in particular implies
 \eq{\del_t\br{\Phi t^{\fr{-p}{-p+1}}}\geq 0.}
 }
-\subsection*{de Sitter space}
-For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature, the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the de Sitter space of constant sectional curvature $K_{N}=1$ we obtain a similar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumption for flow in the de Sitter space.
+\subsection*{De Sitter space}
+For flows of spacelike hypersurfaces in Lorentzian manifolds of nonvanishing curvature, the second line of \eqref{Ev-q} can behave rather differently, since $\nu$ is timelike. Hence, in the de Sitter space of constant sectional curvature $K_{N}=1$ we obtain a similar result as in the sphere, but only for flow with principal curvatures bounded be $1$. This is equivalent to convexity by horospheres for the dual hypersurfaces in the hyperbolic space and hence seems to be a natural assumption for flows in the de Sitter space.
 \Theo{thm}{DeSitter}{
 Let $N=\mathbb{S}^{n,1}$ and $F$ be a monotone, convex and $1$-homogeneous curvature function. Let $0<p\leq 1$ and set $f=F^p$. Then for any solution $x$ of \eqref{Flow} that the condition $0<\kappa_i\leq 1$ is always satisfied on $[0,T^{\ast})$ there holds
 \eq{tu+\fr{p}{p+1}\geq 0.}

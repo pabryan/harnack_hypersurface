@@ -158,6 +158,8 @@ of the form \eqref{DiffHarnack} actually has to do with the we well known Moser-
 the normal speed $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality, a fact not often expressed explicitly and described here by the next theorem.
 
 \begin{thm}
+\label{thm:moser_liyauhamilton}
+
 Let $\tilde{x}$ be a solution of the standard flow, \eqref{FlowStandard}, and let $q(t)$ be a measurable function. Then
 \begin{equation}
 \label{eq:liyauhamilton_harnack}
@@ -206,16 +208,20 @@ if and only if
 The last two statements follow immediately from the first taking those particular choices of $q(t)$.
 
 Now, let $X$ be an arbitrary tangent vector to $M$. Note that
-\[\tilde{h}(\grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X, \grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X)\geq 0.\]
-Therefore,
 \[
-\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) + \frac{1}{4} \tilde{h}(X, X) \geq - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f}).
+\tilde{h}(\grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X, \grad_{\tilde{h}} \tilde{f} + \frac{1}{2}X)\geq 0.
 \]
-Equality holds whenever $X=-2\grad_{\tilde{h}} \tilde{f}.$
-Hence the Li-Yau-Hamilton differential inequality \eqref{eq:liyauhamilton_harnack} holds if and only if, for all $X$,
+Therefore,
+\begin{equation}
+\label{eq:CauchySchwarzPolarisation}
+\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) + \frac{1}{4} \tilde{h}(X, X) \geq - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f}).
+\end{equation}
+with equality precisely when $X=-2\grad_{\tilde{h}} \tilde{f}.$
+
+Hence the Li-Yau-Hamilton differential inequality \eqref{eq:liyauhamilton_harnack} holds if and only if,
 \begin{equation}
 \label{eq:standard_harnack_all_vectors}
-\frac{\partial_t \tilde{f} + \tilde{h}(\grad_{\tilde{h}} \tilde{f}, X)+ \frac{1}{4} \tilde{h}(X, X)}{\tilde{f}} \geq - q(t),
+\forall X \quad \frac{\partial_t \tilde{f} + \tilde{h}(\grad_{\tilde{h}} \tilde{f}, X)+ \frac{1}{4} \tilde{h}(X, X)}{\tilde{f}} \geq - q(t),
 \end{equation}
 or with the opposite inequality in the case $\tilde{f} < 0$.
 
@@ -255,7 +261,7 @@ Conversely, if the Moser parabolic Harnack \eqref{eq:moser_harnack} holds, then 
 with the opposite sign when $\tilde{f} < 0$. Taking logarithms,
 \[
 \begin{split}
-\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt &\geq -\int_{t_1}^{t_2} q(t) - \Delta/4 \\
+\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \gamma')}{\tilde{f}} dt &\geq -\int_{t_1}^{t_2} q(t) dt - \Delta/4 \\
 &\geq - \int_{t_1}^{t_2} q(t) dt -  \frac{1}{4} \int_{t_1}^{t_2} \frac{1}{\tilde{f}} \tilde{h}(\gamma', \gamma') dt
 \end{split}
 \]

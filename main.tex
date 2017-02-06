@@ -155,7 +155,7 @@ In \cite{ChowHamilton:/2004}, Chow and Hamilton introduced an interesting fully 
 \label{subsec:reparam}
 In order to describe what a differential Harnack inequality
 of the form \eqref{DiffHarnack} actually has to do with the we well known Moser-type Harnack inequalities, note that
-the normal speed $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality, a fact not often expressed explicitly and described here by the next theorem.
+the normal speed $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality, a fact not often exressed explicitly and described here by the next theorem. All the Harnack inequalities described in the above theorems are all of Li-Yau-Hamilton type \eqref{eq:liyauhamilton_harnack} and hence we obtain a Moser parabolic Harnack inequality \eqref{eq:moser_harnack} in all those cases. Note the sign reversal in the case $\tilde{f} < 0$ arises from multiplying by $1/\tilde{f}$ in those theorems.
 
 \begin{thm}
 \label{thm:moser_liyauhamilton}
@@ -267,6 +267,39 @@ with the opposite sign when $\tilde{f} < 0$. Taking logarithms,
 \]
 for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwise which is precisely equation \eqref{eq:standard_harnack_all_vectors}.
 \end{proof}
+
+\begin{rem}
+\label{rem:reparam}
+Recall equation \eqref{eq:change_param} relating $f$ and $\tilde{f}$ which shows that in order to prove the Li-Yau-Hamilton differential inequality
+\[
+\tag{\ref{eq:liyauhamilton_harnack} (revisited)}
+\frac{\partial_t\tilde{f} - \tilde{h}(\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})}{\tilde{f}} \geq -q(t)
+\]
+it suffices to prove
+\begin{equation}
+\label{eq:harnackparam_liyauhamilton}
+\frac{\partial_t f}{f} \geq -q(t)
+\end{equation}
+in the Harnack parametrisation which is precisely the method we employ in this paper. \Cref{thm:moser_liyauhamilton} then shows that inequality \eqref{eq:harnackparam_liyauhamilton} is equivalent to the Moser parabolic Harnack \eqref{eq:moser_harnack}. In fact, the theorem explains rather more than that - it also helps explain why the chosen reparametrisation works.
+
+To ease notation, let us assume $\tilde{f} > 0$ though the same ideas work in the case $\tilde{f} < 0$. The proof of the theorem, particularly equation \eqref{eq:exponential_harnack} shows that in order to obtain a Moser parabolic Harnack equality of the form,
+\[
+\tilde{f}(x_1, t_1) \leq C(x_1, x_2, t_1, t_2) \tilde{f}(x_2, t_2)
+\]
+and with the optimal choice of $C$, we need the optimal integral inequality,
+\[
+\int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + d\tilde{f} \cdot \gamma'}{\tilde{f}} dt \geq - \ln C.
+\]
+
+The polarization inequality \eqref{eq:CauchySchwarzPolarisation}, immediately leads us to seek a pointwise bound on $\tilde{u} = \partial_t \tilde{f} - \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})$ and that the optimal $C$ will include the term $\Delta$. The form of $q(t)$ is then deduced from the maximum principle applied to $\tilde{u}$. Computing the evolution of $\tilde{u}$ was indeed the approach taken initially in \cite{Hamilton:/1995,Chow:/1985} and is quite involved.
+
+Instead, as the equality case occurrs precisely for $X = -2 \grad_{\tilde{h}} f$, the path of steepest descent of $d\tilde{f} \cdot X$ (and hence $\tilde{u}$), with respect to $\tilde{h}$ occurs in the direction $X = - \grad_{\tilde{h}} \tilde{f}$. Here we see taking the gradient $\grad_{\tilde{h}} \tilde{f}$ with respect to $\tilde{h}$ (as opposed to the seemingly more natural $\tilde{g}$) is quite important in obtaining sharp results. Thus, $d\tilde{f} \cdot X$ decreases most rapidly along the integral curves $\gamma(t) = s_t$ of $-\grad_{\tilde{h}} \tilde{f}$ leading directly to the choice of reparametrisation,
+\[
+x(\xi, t) = \tilde{x}(s_t(\xi), t)
+\]
+which now evolves by the flow \eqref{Flow} if $\tilde{x}$ evolves by the standard flow \eqref{FlowStandard} since $\partial_t s_t (\xi)= - \grad_{\tilde{h}} \tilde{f} (s_t(\xi), t) = - \grad_{h} f (\xi, t)$. The reparametrisation, being optimal for the Harnack, yeilds the best possible computational approach as described in this paper by computing the evolution of $u = \partial_t f/f$.
+\end{rem}
+
 \section*{Acknowledgment}
 The work of the first author was supported  in part by the EPSRC on a Programme Grant entitled ``Singularities of Geometric Partial Differential Equations'' reference number EP/K00865X/1. The work of the second author was supported by Austrian Science Fund (FWF) Project
 M1716-N25 and the European Research Council (ERC) Project 306445. The work of the third author has been supported by the "Deutsche Forschungsgemeinschaft" (DFG) within the research grant "Harnack inequalities for curvature flows and applications".

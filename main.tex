@@ -40,7 +40,7 @@ Let $(N=N^{n+1},\bar{g})$ be a Riemannian or Lorentzian manifold and let $M=M^{n
 
 Let
 $x\cn M\x[0,T^{\ast})\ra N$
-be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolve by the curvature flow
+be a family of strictly convex spacelike embeddings (the term ``spacelike'' in the Riemannian case should be ignored), which evolves by the curvature flow
 \eq{\label{Flow}\dot{x}=-\s f\nu-x_{\ast}(\operatorname{grad}_hf),}
 where $\nu$ is a unit normal vector field along $M_{t}=x(M,t)$ (which satisfies $\s=\bar{g}(\nu,\nu)$ from the spacelike condition), and with $\operatorname{grad}_hf$ defined by
 \[
@@ -50,7 +50,7 @@ or in coordinates,
 \[\operatorname{grad}_hf=b^{ij}df(\partial_j)\partial_i.\]
 Here $(b^{ij})$ is the inverse of the second fundamental form $(h_{ij})$. The speed $f$ is a smooth, monotone function of the principal curvatures.
 
-Let \(r:M\times [0,T^{\ast})\to M\), be the one-parameter family of diffeomorphisms associated to $\grad_h f$; that is $r(\cdot,0)=\operatorname{id}$ and $\dot{r}=\operatorname{grad}_hf$. If $M$ is compact, then for each $t \in [0, T^{\ast})$ $r_t : M \to M$ is uniquely defined and a diffeomorphism. If $M$ is co-compact so that $M/G$ is compact where $G$ is a Lie Group acting on $M$, and the flow $x_t$ is invariant under $G$, again $r_t$ is a uniquely defined diffemorphism for each $t \in [0, T^{\ast})$. Defining $\tilde{x} (\xi, t) := x (r(\xi,t), t)$, $\tilde{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\tilde{f}(\xi,t):=f(\tilde{W} (\xi, t))$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
+Let \(r:M\times [0,T^{\ast})\to M\) be the one-parameter family of diffeomorphisms associated with $\grad_h f$; that is $r(\cdot,0)=\operatorname{id}$ and $\dot{r}=\operatorname{grad}_hf$. If $M$ is compact, then for each $t \in [0, T^{\ast})$ $r_t : M \to M$ is uniquely defined and a diffeomorphism. If $M$ is co-compact so that $M/G$ is compact where $G$ is a Lie Group acting on $M$, and the flow $x_t$ is invariant under $G$, again $r_t$ is a uniquely defined diffemorphism for each $t \in [0, T^{\ast})$. Defining $\tilde{x} (\xi, t) := x (r(\xi,t), t)$, $\tilde{\nu} (\xi, t) :=\nu (r(\xi,t), t)$ and $\tilde{f}(\xi,t):=f(r(\xi,t), t)$, we see that the flow \eqref{Flow} is equivalent to the curvature flow
 \eq{\label{FlowStandard}
 \tilde{x}&:M\times [0,T^{\ast})\to N\\
 \dot{\tilde{x}} &= -\s \tilde{f} \tilde{\nu}.}

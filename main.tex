@@ -151,8 +151,8 @@ The term pseudo-Harnack reflects the fact that the inequality in \Cref{pseudo Ha
 \subsubsection*{Connection to XCF}
 In \cite{ChowHamilton:/2004}, Chow and Hamilton introduced an interesting fully nonlinear heat flow for negatively (or positively) curved metrics on a 3-manifold, called the ``cross curvature flow'' (in short ``XCF"). This nonlinear curvature flow of metrics is dual to the Ricci flow in the following sense. The identity map from a Riemannian 3-manifold to itself, where the domain manifold has the cross curvature tensor as the metric (assuming the sectional curvature is either everywhere negative or everywhere positive), is harmonic, while the identity map from a Riemannian 3-manifold to itself, where the target manifold has the  Ricci curvature tensor as the metric (assuming the Ricci curvature is either everywhere negative or everywhere positive), is harmonic. Chow and Hamilton prove a monotonicity formula for XCF and give strong indications that the XCF should deform any negatively curved metric on a compact 3-manifold to a hyperbolic metric, modulo scaling. Also, they express strong hopes that the XCF should enjoy a Harnack inequality. Recently, it is appeared in \cite{AndrewsChenFangMcCoy:/2015} that if the universal cover of the initial 3-manifold is isometrically embeddable as a hypersurface in Minkowski 4-space (or Euclidean 4-space), then the Gauss curvature flow of the hypersurface yields the cross curvature flow of the induced metric. When, also, the manifold is closed, the global existence and convergence hold \cite{AndrewsChenFangMcCoy:/2015}. In that case, it is a corollary of Theorem \ref{Euclidean} that indeed a Harnack estimate for XCF exists; see inequality (\ref{cross harnack}).
 
-\subsubsection*{The Harnack, Solitons and Reparametrization}
-\label{subsec:reparam}
+\subsubsection*{Moser parabolic Harnack Inequality}
+
 In order to describe what a differential Harnack inequality
 of the form \eqref{DiffHarnack} actually has to do with the we well known Moser-type Harnack inequalities, note that
 the normal speed $f$ of the flow evolves by a parabolic equation, and as such a parabolic Harnack inequality as derived by Moser \cite{Moser:02/1964} is expected. As initially described by Li and Yau \cite{LiYau:/1986} and later adapted by Hamilton in the case of curvature flows \cite{Hamilton:/1986,Hamilton:/1993,Hamilton:/1995}, integrating along space-time paths yields a the Moser parabolic Harnack inequality. In fact, the Li-Yau-Hamilton type differential inequality is equivalent to the Moser parabolic Harnack inequality, a fact not often exressed explicitly and described here by the next theorem. All the Harnack inequalities described in the above theorems are all of Li-Yau-Hamilton type \eqref{eq:liyauhamilton_harnack} and hence we obtain a Moser parabolic Harnack inequality \eqref{eq:moser_harnack} in all those cases. Note the sign reversal in the case $\tilde{f} < 0$ arises from multiplying by $1/\tilde{f}$ in those theorems.
@@ -268,7 +268,100 @@ with the opposite sign when $\tilde{f} < 0$. Taking logarithms,
 for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwise which is precisely equation \eqref{eq:standard_harnack_all_vectors}.
 \end{proof}
 
-\begin{rem}
+\subsubsection*{Solitons}
+
+The Harnack inequality is closely related to solitons in that expanding solitons achieve equality, at least for flows in flat backgrounds. Other backgrounds do not have sufficiently many isometries to provide symmetries of the flow. For the purposes of this discussion it is enough to consider Euclidean space $(N, \bar{g}) = (\R^{n+1}, \ip{\cdot}{\cdot})$, homothetic solitons, and degree $p$ homogeneous speeds $F$.
+
+A homothetic soliton is a solution, $\tilde{x}$ of the standard flow \eqref{FlowStandard} such that the image $\tilde{M}_t = \tilde{x}_t (M) = \lambda(t) \tilde{M}_0$ for some smooth, positive function $\lambda(t)$ of time with $\lambda(0) = 1$. In other words, a soliton is a solution of the flow such that $\tilde{M}_t$ is given by a smooth family of homothetic scalings of the initial hypersurface, $\tilde{M}_0$. Letting $x(\xi, t) = \lambda(t) \tilde{x}_0(t)$ we have $M_t = x_t(M) = \lambda(t) \tilde{M}_0 = \tilde{M}_t$ and also $x_0 = \tilde{x}_0$. Thus $x_t$ and $\tilde{x}_t$ are both smooth parametrisations of $\tilde{M}_t$, varying smoothly in $t$, and hence there exists a smooth, one-parameter family of diffeomorphisms $r_t : M \to M$ such that,
+\[
+\tilde{x}(\xi, t) = x(r_t(\xi), t) = \lambda(t) x_0(r_t(\xi)).
+\]
+
+Since $\tilde{x}$ is a solution of the flow \eqref{Flow} we thus have,
+\[
+\begin{split}
+-f(\tilde{W}_t) \tilde{\nu}_t (\xi, t) &= \partial_t \lambda (t) x_0 (r_t(\xi)) + \lambda(t) dx_0(r_t(\xi)) \cdot \partial_t r_t (\xi) \\
+&= \frac{\partial_t \lambda}{\lambda} (t) \tilde{x} (\xi, t) + \lambda(t) dx_0(r_t(\xi)) \cdot \partial_t r_t (\xi).
+\end{split}
+\]
+and hence,
+\begin{equation}
+\label{eq:soliton_normal}
+f(\tilde{W}_t) = -\frac{\partial_t \lambda}{\lambda} \ip{\tilde{x}}{\tilde{\nu}}.
+\end{equation}
+In particular, letting $C_0 = -\partial_t \lambda (0) = -\partial_t \lambda (0)/\lambda(0)$, we have,
+\begin{equation}
+\label{eq:soliton_initial_immersion}
+f(W_0) = C_0 \ip{x_0}{\nu_0}.
+\end{equation}
+
+Let us write, $r_t^{\ast} X (\xi) = X(r_t(\xi))$ for the pull-back of a tangent vector by $r_t$ which is well defined since $r_t$ is a diffeomorphism. The pull-back, $r_t^{\ast} dx_0 (\xi) = dx_0(r_t(\xi))$ is of course well-defined for the $TN$-valued one form $dx_0$. By the usual abuse of notation, we shall also write $x_t$ for the position vector at $x_t$ and $x_t^T = x_t - \ip{x_t}{\nu_t} \nu_t$ for the tangential part, and similarly for $\tilde{x}_t$ and $x_0$. Then for the tangential part, we have
+\begin{equation}
+\label{eq:soliton_tang}
+r_t^{\ast} dx_0 \cdot \partial_t r_t = - \frac{\partial_t \lambda}{\lambda} r_t^{\ast} x_0^T
+\end{equation}
+
+Thus $r_t$ is the flow of the time-dependent vector field,
+\begin{equation}
+\label{eq:tangential_vector}
+V_t = -(r_t)_{\ast} \left(\frac{\partial_t \lambda}{\lambda} x_0^T\right).
+\end{equation}
+
+To compute $x_0^{T}$, we differentiate \eqref{eq:soliton_initial_immersion} to obtain,
+\[
+df \cdot X = C_0 \ip{x_0}{W_0(X)} = C_0 \ip{x_0^T}{W_0(X)} = C_0 h_0(x_0^T, X).
+\]
+Therefore,
+\begin{equation}
+\label{eq:soliton_tangential}
+x_0^T = \frac{1}{C_0} \grad_{h_0} f.
+\end{equation}
+
+Now, simple scaling arguments give,
+\begin{align*}
+\tilde{W}_t &= \frac{1}{\lambda} r_t^{\ast} W_0, \\
+\tilde{\nu}_t &= r_t^{\ast} \nu_0 \\
+\tilde{x}_t &= \lambda r_t^{\ast} x_0.
+\end{align*}
+We also have
+\begin{align*}
+\tilde{g}_t &= \lambda^2 r_t^{\ast} g_0, \\
+\tilde{h}_t &= \lambda r_t^{\ast} h_0,
+\end{align*}
+though we don't need these relations right now.
+
+Using the scaling and equations \eqref{eq:soliton_normal} and \eqref{eq:soliton_tang} we find,
+\[
+\begin{cases}
+\partial_t r \ip{\tilde{x}_0}{\nu_0} &= -r^{-p} f(W_0) \\
+r(0) &= 1
+\end{cases}
+\]
+whence,
+\begin{equation}
+\label{eq:soliton}
+r(t) = \left(1 - (p + 1) t\right)^{1/(p+1)}, \quad f(W_0) = \ip{x_0}{\nu_0}
+\end{equation}
+
+Conversely, suppose the pair $(r, x_0)$ satisfies equation \eqref{eq:soliton}; more generally we may allow $f(W_0) = \ip{x_0}{\nu_0}$,then there is a one-parameter family of diffeomorphisms $r_t : M \to M$ such that $\tilde{x}(\xi, t) = r(t) x_0(r_t(\xi))$ is a soliton. In this case,  let $x(\xi, t) = r(t) x_0(\xi)$ so that we have $\tilde{x}(\xi, t) = x(r_t(\xi), t)$. Clearly $\tilde{M}_t = r(t) M_0$, and to ensure that $\tilde{x}$ is a solution to the flow \eqref{Flow}, we choose $r_t$ such that $\partial_t r_t (\xi) = - x_t^T (r_t(\xi), t)$.
+
+This latter observation leads directly to our choice of parametrisation and the reparametrised flow \eqref{Flow}: since $x_t = r(t) x_0$ and $\nu_t = \nu_0$, we have
+\[
+\ip{x_t}{\nu_t} = r(t) \ip{x_0}{\nu_0},
+\]
+and hence also
+\[
+x_t^{T} = r(t) x_0^{T}
+\]
+where the superscript $T$ denotes the tangential component. 
+
+Then Equations \eqref{eq:soliton_param} and \eqref{eq:soliton_tangential} imply,
+\[
+\partial_t F_t = \partial_t r(t) \left(- f\nu - C_0 \grad_{h_0} f\right).
+\]
+
+\subsubsection*{Reparametrization and the Optimal Harnack}
+
 \label{rem:reparam}
 Recall equation \eqref{eq:change_param} relating $f$ and $\tilde{f}$ which shows that in order to prove the Li-Yau-Hamilton differential inequality
 \[
@@ -298,7 +391,6 @@ Instead, as the equality case occurrs precisely for $X = -2 \grad_{\tilde{h}} f$
 x(\xi, t) = \tilde{x}(s_t(\xi), t)
 \]
 which now evolves by the flow \eqref{Flow} if $\tilde{x}$ evolves by the standard flow \eqref{FlowStandard} since $\partial_t s_t (\xi)= - \grad_{\tilde{h}} \tilde{f} (s_t(\xi), t) = - \grad_{h} f (\xi, t)$. The reparametrisation, being optimal for the Harnack, yeilds the best possible computational approach as described in this paper by computing the evolution of $u = \partial_t f/f$.
-\end{rem}
 
 \section*{Acknowledgment}
 The work of the first author was supported  in part by the EPSRC on a Programme Grant entitled ``Singularities of Geometric Partial Differential Equations'' reference number EP/K00865X/1. The work of the second author was supported by Austrian Science Fund (FWF) Project

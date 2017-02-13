@@ -276,24 +276,24 @@ A homothetic soliton may be described as a pair $(x_0, \lambda)$ with $x_0 : M \
 \begin{equation}
 \label{eq:soliton}
 \begin{cases}
-\tilde{x}(\xi, t) &= \lambda(t) x_0(t) \\
+x(\xi, t) &= \lambda(t) x_0(t) \\
 \lambda(0) &= 1 \\
-\ip{\partial_t \tilde{x}}{\nu} &= -f(\tilde{W}).
+\ip{\partial_t x}{\nu} &= -f(W).
 \end{cases}
 \end{equation}
 Simple scaling arguments give,
 \begin{equation}
 \label{eq:scaling}
 \begin{cases}
-\tilde{g} &= \lambda^2 g_0 \\
-\tilde{h} &= \lambda h_0 \\
-\tilde{W} &= \frac{1}{\lambda} W_0 \\
-\tilde{\nu} &= \nu_0 \\
-\tilde{f} &= \frac{1}{\lambda^p} f_0 \\
-\tilde{x}^T &= \lambda x_0^T.
+g &= \lambda^2 g_0 \\
+h &= \lambda h_0 \\
+W &= \frac{1}{\lambda} W_0 \\
+\nu &= \nu_0 \\
+f &= \frac{1}{\lambda^p} f_0 \\
+x^T &= \lambda x_0^T.
 \end{cases}
 \end{equation}
-Here we think of $\tilde{f}(\xi, t) = f(W(\xi, t))$ as a smooth function $M \to \R$ and likewise for $f_0$. We also, by the usual abuse of notation, write $\tilde{x}$ for the position vector field in $\R^{n+1}$ at the point $\tilde{x}$ and denote the tangential component,
+Here we think of $f(\xi, t) = f(W(\xi, t))$ as a smooth function $M \to \R$ and likewise for $f_0$. We also, by the usual abuse of notation, write $x$ for the position vector field in $\R^{n+1}$ at the point $x$ and denote the tangential component,
 \[
 Z^T = Z - \ip{Z}{\nu} \nu
 \]
@@ -320,7 +320,7 @@ where $C_0$ is a constant. This equation is necessary and sufficient for homothe
 Now, from equation \eqref{eq:soliton} we may write
 \begin{equation}
 \label{eq:soliton_ev_prelim}
-\partial_t \tilde{x} = -f(\tilde{W})\nu + (\partial_t \tilde{x})^T = - f(\tilde{W}) \nu + (\partial_t \lambda) x_0^T.
+\partial_t x = -f(W)\nu + (\partial_t x)^T = - f(W) \nu + (\partial_t \lambda) x_0^T.
 \end{equation}
 Then using equation \eqref{eq:soliton_equations} we can compute $x_0^T$ as follows:
 \[
@@ -336,27 +336,27 @@ x_0^T = \frac{1}{C_0} \grad_{h_0} f_0.
 \]
 To write the right hand side in terms of $f$, by the scaling in equation \eqref{eq:scaling} we see that
 \[
-\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) = df(X) = \frac{1}{\lambda^p} df_0 (X) = \frac{1}{\lambda^p} h_0(\grad_{h_0} f_0, X) = \tilde{h}\left(\frac{1}{\lambda^{p+1}} \grad_{h_0} f_0, X\right)
+h(\grad_{h} f, X) = df(X) = \frac{1}{\lambda^p} df_0 (X) = \frac{1}{\lambda^p} h_0(\grad_{h_0} f_0, X) = h\left(\frac{1}{\lambda^{p+1}} \grad_{h_0} f_0, X\right)
 \]
 and hence
 \[
-\grad_{\tilde{h}} \tilde{f} = \frac{1}{\lambda^{p+1}} \grad_{h_0} f_0
+\grad_{h} f = \frac{1}{\lambda^{p+1}} \grad_{h_0} f_0
 \]
 Therefore,
 \[
-x_0^T = \frac{1}{C_0} \lambda^{p+1} \grad_{\tilde{h}} \tilde{f} .
+x_0^T = \frac{1}{C_0} \lambda^{p+1} \grad_{h} f .
 \]
 Substitution into \eqref{eq:soliton_ev_prelim} yields,
 \begin{equation}
 \label{eq:soliton_ev}
 \begin{split}
-\partial_t \tilde{x} &= -f(\tilde{W})\tilde{\nu} + (\partial_t \tilde{x})^T = - f(\tilde{W}) \tilde{\nu} + \frac{1}{C_0} (\partial_t \lambda) \lambda^{p+1} \grad_{\tilde{h}} \tilde{f} \\
-&= - f(\tilde{W}) \tilde{\nu} - \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{\tilde{h}} \tilde{f}
+\partial_t x &= -f(W)\nu + (\partial_t x)^T = - f(W) \nu + \frac{1}{C_0} (\partial_t \lambda) \lambda^{p+1} \grad_{h} f \\
+&= - f(W) \nu - \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{h} f
 \end{split}
 \end{equation}
-recalling equation \eqref{eq:dt_lambda}. Thus we see that up to the factor $\sqrt[p+1]{1 - (p+1)C_0 t}$, the homothetic soliton parametrisation, $\tilde{x}(\xi, t) = \lambda(t) x_0(\xi)$ evolves by the reparametrised flow \eqref{Flow}. Defining $r_t$ to satisfy $\partial_t r_t = \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{\tilde{h}} \tilde{f}$ we obtain the standard parametrisation,
+recalling equation \eqref{eq:dt_lambda}. Thus we see that up to the factor $\sqrt[p+1]{1 - (p+1)C_0 t}$, the homothetic soliton parametrisation, $x(\xi, t) = \lambda(t) x_0(\xi)$ evolves by the reparametrised flow \eqref{Flow}. Defining $r_t$ to satisfy $\partial_t r_t = \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{h} f$ we obtain the standard parametrisation,
 \[
-x(\xi, t) = \tilde{x}(r_t(\xi), t)
+\tilde{x}(\xi, t) = x(r_t(\xi), t)
 \]
 evolves by the standard flow \eqref{FlowStandard}.
 

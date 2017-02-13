@@ -270,95 +270,95 @@ for every $x_1, x_2$, $t_1, t_2$ and $\gamma$. Then the inequality holds pointwi
 
 \subsubsection*{Solitons}
 
-The Harnack inequality is closely related to solitons in that expanding solitons achieve equality, at least for flows in flat backgrounds. Other backgrounds do not have sufficiently many isometries to provide symmetries of the flow. For the purposes of this discussion it is enough to consider Euclidean space $(N, \bar{g}) = (\R^{n+1}, \ip{\cdot}{\cdot})$, homothetic solitons, and degree $p$ homogeneous speeds $F$.
+The Harnack inequality is closely related to solitons in that expanding solitons achieve equality, at least for flows in flat backgrounds. Other backgrounds do not have sufficiently many isometries to provide symmetries of the flow. For the purposes of this discussion it is enough to consider Euclidean space $(N, \bar{g}) = (\R^{n+1}, \ip{\cdot}{\cdot})$, homothetic solitons, and degree $p$ homogeneous speeds $F$. Similar arguments also apply to Minkowski space.
 
-A homothetic soliton is a solution, $\tilde{x}$ of the standard flow \eqref{FlowStandard} such that the image $\tilde{M}_t = \tilde{x}_t (M) = \lambda(t) \tilde{M}_0$ for some smooth, positive function $\lambda(t)$ of time with $\lambda(0) = 1$. In other words, a soliton is a solution of the flow such that $\tilde{M}_t$ is given by a smooth family of homothetic scalings of the initial hypersurface, $\tilde{M}_0$. Letting $x(\xi, t) = \lambda(t) \tilde{x}_0(t)$ we have $M_t = x_t(M) = \lambda(t) \tilde{M}_0 = \tilde{M}_t$ and also $x_0 = \tilde{x}_0$. Thus $x_t$ and $\tilde{x}_t$ are both smooth parametrisations of $\tilde{M}_t$, varying smoothly in $t$, and hence there exists a smooth, one-parameter family of diffeomorphisms $r_t : M \to M$ such that,
-\[
-\tilde{x}(\xi, t) = x(r_t(\xi), t) = \lambda(t) x_0(r_t(\xi)).
-\]
-
-Since $\tilde{x}$ is a solution of the flow \eqref{Flow} we thus have,
-\[
-\begin{split}
--f(\tilde{W}_t) \tilde{\nu}_t (\xi, t) &= \partial_t \lambda (t) x_0 (r_t(\xi)) + \lambda(t) dx_0(r_t(\xi)) \cdot \partial_t r_t (\xi) \\
-&= \frac{\partial_t \lambda}{\lambda} (t) \tilde{x} (\xi, t) + \lambda(t) dx_0(r_t(\xi)) \cdot \partial_t r_t (\xi).
-\end{split}
-\]
-and hence,
-\begin{equation}
-\label{eq:soliton_normal}
-f(\tilde{W}_t) = -\frac{\partial_t \lambda}{\lambda} \ip{\tilde{x}}{\tilde{\nu}}.
-\end{equation}
-In particular, letting $C_0 = -\partial_t \lambda (0) = -\partial_t \lambda (0)/\lambda(0)$, we have,
-\begin{equation}
-\label{eq:soliton_initial_immersion}
-f(W_0) = C_0 \ip{x_0}{\nu_0}.
-\end{equation}
-
-Let us write, $r_t^{\ast} X (\xi) = X(r_t(\xi))$ for the pull-back of a tangent vector by $r_t$ which is well defined since $r_t$ is a diffeomorphism. The pull-back, $r_t^{\ast} dx_0 (\xi) = dx_0(r_t(\xi))$ is of course well-defined for the $TN$-valued one form $dx_0$. By the usual abuse of notation, we shall also write $x_t$ for the position vector at $x_t$ and $x_t^T = x_t - \ip{x_t}{\nu_t} \nu_t$ for the tangential part, and similarly for $\tilde{x}_t$ and $x_0$. Then for the tangential part, we have
-\begin{equation}
-\label{eq:soliton_tang}
-r_t^{\ast} dx_0 \cdot \partial_t r_t = - \frac{\partial_t \lambda}{\lambda} r_t^{\ast} x_0^T
-\end{equation}
-
-Thus $r_t$ is the flow of the time-dependent vector field,
-\begin{equation}
-\label{eq:tangential_vector}
-V_t = -(r_t)_{\ast} \left(\frac{\partial_t \lambda}{\lambda} x_0^T\right).
-\end{equation}
-
-To compute $x_0^{T}$, we differentiate \eqref{eq:soliton_initial_immersion} to obtain,
-\[
-df \cdot X = C_0 \ip{x_0}{W_0(X)} = C_0 \ip{x_0^T}{W_0(X)} = C_0 h_0(x_0^T, X).
-\]
-Therefore,
-\begin{equation}
-\label{eq:soliton_tangential}
-x_0^T = \frac{1}{C_0} \grad_{h_0} f.
-\end{equation}
-
-Now, simple scaling arguments give,
-\begin{align*}
-\tilde{W}_t &= \frac{1}{\lambda} r_t^{\ast} W_0, \\
-\tilde{\nu}_t &= r_t^{\ast} \nu_0 \\
-\tilde{x}_t &= \lambda r_t^{\ast} x_0.
-\end{align*}
-We also have
-\begin{align*}
-\tilde{g}_t &= \lambda^2 r_t^{\ast} g_0, \\
-\tilde{h}_t &= \lambda r_t^{\ast} h_0,
-\end{align*}
-though we don't need these relations right now.
-
-Using the scaling and equations \eqref{eq:soliton_normal} and \eqref{eq:soliton_tang} we find,
-\[
-\begin{cases}
-\partial_t r \ip{\tilde{x}_0}{\nu_0} &= -r^{-p} f(W_0) \\
-r(0) &= 1
-\end{cases}
-\]
-whence,
+A homothetic soliton may be described as a pair $(x_0, \lambda)$ with $x_0 : M \to N$ an immersion and $\lambda : [0, T^{\ast}) \to \R$ a smooth, positive function satisfying
 \begin{equation}
 \label{eq:soliton}
-r(t) = \left(1 - (p + 1) t\right)^{1/(p+1)}, \quad f(W_0) = \ip{x_0}{\nu_0}
+\begin{cases}
+\tilde{x}(\xi, t) &= \lambda(t) x_0(t) \\
+\lambda(0) &= 1 \\
+\ip{\partial_t \tilde{x}}{\nu} &= -f(\tilde{W}).
+\end{cases}
+\end{equation}
+Simple scaling arguments give,
+\begin{equation}
+\label{eq:scaling}
+\begin{cases}
+\tilde{g} &= \lambda^2 g_0 \\
+\tilde{h} &= \lambda h_0 \\
+\tilde{W} &= \frac{1}{\lambda} W_0 \\
+\tilde{\nu} &= \nu_0 \\
+\tilde{f} &= \frac{1}{\lambda^p} f_0 \\
+\tilde{x}^T &= \lambda x_0^T.
+\end{cases}
+\end{equation}
+Here we think of $\tilde{f}(\xi, t) = f(W(\xi, t))$ as a smooth function $M \to \R$ and likewise for $f_0$. We also, by the usual abuse of notation, write $\tilde{x}$ for the position vector field in $\R^{n+1}$ at the point $\tilde{x}$ and denote the tangential component,
+\[
+Z^T = Z - \ip{Z}{\nu} \nu
+\]
+of a vector field $Z$ in $\R^{n+1}$ along $M$.
+
+Using equations \eqref{eq:soliton} and \eqref{eq:scaling}  we have,
+\[
+f(W_0) = -(\partial_t \lambda) \lambda^p \ip{x_0}{\nu_0}
+\]
+which leads to,
+\begin{equation}
+\label{eq:soliton_equations}
+\begin{cases}
+f(W_0) &= C_0 \ip{x_0}{\nu_0} \\
+\lambda &= \sqrt[p+1]{1 - (p+1)C_0 t}
+\end{cases}
+\end{equation}
+where $C_0$ is a constant. This equation is necessary and sufficient for homothetic solitons, completely characterising them. Note also the relation,
+\begin{equation}
+\label{eq:dt_lambda}
+(\partial_t \lambda) \lambda^p = -C_0.
 \end{equation}
 
-Conversely, suppose the pair $(r, x_0)$ satisfies equation \eqref{eq:soliton}; more generally we may allow $f(W_0) = \ip{x_0}{\nu_0}$,then there is a one-parameter family of diffeomorphisms $r_t : M \to M$ such that $\tilde{x}(\xi, t) = r(t) x_0(r_t(\xi))$ is a soliton. In this case,  let $x(\xi, t) = r(t) x_0(\xi)$ so that we have $\tilde{x}(\xi, t) = x(r_t(\xi), t)$. Clearly $\tilde{M}_t = r(t) M_0$, and to ensure that $\tilde{x}$ is a solution to the flow \eqref{Flow}, we choose $r_t$ such that $\partial_t r_t (\xi) = - x_t^T (r_t(\xi), t)$.
-
-This latter observation leads directly to our choice of parametrisation and the reparametrised flow \eqref{Flow}: since $x_t = r(t) x_0$ and $\nu_t = \nu_0$, we have
+Now, from equation \eqref{eq:soliton} we may write
+\begin{equation}
+\label{eq:soliton_ev_prelim}
+\partial_t \tilde{x} = -f(\tilde{W})\nu + (\partial_t \tilde{x})^T = - f(\tilde{W}) \nu + (\partial_t \lambda) x_0^T.
+\end{equation}
+Then using equation \eqref{eq:soliton_equations} we can compute $x_0^T$ as follows:
 \[
-\ip{x_t}{\nu_t} = r(t) \ip{x_0}{\nu_0},
+\begin{split}
+df_0 (X) &= X \left(C_0\ip{x_0}{\nu_0}\right) \\
+&= C_0 \ip{D_X x_0}{\nu_0} + C_0 \ip{x_0}{D_X \nu_0} \\
+&= C_0 h_0(x_0^T, X)
+\end{split}
 \]
-and hence also
+Therefore,
 \[
-x_t^{T} = r(t) x_0^{T}
+x_0^T = \frac{1}{C_0} \grad_{h_0} f_0.
 \]
-where the superscript $T$ denotes the tangential component. 
-
-Then Equations \eqref{eq:soliton_param} and \eqref{eq:soliton_tangential} imply,
+To write the right hand side in terms of $f$, by the scaling in equation \eqref{eq:scaling} we see that
 \[
-\partial_t F_t = \partial_t r(t) \left(- f\nu - C_0 \grad_{h_0} f\right).
+\tilde{h}(\grad_{\tilde{h}} \tilde{f}, X) = df(X) = \frac{1}{\lambda^p} df_0 (X) = \frac{1}{\lambda^p} h_0(\grad_{h_0} f_0, X) = \tilde{h}\left(\frac{1}{\lambda^{p+1}} \grad_{h_0} f_0, X\right)
 \]
+and hence
+\[
+\grad_{\tilde{h}} \tilde{f} = \frac{1}{\lambda^{p+1}} \grad_{h_0} f_0
+\]
+Therefore,
+\[
+x_0^T = \frac{1}{C_0} \lambda^{p+1} \grad_{\tilde{h}} \tilde{f} .
+\]
+Substitution into \eqref{eq:soliton_ev_prelim} yields,
+\begin{equation}
+\label{eq:soliton_ev}
+\begin{split}
+\partial_t \tilde{x} &= -f(\tilde{W})\tilde{\nu} + (\partial_t \tilde{x})^T = - f(\tilde{W}) \tilde{\nu} + \frac{1}{C_0} (\partial_t \lambda) \lambda^{p+1} \grad_{\tilde{h}} \tilde{f} \\
+&= - f(\tilde{W}) \tilde{\nu} - \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{\tilde{h}} \tilde{f}
+\end{split}
+\end{equation}
+recalling equation \eqref{eq:dt_lambda}. Thus we see that up to the factor $\sqrt[p+1]{1 - (p+1)C_0 t}$, the homothetic soliton parametrisation, $\tilde{x}(\xi, t) = \lambda(t) x_0(\xi)$ evolves by the reparametrised flow \eqref{Flow}. Defining $r_t$ to satisfy $\partial_t r_t = \sqrt[p+1]{1 - (p+1)C_0 t} \grad_{\tilde{h}} \tilde{f}$ we obtain the standard parametrisation,
+\[
+x(\xi, t) = \tilde{x}(r_t(\xi), t)
+\]
+evolves by the standard flow \eqref{FlowStandard}.
 
 \subsubsection*{Reparametrization and the Optimal Harnack}
 
@@ -384,9 +384,9 @@ and with the optimal choice of $C$, we need the optimal integral inequality,
 \int_{t_1}^{t_2} \frac{\partial_t \tilde{f} + d\tilde{f} \cdot \gamma'}{\tilde{f}} dt \geq - \ln C.
 \]
 
-The polarization inequality \eqref{eq:CauchySchwarzPolarisation}, immediately leads us to seek a pointwise bound on $\tilde{u} = \partial_t \tilde{f} - \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})$ and that the optimal $C$ will include the term $\Delta$. The form of $q(t)$ is then deduced from the maximum principle applied to $\tilde{u}$. Computing the evolution of $\tilde{u}$ was indeed the approach taken initially in \cite{Hamilton:/1995,Chow:/1985} and is quite involved.
+The polarization inequality \eqref{eq:CauchySchwarzPolarisation}, immediately leads us to seek a pointwise bound on $\tilde{u} = \partial_t \tilde{f} - \tilde{h} (\grad_{\tilde{h}} \tilde{f}, \grad_{\tilde{h}} \tilde{f})$ and that the optimal $C$ must include the term $\Delta$. The form of $q(t)$ is then deduced from the maximum principle applied to $\tilde{u}$. Computing the evolution of $\tilde{u}$ was indeed the approach taken initially for example in \cite{Hamilton:/1995,Chow:/1985} and is quite involved.
 
-Instead, as the equality case occurrs precisely for $X = -2 \grad_{\tilde{h}} f$, the path of steepest descent of $d\tilde{f} \cdot X$ (and hence $\tilde{u}$), with respect to $\tilde{h}$ occurs in the direction $X = - \grad_{\tilde{h}} \tilde{f}$. Here we see taking the gradient $\grad_{\tilde{h}} \tilde{f}$ with respect to $\tilde{h}$ (as opposed to the seemingly more natural $\tilde{g}$) is quite important in obtaining sharp results. Thus, $d\tilde{f} \cdot X$ decreases most rapidly along the integral curves $\gamma(t) = s_t$ of $-\grad_{\tilde{h}} \tilde{f}$ leading directly to the choice of reparametrisation,
+Instead, as the equality case occurrs precisely for $X = -2 \grad_{\tilde{h}} f$, the path of steepest descent of $d\tilde{f} \cdot X$ (and hence $\tilde{u}$), with respect to $\tilde{h}$ occurs in the direction $X = - \grad_{\tilde{h}} \tilde{f}$. Here we see taking the gradient $\grad_{\tilde{h}} \tilde{f}$ with respect to $\tilde{h}$ (as opposed to the seemingly more natural $\tilde{g}$) is quite important in obtaining sharp results and is motivated by the consideration of solitons above. Thus, $d\tilde{f} \cdot X$ decreases most rapidly along the integral curves $\gamma(t) = s_t$ of $-\grad_{\tilde{h}} \tilde{f}$ leading directly to the choice of reparametrisation,
 \[
 x(\xi, t) = \tilde{x}(s_t(\xi), t)
 \]
